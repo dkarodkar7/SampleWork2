@@ -1,0 +1,166 @@
+<section class="container-fluid">
+    <div class="dashboard-module col-sm-12">
+
+        <!-- Added .spacer-bottom-md class to notification-center div -->
+        <div class="notification-center spacer-bottom-md">
+            <!------------------------------------------------------------------------------------------------
+                Template changes to fix/prevent issue #1 - notification menu
+                from opening when a user clicks on the name headline
+            ------------------------------------------------------------------------------------------------->
+
+            <!------------------------------------------------------------------------------------------------
+                The updates to the template includes:
+                1. Added .spacer-bottom-md class to notification-center div above
+                2. Removing all uib-accordion tags
+                3. Added ng-init, ng-click, and changed ng-class in the button element
+                4. Hooked up to attributes in the button element with dashboard.haveNotifications variable
+                5. Added uib-collapse attribute in #notifications-container div
+                   as well as aria-expanded and aria-hidden
+
+                ** These number can be referenced from the some of the comments below.
+            ------------------------------------------------------------------------------------------------->
+
+            <!------------------------------------------------------------------------------------------------
+                The commented out uib-accordion tags below should be removed
+                Leaving them here so you can see what I have changed to fix the bug as described above.
+            ------------------------------------------------------------------------------------------------->
+
+            <!--<uib-accordion>-->
+            <!--<uib-accordion-group is-open="status.open">-->
+            <!--<uib-accordion-heading>-->
+
+            <div class="row nav">
+                <h1 class="name-container header--lg ko pull-left nmt nmb">Hi, Russell Jones</h1>
+
+                <!-- Updated (See 2,3 above) -->
+                <button class="btn btn-lg btn-tertiary text-left"
+                        ng-class="{'no-notifications': !dashboard.haveNotifications && !dashboard.haveMessages}"
+                        ng-click="dashboard.showNotifications = !dashboard.showNotifications">
+
+                    <span class="pull-left">Your Notification</span>
+                    <i class="pull-right" ng-class="{'icon-minus-circle': dashboard.showNotifications, 'icon-plus-circle': !dashboard.showNotifications}"></i>
+                </button>
+            </div>
+
+            <!--</uib-accordion-heading>-->
+
+            <!-- Updated div (See 4 above) -->
+            <div id="notifications-container" class="row notifications-container ps-light collapse"
+                 uib-collapse="!dashboard.showNotifications"
+                 aria-expanded="false" aria-hidden="true">
+
+                <h3 class="col-xs-12 ko">Notifications</h3>
+
+                <!-- Visible when there are no notifications excluding messages -->
+                <!-- You can have no notifications alert when you have messages -->
+                <div ng-if="!dashboard.haveNotifications" class="notification--ko">
+                    <section class="notification">
+                        <div class="col-xs-12">
+
+                            <div class="notification__inner row empty text-center">
+                                <span class="spacer-top-sm">You have no notifications</span>
+                            </div>
+
+                        </div>
+                    </section>
+                </div>
+
+                <pb-notifications
+                        notification-list-data="dashboard.notificationsModel.notificationsList"
+                        notification-type="notification"
+                        additional-classes="notification--ko"
+                        dismissible-notifications="true">
+                </pb-notifications>
+
+                <h3 class="col-xs-12 ko" ng-if="dashboard.haveMessages">Messages</h3>
+                <pb-notifications
+                        notification-list-data="dashboard.notificationsModel.messagesList"
+                        notification-type="message"
+                        additional-classes="notification--ko"
+                        dismissible-notifications="true">
+                </pb-notifications>
+            </div>
+
+            <!--</uib-accordion-group>-->
+            <!--</uib-accordion>-->
+        </div>
+
+
+    </div>
+</section>
+
+<span id="dashboard-container">
+
+<!-- Dashboard body -->
+<section class="container-fluid">
+    <pb-financial-module
+            module-title="Your Financials"
+            model="dashboard.financialModel">
+    </pb-financial-module>
+
+
+    <pb-order-history-module
+            module-title="Recently Ordered Products"
+            model="dashboard.orderHistoryModel">
+    </pb-order-history-module>
+
+
+
+    <!------------------------------------------------------------------------------------------------
+    **  Full width examples for financial and order history modules
+
+        Just add width="full" attribute to the directive for full width module
+        remove width attr or set empty string to make module half width
+
+        Same applies for other module that needs to be full width
+        (i.e. support-cases, support-articles)
+    ------------------------------------------------------------------------------------------------->
+    <pb-order-history-module
+            module-title="Recently Ordered Products"
+            model="dashboard.orderHistoryModel"
+            width="full">
+    </pb-order-history-module>
+
+
+    <pb-financial-module
+            module-title="Your Financials"
+            model="dashboard.financialModel"
+            width="full">
+    </pb-financial-module>
+</section>
+
+    <section class="container-fluid">
+        <pb-charts></pb-charts>
+    </section>
+
+<!--\\\section class="container-fluid">
+    <pb-chart module-title="Your Analytics and Insights Report"></pb-chart>
+</section-->
+
+    <!--section class="container-fluid">
+        <pb-bar-chart module-title="Your Meter Usage Report"></pb-bar-chart>
+    </section-->
+
+<section class="container-fluid">
+    <pb-apps-module module-title="Your Apps" model="dashboard.productsModel"></pb-apps-module>
+</section>
+
+<section class="container-fluid">
+    <!-- will be delivered separately - all the html for this product module
+    will be self contained in dashboard-module-products.html -->
+    <pb-products-module module-title="Your Products" model="dashboard.productsModel"></pb-products-module>
+    <!-- end product module -->
+</section>
+
+<section class="container-fluid">
+    <pb-support-cases-module module-title="Your Recent Support Cases"></pb-support-cases-module>
+    <pb-support-articles-module module-title="Support Articles"></pb-support-articles-module>
+
+    <!-- Support Cases Full Width -->
+    <pb-support-cases-module module-title="Your Recent Support Cases" width="full"></pb-support-cases-module>
+
+    <!-- Support Articles Full Width -->
+    <pb-support-articles-module module-title="Support Articles" width="full"></pb-support-articles-module>
+</section>
+
+</span>

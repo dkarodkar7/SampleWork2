@@ -1,0 +1,201 @@
+
+//{ REQUIREMENTS: Design Systems variables.scss }
+//
+
+//List that pairs toastr classes with colors
+$toastr-list: '.toast-info'     $state-info-bg $state-info-border $state-info-text,
+              '.toast-success'  $state-success-bg $state-success-border $state-success-text,
+              '.toast-warning'  $state-warning-bg $state-warning-border $state-warning-text,
+              '.toast-error'    $state-danger-bg $state-danger-border $state-danger-text,
+              '.toast-custom'   pbcolor(pbpurple, 300)  pbcolor(pbpurple, 600) pbcolor(pbpurple, 800);
+
+//mixin that creates a single toastr instance
+@mixin create-toastr($bg, $border, $text) {
+  //create tints & shades for color
+  $toastr-bg-color     : $bg;
+  $toastr-txt-color    : $text;
+  $toastr-border-color : $border;
+
+  //use colors to style toaster
+  background-color     : $toastr-bg-color;
+  border-color         : $toastr-border-color;
+  color                : $toastr-txt-color;
+  background-image     : none !important;
+
+  //see elements.module.js to configure the close X, SVG must be added as global config option
+  .close-x {
+    stroke: $text;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  .toast-close-button:hover,
+  .toast-close-button:focus {
+    color                : $toastr-txt-color !important;
+    text-shadow          : 0 1px 0 $toastr-border-color !important;
+  }
+}
+
+//for each instance of $toastr-classes-list
+@mixin build-toastrs($list) {
+    @each $item in $list {
+    $class: nth($item, 1);
+    $bg: nth($item, 2);
+    $border: nth($item, 3);
+    $text: nth($item, 4);
+      > #{$class} {
+        @include create-toastr($bg, $border, $text);
+      }
+    }
+
+}
+
+
+//OVERWRITE DEFAULT TOASTR VALUES
+
+#toast-container {
+  .toast {
+    padding: 15px;
+    width: 350px;
+    border-radius: $border-radius-base;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.3);
+    &:hover {
+      box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.45);
+      opacity: 1;
+      cursor: pointer;
+    }
+    .toast-close-button {
+    position: relative;
+    right: -0.3em;
+    top: -0.3em;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    color: $pb-gray-500;
+    text-shadow: 0 1px 0 $pb-gray-500!important;
+    opacity: .8;
+      &:hover, &:focus {
+        opacity: .9;
+      }
+    }
+    .toast-message {
+      font-size: $font-size-base;
+
+      label {
+        color: $link-color;
+      }
+
+      a {
+        color: $link-color;
+        text-decoration: underline;
+        &:hover {
+          color: $link-hover;
+        }
+      }
+    }
+    .toast-title {
+      @extend .toast-message;
+    }
+    // .toast-progress {
+    //   position: absolute;
+    //   left: 0;
+    //   bottom: 0;
+    //   height: 4px;
+    //   background-color: @black;
+    //   opacity: 0.4;
+    // }
+  }
+
+  @include build-toastrs($toastr-list);
+
+}
+
+
+/*Pull in Animations*/
+.toast {
+
+  &.ng-enter {
+    @extend .flipInX;
+    opacity: 1 !important;
+
+    &.ng-enter-active {
+      opacity: 1;
+    }
+  }
+
+  &.ng-leave {
+    opacity: 1;
+
+    &.ng-leave-active {
+      @extend .flyOut;
+      opacity: 1 !important;
+    }
+  }
+}
+
+@keyframes flipInX {
+  0% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+  }
+
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    opacity: 1;
+  }
+
+  80% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: perspective(400px);
+    transform: perspective(400px);
+
+  }
+}
+
+
+@keyframes flyin {
+
+  0% {
+    transform: translate3d(100%, 0, 0);
+    opacity: 0;
+  }
+
+  60% {
+    transform: translate3d(0, 0, 0);
+
+  }
+
+  100% {
+    transform: scale(1) translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+//used in the extends
+
+.flipInX {
+  backface-visibility: visible !important;
+  animation: flipInX .65s linear forwards;
+}
+.flyOut {
+  animation: flyin .3s ease reverse forwards;
+}

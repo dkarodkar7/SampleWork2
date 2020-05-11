@@ -1,0 +1,154 @@
+// scss-lint:disable VendorPrefix, MergeableSelector
+
+/////////////////////////
+/// Bootstrsp fixes
+/////////////////////////
+
+.form-inline .checkbox input[type="checkbox"] {
+    position: absolute;
+}
+
+
+/////////////////////////
+/// Checkboxes and radios
+/////////////////////////
+
+.control {
+  position: relative;
+  display: inline-block;
+  padding-left: 25px;
+  color: #555;
+  cursor: pointer;
+}
+.control input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1; /* Put the input behind the label so it doesn't overlay text */
+}
+.control-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width:  18px;
+  height: 18px;
+  line-height: 18px;
+  font-size: 100%;
+  color: #eee;
+  border: 1px solid #9b9b9b;
+  text-align: center;
+  background-color: #fff;
+  background-size: 50% 50%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+//* Hover state */
+//.control:hover .control-indicator {
+//  color: #fff;
+//  background-color: #ccc;
+//}
+/*/
+
+// Focus */
+.control input:focus ~ .control-indicator {
+  box-shadow: 0 0 0 .08rem #fff, 0 0 0 .2rem #8b98c8;
+}
+
+//* Checked state */
+.control input:checked ~ .control-indicator {
+  color: #3E53A4;
+  border: 1px solid #3E53A4;
+  background-color: #fff;
+}
+
+//* Active */
+.control input:active ~ .control-indicator {
+  color: #3E53A4;
+  background-color: #fff;
+}
+
+//* Disabled */
+.control input[disabled] ~ .control-indicator, .control.disabled input ~ .control-indicator {
+  color: #dbdbdb;
+  background-color: #f0f0f0;
+  border: 1px solid #dbdbdb;
+  cursor: default;
+}
+.control.disabled {
+  color: #dbdbdb;
+  cursor: default;
+}
+
+//* Checkbox modifiers */
+.checkbox .control-indicator {
+  border-radius: 0;
+}
+.checkbox input:checked ~ .control-indicator {
+    &:before {
+      content: "\e90f";
+      position:relative;
+      top:-5px;
+    }
+
+    font-size:1.5em;
+    font-family: 'icomoon';
+
+    //background-image:none;
+    //background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOSIgaGVpZ2h0PSI4IiB2aWV3Qm94PSIwIDAgOSA4IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik03LjIyMSAwbC0uNzkuNzktMy4xNTkgMy4xNTktLjkwMy0uOTAzLS43OS0uNzktMS41NzkgMS41NzkuNzkuNzkgMS42OTIgMS42OTIuNzkuNzkuNzktLjc5IDMuOTQ5LTMuOTQ5Ljc5LS43OS0xLjU3OS0xLjU3OXoiIGZpbGw9IiMzRTUzQTQiLz48L3N2Zz4=');
+}
+.checkbox.white input:checked ~ .control-indicator {
+    color:#FFF;
+    border-color:#FFF;
+    background-color:transparent;
+}
+
+//* Radio modifiers */
+.radio .control-indicator {
+  border-radius: 50%;
+}
+.radio input:checked ~ .control-indicator {
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgNiA2IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxjaXJjbGUgZmlsbD0iIzNFNTNBNCIgY3g9IjMiIGN5PSIzIiByPSIzIi8+PC9zdmc+');
+}
+
+
+
+////////////////////
+/// Control layouts
+////////////////////
+
+.controls-stacked {
+  margin: 15px 0;
+}
+.controls-stacked .control,
+.controls-stacked .progress {
+  display: block;
+}
+.controls-stacked .control + .control,
+.controls-stacked .progress + .progress {
+  margin-top: 7px;
+}
+
+.controls-inline {
+  margin: 15px 0;
+}
+
+// for case when the controls-line are used in a form
+// that's already set to form-line
+.form-inline .controls-inline .control.radio {
+  padding-left: 10px;
+}
+
+
+
+.controls-inline .control {
+  display: inline;
+  height: 15px;
+}
+.controls-inline .control + .control {
+  margin-left: 15px;
+}

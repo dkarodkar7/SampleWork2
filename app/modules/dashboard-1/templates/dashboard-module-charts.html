@@ -1,0 +1,39 @@
+<div class="dashboard-module chart-module col-xs-12 col-sm-12 spacer-bottom-md">
+    <!-- Module Label -->
+    <!--section>
+        <div class="col-xs-12">
+            <h2 class="dashboard-module__header header--sm ko ps-light text-left">
+                {{ chart.moduleTitle }}
+            </h2>
+        </div>
+    </section-->
+
+        <tabset id="Tabs1">
+                <tab>
+                    <tab-heading id="tab1" href="#chart1" role="tab" data-toggle="tab">
+                        Your Analytics and Insights Report
+                    </tab-heading>
+
+                    <section class="container-fluid">
+                    <pb-chart module-title="Your Analytics and Insights Report"></pb-chart>
+                </section>
+
+            </tab>
+            <tab>
+                <tab-heading id="tab2" href="#chart2">
+                   Your Meter Usage Report
+                </tab-heading>
+                <section class="container-fluid">
+                    <pb-bar-chart module-title="Your Meter Usage Report"></pb-bar-chart>
+                </section>
+                <!--div class="row">
+                    <div class="col-sm-12">
+                        <!div id="bar-example"></div>
+
+                        <!--barchart xkey="xkey" ykeys="ykeys" labels="labels" data="myModel"></barchart>
+                    </div>
+                </div>-->`
+            </tab>
+        </tabset>
+    </section>
+</div>

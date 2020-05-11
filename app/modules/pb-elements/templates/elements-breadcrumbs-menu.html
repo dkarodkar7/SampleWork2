@@ -1,0 +1,25 @@
+<div class="breadcrumb spacer-bottom-lg" ng-controller="PbBreadcrumbsMenuController as pbCrumbsMenu">
+    <div class="tags headroom headroom--top  spacer-bottom-md">
+        <div class="tags__background">
+                <ul class="filter-tabs">
+            <!-- first link -->
+            <li class="tag--main" ng-class="{'hidden-xs':$state.current.data.breadCrumbData.length > 2}" ng-class="hidden-xs" ng-repeat="breadcrumb in $state.current.data.breadCrumbData | limitTo:1">
+                <a ui-sref="casemanagement.createcase">     <span> {{breadcrumb.label}}</span></a>
+            </li>
+            <!--<li>{{ $state.current }}</li>-->
+            <!-- all links between first and last link -->
+            <li class="tag--main secondary" ng-if="$state.current.data.breadCrumbData.length > 2" ng-repeat="breadcrumb in $state.current.data.breadCrumbData | startFrom:1 | limitTo:$state.current.data.breadCrumbData.length - 2">
+                <span>{{breadcrumb.label}}</span>
+                <span class="placeholder"></span>
+            </li>
+            <!-- last link -->
+            <li class="tag--main last"  class="hidden-xs" ng-repeat="breadcrumb in $state.current.data.breadCrumbData | startFrom:$state.current.data.breadCrumbData.length - 1">
+                <!--<a aria-disabled="true">-->
+                {{breadcrumb.label}}  <!--span ng-if="pbCrumbs.currentId">...</span>{{ pbCrumbs.currentId | limitTo:-4 }}-->
+                <span class="placeholder"></span>
+                <!--</a>-->
+            </li>
+        </ul>
+        </div>
+    </div>
+</div>

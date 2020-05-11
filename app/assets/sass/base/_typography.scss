@@ -1,0 +1,475 @@
+// Definitions of typography settings.  For the variables, see
+
+.glyphicon {
+    line-height: $line-height-base;
+}
+
+//** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
+
+// easily change something to serif or sans-serif
+.serif,
+.serif p {
+    font-family: $font-family-serif;
+}
+
+.sans-serif,
+.sans,
+.sans-serif p,
+.sans p {
+    font-family: $font-family-sans-serif;
+}
+
+code,
+.code,
+pre {
+    font-family: $font-family-monospace;
+}
+
+hr {
+    margin-top: 0;
+    margin-bottom: 30px;
+    border: 0;
+    border-top: 1px solid #e1e1e1;
+}
+
+a {
+    cursor: pointer;
+    color: $link-color;
+    &:hover,
+    &:focus,
+    &:active {
+        color: $link-hover;
+        text-decoration: none;
+    }
+    &.read-more {
+        font-size: $font-size-base - 2; // 2 px smaller
+        white-space: nowrap;
+        &:after {
+            content: '\2026'; // ellipsis
+        }
+    }
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+    color: inherit; // links take on color of the header they're in
+}
+
+h1,
+.h1 {
+    font-size: 32px;
+    font-weight: normal;
+    font-family: $font-family-ps-light;
+    color: $page-header-color;
+    margin-top: 40px;
+    margin-bottom: 25px;
+    &.ko {
+        color: #fff;
+        //font-family: $font-family-ps-regular;
+    }
+    &.alt {
+        color: $page-header-color-alt;
+    }
+}
+
+h2,
+.h2 {
+  font-size: 20px;
+  font-family: $font-family-ps-regular;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding: 0;
+  font-weight: normal;
+  color: $header-color;
+  &.ko {
+    color: #fff;
+  }
+  &.alt {
+    color: $header-color-alt;
+  }
+  &.docs {
+    // for use in Documentation only!
+    color: $pb-magenta;
+  }
+}
+
+h2.section-divider {
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid $pb-light-gray;
+}
+
+h2.follows-h1,
+h1 + h2 {
+    margin-top: 20px;
+}
+
+h2.tab-header {
+    margin-bottom: 40px;
+}
+
+h2.table-header {
+    margin-bottom: 40px;
+}
+
+h3,
+.h3 {
+    font-size: 18px;
+    font-family: $font-family-ps-regular;
+    font-weight: normal;
+    color: $header-color;
+    &.ko {
+        color: #fff;
+    }
+    &.alt {
+        color: $header-color-alt;
+    }
+}
+
+h4,
+.h4 {
+    font-size: 16px;
+    font-family: $font-family-sans-serif;
+    font-weight: bold;
+    color: $header-color;
+}
+
+h5,
+.h5 {
+  font-size: 14px;
+  font-family: $font-family-sans-serif;
+  font-weight: bold;
+  color: $header-color;
+  &.ko {
+    color: #fff;
+  }
+  &.alt {
+    color: $page-header-color-alt;
+  }
+}
+
+h6,
+.h6 {
+    font-size: 12px;
+    font-family: $font-family-sans-serif;
+    font-weight: bold;
+    color: $header-color;
+    margin-bottom: 0;
+    margin-top: 14px;
+}
+
+.subheader {
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    font-weight: bold;
+    color: $header-color;
+    &.alt {
+        color: $header-color-alt;
+    }
+    &--xs {
+        font-size: 0.855em;
+        font-weight: 500;
+        line-height: 1.3;
+        text-transform: uppercase;
+    }
+
+    &--sm {
+        font-size: 1.145em;
+        font-weight: 400;
+        line-height: 1.3;
+    }
+
+    &--md {
+        font-size: 1.575em;
+        line-height: 1.3;
+        text-align: center;
+      @include breakpoint($tablet){
+        text-align:left;
+      }
+    }
+
+    &--lg {
+        font-size: 1.715em;
+        line-height: 1.3;
+    }
+}
+
+// web font sizes
+$sizes: (0, 1.250em, 1.667em, 2.715em, 3.429em),
+        ($tablet, 1.250em, 2.15em, 2.715em, 3.429em);
+
+@each $bp, $xs, $sm, $md, $lg in $sizes {
+  @media (min-width: $bp){
+    .header{
+      &--xs{
+        font-size: $xs;
+        color:$pb-gray-500;
+        line-height: 1.3;
+      } 
+      &--sm{
+        font-size: $sm;
+        color:$pb-gray-500;
+        line-height: 1.3;
+      }
+      &--md{
+        font-size: $md;
+        color:$pb-gray-500;
+        line-height: 1.3;
+      }
+      &--lg{
+        font-size: $lg;
+        color:$pb-gray-500;
+        line-height: 1.3;
+      } 
+    }
+  }
+}
+
+
+
+
+// when you need light text
+// sets the bold and italic accordingly
+// so that B and I tags look correct on light
+.ps-light {
+    font-family: $font-family-ps-light;
+    font-weight: normal;
+    font-style: normal;
+
+    &.italic,
+    em,
+    i {
+        font-family: $font-family-ps-light-italic;
+    }
+
+    // since regular bold is a bit much on light
+    b,
+    strong,
+    .bold {
+        font-family: $font-family-ps-medium;
+    }
+}
+
+  
+b,
+strong,
+.bold {
+    font-family: $font-family-ps-bold;
+}
+
+.no-italic{ font-style: normal; }
+
+p.lead,
+p.lede {
+    font-family: $font-family-ps-regular;
+    font-size: $font-size-large;
+}
+
+.media-heading {
+    font-family: $font-family-ps-bold;
+    font-weight: normal;
+}
+
+body {
+  font-family: $font-family-ps-regular;
+  font-size: $font-size-base - 2;
+  font-weight: normal;
+  color: $bodyFontColor;
+
+  @include breakpoint($tablet){
+    //font-size: $font-size-base;
+  }
+
+  @include breakpoint($screen-md){
+    font-size: $font-size-base;
+  }
+
+}
+
+dt {
+    margin-top: 10px;
+    margin-bottom: 3px;
+
+    &:first-child {
+        margin-top: 0;
+    }
+    dd {
+        margin-bottom: 5px;
+    }
+}
+
+// condensed definition list */
+.dlist-condensed {
+    dt {
+        margin-bottom: 0;
+        line-height: 1.3;
+    }
+    dd {
+        line-height: 1.2;
+        margin-bottom: 2px;
+    }
+}
+
+ul.spaced,
+ol.spaced {
+    > li {
+        margin-top: 10px;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+}
+
+ul,
+ol {
+    margin-top: 0;
+    margin-bottom: 10px;
+    margin-left: 0;
+    padding-left: 1.5em;
+}
+
+.btn:focus {
+    // scss-lint:disable ImportantRule
+    outline: none !important;
+}
+
+.btn {
+    font-family: $font-family-ps-regular;
+}
+
+// Font Awesome additional pb classes
+
+.fa-active {
+    color: $pb-magenta;
+}
+
+.fa-lg {
+    font-size: 1.5em;
+}
+
+.pb-lg {
+    font-size: 1.4em;
+    line-height: .5;
+    display: inline-block;
+    vertical-align: -3px;
+}
+
+.transition-all {
+    transition: all .2s ease-in-out;
+}
+
+.nav-tabs > li > a,
+.nav-pills > li > a {
+    font-family: $font-family-ps-regular;
+}
+
+.help-block {
+    color: $pb-gray-300;
+}
+
+.psr14 {
+    font-family: $font-family-ps-regular;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+// boostrap makes changing the weight of the logo quite difficult
+#header .navbar .navbar-brand.brand-text,
+#header .navbar .container .navbar-brand.brand-text,
+header .navbar .navbar-brand.brand-text,
+header .navbar .container .navbar-brand.brand-text {
+    font-family: $font-family-ps-regular;
+    font-weight: normal;
+}
+
+.nav.navbar-nav {
+    font-family: $font-family-ps-regular;
+    font-weight: normal;
+    font-size: 16px;
+}
+// ------SPECIAL SIZES--------
+
+.text-large {
+    font-size: $font-size-large;
+}
+
+small,
+.text-small,
+.small {
+    font-size: $font-size-small;
+}
+
+.doc-note {
+    font-size: $font-size-small;
+    font-style: italic;
+    color: $pb-magenta;
+}
+
+.text-xs {
+    font-size: $font-size-xsmall;
+}
+
+.text-mouse {
+    font-size: $font-size-xsmall;
+}
+
+// Alignment
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+// changes orientation on phones
+@include breakpoint($tablet, 'max') {
+    .text-left-xs {
+        text-align: left;
+    }
+    .text-right-xs {
+        text-align: right;
+    }
+    .text-center-xs {
+        text-align: center;
+    }
+}
+
+// // Contextual colors, from bootstrap
+.text-primary {
+    color: $brand-primary;
+}
+
+.text-muted {
+    color: $text-muted;
+}
+
+.text-success {
+    color: $state-success-text;
+}
+
+.text-info {
+    color: $state-info-text;
+}
+
+.text-warning {
+    color: $state-warning-text;
+}
+
+.text-danger,
+.text-error {
+    color: $brand-danger;
+}

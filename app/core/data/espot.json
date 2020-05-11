@@ -1,0 +1,147 @@
+[
+    {
+        "financial": [
+            {
+                "title": "Purchase Power Visa Rewards",
+                "description": "Get even more rewards by upgrading your account to Purchase Power Plus.",
+                "buttonName": "Learn More",
+                "prodImage": "modules/espot/assets/images/envelope_graphic.png",
+                "bgImage": "",
+                "backgroundImageMobile": "",
+                "themeClasses": "col-md-6 text-left col-xs-12 prod--default-image-position theme__blue light-text large-header prod",
+                "motif": "true",
+                "video": "",
+                "vidyard": "false",
+                "buttonStyle": ""
+            }
+        ]
+    },
+    {
+        "financialAllExamples": [
+            {
+                "title": "Purchase Power Visa Rewards",
+                "description": "Get even more rewards by upgrading your account to Purchase Power Plus.",
+                "buttonName": "Learn More",
+                "prodImage": "modules/espot/assets/images/envelope_graphic.png",
+                "bgImage": "",
+                "backgroundImageMobile": "",
+                "themeClasses": "col-md-6 text-left col-xs-12 prod--default-image-position theme__blue light-text large-header prod",
+                "motif": "true",
+                "video": "",
+                "vidyard": "false"
+            },
+            {
+                "title": "Purchase Power Visa Rewards",
+                "description": "Get even more rewards by upgrading your account to Purchase Power Plus.",
+                "buttonName": "Learn More",
+                "bgImage": "../../modules/espot/assets/images/bg_hand_touch.png",
+                "backgroundImageMobile": "",
+                "themeClasses": "col-md-12 text-left col-xs-12  theme__info-bg-motiff-primary-gradient light-text large-header prod",
+                "motif": "false",
+                "video": "",
+                "vidyard": "false"
+            },
+            {
+                "title": "Purchase Power Visa Rewards",
+                "description": "Get even more rewards by upgrading your account to Purchase Power Plus.",
+                "buttonName": "Learn More",
+                "prodImage": "modules/espot/assets/images/envelope_graphic.png",
+                "bgImage": "",
+                "backgroundImageMobile": "",
+                "themeClasses": "col-md-4 text-left col-xs-12 prod--default-image-position theme__orange light-text",
+                "motif": "false",
+                "video": "",
+                "vidyard": "false"
+            },
+            {
+                "title": "Purchase Power Visa Rewards",
+                "description": "Get even more rewards by upgrading your account to Purchase Power Plus.",
+                "buttonName": "Learn More",
+                "prodImage": "modules/espot/assets/images/envelope_graphic.png",
+                "bgImage": "",
+                "backgroundImageMobile": "",
+                "themeClasses": "col-md-8 text-left col-xs-12 prod--default-image-position theme__purple light-text large-header",
+                "motif": "false",
+                "video": "",
+                "vidyard": "false"
+            },
+            {
+                "title": "Purchase Power Visa Rewards",
+                "description": "Get even more rewards by upgrading your account to Purchase Power Plus.",
+                "buttonName": "Learn More",
+                "prodImage": "modules/espot/assets/images/envelope_graphic.png",
+                "bgImage": "",
+                "backgroundImageMobile": "",
+                "themeClasses": "col-md-8 text-left col-xs-12 prod--default-image-position large-header",
+                "motif": "false",
+                "video": "",
+                "vidyard": "false"
+            },
+            {
+                "title": "Purchase Power Visa Rewards",
+                "description": "Get even more rewards by upgrading your account to Purchase Power Plus.",
+                "buttonName": "Learn More",
+                "prodImage": "modules/espot/assets/images/envelope_graphic.png",
+                "bgImage": "",
+                "backgroundImageMobile": "",
+                "themeClasses": "col-md-4 text-left col-xs-12 prod--hang-off-right",
+                "motif": "false",
+                "video": "",
+                "vidyard": "false"
+            },
+            {
+                "title": "Purchase Power Visa Rewards",
+                "description": "Get even more rewards by upgrading your account to Purchase Power Plus.",
+                "buttonName": "Learn More",
+                "prodImage": "modules/espot/assets/images/envelope_graphic.png",
+                "bgImage": "",
+                "backgroundImageMobile": "",
+                "themeClasses": "col-md-6 tall text-left col-xs-12 prod--hang-off-right large-header",
+                "motif": "false",
+                "video": "",
+                "vidyard": "false"
+            },
+            {
+                "title": "Purchase Power Visa Rewards",
+                "description": "Get even more rewards by upgrading your account to Purchase Power Plus.",
+                "buttonName": "Learn More",
+                "prodImage": "modules/espot/assets/images/envelope_graphic.png",
+                "bgImage": "",
+                "backgroundImageMobile": "",
+                "themeClasses": "col-md-6 text-left col-xs-12 theme__light-bg-motiff-primary large-header",
+                "motif": "false",
+                "video": "",
+                "vidyard": "false"
+            },
+            {
+                "title": "Purchase Power Visa Rewards",
+                "description": "Get even more rewards by upgrading your account to Purchase Power Plus.",
+                "buttonName": "Learn More",
+                "prodImage": "modules/espot/assets/images/envelope_graphic.png",
+                "bgImage": "",
+                "backgroundImageMobile": "",
+                "themeClasses": "col-md-6 text-left col-xs-12 theme__info-bg-motiff-secodary-gradient light-text large-header",
+                "motif": "false",
+                "video": "",
+                "vidyard": "false"
+            }
+        ]
+    },
+    {
+        "orderhistory": [
+            {
+                "title": "20% Off All Mailers",
+                "description": "Sale ends June 12",
+                "buttonName": "Shop Now",
+                "prodImage": "https://www.pitneybowes.com/content/dam/espots/us-ca/promos/products/BubbleMail_Half_093015.png",
+                "bgImage": "",
+                "backgroundImageMobile": "",
+                "themeClasses": "col-md-6 text-left col-xs-12 prod--default-image-position large-header prod",
+                "motif": "true",
+                "video": "",
+                "vidyard": "false",
+                "buttonStyle": "primary"
+            }
+        ]
+    }
+]

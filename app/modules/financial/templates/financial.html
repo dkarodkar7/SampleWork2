@@ -1,0 +1,56 @@
+<!------------------------------------------------------------------------------------------------
+                Template changes to:
+                    Fix issue #25 - copy change
+                    Nice to have: Have external links open in new tab
+            ------------------------------------------------------------------------------------------------->
+
+<!------------------------------------------------------------------------------------------------
+    The updates to the template includes:
+    1. Copy Change
+    2. Added target="_blank"
+
+    ** These number can be referenced from the some of the comments below.
+------------------------------------------------------------------------------------------------->
+
+    <div pb-financial-breadcrumbs></div>
+    <section class="container-fluid">
+        <div class="row">
+            <div class="headline col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+                <h1 class="header--lg spacer-bottom-lg no-margin-top">Your Financials</h1>
+            </div>
+        </div>
+    </section>
+
+    <div pb-financial-tabs></div>
+
+    <div class="tab-content" pb-on-mobile="pb-accordion-mobile">
+
+         <div ui-view="tabContent"></div>
+
+        <div class="tab-pane fade" id="permit-postage">
+            <div class="visible-xs external__button container-fluid">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <span class="link header--xs">Easy Permit Postage</span>
+                        <span class="icon-next-circle light pull-right"></span>
+                    </div>
+                </div>
+                <!-- Updated addition of target (See 2 above) -->
+                <a class="cover-link" href="http://pitneybowes.com" target="_blank"></a>
+            </div>
+        </div>
+
+        <div class="tab-pane fade " id="invoices">
+            <div class="visible-xs external__button container-fluid">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- Updated copy (See 1 above) -->
+                        <span class="link header--xs">Invoices & Statements</span>
+                        <span class="icon-next-circle light pull-right"></span>
+                    </div>
+                </div>
+                <!-- Updated addition of target (See 2 above) -->
+                <a class="cover-link" href="http://pitneybowes.com" target="_blank"></a>
+            </div>
+        </div>
+    </div>

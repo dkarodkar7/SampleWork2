@@ -1,0 +1,58 @@
+<!-- for the gradient -->
+<div class="bg">
+
+  <div class="centered-box">
+    <h1 class="prod-name text-center">Product Name</h1>
+
+    <div class="signin-box spacer-bottom-md">
+
+      <h3 class="sign-in-title text-magenta spacer-bottom-sm">Sign Up</h3>
+
+      <p>Signing up just takes a few minutes and there&rsquo;s no credit card required.</p>
+
+      <form autocomplete="off" name="myForm" novalidate>
+
+        <div class="form-group spacer-top-sm">
+          <label for="name">Full name</label>
+          <input class="form-control" name="name" type="text">
+        </div>
+
+        <div class="form-group">
+          <label for="name">Email</label>
+          <input class="form-control" name="name" type="text">
+        </div>
+
+        <div class="form-group spacer-bottom-sm">
+          <label for="name"  >Password</label>
+          <input class="form-control" name="name" type="password" ng-init="signin.focus = false" ng-focus="signin.focus = !signin.focus" ng-blur="signin.focus = !signin.focus">
+        </div>
+
+        <div uib-collapse="!signin.focus">
+          <div class="alert alert-info">
+            Your password must be at least 8 characters long and contain an uppercase letter plus at least one digit or special character.
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-block btn-lg" type="submit">Sign Up</button>
+      </form>
+
+      <p class="spacer-top-md">By clicking you agree to <a href="">Terms &amp; Conditions</a>,<br> <a href="">Privacy</a> and <a href="">Refund policies</a>.</p>
+    </div>
+<!-- // end white box -->
+
+    <div class="row signin-footer text-center">
+      <div class="col-md-12">
+        <p class="spacer-top-sm spacer-bottom-sm">
+          <a href="http://www.pb.com">
+            <i class="pb-footer-logo ko"></i>
+          </a>
+        </p>
+
+        <p>
+          <small>&copy; 2015 Pitney Bowes Inc. All rights reserved. <a href="">Privacy</a>&nbsp;|&nbsp;<a href="">Terms &amp; Conditions</a></small>
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,333 @@
+<div class="row toolbar spacer-top-md spacer-bottom-md">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-3 pull-right text-right hidden-sm hidden-xs order-history-list__filter">
+            <a href="" data-toggle="dropdown">
+                <span class="text-gray-500">Download</span>
+                <span class="icon-caret-down text-medium-blue-500"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li>
+                    <a href="#">PDF</a>
+                </li>
+                <li>
+                    <a href="#">CSV</a>
+                </li>
+                <li>
+                    <a href="#">XLS</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-9">
+            <div class="dropdown order-history-list__filter">
+                <a href="" data-toggle="dropdown">
+                    <span class="text-gray-500">{{ orderHistoryListCtrl.table.yearFilter || orderHistoryListCtrl.mostRecentActiveYear }}</span>
+                    <span class="icon-caret-down text-medium-blue-500"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <!--<li class="dropdown-header">Year filter:</li>-->
+                    <!--<li>-->
+                        <!--<a ng-click="orderHistoryListCtrl.table.yearFilter = ''">Show all</a>-->
+                    <!--</li>-->
+                    <!--<li class="divider"></li>-->
+                    <li ng-repeat="item in orderHistoryListCtrl.allYearsArray | orderBy:'year':true">
+                        <a ng-if="!item.activity" class="disabled">{{ item.year }}</a>
+                        <a ng-if="item.activity" ng-click="orderHistoryListCtrl.table.yearFilter = item.year; orderHistoryListCtrl.mobileClose();">{{ item.year }}</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+<div class="row order-history-list">
+    <div class="col-md-10 col-md-offset-1">
+
+        <table class="table order-history-list__table">
+            <thead>
+                <tr>
+                    <th ng-click="orderHistoryListCtrl.order('date')">
+                        <span class="hand-cursor">Order Date
+                            <span class="fa fa-caret-down"
+                                ng-class="{
+                                    'fa-caret-up': !orderHistoryListCtrl.reverseDate,
+                                    'fa-caret-down': orderHistoryListCtrl.reverseDate
+                                }">
+                            </span>
+                        </span>
+                    </th>
+                    <th>Order #</th>
+                    <th class="hidden-xs">Type</th>
+                    <th>Total</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat-start="order in orderHistoryListCtrl.filteredOrders = (orderHistoryListCtrl.orderHistoryModel | filter: (orderHistoryListCtrl.table.yearFilter || orderHistoryListCtrl.mostRecentActiveYear) | orderBy:'orderDate':orderHistoryListCtrl.reverseDate) | limitTo: orderHistoryListCtrl.limit">
+                    <td>{{ order.orderDate | date:'shortDate' }}</td>
+                    <td>{{ order.orderNumber }}</td>
+                    <td class="hidden-xs">{{ order.orderType }}</td>
+                    <td>{{ order.orderTotal | currency }}</td>
+                    <td class="text-right">
+                        <a href="" ng-init="tables.showDetails = false" ng-click="tables.showDetails = !tables.showDetails">
+                            <i class=""
+                               ng-class="{'icon-minus-circle': tables.showDetails, 'icon-plus-circle': !tables.showDetails}">
+                            </i>
+                        </a>
+                    </td>
+                </tr>
+
+                <!-- hidden row -->
+                <tr class="table-details" ng-repeat-end="">
+                    <td colspan="5">
+                        <div uib-collapse="!tables.showDetails" class="collapse" aria-expanded="false" aria-hidden="true" ng-class="{'is-opened' : tables.showDetails}">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="col-sm-10 col-sm-offset-1 notification notification--order spacer-top-sm">
+                                        <div class="notification__inner">
+                                            <span ng-if="order.orderStatus == 'received'">
+                                                <i class="icon-up-arrow notification__icon"></i>
+                                                <span class="notification__message">We've received your order.
+                                                    <span ng-if="order.orderDetails.trackingNumber">
+                                                        Your tracking number is
+                                                        <a href class="tracking-number">{{ order.orderDetails.trackingNumber }}</a>.
+                                                    </span>
+                                                </span>
+                                            </span>
+                                            <span ng-if="order.orderStatus == 'processing'">
+                                                <i class="icon-check-circle notification__icon"></i>
+                                                <span class="notification__message">Your order is processing.
+                                                    <span ng-if="order.orderDetails.trackingNumber">
+                                                        Your tracking number is
+                                                        <a href class="tracking-number">{{ order.orderDetails.trackingNumber }}</a>.
+                                                    </span>
+                                                </span>
+                                            </span>
+                                            <span ng-if="order.orderStatus == 'shipped'">
+                                                <i class="icon-check-circle notification__icon"></i>
+                                                <span class="notification__message">Your order has been shipped.
+                                                    <span ng-if="order.orderDetails.trackingNumber">
+                                                        Your tracking number is
+                                                        <a href class="tracking-number">{{ order.orderDetails.trackingNumber }}</a>.
+                                                    </span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-10 col-sm-offset-1">
+                                        <div class="row order-history-list__user-info spacer-bottom-md">
+                                            <!-- (2) User Details Module -->
+                                            <!-- Shipping -->
+                                            <div class="col-sm-4 col-xs-12"
+                                                ng-init="shippingObj = order.orderDetails.shipping">
+
+                                                <h3 class="subheader--md text-left ps-light no-margin-top spacer-bottom-sm">Shipping</h3>
+                                                <ul class="no-bullets spacer-bottom-sm">
+                                                    <li class="bold">Shipping Address</li>
+                                                    <li>{{ shippingObj.address.name }}</li>
+                                                    <li>{{ shippingObj.address.company }}</li>
+                                                    <li>{{ shippingObj.address.street }}</li>
+                                                    <li>{{ shippingObj.address.city }}, {{ shippingObj.address.state }} {{ shippingObj.address.postalCode }}</li> <!-- if we add &shy; to the end of any number that is longer than 7 digits it won't become a default clickable 'phone' number -->
+                                                    <li>{{ shippingObj.address.region }}</li>
+                                                </ul>
+
+                                                <ul class="no-bullets spacer-bottom-sm">
+                                                    <li class="bold">Shipping Method</li>
+                                                    <li>{{ shippingObj.method }}</li>
+                                                </ul>
+
+                                                <ul class="no-bullets spacer-bottom-md">
+                                                    <li class="bold">Contact Information</li>
+                                                    <li>{{ shippingObj.contact.email }}</li>
+                                                    <li>{{ shippingObj.contact.phone }}</li>
+                                                </ul>
+                                            </div>
+
+                                            <!-- Billing -->
+                                            <div class="col-sm-4 col-xs-12"
+                                                ng-init="billingObj = order.orderDetails.billing">
+
+                                                <h3 class="subheader--md text-left ps-light no-margin-top spacer-bottom-sm">Billing</h3>
+                                                <ul class="no-bullets spacer-bottom-sm" ng-init="paymentType = (billingObj.paymentMethod.paymentType | lowercase)">
+                                                    <li class="bold">Payment Method</li>
+                                                    <i class="vcenter" ng-class="{
+                                                            'amex': (paymentType == 'american express') || (paymentType == 'amex'),
+                                                            'visa': paymentType == 'visa',
+                                                            'mast': (paymentType == 'mastercard') || (paymentType == 'master card'),
+                                                            'disc': paymentType == 'discover'
+                                                        }">
+                                                    </i> <!-- class options visa, amex, disc, mast -->
+                                                    <span class="vcenter">
+                                                        <li>{{ billingObj.paymentMethod.name }}</li>
+                                                        <li>Ending in {{ billingObj.paymentMethod.accountNumber }}</li>
+                                                    </span>
+                                                </ul>
+
+                                                <ul class="no-bullets spacer-bottom-md">
+                                                    <li class="bold">Billing Address</li>
+                                                    <li>{{ billingObj.billingAddress.name }}</li>
+                                                    <li>{{ billingObj.billingAddress.company }}</li>
+                                                    <li>{{ billingObj.billingAddress.address }}</li>
+                                                    <li>{{ billingObj.billingAddress.city }}, {{ billingObj.billingAddress.state }} 10010-1706&shy;</li>
+                                                    <li>{{ billingObj.billingAddress.region }}</li>
+                                                </ul>
+                                            </div>
+
+                                            <!-- Summary -->
+                                            <div class="col-sm-4 col-xs-12"
+                                                ng-init="summaryObj = order.orderDetails.summary">
+
+                                                <h3 class="subheader--md text-left ps-light no-margin-top spacer-bottom-sm">Summary</h3>
+                                                <ul class="no-bullets spacer-bottom-md">
+                                                    <li class="row">
+                                                        <span class="col-xs-6">Subtotal:</span>
+                                                        <span class="col-xs-6 text-right">{{ summaryObj.subtotalCost | currency }}</span>
+                                                    </li>
+                                                    <li class="row">
+                                                        <span class="col-xs-6">Shipping:</span>
+                                                        <span class="col-xs-6 text-right">{{ summaryObj.shippingCost | currency }}</span>
+                                                    </li>
+                                                    <li class="row spacer-bottom-sm">
+                                                        <span class="col-xs-6">Estimated Tax:</span>
+                                                        <span class="col-xs-6 text-right">{{ summaryObj.tax | currency}}</span>
+                                                    </li>
+                                                    <li class="subheader--sm text-left row spacer-bottom-sm">
+                                                        <span class="col-xs-6"><b>Order Total:</b></span>
+                                                        <span class="col-xs-6 text-right"><b>{{ summaryObj.orderTotal | currency}}</b></span>
+                                                    </li>
+                                                    <li class="row bold">
+                                                        <span class="col-xs-6">Your Savings:</span>
+                                                        <span class="col-xs-6 text-right">{{ summaryObj.savings | currency}}</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        <!-- end User Details Module -->
+                                        </div>
+                                    </div>
+                                    <!-- (5) Order Details -->
+                                    <div class="col-sm-10 col-sm-offset-1">
+                                        <section class="row product-listing__titles spacer-bottom-sm">
+                                            <p class="col-md-7 product-listing__title">Items ({{order.items.length}})</p>
+                                            <p class="hidden-xs hidden-sm col-md-2 product-listing__title quantity">Quantity</p>
+                                            <p class="hidden-xs hidden-sm col-md-1 product-listing__title price price-group">Price</p>
+                                            <p class="hidden-xs hidden-sm col-md-2 product-listing__title text-center">Action</p>
+                                        </section>
+
+
+                                        <!-- (5) Cart line item Equipment Example -->
+                                        <div class="row product-listing spacer-bottom-md"
+                                            data-sku="777-M" data-quantity="1" ng-repeat="item in order.items">
+
+                                            <div class="col-xs-4 col-md-2">
+                                                <img ng-src="{{ item.itemThumb }}" class="product-listing__image">
+                                            </div>
+
+                                            <div class="col-xs-8 col-md-10">
+
+                                                <div class="product-listing__details col-md-6">
+                                                    <a href="#">
+                                                        <h3 class="subheader--md product-listing__name text-left ps-light">
+                                                            {{ item.itemName }}
+                                                        </h3>
+                                                    </a>
+                                                    <p>Item #{{ item.itemNumber }}</p>
+
+                                                    <!-- Compatibility alert desktop -->
+                                                    <div class="hidden-xs notification notification--product" ng-class="{ 'text-green-500': item.compatibility, 'text-orange': !item.compatibility}">
+                                                        <div class="notification__inner">
+                                                            <span class="notification__icon"
+                                                                ng-class="{'icon-check-circle': item.compatibility, 'icon-alert-circle': !item.compatibility}"></span>
+                                                            <span class="notification__message"
+                                                                ng-if="item.compatibility">
+                                                                This item is compatible with your machine
+                                                            </span>
+                                                            <span class="notification__message"
+                                                                ng-if="!item.compatibility">
+                                                                This item is not compatible with your machine
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-md-2 spacer-bottom-sm">
+                                                    <span class="visible-xs visible-sm">Quantity:</span>
+                                                    <span>
+                                                        <div class="product-listing__price-group">
+                                                            <div class="product-listing__price" ng-class="{'product-listing--discount' : item.discountedPrice }">
+                                                                {{ item.price | currency}}
+                                                            </div>
+                                                            <div class="product-listing__price text-orange" ng-if="item.discountedPrice">
+                                                                {{ item.discountedPrice | currency }}
+                                                            </div>
+                                                        </div>
+                                                        x {{ item.quantity }}
+                                                    </span>
+                                                </div>
+
+                                                <div class="col-md-2 spacer-bottom-sm">
+                                                    <span class="visible-xs visible-sm">Price:</span>
+                                                    <span class="product-listing__price-group">
+                                                        <div class="product-listing__price" ng-class="{'product-listing--discount' : item.discountedPrice }">
+                                                            {{ item.price * item.quantity | currency }}
+                                                        </div>
+                                                        <div class="product-listing__price text-orange" ng-if="item.discountedPrice">
+                                                            {{ item.discountedPrice * item.quantity | currency }}
+                                                        </div>
+                                                    </span>
+
+
+                                                    <!-- Compatibility alert mobile -->
+                                                    <div class="visible-xs notification notification--product" ng-class="{ 'text-green-500': item.compatibility, 'text-orange': !item.compatibility}">
+                                                        <div class="notification__inner">
+                                                            <span class="notification__icon"
+                                                                  ng-class="{'icon-check-circle': item.compatibility, 'icon-alert-circle': !item.compatibility}"></span>
+                                                            <span class="notification__message"
+                                                                  ng-if="item.compatibility">
+                                                                This item is compatible with your machine
+                                                            </span>
+                                                            <span class="notification__message"
+                                                                  ng-if="!item.compatibility">
+                                                                This item is not compatible with your machine
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="action-button col-md-2 text-center">
+                                                    <button class="rounded-button primary">Reorder</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- end cart line item -->
+                                        <div class="row text-right text-center-xs spacer-bottom-md">
+                                            <a href="#" class="">
+                                                <span class="icon-email-button order-history-list__download-link"></span>
+                                            </a>
+                                            <a href="#" class="">
+                                                <span class="icon-pdf-button order-history-list__download-link"></span>
+                                            </a>
+                                            <a href="#" class="">
+                                                <span class="icon-print-button order-history-list__download-link"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div ng-if="orderHistoryListCtrl.filteredOrders.length > orderHistoryListCtrl.limit" class="text-center spacer-bottom-md">
+    <a class="text-large"
+        ng-click="orderHistoryListCtrl.limit = orderHistoryListCtrl.viewMoreListing(orderHistoryListCtrl.limit)">
+        <i class="icon-plus-circle vcenter"></i><!--
+        --><span class="vcenter">View More</span>
+    </a>
+</div>

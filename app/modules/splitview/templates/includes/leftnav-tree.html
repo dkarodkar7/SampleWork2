@@ -1,0 +1,14 @@
+<div class="leftnav-tree">
+    <ul class="nav nav-list ">
+      <li ng-repeat="n in splitview.leftnav" ng-class="{ 'open': showDetails }"  class="nav-header" ng-click="showDetails = !showDetails">
+        <label class="tree-toggle" >
+          {{n.label}}
+        </label>
+        <i class="fa fa-angle-right"></i>
+
+        <ul class="nav nav-list tree" collapse="!showDetails">
+          <li ng-repeat="s in n.children"><a href="" ui-sref-active="active">{{s.label}}</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>

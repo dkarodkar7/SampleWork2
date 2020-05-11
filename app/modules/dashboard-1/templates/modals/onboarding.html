@@ -1,0 +1,89 @@
+<div class="modal-body">
+	<uib-carousel class="onboarding onboarding--dashboard" no-wrap="true" interval="-1"
+		template-url="modules/dashboard/templates/carousel/carousel.html" ng-show="!onboardingModalCtrl.hasSeenTour">
+		<uib-slide class="active">
+			<div class="onboarding__slide onboarding--welcome">
+				<a href="" ng-click="close()" class="modal__close pull-right">
+					<span class="icon-close white"></span>
+				</a>
+    			<div class="onboarding__header">
+					<h2 class="header--sm ps-light">Welcome to your Pitney Bowes account.</h2>
+				</div>
+				<div class="onboarding__content">
+					<div class="onboarding__text subheader--md">
+						We’ve enhanced your account experience. Managing your relationship is now easier than ever. We’ve created a personalized dashboard to give you the tools to get the most out of your Pitney Bowes relationship. 
+					</div>
+					<img src="modules/dashboard/assets/images/onboarding-welcome.jpg"/>
+				</div>
+			</div>
+		</uib-slide>
+		<uib-slide>
+			<div class="onboarding__slide onboarding--steps">
+				<a href="" ng-click="close()" class="modal__close">
+					<span class="icon-close dark-gray text-right"></span>
+				</a>
+    			<div class="onboarding__header">
+					<h2 class="header--sm ps-light">Access your dashboard through the main navigation.</h2>
+				</div>
+				<div class="onboarding__content">
+					<div class="onboarding__text text-large">
+						When you sign in, the main navigation at the top will feature your first name. You can access the dashboard from any page by simply clicking on your name. 
+					</div>
+					<img src="modules/dashboard/assets/images/onboarding-step2.jpg"/>
+				</div>
+			</div>
+		</uib-slide>
+		<uib-slide>
+			<div class="onboarding__slide onboarding--steps">
+				<a href="" ng-click="close()" class="modal__close">
+					<span class="icon-close dark-gray text-right"></span>
+				</a>
+    			<div class="onboarding__header">
+					<h2 class="header--sm ps-light">Analyze usage trends.</h2>
+				</div>
+				<div class="onboarding__content">
+					<div class="onboarding__text text-large">
+						You can get a helpful breakdown of your annual spend as well as tips to help you get the most out of your Pitney Bowes products.  
+					</div>
+					<img src="modules/dashboard/assets/images/onboarding-step3.jpg"/>
+				</div>
+			</div>
+		</uib-slide>
+	</uib-carousel>
+	<div class="onboarding onboarding--dashboard" ng-show="onboardingModalCtrl.hasSeenTour && onboardingModalCtrl.hasMultipleProducts">
+		<div class="onboarding__slide onboarding--products">
+			<a href="" ng-click="close()" class="modal__close pull-right">
+				<span class="icon-close white"></span>
+			</a>
+			<div class="onboarding__header">
+				<h2 class="header--sm ps-light">We need a little more information from you.</h2>
+			</div>
+			<div class="onboarding__content">
+				<div class="onboarding__text ps-light">
+					<p class="text-gray-300">Required Information</p>
+					<p class="text-large">You have multiple products with Pitney Bowes. Select the product category or categories below so we can customize your experience. The products your choose will appear on your dashboard.</p> 
+					<div class="container-fluid">
+						<div class="row">
+							<div ng-repeat="category in onboardingModalCtrl.user.categories" class="checkbox checkbox-group {{category.id}} col-sm-5" ng-class-even="'col-sm-offset-2'">
+				                <input type="checkbox" id="{{category.id + $index}}" ng-model="category.id" data-error-type="confirm-check"/>
+				                <label for="{{category.id + $index}}" class="text-large spacer-bottom-sm" >
+				                    <i></i><span class="checkbox-custom"></span>
+				                    <span>{{category.name}} Products</span>
+				                </label>
+				                <ul>
+				                    <li ng-repeat="product in category.products" class="text-large">{{ product.name }}</li>
+				                </ul>
+				            </div>
+				        </div>
+			        </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="text-center">
+		<a ng-click="close()" class="rounded-button primary">
+			<span ng-if="!onboardingModalCtrl.hasSeenLastSlide">Go To Dashboard</span>
+			<span ng-if="onboardingModalCtrl.hasSeenLastSlide">Continue To Dashboard</span>
+		</a>
+	</div>
+</div>

@@ -1,0 +1,65 @@
+.animate-repeat {
+  line-height: 40px;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter,
+.animate-repeat.ng-leave {
+  transition: all linear .5s;
+}
+
+.animate-repeat.ng-leave.ng-leave-active,
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter {
+  opacity: 0;
+  max-height: 0;
+}
+
+.animate-repeat.ng-leave,
+.animate-repeat.ng-move.ng-move-active,
+.animate-repeat.ng-enter.ng-enter-active {
+  opacity: 1;
+  max-height: 40px;
+}
+
+/* when hiding elements */
+.ng-hide-add         { animation:.25s animateOut ease; }
+
+/* when showing elements */
+.ng-hide-remove      { animation:.25s animateIn ease; }
+
+
+@keyframes animateIn {
+  0% {
+    opacity: 0;
+    transform:translate3d(0,0,0);
+  }
+
+  //50%{
+  //  transform:rotateX(30deg);
+  //}
+
+  100% {
+    opacity: 1;
+    transform:none;
+  }
+}
+
+
+@keyframes animateOut {
+  0% {
+    opacity: 1;
+    transform:none;
+  }
+
+  //50%{
+  //  transform:rotateX(30deg);
+  //}
+
+  100% {
+    opacity: 0;
+    transform:translate3d(0,0,0);
+  }
+}

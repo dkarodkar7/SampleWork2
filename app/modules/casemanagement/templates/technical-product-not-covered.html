@@ -1,0 +1,54 @@
+<div pb-create-case-breadcrumbs></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="headline col-sm-10 col-sm-offset-1 col-xs-12 text-center">
+            <h2 class="header--sm spacer-bottom-md no-margin-top">Before We Get Started</h2>
+            <p>This product is covered by a service contract. There may be a charge for service should this issue require a technician be <span>dispatched to your location. Please check to indicate your acceptance then click proceed. </span></p>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="container-fluid col-sm-12">
+            <div class="col-sm-6 top-articles">
+                <div class="top-articles-header col-sm-8 pull-right">
+                   <h2> Top support articles for DM125</h2>
+                    <!--h2> Top support articles for{{product.name}}</h2-->
+                </div>
+                <div class="top-articles-content col-sm-8 pull-right">
+                    <ul>
+                        <li>
+                            <a href="#">DM 125 Postage Meter for Shipping & Mailing</a>
+                        </li>
+                        <li>
+                            <a href="#">DM 125 Postage Meter for Shipping & Mailing</a>
+                        </li>
+                        <li>
+                            <a href="#">DM 125 Postage Meter for Shipping & Mailing</a>
+                        </li>
+                        <li>
+                            <a href="#">DM 125 Postage Meter for Shipping & Mailing</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <form role="form" class="col-sm-6" name="form" novalidate>
+                <div class="container-fluid pull-left proceed-box">
+                    <div class="checkbox spacer-bottom-md">
+                        <input type="checkbox" id="terms-conditions" ng-model="user.termsconditions" />
+                        <label for="terms-conditions">
+                            <i></i><span class="checkbox-custom" tabindex="4" ng-required="value.length==0"></span>
+                            <span>I agree to the <a href="#">terms & conditions</a></span>
+                        </label>
+                    </div>
+                    <div class="checkbox spacer-bottom-md">
+                        <input type="checkbox" id="service-contract" ng-model="user.servicecontract" />
+                        <label for="service-contract">
+                            <i></i><span class="checkbox-custom" tabindex="4"></span>
+                            <span>I believe I have a service contract</span>
+                        </label>
+                    </div>
+                    <button class="rounded-button primary col-sm-12" type="submit" tabindex="3" ng-disabled="form.$invalid">
+                        Proceed                    </button>
+       </div>
+        </form></div></div></div></div>

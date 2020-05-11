@@ -1,0 +1,176 @@
+<div class="navbar yamm navbar-default" role="navigation">
+    <div class="container">
+
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand brand-text" href="#/">Pitney Bowes</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse">
+
+            <ul class="nav navbar-nav">
+                <li class="divider-vertical"></li>
+
+
+                <li>
+                    <a href="" ui-sref="principles.page">Principles</a>
+                </li>
+                <li class="dropdown yamm-fw">
+                    <a href="" class="dropdown-toggle" data-target="" data-toggle="dropdown">Web</a>
+                    <ul class="dropdown-menu pb-animate-menu">
+                        <li>
+                            <div class="yamm-content container">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <!-- this row is just so i can do the offset -->
+                                        <div class="row">
+                                            <div class="col-md-6  mega-offset">
+
+                                                <div class="row">
+                                                    <div class="col-xs-4"
+                                                         ng-repeat="category in header.nav[1].Web[0].children[0].children">
+                                                        <p class="section-head">{{category.label}}</p>
+
+                                                        <ul class="list-unstyled menu-items">
+
+                                                            <!-- if no sub items-->
+                                                            <li ng-if="!item.children"
+                                                                ng-repeat="item in category.children">
+                                                                <a href="" ui-sref="{{item.value}}">{{item.label}}</a>
+                                                            </li>
+
+                                                            <!-- if sub items -->
+                <span ng-if="item.children" ng-repeat="item in category.children">
+                <li ng-repeat="item in item.children">
+                    <a href="" ui-sref="{{item.value}}">{{item.label}}</a>
+                </li>
+                </span>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown yamm-fw">
+                    <a href="" class="dropdown-toggle" data-target="" data-toggle="dropdown">Mobile</a>
+                    <ul class="dropdown-menu pb-animate-menu">
+                        <li>
+                            <div class="yamm-content container">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <!-- this row is just so i can do the offset -->
+                                        <div class="row">
+                                            <div class="col-md-6  mega-offset">
+
+                                                <div class="row">
+                                                    <div class="col-xs-4"
+                                                         ng-repeat="category in header.nav[2].Mobile[0].children[0].children">
+                                                        <p class="section-head">{{category.label}}</p>
+
+                                                        <ul class="list-unstyled menu-items">
+
+                                                            <!-- if no sub items-->
+                                                            <li ng-if="!item.children"
+                                                                ng-repeat="item in category.children">
+                                                                <a href="" ui-sref="{{item.value}}">{{item.label}}</a>
+                                                            </li>
+
+                                                            <!-- if sub items -->
+                <span ng-if="item.children" ng-repeat="item in category.children">
+                <li ng-repeat="item in item.children">
+                    <a href="" ui-sref="{{item.value}}">{{item.label}}</a>
+                </li>
+                </span>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="" ui-sref="globalization.page">Globalization</a>
+                </li>
+
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Resources</a>
+                    <ul class="dropdown-menu pb-animate-menu">
+                        <li><a href="" ui-sref="resources.strategy">Strategy</a></li>
+                        <li><a href="" ui-sref="resources.tools">Tools</a></li>
+                        <li><a href="" ui-sref="resources.gallery">Gallery</a></li>
+                        <li><a href="" ui-sref="resources.roadmap">Roadmap</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="" ui-sref="dashboard.page">My Account</a>
+                </li>
+
+                <li>
+                    <a href="" ui-sref="financial.purchasepower">Financials</a>
+                </li>
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Registration</a>
+                    <ul class="dropdown-menu pb-animate-menu">
+                        <li><a href="" ui-sref="register.step1">Register - Cold</a></li>
+                        <li><a href="" ui-sref="register.step2">Register - Warm</a></li>
+                        <li><a href="" ui-sref="register.success">Success</a></li>
+                        <li><a href="" ui-sref="register.link1expired">Link 1 Expired</a></li>
+                        <li><a href="" ui-sref="register.link2expired">Link 2 Expired</a></li>
+                        <li><a href="" ui-sref="register.onboarded">User Inactive</a></li>
+                        <li><a href="" ui-sref="account.registered">Account Registered</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Account</a>
+                    <ul class="dropdown-menu pb-animate-menu">
+                        <li><a href="" ui-sref="account.login">Login</a></li>
+                        <li><a href="" ui-sref="account.logout">Logout</a></li>
+                        <li><a href="" ui-sref="account.timedout">Timed Out</a></li>
+                        <li><a href="" ui-sref="account.forgotpassword">Forgot Password</a></li>
+                        <li><a href="" ui-sref="account.resetpassword">Reset Password</a></li>
+                        <li><a href="" ui-sref="account.profilemanagement.basicinfo">Profile Management Update Basic Info</a></li>
+                        <li><a href="" ui-sref="account.profilemanagement.password">Profile Management Update Password & Security</a></li>
+                        <li><a href="" ui-sref="account.profilemanagement.dashboard">Profile Management Update Dashboard Settings</a></li>
+                    </ul>
+                </li>
+                <!-- end "real" menus -->
+
+            </ul>
+
+
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+
+        </div>
+        <!-- /.navbar-collapse -->
+
+    </div>
+</div>

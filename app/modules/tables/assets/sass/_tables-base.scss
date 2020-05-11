@@ -1,0 +1,171 @@
+//* TABLES */
+
+
+table {
+  background-color: $table-bg;
+}
+caption {
+  padding-top: $table-cell-padding;
+  padding-bottom: $table-cell-padding;
+  color: $text-muted;
+  text-align: left;
+}
+th {
+  text-align: left;
+}
+
+
+// Baseline styles
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: $line-height-computed;
+  border: 1px solid $table-border-color;
+  // Cells and heads
+  >thead,
+  >tbody,
+  >tfoot {
+    >tr {
+      >th,
+      >td {
+        padding: $table-cell-padding;
+        line-height: $line-height-base;
+        vertical-align: top;
+        border: 1px solid $table-border-color;
+      }
+    }
+  }
+  // cells only, get vertical rules slightly lighter
+  >tbody,
+  >tfoot {
+    >tr {
+      >td {
+        color: $table-text-color;
+        border-right: 1px solid $table-vertical-cell-dividers;
+        &:last-child {
+          border-right: 1px solid $table-border-color;
+        }
+      }
+    }
+  }
+  // Bottom align for column headings
+  >thead >tr >th {
+    vertical-align: bottom;
+    background-color: $table-header-background-color;
+    font-family: $font-family-ps-regular;
+    color: $table-header-text-color;
+    font-weight: normal;
+    border-bottom: 1px solid $table-border-color;
+  }
+
+  // Remove top border from thead by default
+  >caption +thead,
+  >colgroup +thead,
+  >thead:first-child {
+    >tr:first-child {
+      >th,
+      >td {
+        border-top: 0;
+      }
+    }
+  }
+  // Account for multiple tbody instances
+  >tbody +tbody {
+    border-top: 2px solid $table-border-color;
+  }
+
+  // Nesting
+  .table {
+    background-color: $body-bg;
+  }
+
+  .table-row-selected {
+    td {
+      background-color: $pb-bg4;
+    }
+  }
+
+  .table-details {
+    td {
+      padding: 0;
+      background-color: rgba(240, 240, 240, 1);
+      border-top-width: 0;
+    }
+
+    >td {
+      background: linear-gradient(to bottom, rgba(203, 203, 203, 1) -5%, rgba(240, 240, 240, 1) 6%, rgba(240, 240, 240, 1) 100%);
+    }
+
+
+    .table-details-content {
+      padding: 10px;
+    }
+  }
+}
+
+// remove borders for tables inside detail rows
+.table-details-content table, .table-details-content .table {
+  border: 0;
+  td, th {
+    border: 0;
+    &:last-child {
+      border-right: 0;
+    }
+  }
+}
+
+
+// table transitions for hovers
+.table >tbody >tr >td,
+.table >tbody >tr >th {
+  transition: background-color .3s;
+}
+
+.table-fixed {
+  table-layout: fixed;
+}
+
+.table-clickable {
+  tr {
+    cursor: pointer;
+  }
+}
+
+td.centered,
+th.centered {
+  text-align: center;
+}
+
+
+.table-condensed {
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: $table-condensed-cell-padding;
+      }
+    }
+  }
+}
+
+.table-hover>tbody>tr:hover {
+  background-color: $table-bg-hover;
+}
+
+
+.table-condensed-extra {
+  font-size: 13px;
+  >thead,
+  >tbody,
+  >tfoot {
+    >tr {
+      >th,
+      >td {
+        padding: $table-condensed-extra-cell-padding $table-condensed-cell-padding;
+      }
+    }
+  }
+}

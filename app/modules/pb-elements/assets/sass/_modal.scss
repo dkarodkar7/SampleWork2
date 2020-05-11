@@ -1,0 +1,70 @@
+.modal{
+	a.modal__close:hover { text-decoration: none; }
+	@include breakpoint($tablet, max){
+		.icon-close { font-size: 1.5em; }
+	}
+	.modal-content{
+		padding: 2.5%;
+		@include breakpoint($tablet){
+			padding: 60px;
+		}
+	}
+}
+
+.modal-content .overflow-scroll{
+  padding:15px;
+  @include breakpoint($tablet){
+	height:150px;
+	overflow-y:auto;
+  }
+
+  ul{
+	padding:0;
+	margin:0;
+	li{
+	  list-style: none;
+	  color:$pb-gray-500;
+	  line-height: 1.5em;
+	}
+  }
+}
+
+.modal-content{
+  .text-center-xs{
+	@include breakpoint(0, $tablet) {
+	  .rounded-button,
+	  button {
+
+		margin-left:auto;
+		margin-right:auto;
+		float: none!important;
+	  	+ button,
+		+ .rounded-button{
+		  display:block;
+		  margin-top:15px;
+		  margin-left:auto;
+		}
+	  }
+	}
+  }
+}
+.modal-onboard{ 
+	@include breakpoint($tablet){
+		width: 80%;
+		max-width: 800px;
+	}
+	.modal-content { padding: 0; }
+	
+	.modal__close { 
+        @include breakpoint($tablet){
+            position: absolute;
+            right: 15px; 
+            top: 15px;
+        }
+        span { 
+            margin-top: 10px; 
+            display: block;
+            @include breakpoint($tablet){ margin-top:0; }
+        }
+    }
+}

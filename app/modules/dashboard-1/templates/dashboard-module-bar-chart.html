@@ -1,0 +1,61 @@
+<div class="dashboard-module chart-module col-xs-12 bar-chart-module spacer-bottom-md">
+    <!-- Module Label -->
+
+        <div class="tab-pane bg-white col-sm-12" id="chart2">
+
+            <section class="container-fluid dashboard-module__module bar_chart_module">
+
+                <pb-loader show-loader="!chart.model" load-failed="chart.promiseResolvedFailed"></pb-loader>
+
+                <!--div class="col-xs-12 col-md-4 col-md-offset-1">
+                    <figure>
+                        <figcaption>Multiple Category Bar Chart</figcaption>
+                        <h2 class="section-divider">Object Name</h2>
+                        <canvas id="bar"
+                                class="chart chart-bar"
+                                data="chartData.data"
+                                labels="chartData.labels"
+                                legend="true"
+                                series="chartData.series"
+                                colours="chartData.colours" options="chartData.options"></canvas>
+                    </figure>
+                </div-->
+                <figure>
+                    <div class="bar_chart_module">
+                        <div class="col-sm-7 spacer-bottom-sm clearfix meterSerialNum">
+                            <span class="pull-left">Meter serial number:&nbsp;</span>
+                            <div uib-dropdown on-toggle="toggled(open)" class="select pull-left">
+                                <a href id="simple-dropdown" uib-dropdown-toggle>
+                                    {{ msnNumber || meterSerialNumber[0].msn }} <span class="icon-caret-down small"></span>
+                                </a>
+                                <!--ul class="uib-dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                                    <li ng-repeat="msnNo in meterSerialNumber"
+                                        ng-click="getMeterUsageReport(msnNo.msn); mobileClose($event);">
+                                        <a href>{{ msnNo.msn }}</a>
+                                    </li>
+                                </ul-->
+                            </div>
+                        </div>
+
+                        <!-- <h2 class="section-divider">Object Name</h2> -->
+                        <div class="chart-container spacer-top-md" ng-init="getMeterUsageReport(meterSerialNumber[0].msn)">
+                            <div id="container" class="container" width="100%" height="100%"></div>
+                            <!--angular-chart options="barMono8.options" width="1306" height="652"></angular-chart-->
+                        </div>
+                        <!-- Bottom Content -->
+                        <section class="ctas static-height">
+                            <div class="ctas__inner">
+
+                                <!-- Upgrade notification -->
+                                <div class="callout row">
+                                    <h3 class="subhead subheader--md ps-light nmt text-left">PresortXtra<sup>&trade;</sup> for low-volume mailers </h3>
+
+                                    <p>PresortXtra can provide low-volume mailers with savings up to 34% on First-Class Postage&#64; postage.<a href="#">Learn more</a></p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </figure>
+            </section>
+          </div>
+</div>

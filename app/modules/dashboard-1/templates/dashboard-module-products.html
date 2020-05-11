@@ -1,0 +1,1058 @@
+<div class="dashboard-module col-xs-12">
+    <section class="filters">
+        <div class="col-xs-12">
+            <h2 class="dashboard-module__header header--sm ko ps-light text-left">
+                {{ pbProductsModuleCtrl.moduleTitle }}
+            </h2>
+    <span class="white products-filter-toggle hidden-xs">
+    <span ng-click="typeFilter = !typeFilter; locFilter = false">
+    Type
+    <span class="medium light" ng-class="typeFilter ? 'icon-caret-up' : 'icon-caret-down'"></span>
+    </span>
+    <span ng-click="locFilter = !locFilter; typeFilter = false">
+    Location
+    <span class="medium light" ng-class="locFilter ? 'icon-caret-up' : 'icon-caret-down'"></span>
+    </span>
+    </span>
+            <div class="pull-right view_all_up">
+            <span class=" products-filter-toggle display-info white">Showing {{ pbProductsModuleCtrl.limitedItemsValue.length }} of {{ pbProductsModuleCtrl.model[0].products.length }}</span>
+
+            <span><button ng-click="pbProductsModuleCtrl.addaccount(account,data)" class="rounded-button btn-default white">View All</button></span>
+            </div>
+            </div>
+        <div class="visible-xs accordion__button container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <span class="link header--sm">Filter By</span>
+                </div>
+            </div>
+        </div>
+        <div class="visible-xs accordion__button container-fluid"
+             ng-click="locFilter = !locFilter; typeFilter = false">
+            <div class="row">
+                <div class="col-xs-12">
+                    <span class="link header--sm">Location</span>
+        <span class="medium light pull-right"
+              ng-class="locFilter ? 'icon-caret-up' : 'icon-caret-down'"></span>
+                </div>
+            </div>
+        </div>
+        <figure ng-show="locFilter">
+            <div class="filters--options">
+                <div class="controls"
+                     ng-repeat="choice in pbProductsModuleCtrl.model[0].products track by $index" ng-if="choice.location">
+                    <label class="control checkbox white ps-light" for="filter{{$index}}">
+                        <input id="filter{{$index}}" name="filter{{$index}}"
+                               ng-click="pbProductsModuleCtrl.setSelectedLocation(choice)" type="checkbox"/>
+                        <i></i><span class="checkbox-custom" tabindex="{{$index}}"></span>
+                        <span class="control-indicator"></span>
+        <span>
+        <span class="text-large">{{ choice.location.address.name }}</span>
+        <span class="text-large">{{ choice.location.address.street }}</span>
+        <span class="text-large"
+              ng-model="pbProductsModuleCtrl.selectedLocationCityFilter">{{ choice.location.address.city }}, {{ choice.location.address.state }}</span>
+        </span>
+                    </label>
+                </div>
+            </div>
+        </figure>
+        <div class="visible-xs accordion__button container-fluid spacer-bottom-md"
+             ng-click="typeFilter = !typeFilter; locFilter = false">
+            <div class="row">
+                <div class="col-xs-12">
+                    <span class="link header--sm">Type</span>
+        <span class="medium light pull-right"
+              ng-class="typeFilter ? 'icon-caret-up' : 'icon-caret-down'"></span>
+                </div>
+            </div>
+        </div>
+        <figure ng-show="typeFilter">
+            <div class="filters--options">
+                <div class="controls"
+                     ng-repeat="choice in pbProductsModuleCtrl.model[0].products | unique:'type'">
+                    <!-- Using unique here to limit multiple same values to display once -->
+                    <label class="control checkbox white ps-light" for="typeFilter{{$index}}">
+                        <input id="typeFilter{{$index}}" name="typeFilter{{$index}}"
+                               ng-click="pbProductsModuleCtrl.setSelectedProductType(choice)" type="checkbox"/>
+                        <i></i><span class="checkbox-custom" tabindex="{{$index}}"></span>
+                        <span class="control-indicator"></span>
+        <span>
+        <span class="text-large" ng-model="pbProductsModuleCtrl.selectedProductTypeFilter">
+        {{ choice.type }}
+        </span>
+        </span>
+                    </label>
+                </div>
+            </div>
+        </figure>
+    </section>
+    <!------------------------------------------------------------------------------------------------
+      Template changes to fix/prevent some links not working in accordion close state
+      ------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------
+      The updates to the template includes:
+      1. Removing all uib-accordion tags
+      2. Added ng-init, ng-click, and changed ng-class in the button element (around line 278)
+      3. Hooked up to attributes in the a element with product.showDetails variable
+      4. Added uib-collapse attribute in Expandable Panel Additional Info div
+         as well as aria-expanded and aria-hidden
+         (line 293)
+      5. Removed class "pull-left" (lines 357, 361)
+
+      !!! ** REMOVE ALL ng-click="$event.stopPropagation()" from template ***
+
+      ** These number can be referenced from the some of the comments below.
+      ------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------------------------------
+      The commented out uib-accordion tags below should be removed
+      Leaving them here so you can see what I have changed to fix the bug as described above.
+      ------------------------------------------------------------------------------------------------->
+    <!--<uib-accordion close-others="oneAtATime">-->
+    <figure ng-if="!pbProductsModuleCtrl.model || pbProductsModuleCtrl.promiseResolvedFailed" class="dashboard-module__module spacer-bottom-md bg-white product-module">
+        <div class="panel-heading nmb npb" style="min-height: 400px;">
+            <pb-loader show-loader="!pbProductsModuleCtrl.model" load-failed="pbProductsModuleCtrl.promiseResolvedFailed"></pb-loader>
+        </div>
+    </figure>
+    <figure ng-if="product.smartlinkEnabled == 'yes'"  class="dashboard-module__module spacer-bottom-md bg-white product-module smartlink_product-module list-view-module"
+            ng-repeat="product in
+  (pbProductsModuleCtrl.limitedItemsValue =
+  (pbProductsModuleCtrl.filteredItems =
+  (pbProductsModuleCtrl.model[0].products
+  | filter:pbProductsModuleCtrl.filterProductType
+  | filter:pbProductsModuleCtrl.filterAddress)
+  | limitTo:pbProductsModuleCtrl.limitVal)
+  )">
+        <!------------------- Added to test smartlink enabaled products ---------------->
+        <div ng-if="product.type == 'meter' && product.smartlinkEnabled == 'yes'">
+            <div class="smart-panel-heading panel-heading nmb npb">
+                <!-- Product and Supplies -->
+                <div class="col-xs-12 col-sm-4 spacer-bottom-sm full-height-odd-column-border first product-module__product">
+        <span ng-if="product.serial" class="serial-number ps-light text-gray-300 spacer-bottom-xs">
+        <b>Serial #:</b> {{ product.serial }}
+        </span>
+        <span ng-if="!product.serial" class="serial-number count ps-light text-gray-300">
+        8 of 10 used
+        </span>
+                    <h1 class="name bk nmt nmb header--sm">{{ product.name }}</h1>
+                    <li class="spacer-bottom-sm smart-link">
+                        <!--img ng-src="{{scope.icon_smart_link}}" width="22" height="22" alt="smartlink"-->
+                        <a ng-href="link.url">Smartlink</a>
+                    </li>
+                    <!-- Location Support Resources -->
+                    <div ng-if="product.additionalLinks.length" class="row spacer-top-md">
+                        <ul class="col-xs-12 text-blue-500">
+                            <li class="spacer-bottom-sm" ng-repeat="link in product.additionalLinks">
+                                <a ng-href="link.url">{{ link.label }} Smartlink</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--div class="col-sm-10 smartlink_edit_location">
+                    <span class="ps-light text-gray-300 hidden-xs">
+            Location <b><a class="text-blue-500" ng-click="pbProductsModuleCtrl.editLocation(product.location.address, $index)"> edit</a></b>
+            </span>
+                    <h1 class="address bk nmt nmb subheader--md text-left spacer-top-xs">
+              <span class="name">
+              {{ product.location.address.name }}
+              </span>
+              <span class="street">
+              {{ product.location.address.street }}
+              {{ product.location.address.suite }}
+              </span>
+              <span class="street">
+              {{ product.location.address.city }},
+              {{ product.location.address.state }}
+              {{ product.location.address.postalCode }}
+              </span>
+                    </h1>
+            <span class="ps-light text-blue-500 visible-xs">
+            <a  ng-click="pbProductsModuleCtrl.editLocation(product.location.address, $index)">Edit Location</a>
+            </span>
+                        </div-->
+                </div>
+
+                <!-- Status Col -->
+                <div ng-if="product.type == 'meter' && product.smartlinkEnabled == 'yes'" class="col-xs-12 col-sm-2 full-height-odd-column-border next  meter_product product-module__status hidden-xs">
+                    <span class="serial-number ps-light text-gray-300 spacer-bottom-xs">Meter Status</span>
+                    <h1 ng-if="product.updates" class="success bk nmt nmb header--sm">
+                        <span class="icon-alert-circle text-orange"></span>
+                        Updates
+                    </h1>
+                    <h1 ng-if="!product.updates" class="warning bk nmt nmb header--sm">
+                        <span class="icon-check-circle text-green"></span>
+                        up to date  </h1>
+                </div>
+                <!-- Add Postage -->
+                <!-- Status Col -->
+                <div ng-if="product.type == 'meter' && product.smartlinkEnabled == 'yes'" class="col-xs-12 col-sm-3 full-height-odd-column-border nestednext product-module__status hidden-xs product-module">
+                    <span class="serial-number ps-light text-gray-300 spacer-bottom-xs">Postage</span>
+                    <h1 ng-if="product.postage" class="success bk nmt nmb header--sm">
+                        <span class="icon-alert-circle text-orange"></span>
+                        Unavailable
+                    </h1>
+                    <h1 ng-if="!product.postage" class="warning bk nmt nmb header--sm">
+                        <span class="icon-check-circle text-green"></span>
+          <span ng-repeat="item in product.supplies track by $index">
+          {{item.postageFunds | currency}}
+          </span>
+                    </h1>
+                </div>
+                <!-- End Add Postage --->
+                <!-- Ink Level -->
+                <div ng-if="product.type == 'meter' && product.smartlinkEnabled == 'yes'" class="col-xs-12 col-sm-3 product-module__status ink_level hidden-xs">
+                    <span class="serial-number ps-light text-gray-300 spacer-bottom-xs">Ink Level</span>
+                    <h1 ng-if="product.inklevel" class="success bk nmt nmb header--sm">
+                        <span class="icon-alert-circle text-orange"></span>
+                        Normal
+                    </h1>
+                    <h1 ng-if="!product.inklevel" class="warning bk nmt nmb header--sm">
+                        <span class="icon-check-circle text-green"></span>
+Low                    </h1>
+                </div>
+                <!-- Knowledge Base -->
+                <div ng-if="product.knowledgeBase" class="col-xs-12 col-sm-3 product-module__location">
+        <span class="serial-number ps-light text-gray-300">
+        From Knowledge Base
+        </span>
+                    <div class="row ps-light spacer-top-xs">
+                        <div ng-if="!product.knowledgeBase.length" class="col-xs-10 spacer-bottom-sm">
+                            No related articles
+                        </div>
+                        <ul ng-if="product.knowledgeBase.length" class="col-xs-10">
+                            <li class="spacer-bottom-xs" ng-repeat="article in product.knowledgeBase">
+                                <a class="text-blue-500" ng-href="article.url">
+                                    {{ article.articleTitle }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <a href="#" class="text-blue-500">More In Support</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Updated (See 2,3 above) -->
+                <div ng-if="product.type == 'meter' && product.smartlinkEnabled == 'yes'">
+                    <a class="toggle-control text-blue-500"
+                       ng-if="product.location || product.relatedProducts || product.community || product.support"
+                       ng-init="product.showDetails = false"
+                       ng-click="product.showDetails = !product.showDetails">
+                        <span ng-class="{'icon-minus-circle': product.showDetails, 'icon-plus-circle': !product.showDetails}"></span>
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="row smart-panel-module_details product-module__details" uib-collapse="!product.showDetails" class="collapse" aria-expanded="false" aria-hidden="true">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <!-- border added for division in mobile device-->
+                        <div class="m_border"></div>
+                        <!-- Location and Contract info -->
+                        <div ng-if="product.type != 'software'" class="col-xs-12 col-sm-4  spacer-bottom-sm full-height-odd-column-border first product-module__location">
+            <span class="ps-light text-gray-300 hidden-xs">
+            Location <b><a class="text-blue-500" ng-click="pbProductsModuleCtrl.editLocation(product.location.address, $index)"> edit</a></b>
+            </span>
+                            <h1 class="address bk nmt nmb subheader--md text-left spacer-top-xs">
+              <span class="name">
+              {{ product.location.address.name }}
+              </span>
+              <span class="street">
+              {{ product.location.address.street }}
+              {{ product.location.address.suite }}
+              </span>
+              <span class="street">
+              {{ product.location.address.city }},
+              {{ product.location.address.state }}
+              {{ product.location.address.postalCode }}
+              </span>
+                            </h1>
+            <span class="ps-light text-blue-500 visible-xs">
+            <a  ng-click="pbProductsModuleCtrl.editLocation(product.location.address, $index)">Edit Location</a>
+            </span>
+
+                            <!-- Location Support Resources -->
+                            <ul class="col-xs-12 product-module__location__support-resources spacer-top-md">
+                                <!-- border added for division in mobile device-->
+                                <li class="spacer-bottom-sm" ng-repeat="item in product.location.resources track by $index">
+                                    <a ng-href="{{ item.url }}">{{ item.name }}</a>
+                                </li>
+                                  <!-- border added for division in mobile device-->
+                                  <div class="row">  <div class="m_border_bottom"></div></div>
+                            </ul>
+                            <!-- Contract Info -->
+                            <ul class="col-xs-12 visible-xs spacer-bottom-sm spacer-top-xs"><b>Product Details</b></ul>
+                            <!-- border added for division in mobile device-->
+                            <ul class="col-xs-12 spacer-top-md  spacer-bottom-sm">
+                                <li class="spacer-bottom-xs"><span class="bold">PCN #:</span><span> {{ product.location.contractInfo.pcnNumber }}</span></li>
+                                <li class="spacer-bottom-xs"><span class="bold">Serial #:</span><span> {{ product.location.contractInfo.serialNumber }}</span></li>
+                                <li class="spacer-bottom-xs"><span class="bold">Contract:</span><span> {{ product.location.contractInfo.contract }}</span></li>
+                                <li class="spacer-bottom-xs"><span class="bold">Install date:</span><span> {{ product.location.contractInfo.installDate }}</span></li>
+                            </ul>
+                            <a ng-href="{{ product.location.contractInfo.requestDetails.url }}">
+                                {{ product.location.contractInfo.requestDetails.linkName }}
+                            </a>
+                        </div>
+                        <!-- Status Col -->
+                        <ul class="col-xs-12 col-sm-2 spacer-top-md border-bottom-xs full-height-odd-column-border next nextcollapse"
+                            ng-class="{'hidden-xs': !product.availableUpdates.length && !product.statusHistory.length}">
+                            <!-- border added for division in mobile device-->
+                            <div class="row"><div class="m_border"></div></div>
+                            <li class="spacer-bottom-sm clearfix"
+                                ng-repeat="item in (product.updates ? product.availableUpdates : product.statusHistory)
+              track by $index">
+              <span class="pull-left"
+                    ng-class="{
+                'icon-check-circle text-green': !product.updates,
+                'icon-alert-circle text-orange': product.updates
+                }">
+              </span>
+                                <!-- Removed class "pull-left" -->
+                                <!-- Show if products are up to date -->
+                                <span ng-if="!product.updates">{{ item }}</span>
+                                <!-- Removed class "pull-left" -->
+                                <!-- Show if there are updates available -->
+                                <div ng-if="product.updates">
+                                    <p class="text-orange nmb">{{ item.updateLabel }}</p>
+                                    <a href="{{ item.url }}">{{ item.ctaLabel }}</a>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <!-- Add Funds Col -->
+                     <ul class="col-xs-12 col-sm-3 smartlink-product-postage__status border-bottom-xs full-height-odd-column-border nestednext nextcollapse">
+                           <div class="row"><div class="m_border"></div></div>
+                            <!-- Add Postage for mobile view -->
+                            <!-- Status Col -->
+                            <div ng-if="product.type == 'meter' && product.smartlinkEnabled == 'yes'" class="col-xs-12 col-sm-3 product-module__status hidden-xl product-module">
+                                <span class="serial-number ps-light text-gray-300 spacer-bottom-xs">Postage</span>
+                                <h1 ng-if="product.postage" class="success bk nmt nmb header--sm">
+                                    <span class="icon-alert-circle text-orange"></span>
+                                    Unavailable
+                                </h1>
+                                <h1 ng-if="!product.postage" class="warning bk nmt nmb header--sm">
+                                    <span class="icon-check-circle text-green"></span>
+          <span ng-repeat="item in product.supplies track by $index">
+          {{item.postageFunds | currency}}
+          </span>
+                                </h1>
+                            </div>
+
+                            <!-- End Add Postage for mobile view -->
+
+                            <li class="clearfix">
+                                <div class="add_funds_btn col-sm-11">
+                                    <div ng-hide="addFunds">
+                                    <button class="rounded-button btn-lg primary text-center spacer-top-sm" ng-click="addFunds= true;editFunds=false;">Add Funds</button>
+                                    </div>
+                                    <!-- Add Funds Panel -->
+                                     <div class="add_funds_module col-sm-12" ng-show="addFunds">
+                                         <h5 class="col-sm-12 clearfix spacer-top-md spacer-bottom-md">Add Funds to your meter</h5>
+                                        <div class="col-sm-12"><input type="text" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" name="accountFunds" class="form-control spacer-top-sm" id="account-funds" placeholder="$0.00" required /></div>
+                                        <div class="spacer-bottom-lg text-center">
+                                            <button class="rounded-button btn-lg primary spacer-top-md" ng-disabled="form.$invalid" type="submit" ng-class="{ gray:form.$invalid }" ng-click="addFunds= false;">
+                                                Submit
+                                            </button>
+                                            <div class="spacer-bottom-lg" ng-click="addFunds= false;"><a>Cancel</a></div>
+                                            <span class="border-bottom"></span>
+                                        </div>
+                                        <div>
+                                        </div>
+                                    </div>
+                                    <!-- End Add Funds Panel -->
+
+                                    <!-- Edit Funds Panel -->
+                                    <div ng-hide="addFunds">
+                                        <div ng-hide="editFunds" class="editFunds">
+                                            <p><div class="ps-light text-gray-300 spacer-top-md"><span>Low Funds Alert</span> <b><a class="text-blue-500" ng-click="editFunds= true;"> edit</a></b>
+                                        </div>
+                                            </p>
+                                            <p>
+                                            <h1 ng-repeat="item in product.supplies track by $index">
+                                                {{item.lowFunds | currency}}
+                                            </h1>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="edit_funds_module col-sm-12" ng-show="editFunds">
+                                        <h5 class="col-sm-12 clearfix spacer-top-md spacer-bottom-sm">Alert me when my funds are lower than</h5>
+                                        <div class="col-sm-12">
+                                            <input type="text" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" name="editFunds" class="form-control spacer-top-sm" id="edit-funds" placeholder="$0.00" required />
+                                        </div>
+                                            <div class="spacer-bottom-sm text-center">
+                                            <button class="rounded-button btn-md primary spacer-top-sm" ng-disabled="form.$invalid" type="submit" ng-class="{ gray:form.$invalid }" ng-click="editFunds= false;">
+                                                Submit
+                                            </button>
+                                            <div class="spacer-bottom-xl cancelBtn" ng-click="editFunds= false;"><a>Cancel</a></div>
+                                            <span class="border-bottom"></span>
+                                        </div>
+                                        <div>
+
+                                        </div>
+                                    </div>
+                                    <!-- End Edit Funds Panel -->
+
+                                </div>
+
+                            </li>
+                        </ul>
+                        <!-- Product and Supplies -->
+                        <div class="col-xs-12 col-sm-3 smartlink-product-module__product"
+                             ng-class="{'hidden-xs': !product.supplies.length}">
+                           <div class="auto_replenishment"><div class="row"><div class="m_border"></div></div>
+                            <ul class="hidden-xs signUp" ng-show="signUp">
+                                <li class="spacer-top-md">
+                                    <div class="col-sm-12">
+                                        <div class="col-sm-2">
+                                        <img  ng-src="modules/dashboard/assets/images/PB-account-SL-AI-inkDrop.png" src="modules/dashboard/assets/images/PB-account-SL-AI-inkDrop.png"/>
+                                    </div>
+                                    <div class="col-sm-10">
+                                          <h2>Autoink<sup>&#8482;</sup>&nbsp;program.</h2>
+                                        <p><span>Get Ink before you</span>  <span>run out and<b>&nbsp;save 20%.</b></span></p>
+</div>
+
+                                        </div>
+
+                                    <!--img class="col-sm-4 pull-right" ng-src="{{ item.thumb }}" /-->
+                                     <div class="col-sm-12 text-center sign_up spacer-top-sm"> <button class="rounded-button btn-xl badge spacer-bottom-sm" ng-click="signUp=false;notSignedUp=true;">Get Started</button></div>
+                                 </li>
+
+                            </ul>
+                               <ul class="hidden-xs col-sm-12 notSignedUp" ng-show="notSignedUp">
+                                    <li class="spacer-top-sm">
+
+                                        <div class="col-sm-2">
+                                            <img ng-src="modules/dashboard/assets/images/PB-account-SL-AI-inkDrop.png" src="modules/dashboard/assets/images/PB-account-SL-AI-inkDrop.png"/>
+                                        </div>
+                                    <div class="col-sm-10">
+                                            <span>You're signed up</span>
+                                            <span>for <h2>Autoink<sup>&#8482;</sup>&nbsp;</h2>.</span>
+                                            <h3><a class="text-blue-500" ng-click="signUp=true;notSignedUp=false;">Change</a></h3>
+                                        </div>
+
+                                        <div class="inkShipmentDate col-sm-12 spacer-bottom-md">
+                                            <p>Last ink shipment : <b>{{ 1458532800000 | date : "dd/MM/y" }} </b></p>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div ng-if="product.supplies">
+                                <div class="row"><div class="m_border"></div></div>
+                                <div class="spacer-bottom-xs col-sm-12">
+                                    Supplies<a class="pull-right" href="#" >View All</a>
+                                </div>
+                                <div class="row">
+                                     <ul class="hidden-xs col-sm-12">
+
+                                         <li class="spacer-bottom-sm" ng-repeat="item in product.supplies track by $index  | limitTo:1">
+                                            <img class="col-sm-3 smartlink-product-image" ng-src="{{ item.thumb }}" />
+                                            <div class="col-sm-8">
+                                                <h3 class="ps-light nmt nmb text-blue-500"><a href >{{ item.productName }}</a></h3>
+                                                <p class="spacer-top-xs">{{ item.price | currency }}</p>
+                                                <button class="rounded-button btn-sm primary">Add To Cart</button>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Mobile swipe view -->
+                            <ul uib-carousel class="visible-xs static-height spacer-bottom-sm">
+                                <li uib-slide ng-repeat="item in product.supplies  | limitTo:1">
+                                    <div class="col-xs-12">
+                                        <img class="product-image" ng-src="{{ item.thumb }}">
+                                    </div>
+                                    <div class="product-details">
+                                        <span class="product-details__item-number">Item # {{ item.itemNumber }}</span>
+                                        <h3 class="product-details__product-name ps-light text-blue-500"><a href >{{ item.productName }}</a></h3>
+                                    </div>
+                                    <a ng-href="{{ item.itemUrl }}" class="product-cover-link"></a>
+                                    <p class="col-xs-12 text-center">Price {{ item.price }}</p>
+                                    <button class="rounded-button btn-sm primary">Add To Cart</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div ng-if="product.type != 'software'" class="smartlink-enabled-ms col-xs-12 col-sm-8 pull-right">
+                            <div class="smartlink-enabled-ms-btn spacer-top-md col-sm-12" style="margin-top:40px;">
+          <span class="pull-left col-sm-7">
+          <b>Smartlink Enabled</b>
+          <span  ng-class="{
+            'icon-check-circle text-green': !product.smartlinkEnabled,
+            'icon-alert-circle text-blue': product.smartlinkEnabled
+            }">
+          </span>
+         <span class="l_date"> Last connected on {{1459742400000 | date:"MM/dd/yyyy"}}</span></span>
+          <span class="col-sm-5 pull-right">
+          <a class="col-sm-offset-1" ng-click="">Relink device</a>
+          <a class="col-sm-offset-1 l_date"  ng-click="pbProductsModuleCtrl.notifications();">Manage notifications</a>
+          </span>
+                            </div>
+                        </div>
+                        <!--/div-->
+                    </div>
+                    <!-- Product Support -->
+                    <div ng-if="product.support" class="row product-module__support bg-pb-bg1">
+                        <div class="col-xs-12 spacer-bottom-md">
+                            <div class="row">
+                                <h2 class="col-xs-12 spacer-top-sm hidden-xs">Support for this product</h2>
+                                <div class="col-xs-12 col-sm-4 product-module__support__support-content border-bottom-xs">
+                                    <div class="row">
+                                        <h2 class="col-xs-12 spacer-top-sm visible-xs">
+                                            Support
+                                            <a class="visible-xs pull-right text-blue-500" href="#">View All</a>
+                                        </h2>
+                                        <ul class="col-xs-12">
+                                            <li class="spacer-bottom-xs" ng-repeat="item in product.support.links.supportContent track by $index">
+                                                <a ng-href="{{ item.url }}">{{ item.name }}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 product-module__support__learn-content border-bottom-xs spacer-bottom-md">
+                                    <div class="row">
+                                        <h2 class="col-xs-12 spacer-top-sm visible-xs">
+                                            Learn
+                                            <a class="visible-xs pull-right text-blue-500" href="#">View All</a>
+                                        </h2>
+                                        <ul class="col-xs-12">
+                                            <li class="spacer-bottom-xs" ng-repeat="item in product.support.links.learnContent track by $index">
+                                                <a ng-href="{{ item.url }}">{{ item.name }}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 product-module__support__learn-content">
+                                    <div class="row">
+                                        <ul class="col-xs-12 spacer-bottom-md">
+                                            <li ng-if="!product.supportCases" class="spacer-bottom-xs">
+                        <span>
+                        <span class="icon-alert-circle"></span>
+                        <span>No open cases</span>
+                        </span>
+                                            </li>
+                                            <li ng-if="product.supportCases" class="spacer-bottom-sm" ng-repeat="case in product.supportCases | limitTo:1">
+                                                <div class="pull-left"
+                                                     ng-class="{
+                          'icon-alert-circle text-orange': case.status == 'pending',
+                          'icon-check-circle text-green': case.status == 'closed',
+                          'icon-up-arrow': case.status == 'open'
+                          }">
+                                                </div>
+                        <span>
+                          <span ng-if="case.status == 'open'">Open</span>
+                          <span class="text-orange" ng-if="case.status == 'pending'">&nbsp;&nbsp;Pending Client Action</span>
+                          <span class="text-green" ng-if="case.status == 'closed'">Closed</span>
+                            <!--span class="pull-right"><a href="#" class="text-blue-500">#{{ case.caseNumber }}</a></span-->
+                        </span>
+                                                <div class="case-description spacer-top-xs ps-light">
+                                                    <p class="nmb">{{ case.caseDescription }}<a href=""> See solution</a></p>
+                                                </div>
+                                            </li>
+                                            <div class="col-xs-12 visible-xs">
+                                                <div class="col-sm-6 text-center spacer-top-sm spacer-bottom-sm viewAll">
+                                                    <button ng-if="product.supportCases.length" class="rounded-button btn-sm primary nmb">View All ( {{product.supportCases.length}} )</button>
+                                                </div>
+                                                <a href class="col-sm-6 text-center text-blue-500 openCase">Open A Case</a>
+                                            </div>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4 hidden-xs ">
+                                    <a href="#">All Support Content</a>
+                                </div>
+                                <div class="col-sm-4 hidden-xs">
+                                    <a href="#">All Learn Content</a>
+                                </div>
+                                <div class="col-sm-4 hidden-xs">
+                                    <div class="row">
+                                        <div class="col-sm-4 vcenter"><a href class="text-blue-500">Open New Case</a></div>
+                                        <!--
+                                          -->
+                                        <div class="col-sm-5 vcenter text-right">
+                                            <button ng-if="product.supportCases.length" class="rounded-button btn-sm primary nmb">View All ( {{product.supportCases.length}} )</button>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    <!-- Support Documents for Software -->
+                    <div ng-if="product.supportDocuments" class="row border-top bg-white product-module__support-documents">
+                        <div class="col-xs-12 spacer-top-sm spacer-bottom-md">
+                            <h1 class="spacer-top-sm bk text-center">Support Documents</h1>
+                            <!-- Double List -->
+                            <ul class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+                                <li class="col-xs-12 col-sm-6 spacer-bottom-xs" ng-repeat="doc in product.supportDocuments">
+                                    <a ng-href="doc.downloadURL" >
+                                        <span class="icon-download-circle text-blue-500"></span>
+                                        <span>{{ doc.title }}</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- Search -->
+                            <div class="col-xs-12 col-sm-3 col-sm-offset-4 col-md-4 col-md-offset-4">
+                                <div class="support-articles-module__search-box search-box">
+                                    <input name="track" class="pull-left col-xs-9 col-sm-9 col-md-9 ps-light"
+                                           placeholder="Documentation Library"
+                                           data-default-val="Search">
+                                    <button type="submit" class="col-xs-3 col-sm-3 col-md-3">Search</button>
+                                    <div class="clear-search-text visible-xs hide"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Community Ideas -->
+                    <div ng-if="product.community" class="row border-top bg-white">
+                        <div class="col-xs-12 spacer-top-sm spacer-bottom-md">
+                            <h1 class="spacer-top-sm bk text-center">Community Ideas</h1>
+                            <!-- Double List -->
+                            <ul class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 spacer-bottom-md">
+                                <li class="col-sm-6" ng-repeat="topic in product.community">
+                                    <h3 class="text-blue-500">
+                                        <a href="#">{{ topic.title }}</a>
+                                    </h3>
+                                    <p>Posted by <a href="#">{{ topic.author }}</a> {{ topic.date }}</p>
+                                </li>
+                            </ul>
+                            <!-- CTA -->
+                            <div class="col-xs-12 text-center">
+                                <a href="#">
+                                    <span class="vcenter">Submit Ideas</span><!--
+                    --><span class="icon-next-circle vcenter"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Related Products -->
+                    <div ng-if="product.relatedProducts" class="row border-top bg-white">
+                        <div class="col-xs-12 spacer-top-sm spacer-bottom-md">
+                            <div class="row">
+                                <h1 class="spacer-top-sm bk text-center">Related Products</h1>
+                                <!-- Products Buckets -->
+                                <div class="col-xs-12 col-sm-3 ps-light" ng-repeat="item in product.relatedProducts">
+                                    <h3 class="text-blue-500"><a href="#">{{ item.name }}</a></h3>
+                                    <p>{{ item.description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            </div>
+        <!-------------------END Added to test smartlink enabaled products ---------------->
+        <!--</uib-accordion-heading>-->
+        <!--</uib-accordion-group>-->
+    </figure>
+    <figure  ng-if="product.smartlinkEnabled == 'no'"  class="dashboard-module__module spacer-bottom-md bg-white product-module list-view-module"
+             ng-repeat="product in
+  (pbProductsModuleCtrl.limitedItemsValue =
+  (pbProductsModuleCtrl.filteredItems =
+  (pbProductsModuleCtrl.model[0].products
+  | filter:pbProductsModuleCtrl.filterProductType
+  | filter:pbProductsModuleCtrl.filterAddress)
+  | limitTo:pbProductsModuleCtrl.limitVal)
+  )">
+        <!--<uib-accordion-group-->
+        <!--is-open="status.open"-->
+        <!--is-disabled="!(product.location || product.relatedProducts || product.community || product.support)">-->
+        <!--<uib-accordion-heading>-->
+        <div class="panel-heading nmb npb">
+            <!-- Product and Supplies -->
+            <div class="col-xs-12 col-sm-4 product-module__product">
+<span ng-if="product.serial" class="serial-number ps-light text-gray-300 spacer-bottom-xs">
+<b>Serial #:</b> {{ product.serial }}
+</span>
+<span ng-if="!product.serial" class="serial-number count ps-light text-gray-300">
+8 of 10 used
+</span>
+                <h1 class="name bk nmt nmb header--sm">{{ product.name }}</h1>
+                <!-- Location Support Resources -->
+                <div ng-if="product.additionalLinks.length" class="row spacer-top-md">
+                    <ul class="col-xs-12 text-blue-500">
+                        <li class="spacer-bottom-sm" ng-repeat="link in product.additionalLinks">
+                            <a ng-href="link.url">{{ link.label }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Status Col -->
+            <div ng-if="product.type == 'meter'" class="col-xs-12 col-sm-4 product-module__status hidden-xs full-height-border">
+                <span class="serial-number ps-light text-gray-300 spacer-bottom-xs">Meter Status</span>
+                <h1 ng-if="product.updates" class="success bk nmt nmb header--sm">
+                    <span class="icon-alert-circle text-orange"></span>
+                    Updates
+                </h1>
+                <h1 ng-if="!product.updates" class="warning bk nmt nmb header--sm">
+                    <span class="icon-check-circle text-green"></span>
+                    Up To Date
+                </h1>
+            </div>
+            <!-- Recent Cases Col -->
+            <!-- For Non-meter products -->
+            <!-- This is visible or hidden based on product type in JSON data -->
+            <div ng-if="product.type == 'non-meter' || product.type == 'software'" class="col-xs-12 col-sm-4 product-module__cases hidden-xs full-height-border">
+                <span class="serial-number ps-light text-gray-300">Recent Cases</span>
+                <div ng-if="product.supportCases" class="row spacer-top-xs">
+                    <ul class="col-xs-12 spacer-bottom-md">
+                        <li class="spacer-bottom-sm" ng-repeat="case in product.supportCases | limitTo:2">
+                            <div class="pull-left"
+                                 ng-class="{
+  'icon-alert-circle text-orange': case.status == 'pending',
+  'icon-check-circle text-green': case.status == 'closed',
+  'icon-up-arrow': case.status == 'open'
+  }">
+                            </div>
+<span>
+<span ng-if="case.status == 'open'">Open</span>
+<span class="text-orange" ng-if="case.status == 'pending'">Pending Client Action</span>
+<span class="text-green" ng-if="case.status == 'closed'">Closed</span>
+<span class="pull-right"><a href="#" class="text-blue-500">#{{ case.caseNumber }}</a></span>
+</span>
+                            <div class="case-description spacer-top-xs ps-light">
+                                <p class="nmb">{{ case.caseDescription }}</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div ng-if="!product.supportCases" class="row spacer-bottom-sm spacer-top-xs">
+                    <ul class="col-xs-12 spacer-bottom-md">
+                        <li class="spacer-bottom-sm">
+                            <div class="icon-alert-circle bk pull-left"></div>
+                            <span>No open cases</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 vcenter"><a href class="text-blue-500">Open New Case</a></div><!--
+  --><div class="col-sm-6 vcenter text-right">
+                    <button ng-if="product.supportCases.length" class="rounded-button btn-sm primary nmb">View All ( {{product.supportCases.length}} )</button>
+                </div>
+                </div>
+            </div>
+            <!-- Location and Contract info -->
+            <div ng-if="product.type != 'software'" class="col-xs-12 col-sm-4 product-module__location">
+<span class="ps-light text-gray-300 hidden-xs">
+Location <b><a class="text-blue-500" ng-click="pbProductsModuleCtrl.editLocation(product.location.address, $index)"> edit</a></b>
+</span>
+                <h1 class="address bk nmt nmb subheader--md text-left spacer-top-xs">
+<span class="name">
+{{ product.location.address.name }}
+</span>
+<span class="street">
+{{ product.location.address.street }}
+{{ product.location.address.suite }}
+</span>
+<span class="street">
+{{ product.location.address.city }},
+{{ product.location.address.state }}
+{{ product.location.address.postalCode }}
+</span>
+                </h1>
+<span class="ps-light text-blue-500 visible-xs">
+<a class="edit_location"  ng-click="pbProductsModuleCtrl.editLocation(product.location.address, $index)">Edit Location</a>
+</span>
+            </div>
+            <!-- Knowledge Base -->
+            <div ng-if="product.knowledgeBase" class="col-xs-12 col-sm-4 product-module__location">
+<span class="serial-number ps-light text-gray-300">
+From Knowledge Base
+</span>
+                <div class="row ps-light spacer-top-xs">
+                    <div ng-if="!product.knowledgeBase.length" class="col-xs-10 spacer-bottom-sm">
+                        No related articles
+                    </div>
+                    <ul ng-if="product.knowledgeBase.length" class="col-xs-10">
+                        <li class="spacer-bottom-xs" ng-repeat="article in product.knowledgeBase">
+                            <a class="text-blue-500" ng-href="article.url">
+                                {{ article.articleTitle }}
+                            </a>
+                        </li> </ul>
+
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <a href="#" class="text-blue-500">More In Support</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Updated (See 2,3 above) -->
+            <!-- Control -->
+            <a class="toggle-control text-blue-500"
+               ng-if="product.location || product.relatedProducts || product.community || product.support"
+               ng-init="product.showDetails = false"
+               ng-click="product.showDetails = !product.showDetails">
+                <span ng-class="{'icon-minus-circle': product.showDetails, 'icon-plus-circle': !product.showDetails}"></span>
+            </a>
+        </div>
+        <!--</uib-accordion-heading>-->
+        <!-- Updated div (See 4 above) -->
+        <!-- Expandable Panel Additional Info-->
+        <div class="row product-module__details" uib-collapse="!product.showDetails" class="collapse" aria-expanded="false" aria-hidden="true">
+            <div class="col-xs-12">
+                <div class="row  spacer-bottom-sm">
+                    <!-- Product and Supplies -->
+                    <div class="col-xs-12 col-sm-4 product-module__product"
+                         ng-class="{'hidden-xs': !product.supplies.length}">
+                        <div ng-if="product.supplies">
+                            <div class="spacer-bottom-xs">
+                                Product Supplies
+                                <a class="pull-right" href="#" >View All</a>
+                            </div>
+                            <div class="row">
+
+                                <ul class="hidden-xs col-sm-12">
+                                    <li class="spacer-bottom-sm" ng-repeat="item in product.supplies track by $index">
+                                        <img class="col-sm-4" ng-src="{{ item.thumb }}" />
+                                        <div class="col-sm-8">
+                                            <h2 class="ps-light nmt nmb text-blue-500"><a href >{{ item.productName }}</a></h2>
+                                            <p class="spacer-top-xs">{{ item.price | currency }}</p>
+                                            <button class="rounded-button btn-sm primary">Add To Cart</button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- Mobile swipe view -->
+                             <ul uib-carousel class="visible-xs static-height spacer-bottom-sm">
+                                <li uib-slide ng-repeat="item in product.supplies">
+                                    <div class="col-xs-12">
+                                        <img class="product-image" ng-src="{{ item.thumb }}">
+                                    </div>
+                                    <div class="product-details">
+                                        <span class="product-details__item-number">Item # {{ item.itemNumber }}</span>
+                                        <h3 class="product-details__product-name ps-light text-blue-500"><a href >{{ item.productName }}</a></h3>
+                                    </div>
+                                    <a ng-href="{{ item.itemUrl }}" class="product-cover-link"></a>
+                                    <p class="col-xs-12 text-center">Price {{ item.price }}</p>
+                                    <button class="rounded-button btn-sm primary">Add To Cart</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Status Col -->
+                    <ul class="col-xs-12 col-sm-4 product-module__status full-height-border border-bottom-xs"
+                        ng-class="{'hidden-xs': !product.availableUpdates.length && !product.statusHistory.length}">
+                        <li class="spacer-bottom-sm clearfix"
+                            ng-repeat="item in (product.updates ? product.availableUpdates : product.statusHistory)
+  track by $index">
+<span class="pull-left"
+      ng-class="{
+  'icon-check-circle text-green': !product.updates,
+  'icon-alert-circle text-orange': product.updates
+  }">
+</span>
+                            <!-- Removed class "pull-left" -->
+                            <!-- Show if products are up to date -->
+                            <span ng-if="!product.updates">{{ item }}</span>
+                            <!-- Removed class "pull-left" -->
+                            <!-- Show if there are updates available -->
+                            <div ng-if="product.updates">
+                                <p class="text-orange nmb">{{ item.updateLabel }}</p>
+                                <a href="{{ item.url }}">{{ item.ctaLabel }}</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- Location and Contract info -->
+                    <div ng-if="product.type != 'software'" class="col-xs-12 col-sm-4 product-module__location spacer-bottom-sm">
+                        <div class="row">
+                            <!-- Location Support Resources -->
+                            <ul class="col-xs-12 product-module__location__support-resources">
+                                <li class="spacer-bottom-sm" ng-repeat="item in product.location.resources track by $index">
+                                    <a ng-href="{{ item.url }}">{{ item.name }}</a>
+                                </li>
+                               <li class="spacer-bottom-xs">
+                                    <a class="text-blue-500"  ng-click="pbProductsModuleCtrl.nonMeterNotifications();">
+                                        Set Meter Refill Notifications                            </a>
+                                </li></ul>
+
+                            <!-- Contract Info -->
+                            <p class="col-xs-12 visible-xs spacer-bottom-sm"><b>Product Details</b></p>
+                            <ul class="col-xs-12 spacer-bottom-sm">
+                                <li class="spacer-bottom-xs"><span class="bold">PCN #:</span><span> {{ product.location.contractInfo.pcnNumber }}</span></li>
+                                <li class="spacer-bottom-xs"><span class="bold">Serial #:</span><span> {{ product.location.contractInfo.serialNumber }}</span></li>
+                                <li class="spacer-bottom-xs"><span class="bold">Contract:</span><span> {{ product.location.contractInfo.contract }}</span></li>
+                                <li class="spacer-bottom-xs"><span class="bold">Install date:</span><span> {{ product.location.contractInfo.installDate }}</span></li>
+                            </ul>
+                            <a class="col-xs-12" ng-href="{{ product.location.contractInfo.requestDetails.url }}">
+                                {{ product.location.contractInfo.requestDetails.linkName }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Smart link Messagging -->
+                <div ng-if="product.support" class="row smartlink-product-module__support bg-pb-bg_new">
+                    <div class="col-xs-12 spacer-bottom-md">
+                        <div class="row  text-center">
+                            <h5 class="col-xs-12 spacer-top-sm hidden-xs">Message about smartlink device and it's benefits.</h5>
+                            <div class="col-sm-12 hidden-xs spacer-bottom-sm">
+                                <a href="#">Order the device</a>
+                                <a class="border-left" href="#">Link my device now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Smart link messaging ends -->
+                <!-- Product Support -->
+                <div ng-if="product.support" class="row product-module__support bg-pb-bg1">
+                    <div class="col-xs-12 spacer-bottom-md">
+                        <div class="row">
+                            <h2 class="col-xs-12 spacer-top-sm hidden-xs">Support for this product</h2>
+                            <div class="col-xs-12 col-sm-4 product-module__support__support-content border-bottom-xs">
+                                <div class="row">
+                                    <h2 class="col-xs-12 spacer-top-sm visible-xs">
+                                        Support
+                                        <a class="visible-xs pull-right text-blue-500" href="#">View All</a>
+                                    </h2>
+                                    <ul class="col-xs-12">
+                                        <li class="spacer-bottom-xs" ng-repeat="item in product.support.links.supportContent track by $index">
+                                            <a ng-href="{{ item.url }}">{{ item.name }}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 product-module__support__learn-content border-bottom-xs spacer-bottom-md">
+                                <div class="row">
+                                    <h2 class="col-xs-12 spacer-top-sm visible-xs">
+                                        Learn
+                                        <a class="visible-xs pull-right text-blue-500" href="#">View All</a>
+                                    </h2>
+                                    <ul class="col-xs-12">
+                                        <li class="spacer-bottom-xs" ng-repeat="item in product.support.links.learnContent track by $index">
+                                            <a ng-href="{{ item.url }}">{{ item.name }}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-4 product-module__support__learn-content">
+                                <div class="row">
+                                    <ul class="col-xs-12 spacer-bottom-md">
+                                        <li ng-if="!product.supportCases" class="spacer-bottom-xs">
+<span>
+<span class="icon-alert-circle"></span>
+<span>No open cases</span>
+</span>
+                                        </li>
+                                        <li ng-if="product.supportCases" class="spacer-bottom-sm" ng-repeat="case in product.supportCases | limitTo:1">
+                                            <div class="pull-left"
+                                                 ng-class="{
+  'icon-alert-circle text-orange': case.status == 'pending',
+  'icon-check-circle text-green': case.status == 'closed',
+  'icon-up-arrow': case.status == 'open'
+  }">
+                                            </div>
+<span>
+<span ng-if="case.status == 'open'">Open</span>
+<span class="text-orange" ng-if="case.status == 'pending'">Pending Client Action</span>
+<span class="text-green" ng-if="case.status == 'closed'">Closed</span>
+<span class="pull-right"><a href="#" class="text-blue-500">#{{ case.caseNumber }}</a></span>
+</span>
+                                            <div class="case-description spacer-top-xs ps-light">
+                                                <p class="nmb">{{ case.caseDescription }}</p>
+                                            </div>
+                                        </li>
+                                        <div class="col-xs-12 visible-xs">
+                                            <div class="col-xs-12 text-center spacer-top-sm spacer-bottom-sm">
+                                                <button ng-if="product.supportCases.length" class="rounded-button btn-sm primary nmb">View All ( {{product.supportCases.length}} )</button>
+                                            </div>
+                                            <a href class="col-xs-12 text-center text-blue-500">Open New Case</a>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4 hidden-xs">
+                                <a href="#">All Support Content</a>
+                            </div>
+                            <div class="col-sm-4 hidden-xs">
+                                <a href="#">All Learn Content</a>
+                            </div>
+                            <div class="col-sm-4 hidden-xs">
+                                <div class="row">
+                                    <div class="col-sm-6 vcenter"><a href class="text-blue-500">Open New Case</a></div><!--
+  --><div class="col-sm-6 vcenter text-right">
+                                    <button ng-if="product.supportCases.length" class="rounded-button btn-sm primary nmb">View All ( {{product.supportCases.length}} )</button>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Support Documents for Software -->
+                <div ng-if="product.supportDocuments" class="row border-top bg-white product-module__support-documents">
+                    <div class="col-xs-12 spacer-top-sm spacer-bottom-md">
+                        <h1 class="spacer-top-sm bk text-center">Support Documents</h1>
+                        <!-- Double List -->
+                        <ul class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+                            <li class="col-xs-12 col-sm-6 spacer-bottom-xs" ng-repeat="doc in product.supportDocuments">
+                                <a ng-href="doc.downloadURL" >
+                                    <span class="icon-download-circle text-blue-500"></span>
+                                    <span>{{ doc.title }}</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- Search -->
+                        <div class="col-xs-12 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4">
+                            <div class="support-articles-module__search-box search-box">
+                                <input name="track" class="pull-left col-xs-9 col-sm-9 col-md-9 ps-light"
+                                       placeholder="Documentation Library"
+                                       data-default-val="Search">
+                                <button type="submit" class="col-xs-3 col-sm-3 col-md-3">Search</button>
+                                <div class="clear-search-text visible-xs hide"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Community Ideas -->
+                <div ng-if="product.community" class="row border-top bg-white">
+                    <div class="col-xs-12 spacer-top-sm spacer-bottom-md">
+                        <h1 class="spacer-top-sm bk text-center">Community Ideas</h1>
+                        <!-- Double List -->
+                        <ul class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 spacer-bottom-md">
+                            <li class="col-sm-6" ng-repeat="topic in product.community">
+                                <h3 class="text-blue-500">
+                                    <a href="#">{{ topic.title }}</a>
+                                </h3>
+                                <p>Posted by <a href="#">{{ topic.author }}</a> {{ topic.date }}</p>
+                            </li>
+                        </ul>
+                        <!-- CTA -->
+                        <div class="col-xs-12 text-center">
+                            <a href="#">
+                                <span class="vcenter">Submit Ideas</span><!--
+  --><span class="icon-next-circle vcenter"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Related Products -->
+                <div ng-if="product.relatedProducts" class="row border-top bg-white">
+                    <div class="col-xs-12 spacer-top-sm spacer-bottom-md">
+                        <div class="row">
+                            <h1 class="spacer-top-sm bk text-center">Related Products</h1>
+                            <!-- Products Buckets -->
+                            <div class="col-xs-12 col-sm-3 ps-light" ng-repeat="item in product.relatedProducts">
+                                <h3 class="text-blue-500"><a href="#">{{ item.name }}</a></h3>
+                                <p>{{ item.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--</uib-accordion-group>-->
+    </figure>
+    <!--</uib-accordion>-->
+    <section class="col-xs-12 spacer-bottom-md">
+        <div class="col-xs-12 col-sm-4 text-center-xs spacer-bottom-sm">
+            <button class="btn btn-pill-ko" ng-click="pbProductsModuleCtrl.addaccount(account,data)">Add Products</button>
+        </div>
+        <div ng-show="pbProductsModuleCtrl.limitedItemsValue.length < pbProductsModuleCtrl.filteredItems.length" class="view-more col-xs-12 col-sm-4 text-center">
+            <a class="white" href ng-click="pbProductsModuleCtrl.viewMoreProducts()">
+                <span class="icon-plus-circle vcenter hidden-xs"></span><!--
+  --><span class="vcenter">View More</span>
+            </a>
+        </div>
+    </section>
+</div>

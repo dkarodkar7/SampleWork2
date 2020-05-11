@@ -1,0 +1,51 @@
+<div class="modal-header no-borders">
+    <div class="container-fluid">
+        <div class="row text-right pull-right">
+            <a href="" ng-click="close()" class="modal__close"><span class="icon-close dark-gray"></span></a>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="header--sm no-margin-top">The way you sign in is changing.</h1>
+                <p class="ps-light">Starting today, you'll sign in at Pitney Bowes using your email address. We have pre-filled the one in our file; you may use that or enter a new email and begin the process.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-body">
+    <section class="container-fluid">
+        <form id="modalForm" name="modalForm" novalidate role="form" ng-submit="loginUser(user,form)" novalidate>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group required">
+                        <label for="email">Email Address</label>
+                        <input type="email" name="email" required class="form-control" ng-model="user.email"
+                               ng-class="{ 'error' : (form.email.$invalid && form.email.$touched)}" id="email" />
+                        <div ng-show="form.$submitted || form.email.$touched">
+                            <p class="error" ng-show="form.email.$error.required">
+                                Email is empty
+                            </p>
+                            <p class="error" ng-show="form.email.$error.email">
+You did not enter a valid email. Please enter one and select 'Next.' </p>
+                            <span class="icon-alert-circle error-icon" ng-show="form.email.$invalid && form.email.$touched"></span>
+                        </div>
+                        <div ng-show="form.$submitted" ng-hide="form.email.$invalid && form.email.$touched">
+                            <p class="error" ng-if="user.status == 'active' || user.status == 'registered'">
+                                This email is already in use at pitneybowes.com. <a ui-sref="account.login">Sign in</a> with it or enter a new one in the box
+and select 'Next.'                            </p>
+                            <span class="icon-alert-circle error-icon" ng-if="user.status == 'inactive' || user.status == 'onboarded' || user.status == 'active' || user.status == 'registered'"></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="text-center">
+                        <button class="rounded-button primary" type="submit" ng-click="account(modalForm)" ng-disabled="modalForm.$invalid" ng-class="{ gray:modalForm.$invalid }">Next</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </section>
+</div>

@@ -1,0 +1,76 @@
+////
+/// This is a poster comment.
+/// It will apply annotations to all items from file.
+/// @group DesignSystem
+/// @author Steve Lombardi
+////
+
+// Settings
+// Global variables and mixins, Bower distribute
+// =============================================
+@import "settings/variables";
+@import "settings/mixins";
+
+
+// Base
+// Site-wide style definitions
+// ========================================
+@import "base/fonts";
+@import "base/pbfont";
+@import "base/typography";
+@import "base/helpers";
+
+// Legacy
+// Items removed from the DS but which we do not want to break if in use
+// ========================================
+@import 'legacy/miller-columns';
+@import 'legacy/selectize';
+@import 'legacy/wizard';
+@import 'legacy/stepper';
+@import 'legacy/media-object';
+
+
+// PAGES
+// ========================================
+@import 'pages/fullscreen';
+@import 'pages/left-nav';
+@import 'pages/tree-menu';
+
+
+// Modules
+// ========================================
+@import '../../modules/elements/assets/sass/accordion';
+@import '../../modules/elements/assets/sass/alerts';
+@import '../../modules/elements/assets/sass/badges';
+@import '../../modules/elements/assets/sass/breadcrumbs';
+@import '../../modules/elements/assets/sass/buttons';
+@import '../../modules/elements/assets/sass/forms';
+@import '../../modules/elements/assets/sass/form-controls';
+// @import '../../modules/elements/assets/sass/wtf-forms';
+@import '../../modules/elements/assets/sass/list-group';
+@import '../../modules/elements/assets/sass/loading-bar';
+@import '../../modules/elements/assets/sass/notifications';
+@import '../../modules/elements/assets/sass/switches';
+@import '../../modules/elements/assets/sass/tabs';
+@import '../../modules/elements/assets/sass/toastrs';
+@import '../../modules/elements/assets/sass/toggle-switch';
+@import '../../modules/elements/assets/sass/ui-select';
+@import '../../modules/elements/assets/sass/uibootstrap';
+@import '../../modules/elements/assets/sass/custom-daterange-picker';
+
+@import '../../modules/main/assets/sass/header';
+@import '../../modules/main/assets/sass/footer';
+@import '../../modules/main/assets/sass/sectionlanding';
+
+@import '../../modules/elements/assets/sass/panels';
+@import '../../modules/elements/assets/sass/popover';
+@import '../../modules/elements/assets/sass/progress-bar';
+
+@import '../../modules/patterns/sass/signin';
+@import '../../modules/tables/assets/sass/tables';
+@import '../../modules/tables/assets/sass/daterangepicker';
+@import '../../modules/graphs/sass/c3';
+@import '../../modules/landing/assets/sass/landing';
+
+@import '../../modules/splitview/assets/sass/leftnav';
+@import '../../modules/splitview/assets/sass/splitview';

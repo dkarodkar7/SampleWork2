@@ -1,0 +1,77 @@
+<div class="dashboard-module spacer-bottom-md support-cases-module col-xs-12 {{ responsiveClasses }}">
+    <section>
+        <div class="col-xs-12">
+            <h2 class="dashboard-module__header header--sm ko ps-light text-left">
+                {{ moduleTitle }}
+            </h2>
+        </div>
+    </section>
+
+    <section class="dashboard-module__module bg-white list-view-module">
+
+        <pb-loader show-loader="!supportCasesModuleCtrl.model" load-failed="supportCasesModuleCtrl.promiseResolvedFailed"></pb-loader>
+
+        <div class="row">
+            <ul class="col-xs-12 variable-height list-view-module__list">
+                <li class="support-case"
+                    ng-class="{
+                           'case-open': case.status == 'open',
+                         'case-closed': case.status == 'closed',
+                        'case-pending': case.status == 'pending'
+                    }"
+                    ng-repeat="case in supportCasesModuleCtrl.model[0].cases">
+
+                    <a href="#">
+                        <div class="dlist-group spacer-bottom-md text-small">
+                            <div class="definition">
+                                <span>
+                                    <span class="notification__icon"
+                                          ng-class="{
+                                           'icon-alert-circle text-orange': case.status == 'pending',
+                                            'icon-check-circle text-green': case.status == 'closed',
+                                                           'icon-up-arrow': case.status == 'open'
+                                           }">
+                                    </span>
+                                    <span> {{ case.statusMessage }} </span>
+                                </span>
+                            </div>
+
+                            <p class="defined ps-light">
+                                #{{ case.number }}
+                            </p>
+                        </div>
+
+                        <div class="hidden-xs spacer-bottom-sm bk text-large ps-light support-case__subject">
+                            {{ case.description }}
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <section class="ctas static-height">
+            <div class="ctas__inner border-top">
+                <!--<div>-->
+                    <!--<p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor-->
+                        <!--sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet </p>-->
+                <!--</div>-->
+
+                <div>
+                    <a class="col-xs-12 col-sm-6 ctas__link hidden-xs text-large" ng-click="createcase();">Create a Case</a>
+                    <div class="col-xs-12 col-sm-6 ctas__button">
+                        <button class="rounded-button btn-sm primary">View All Cases ({{ supportCasesModuleCtrl.model[0].cases.length }})</button>
+                    </div>
+                    <a ng-click="createcase();" class="col-xs-12 col-sm-6 ctas__link ps-light visible-xs spacer-top-sm text-center">Create a Case</a>
+                </div>
+
+                <!-- Upgrade notification -->
+                <!--<div class="callout row">-->
+                    <!--<h3 class="subhead subheader&#45;&#45;md ps-light nmt">Example Notification Title</h3>-->
+    <!-- -->
+                    <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore-->
+                    <!--et dolore magna aliqua. Ut enim ad minim veniam. <a href="#">Learn More.</a></p>-->
+                <!--</div>-->
+            </div>
+        </section>
+    </section>
+</div>

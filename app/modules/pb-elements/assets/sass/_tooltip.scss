@@ -1,0 +1,40 @@
+.tooltip{
+	&__icon{
+		width: 16px;
+	    height: 16px;
+	    margin-left: 5px;
+	    display: inline-block;
+	    text-align: center;
+	    font-style: inherit;
+	  	line-height:18px;
+	  	font-size:12px;
+	    cursor: pointer;
+	    border-radius: 100%;
+	}
+	&--form{
+	    @extend .white;
+	    background: $pb-blue;
+	    
+	}
+	&__info{
+		background-color: $brand-tooltip-bg;
+		color: $body-bg;
+		padding: $padding-sm $padding-md;
+
+		a.tooltip__link, 
+		a.tooltip__close{
+	    	color: inherit;
+	    	font-family: $font-family-ps-medium;
+	    }
+	}
+	&__close {
+		&:hover { text-decoration: none; }
+		&__container { text-align: right; }
+		&__icon { 
+			font-size: 1em;
+			margin: 0; 
+		}
+	}
+	&__image { width: 100%; }
+
+}

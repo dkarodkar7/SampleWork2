@@ -1,0 +1,124 @@
+<div class="dashboard-module col-xs-12 spacer-bottom-md apps-module">
+    <div class="col-xs-12">
+        <h2 class="dashboard-module__header header--sm ko ps-light text-left">
+            {{ moduleTitle }}
+        </h2>
+    </div>
+
+    <figure ng-if="!pbAppsModuleCtrl.model || pbAppsModuleCtrl.promiseResolvedFailed" class="dashboard-module__module spacer-bottom-md bg-white product-module">
+        <div class="panel-heading nmb npb" style="min-height: 400px;">
+            <pb-loader show-loader="!pbAppsModuleCtrl.model" load-failed="pbAppsModuleCtrl.promiseResolvedFailed"></pb-loader>
+        </div>
+    </figure>
+
+    <!-- Horizon SaaS -->
+    <figure class="dashboard-module__module bg-white">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="name bk nmt nmb header--sm ng-binding pull-left">Horizon</h1>
+                <a href class="link pull-right hidden-xs">
+                    <span>Go to full app</span>
+                    <span class="icon-next-circle primary"></span>
+                </a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8">
+                <h3 class="spacer-bottom-sm">Select a carrier to create your label:</h3>
+
+                <div class="row">
+                    <ul class="carriers no-margins col-sm-12">
+                        <li class="col-xs-4 spacer-bottom-sm">
+                            <a href class="logo-usps"></a>
+                        </li>
+                        <li class="col-xs-4 spacer-bottom-sm">
+                            <a href class="logo-fedex"></a>
+                        </li>
+                        <li class="col-xs-4 spacer-bottom-sm">
+                            <a href class="logo-ups"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <!-- Shipment Tracking -->
+            <div class="col-md-4">
+                <h3 class="spacer-bottom-md">Track Shipments</h3>
+
+                <div class="row spacer-top-md">
+                    <form action=".">
+                        <div class="search-box tracking-control-group col-xs-12">
+                            <div class="col-xs-12 col-sm-9 input-container">
+                                <div class="row input-container__border">
+                                    <span uib-dropdown on-toggle="toggled(open)" class="select">
+                                        <a href id="simple-dropdown" uib-dropdown-toggle>
+                                            {{ pbAppsModuleCtrl.choice || pbAppsModuleCtrl.carrierList[0] }} <span class="icon-caret-down small"></span>
+                                        </a>
+                                        <ul class="uib-dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                                            <li ng-repeat="choice in pbAppsModuleCtrl.carrierList track by $index" ng-click="pbAppsModuleCtrl.choice = choice; pbAppsModuleCtrl.mobileClose($event)">
+                                                <a href>{{ choice }}</a>
+                                            </li>
+                                        </ul>
+                                    </span>
+
+                                    <input ng-model="pbAppsModuleCtrl.trackingNumber" name="track" class="pull-left ps-light" placeholder="Tracking Number">
+                                </div>
+                            </div>
+
+                            <button type="button" class="col-xs-3 hidden-xs" ng-click="pbAppsModuleCtrl.showTrackingResults()">Track</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Tacking activity list -->
+                <div class="row tracking-activity spacer-top-sm" ng-show="pbAppsModuleCtrl.showTrackingList && pbAppsModuleCtrl.trackingNumber">
+                    <div class="col-xs-12 spacer-bottom-sm">
+                        <span class="selected-carrier"><strong>{{ pbAppsModuleCtrl.choice }}</strong></span>
+                        <span>{{ pbAppsModuleCtrl.trackingNumber }}</span>
+                    </div>
+
+                    <ul class="col-xs-12">
+                        <li class="border-bottom" ng-repeat="activity in pbAppsModuleCtrl.mockTrackingActivity">
+                            <div class="tracking-status">{{ activity.status }}</div>
+                            <div class="text-xs text-gray-300">
+                                <span>{{ activity.time }}</span>
+                                <span>{{ activity.date }}</span>
+                                <span>{{ activity.location }}</span>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <a href class="clear-search col-xs-12" ng-show="pbAppsModuleCtrl.showTrackingList && pbAppsModuleCtrl.trackingNumber" ng-click="pbAppsModuleCtrl.clearTrackingResults()">Clear</a>
+                </div>
+            </div>
+
+            <a href class="link text-center spacer-top-lg spacer-bottom-sm visible-xs">
+                <span>Go to full app</span>
+                <span class="icon-next-circle primary"></span>
+            </a>
+        </div>
+    </figure>
+
+
+    <figure class="dashboard-module__module apps-module apps-module--app-basic bg-white">
+        <div class="row">
+            <h1 class="col-xs-10 col-sm-6 name bk nmt nmb header--sm ng-binding">Multi-Carrier SendKit</h1>
+
+            <a href class="col-xs-2 text-large link hidden-xs">
+                <span>Track Packages</span>
+            </a>
+
+            <a href class="col-xs-2 text-large link hidden-xs">
+                <span>Schedule Pickup</span>
+            </a>
+
+            <a href class="col-xs-2 link text-large">
+                <span class="hidden-xs">Launch</span>
+                <span class="icon-next-circle primary"></span>
+            </a>
+        </div>
+    </figure>
+
+</div>

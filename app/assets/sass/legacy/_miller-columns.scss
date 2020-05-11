@@ -1,0 +1,48 @@
+//Miller Columns
+// scss-lint:disable SelectorDepth
+.miller-columns {
+  margin-bottom: 20px;
+  .panel {
+    height: 100%;
+    overflow-y: auto;
+  }
+  .first-column {
+    padding-right: 0;
+    height: 100%;
+    .panel-default {
+      border-right: 0;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      .panel-heading {
+        border-top-right-radius: 0;
+      }
+    }
+  }
+  .inner-column {
+    padding-left: 0;
+    padding-right: 0;
+    height: 100%;
+    .panel-default {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      .panel-heading {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+  }
+  .last-column {
+    padding-left: 0;
+    height: 100%;
+    .panel-default {
+      border-left: 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      .panel-heading {
+        border-top-left-radius: 0;
+      }
+    }
+  }
+}

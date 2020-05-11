@@ -1,0 +1,164 @@
+.nav-left {
+  position                : absolute;
+  width                   : 275px;
+  top                     : 80px;
+  padding                 : 10px;
+  z-index                 : 100;
+  -webkit-transition      : width .8s;;
+  transition              : width .8s;
+  -webkit-transition-delay: width .3s;
+  transition-delay        : width .3s;
+
+  .minified & {
+    width: 50px;
+  }
+}
+
+.nav-container {
+  margin-left             : 275px;
+  padding-left            : 30px;
+  -webkit-transition      : margin-left .6s;
+  transition              : margin-left .6s;
+  -webkit-transition-delay: margin-left .5s;
+  transition-delay        : margin-left .5s;
+
+  .minified & {
+    margin-left: 70px;
+  }
+}
+
+.menu {
+  $indent: 10px;
+
+  > li {
+
+    &.open {
+      .menu-heading {
+        i, .menu-title, b {
+      -webkit-transition: all .3s;
+      transition        : all .3s;
+      color             : $brand-primary;
+        }
+      }
+    }
+
+    .minified & {
+
+      &:hover {
+
+        .menu-heading {
+            -webkit-transition: none;
+            transition        : none;
+            background-color  : $pb-bg2;
+            width             : 200px;
+        }
+
+        .menu-title {
+          display: inline-block !important;
+          background-color: $pb-bg2;
+          font-weight: 700;
+        }
+        .menu-content {
+          -webkit-transition: all .3s;
+          transition        : all .3s;
+          background-color  : $pb-bg2;
+          position          : absolute;
+          width             : 165px;
+          left              : 45px;
+          display           : block !important;
+          li {
+
+            a {
+              padding: 5px;
+            }
+
+          }
+        }
+      }
+    }
+  }
+
+  .menu-heading {
+  white-space    : nowrap;
+  padding        : 5px 3px;
+  color          : $text-color;
+  text-decoration: none;
+  display        : block;
+  cursor         : pointer;
+  position       : relative;
+
+    i.fa {
+      margin-right: $indent;
+    }
+
+    &:hover {
+    background-color  : transparent;
+    -webkit-transition: all .3s;
+    transition        : all .3s;
+    color             : $brand-primary;
+    }
+
+  }
+
+ .menu-content {
+    display: none;
+    li {
+      white-space: nowrap;
+      &:hover {
+        background: $pb-bg2;
+        color: $brand-primary;
+      }
+      a {
+    color          : $text-color;
+    text-decoration: none;
+    padding-left   : $indent+31px;
+    padding-top    : 5px;
+    padding-bottom : 5px;
+    display        : block;
+    cursor         : pointer;
+        &:hover {
+          color: $brand-primary;
+        }
+        &.active {
+          color: $brand-primary;
+        }
+      }
+    }
+  }
+
+  .menu-collapse {
+    cursor: default;
+    padding-left: 3px;
+    // the icon itself
+    i.fa {
+    cursor            : pointer;
+    -webkit-transition: all .3s;
+    transition        : all .3s;
+
+      &:hover {
+    -webkit-transition: all .3s;
+    transition        : all .3s;
+    color             : $brand-primary;
+      }
+      &:before {
+        content: '\f0a8';
+      }
+    }
+
+    .minified & {
+      i.fa {
+    -webkit-transition: all .3s;
+    transition        : all .3s;
+    -webkit-transform : rotate(180deg);
+    transform         : rotate(180deg);
+      }
+      // ie8
+      .no-csstransforms & {
+        i.fa:before {
+        content: '\f0a9';
+      }
+    }
+    }
+
+  }
+}

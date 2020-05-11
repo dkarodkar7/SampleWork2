@@ -1,0 +1,121 @@
+<div class="dashboard-module col-xs-12 chart-module spacer-bottom-md" ng-init="chart.adjustModuleBottomPadding()">
+    <!-- Module Label -->
+    <section>
+        <div class="col-xs-12">
+            <h2 class="dashboard-module__header header--sm ko ps-light text-left">
+                {{ chart.moduleTitle }}
+            </h2>
+        </div>
+    </section>
+
+    <section class="dashboard-module__module bg-white">
+
+        <pb-loader show-loader="!chart.model" load-failed="chart.promiseResolvedFailed"></pb-loader>
+
+        <div class="row">
+
+            <figure class="col-xs-12 col-sm-7">
+                <div class="spacer-bottom-sm clearfix" ng-if="chart.model && chart.monthlySpending.length">
+                    <span class="pull-left">Switch View: &nbsp;</span>
+                    <div uib-dropdown on-toggle="toggled(open)" class="select pull-left">
+                        <a href id="simple-dropdown" uib-dropdown-toggle>
+                            {{ chart.chartAddressView || chart.customerDetails[0].address.street }} <span class="icon-caret-down small"></span>
+                        </a>
+                        <ul class="uib-dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                            <li ng-repeat="detail in chart.customerDetails"
+                                ng-click="chart.chartAddressView = detail.address.street; chart.getUsageReport( detail.can ); chart.mobileClose($event);">
+
+                                <a href>{{ detail.address.street }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="chart-container" ng-init="chart.getUsageReport( chart.customerDetails[0].can )">
+                    <!-- Chart with data -->
+                    <canvas ng-if="chart.monthlySpending.length" id="line" class="chart chart-line" width="1306" height="652" style="width: 650px; height: 350px;"
+                            data="chart.line.data"
+                            labels="chart.line.labels"
+                            legend="false"
+                            series="chart.line.series"
+                            click="chart.line.click"
+                            options="chart.line.options"
+                            colours="chart.line.colours">
+                    </canvas>
+
+                    <!-- Empty Chart shown when no meters are connected -->
+                    <canvas ng-if="!chart.monthlySpending.length" id="emptyChart" class="chart chart-line spacer-top-md spacer-bottom-md" width="1306" height="652" style="width: 650px; height: 300px;"
+                            data="chart.emptyChart.data"
+                            labels="chart.emptyChart.labels"
+                            legend="false"
+                            colours="chart.emptyChart.colours"
+                            options="chart.emptyChart.options">
+                    </canvas>
+
+                    <div id="chartjs-tooltip"></div>
+
+                    <chart-legend ng-if="chart.monthlySpending.length">
+                        <ul class="line-legend pull-left text-large spacer-top-sm">
+                            <li><span style="background-color: #0c76ba"></span>This Year</li>
+                            <li><span style="background-color: #3E53A4;"></span>Last Year</li>
+                        </ul>
+                    </chart-legend>
+                </div>
+            </figure>
+
+            <div class="col-xs-12 col-sm-5 chart-module__recommendations">
+                <div ng-if="chart.monthlySpending.length">
+                    <h4>What could you do to achieve better savings?</h4>
+
+                    <!-- Desktop list view -->
+                    <ol>
+                        <li class="hidden-xs col-xs-12 spacer-bottom-xs" ng-repeat="item in chart.recommendations">
+                            <h5 class="nmb">{{ item.heading }}</h5>
+                            <p class="nmb">
+                                {{ item.text }}
+                                <span><a ng-href="{{ item.links[0] }}">Learn More</a></span>
+                            </p>
+                        </li>
+                    </ol>
+
+                    <!-- Mobile swipe view -->
+                    <uib-carousel ng-if="chart.recommendations" class="visible-xs static-height spacer-bottom-sm carousel-mobile">
+                        <uib-slide ng-repeat="item in chart.recommendations">
+                            <h5 class="nmb text-large ps-light"><b>{{ item.heading }}</b></h5>
+                            <p class="nmb text-large ps-light spacer-top-xs">
+                                {{ item.text }}
+                                <span><a ng-href="{{ item.links[0] }}">Learn More</a></span>
+                            </p>
+                        </uib-slide>
+                    </uib-carousel>
+                </div>
+
+                <div class="col-xs-12 text-center-xs spacer-top-sm spacer-bottom-lg">
+                    <a href class="link text-large">
+                        <b class="vcenter">View Full Report</b><!--
+                     --><i class="icon-next-circle primary vcenter"></i>
+                    </a>
+                </div>
+
+                <h2 ng-if="!chart.monthlySpending.length"
+                    class="subheader--lg ps-light col-xs-12 spacer-top-lg spacer-bottom-lg">
+                    There is currently no data for your Analytics and Insights Report. Please make sure your meter is plugged in.
+                </h2>
+            </div>
+        </div>
+
+
+        <!-- Bottom Content -->
+        <section class="ctas static-height">
+            <div class="ctas__inner">
+
+                <!-- Upgrade notification -->
+                <div class="callout row">
+                    <h3 class="subhead subheader--md ps-light nmt text-left">INVIEW<sup>&trade;</sup></h3>
+
+                    <p>View and report on postage meter funds and usage. <a href="#">Your INVIEW<sup>&trade;</sup></a></p>
+                </div>
+            </div>
+        </section>
+    </section>
+</div>

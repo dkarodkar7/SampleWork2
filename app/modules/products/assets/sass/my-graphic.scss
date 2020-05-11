@@ -1,0 +1,76 @@
+/* These selection declarations have to be separate
+
+/* Layout */
+
+#ms1wrapper p.subhead {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 8px 0 0;
+  padding: 0;
+}
+#ms1wrapper .ms1DataForm {
+  margin: 40px 0 0;
+
+  .itemData{
+    font-weight: 300;
+  }
+}
+#ms1wrapper p.intro {
+  font-size: 12px;
+  margin: 0;
+  color: #6d6d6d;
+  font-size: 93%;
+  font-weight: bold;
+}
+#ms1wrapper .subdued {
+  color: #666;
+  display: block;
+  font-size: 12px;
+}
+
+.ms1DataForm .formRow {
+  margin: 12px 0;
+}
+.ms1DataForm label {
+  display: inline-block;
+  vertical-align: top;
+}
+.ms1DataForm .PCN {
+  display: inline-block;
+  font-size: 13px;
+  margin: 0 20px 0 0;
+  vertical-align: top;
+  width: 230px;
+  .itemLabel{
+    font-weight: 700;
+    margin-left:35px;
+  }
+}
+.ms1DataForm .SN {
+  display: inline-block;
+  font-size: 13px;
+  vertical-align: top;
+  .itemLabel {
+    font-weight: 700;
+  }
+}
+.selectRow {
+  margin: 12px 0;
+
+}
+.SelectN {
+  display: inline-block;
+  font-size: 13px;
+  margin: 0 20px 0 0;
+  vertical-align: top;
+  width: 230px;
+}
+
+.actionsRow {
+  margin: 20px 0 40px;
+  text-align: center;
+
+}
+.SelectLabel{
+  font-weight: 700;
+}

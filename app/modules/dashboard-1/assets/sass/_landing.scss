@@ -1,0 +1,405 @@
+.dashboard {
+    background: linear-gradient(90deg, #3e53a4 0%, #cf0989 100%);
+    padding-top: 75px;
+
+    a:focus, a:active,
+    button:focus,
+    button::-moz-focus-inner,
+    input[type="reset"]::-moz-focus-inner,
+    input[type="button"]::-moz-focus-inner,
+    input[type="submit"]::-moz-focus-inner,
+    select::-moz-focus-inner,
+    input[type="file"] > input[type="button"]::-moz-focus-inner {
+        border: 0;
+        outline : 0;
+    }
+
+    button {
+        text-transform: none;
+    }
+
+    .name-container {
+        font-size: 40px;
+        @include breakpoint($tablet) {
+            font-size: 48px;
+        }
+    }
+
+    // Bootstrap accordion overrides
+    //
+    .panel {
+        //margin-bottom: 0;
+        margin: 0 -15px;
+        background-color: transparent;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .panel-group .panel .panel-heading {
+        background-color: transparent;
+        margin: 0;
+        //padding: 0 15px;
+        padding: 0;
+
+        //h1 {
+        //    color: white;
+        //}
+    }
+
+    .panel-default > .panel-heading + .panel-collapse > .panel-body {
+        border-top-color: transparent;
+        padding: 0 15px;
+    }
+
+
+
+
+    .search-box {
+        width: 100%;
+        display: inline-block;
+
+        .select {
+            //position: absolute;
+            z-index: 1000;
+        }
+
+        input {
+            height: 40px;
+            padding: 5px 20px 6px;
+            border: 1px solid $pb-gray-300;
+            border-right: none;
+            box-sizing: border-box;
+            outline: none;
+            @include border-left-radius(20px);
+        }
+        button {
+            height: 40px;
+            padding: 5px;
+            font-size: 1em;
+            border: 1px solid $pb-blue-500;
+            background: $pb-blue-500;
+            color: #fff;
+            @include border-right-radius(20px);
+        }
+
+        .search-tips-link {
+            width: 20%;
+            margin: 15px 0;
+            display: inline-block;
+            text-align: center;
+        }
+    }
+
+    .notification-center {
+        padding: 0 15px;
+
+        .notification__group__container {
+            &:last-child {
+                @include breakpoint($tablet) {
+                    margin-bottom: 40px;
+                }
+            }
+        }
+
+        .nav,
+        .notifications-container {
+            @include breakpoint($tablet) {
+                border-bottom: 1px solid rgba(255, 255, 255, .5);
+            }
+        }
+        .nav {
+            padding-bottom: 5px;
+            cursor: default;
+        }
+
+        .notification__inner {
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+
+        button {
+            float: right;
+            top: 5px;
+            position: relative;
+
+            &.no-notifications {
+                border: 1px solid white;
+                background-color: transparent;
+            }
+
+            @include breakpoint($tablet, max) {
+                width: 100%;
+                margin-top: 40px;
+                float: none;
+            }
+        }
+    }
+
+    // ui.bootstrap.carousel overrides
+    .carousel {
+        padding-bottom: 30px;
+
+        img {
+            max-width: 50%;
+            display: inline;
+        }
+
+        .carousel-indicators {
+            bottom: 0;
+            //width: 60%;
+            //margin-left: -30%;
+            margin-bottom: 0;
+
+            li {
+                width: 13px;
+                height: 13px;
+                margin: 0 4px;
+                border-color: $pb-blue;
+                background-color: $pb-blue;
+            }
+
+            .active {
+                background-color: white;
+            }
+        }
+
+        .right.carousel-control,
+        .left.carousel-control {
+            display: none;
+        }
+    }
+}
+
+.dashboard-module {
+    a:hover {
+        text-decoration: none;
+    }
+
+    &__header {
+        display: inline-block;
+        margin-top: 0;
+    }
+
+    .filters {
+
+
+        &--options {
+            display: inline-block;
+            margin-bottom: 10px;
+
+            @include breakpoint($tablet, max) {
+                margin-top: 15px;
+            }
+
+            .control-indicator {
+                background-color: transparent;
+                border: 1px solid #fff;
+            }
+
+            div {
+                display: inline-block;
+                margin-right: 10px;
+                margin-right:60px;
+                cursor: pointer;
+
+                @include breakpoint($tablet, max) {
+                    margin: 10px 0;
+                    display: block;
+                }
+
+                label {
+                    vertical-align: top;
+                    margin-left: 5px;
+
+                    input {
+                        width: 20px;
+                        height: 20px;
+                        vertical-align: top;
+                    }
+
+                    span {
+                        margin-left: 5px;
+                        display: inline-block;
+                        vertical-align: top;
+
+                        span {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .display-info {
+        top: 15px;
+        position: relative;
+        @include breakpoint($tablet){
+            top:0;
+        }
+    }
+
+    &__module {
+        overflow: hidden;
+        @include border-bottom-radius($border-radius-large + 2);
+        z-index: 1; // To fix masking with border radius in WekKit when there is overflow scroll in any children elements
+        padding: 20px;
+        position: relative;
+        clear: both;
+    }
+
+    &.col-sm-6 &__module,
+    &.col-md-6 &__module,
+    &.financial-overview-module &__module,
+    &.order-history-module &__module,
+    &.support-cases-module &__module {
+        @include breakpoint($tablet) {
+            min-height: 430px;
+            max-height: 430px;
+        }
+    }
+
+    .ctas {
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+        display: inline-block;
+
+        &__inner {
+            padding: 20px 0 0;
+
+            @include breakpoint($tablet, max) {
+                border-top: none;
+            }
+        }
+
+        @include breakpoint($tablet) {
+            padding: 20px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+
+        &__link {
+            padding: 0;
+            width: 49%;
+            float: none;
+            font-weight: $fontMedium;
+            vertical-align: middle;
+            display: inline-block;
+
+            @include breakpoint($tablet, max) {
+                width: 100%;
+                margin-bottom: 15px;
+                //font-size: 1.750em;
+            }
+
+            [class^="icon-"],
+            [class*=" icon-"] {
+                margin: 0;
+            }
+        }
+
+        &__button {
+            padding: 0;
+            display: inline-block;
+            float: none;
+            vertical-align: middle;
+            text-align: center;
+
+            @include breakpoint($tablet) {
+                text-align: right;
+            }
+
+            button {
+                margin: 0;
+            }
+        }
+    }
+
+    .callout {
+        margin: 20px -20px -20px;
+        padding: 10px 20px;
+        border: none;
+        background-color: #D9F0FA;
+
+        .subhead {
+            color: $pb-medium-blue-500;
+        }
+    }
+}
+
+
+
+
+.list-view-module {
+    &__list {
+        overflow-x: hidden;
+        overflow-y: auto;
+        margin: 0;
+
+        li {
+            display: block;
+            position: relative;
+            list-style-type: none;
+            //line-height: 1.2em;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            .account-module & {
+                margin:20px 0;
+            }
+        }
+    }
+}
+
+.dlist-group {
+    border-bottom: 1px dashed #000;
+    position: relative;
+}
+
+.definition,
+.defined {
+    display:block;
+    position: relative;
+    margin-bottom: -5px;
+    font-size: 1.143em;
+
+    span, a {
+        display: inline;
+        background-color: #fff;
+    }
+
+    a:hover,
+    a:focus {
+        text-decoration: none;
+    }
+}
+
+.definition {
+    max-width: 50%;
+    .dashboard-module__module & {
+        color: $pb-blue;
+    }
+
+    @include breakpoint($tablet){
+        max-width: 75%;
+    }
+
+    span {
+        padding-right: 4px; // Padding between text and dotted line
+    }
+}
+
+.defined {
+    text-align: right;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    > span {
+        padding: 0 4px 0 5px; // Padding between text and dotted line
+    }
+}

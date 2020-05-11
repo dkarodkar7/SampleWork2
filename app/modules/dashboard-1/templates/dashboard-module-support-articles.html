@@ -1,0 +1,53 @@
+<div class="dashboard-module spacer-bottom-md support-articles-module {{ responsiveClasses }}">
+    <section>
+        <div class="col-xs-12">
+            <h2 class="dashboard-module__header header--sm ko ps-light text-left">
+                {{ moduleTitle }}
+            </h2>
+        </div>
+    </section>
+
+    <section class="dashboard-module__module bg-white list-view-module">
+
+        <pb-loader show-loader="!supportArticlesModuleCtrl.model" load-failed="supportArticlesModuleCtrl.promiseResolvedFailed"></pb-loader>
+
+        <section class="row">
+            <div class="col-xs-12 support-articles-module__search-container">
+                <h1 class="support-articles-module__search-box-header nmt bk hidden-xs">Search for a Topic</h1>
+
+                <div class="row">
+                    <div class="support-articles-module__search-box search-box col-xs-12">
+                        <input name="track" class="pull-left col-xs-9 col-sm-9 col-md-9 ps-light"
+                               placeholder="Enter keywords to find help topics"
+                               data-default-val="Search">
+
+                        <button type="submit" class="col-xs-3 col-sm-3 col-md-3">Search</button>
+                        <div class="clear-search-text visible-xs hide"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 support-articles-module__topics-container">
+                <h2 class="support-articles-module__popular-topics-header nmt">Popular Topics</h2>
+
+                <div class="row">
+                    <ul class="col-xs-12 list-view-module__list ps-light">
+                        <li ng-repeat="article in supportArticlesModuleCtrl.model[0].articles track by $index">
+                            <a href="#">{{ article }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="ctas static-height">
+            <div class="ctas__inner border-top">
+                <div>
+                    <div class="col-xs-12 col-sm-6 ctas__button">
+                        <button class="rounded-button btn-sm primary">View All Articles</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+</div>

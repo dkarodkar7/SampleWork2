@@ -1,0 +1,48 @@
+{
+  "countries": [
+    {
+      "name": "Brasil",
+      "value": "br",
+      "languages": [
+        {
+          "name": "Português",
+          "value": "pt"
+        }
+      ]
+    },
+    {
+      "name": "France",
+      "value": "fr",
+      "languages": [
+        {
+          "name": "Français",
+          "value": "fr"
+        }
+      ]
+    },
+    {
+      "name": "日本",
+      "value": "jp",
+      "languages": [
+        {
+          "name": "日本語",
+          "value": "ja"
+        }
+      ]
+    },
+    {
+      "name": "United States",
+      "value": "us",
+      "languages": [
+        {
+          "name": "English",
+          "value": "en"
+        },
+        {
+          "name": "Español",
+          "value": "es"
+        }
+      ]
+    }
+  ]
+}

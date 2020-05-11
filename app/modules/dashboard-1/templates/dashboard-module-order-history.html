@@ -1,0 +1,94 @@
+<div class="dashboard-module col-xs-12 spacer-bottom-md order-history-module {{ responsiveClasses }}">
+    <section>
+        <div class="col-xs-12">
+            <h2 class="dashboard-module__header header--sm ko ps-light text-left">
+                {{ orderHistoryModuleCtrl.moduleTitle }}
+            </h2>
+        </div>
+    </section>
+
+    <section class="dashboard-module__module bg-white list-view-module">
+
+        <pb-loader show-loader="!orderHistoryModuleCtrl.model" load-failed="orderHistoryModuleCtrl.promiseResolvedFailed"></pb-loader>
+
+        <figurecaption class="static-height"
+            ng-repeat="order in orderHistoryModuleCtrl.model | orderBy:'-orderDate' | limitTo:1">
+
+            <p>Order #: <a href="#">{{ order.orderNumber }}</a></p>
+        </figurecaption>
+
+        <figure class="row hidden-xs">
+            <!-- Desktop list view -->
+            <!-- Only visible on desktop -->
+            <ul class="col-sm-12 variable-height list-view-module__list"
+                ng-repeat="item in orderHistoryModuleCtrl.model | orderBy:'-orderDate' | limitTo:1">
+
+                <li ng-repeat="item in item.items">
+                    <div class="product col-sm-8">
+                        <img class="product-image col-xs-12 col-sm-4" ng-src="{{ item.itemThumb }}">
+
+                        <div class="product-details col-xs-12 col-sm-8">
+                            <span class="product-details__item-number">Item: {{item.itemNumber}}</span>
+                            <h4 class="product-details__product-name ps-light">{{ item.itemName }}</h4>
+                        </div>
+                        <a ng-href="{{ item.itemUrl }}" class="product-cover-link"></a>
+                    </div>
+
+                    <div class="form-group quantity col-xs-2 vertical-centered-block">
+                        <div class="stepper-wrap vertical-centered">
+                            <input class="form-control ng-isolate-scope text-center" options="orderHistoryModuleCtrl.numericStepper" pb-numeric-stepper="" type="text" value="{{ item.quantity }}">
+                        </div>
+                    </div>
+
+                    <div class="action col-xs-2 text-right">
+                        <a href="#">Add to Cart</a>
+                    </div>
+                </li>
+            </ul>
+        </figure>
+
+        <figure class="visible-xs">
+            <!-- Mobile swipe view -->
+            <!-- Only visible on mobile -->
+            <ul uib-carousel class="static-height" ng-repeat="item in orderHistoryModuleCtrl.model | orderBy:'-orderDate' | limitTo:1">
+                <li uib-slide ng-repeat="item in item.items">
+                    <div>
+                        <img class="product-image" ng-src="{{ item.itemThumb }}">
+                    </div>
+                    <div class="product-details">
+                        <span class="product-details__item-number">Item: {{item.itemNumber}}</span>
+                        <h3 class="product-details__product-name">{{ item.itemName }}</h3>
+                    </div>
+                    <a ng-href="{{ item.itemUrl }}" class="product-cover-link"></a>
+
+                    <p class="text-center">Quantity: {{ item.quantity }}</p>
+                </li>
+            </ul>
+        </figure>
+
+
+
+        <!-- Bottom Sticky Content -->
+        <section class="ctas static-height">
+            <div class="ctas__inner border-top">
+                <!--<div>-->
+                    <!--<p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet </p>-->
+                <!--</div>-->
+
+                <div>
+                    <a href="#" class="col-xs-6 ctas__link hidden-xs text-large">Shop Ink & Supplies</a>
+                    <div class="col-xs-12 col-sm-6 ctas__button">
+                        <a ui-sref="orderhistory" class="rounded-button btn-sm primary">View Order History</a>
+                    </div>
+                    <a href="#" class="ctas__link ps-light visible-xs spacer-top-sm text-center">Shop Ink & Supplies</a>
+                </div>
+
+                <!-- Upgrade notification -->
+                <div class="callout row">
+                    <h3 class="subhead subheader--md ps-light nmt text-left">Save on Postage Tape</h3>
+                    <p>Available in many sizes and for many postage machines. <a href="#">Shop Now.</a></p>
+                </div>
+            </div>
+        </section>
+    </section>
+</div>

@@ -1,0 +1,211 @@
+{
+  "id" : "1234",
+  "accountNumber" : "1234567890",
+  "email" : "bill_armitage@gmail.com",
+  "prefix" : "Mr.",
+  "firstName" : "Bill",
+  "lastName" : "Armitage",
+  "securityQuestion" : "maiden-name",
+  "securityAnswer" : "Smithson",
+  "language" : "English",
+  "country" : "germany",
+  "hasSeenTour": false,
+  "hasMultipleProducts": true,
+  "accounts" : [
+    {
+      "accountNumber" : "1234567890",
+      "categories": [
+        {
+          "id" : "shipping",
+          "name": "Shipping & Mailing",
+          "products": [
+            {
+              "name": "Connect+ 3000"
+            },
+            {
+              "name": " IntelliJet 42 Printing System mailstation2"
+            },
+            {
+              "name": "Relay 8000 Inserting Solution"
+            }
+          ]
+        },
+        {
+          "id" : "software",
+          "name": "Software",
+          "products": [
+            {
+              "name": "EngageOne"
+            },
+            {
+              "name": "MapInfo Pro"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "accountNumber" : "2452345678",
+      "categories": [
+        {
+          "id" : "shipping",
+          "name": "Shipping & Mailing",
+          "products": [
+            {
+              "name": "Epic Inserting Solution"
+            },
+            {
+              "name": " IntelliJet 42 Printing System mailstation2"
+            },
+            {
+              "name": "Relay 8000 Inserting Solution"
+            }
+          ]
+        },
+        {
+          "id" : "software",
+          "name": "Software",
+          "products": [
+            {
+              "name": "Borderfree"
+            },
+            {
+              "name": "EngageOne"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "accountNumber" : "3876345678",
+      "categories": [
+        {
+          "id" : "shipping",
+          "name": "Shipping & Mailing",
+          "products": [
+            {
+              "name": "Connect+ 3000"
+            },
+            {
+              "name": "DM125 Postage Meter"
+            },
+            {
+              "name": "Epic Inserting Solution"
+            },
+            {
+              "name": " IntelliJet 42 Printing System mailstation2"
+            },
+            {
+              "name": "Relay 8000 Inserting Solution"
+            }
+          ]
+        },
+        {
+          "id" : "software",
+          "name": "Software",
+          "products": [
+            {
+              "name": "Borderfree"
+            },
+            {
+              "name": "EngageOne"
+            },
+            {
+              "name": "MapInfo Pro"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "accountNumber" : "4564657890",
+      "categories": [
+        {
+          "id" : "shipping",
+          "name": "Shipping & Mailing",
+          "products": [
+            {
+              "name": "Relay 8000 Inserting Solution"
+            }
+          ]
+        },
+        {
+          "id" : "software",
+          "name": "Software",
+          "products": [
+            {
+              "name": "Borderfree"
+            },
+            {
+              "name": "EngageOne"
+            },
+            {
+              "name": "MapInfo Pro"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "accountNumber" : "5697847890",
+      "categories": [
+        {
+          "id" : "shipping",
+          "name": "Shipping & Mailing",
+          "products": [
+            {
+              "name": "Connect+ 3000"
+            }
+          ]
+        },
+        {
+          "id" : "software",
+          "name": "Software",
+          "products": [
+            {
+              "name": "Borderfree"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id" : "shipping",
+      "name": "Shipping & Mailing",
+      "products": [
+        {
+          "name": "Connect+ 3000"
+        },
+        {
+          "name": "DM125 Postage Meter"
+        },
+        {
+          "name": "Epic Inserting Solution"
+        },
+        {
+          "name": " IntelliJet 42 Printing System mailstation2"
+        },
+        {
+          "name": "Relay 8000 Inserting Solution"
+        }
+      ]
+    },
+    {
+      "id" : "software",
+      "name": "Software",
+      "products": [
+        {
+          "name": "Borderfree"
+        },
+        {
+          "name": "EngageOne"
+        },
+        {
+          "name": "MapInfo Pro"
+        }
+      ]
+    }
+  ]
+}

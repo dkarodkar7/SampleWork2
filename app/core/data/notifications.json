@@ -1,0 +1,38 @@
+[
+  {
+    "PurchasePower": [
+      {
+        "list":[
+          {
+            "title": "You have 2 overdue payments",
+            "description": "",
+            "cta": "View Bills"
+          },
+          {
+            "title": "You have $0.00 balance on multiple accounts.",
+            "description": "",
+            "cta": "Learn how to add funds"
+          }
+        ]
+      },
+      {
+        "detail":[
+          {
+            "title": "Upcoming bill for $985.75",
+            "description": "Minimum $25 due on 1/17/2016",
+            "cta": "View Bills"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "PrePaid": [
+      {
+        "title": "You have $0.00 balance.",
+        "description": "",
+        "cta": "Learn how to add funds "
+      }
+    ]
+  }
+]

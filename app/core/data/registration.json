@@ -1,0 +1,48 @@
+{
+  "id" : "1234",
+  "accountNumber" : "1234567890",
+  "email" : "bill_armitage@gmail.com",
+  "prefix" : "Mr.",
+  "firstName" : "Bill",
+  "lastName" : "Armitage",
+  "language" : "English",
+  "chatAvailable" : true,
+  "securityQuestion" : "maiden-name",
+  "emails": [
+    {
+      "email": "registered@pb.com",
+      "status": "registered",
+      "password": "Password123!"
+    },
+    {
+      "email": "failed@pb.com",
+      "status": "failed",
+      "password": "Password123!"
+    },
+    {
+      "email": "onboarded@pb.com",
+      "status": "onboarded",
+      "password": "Password123!"
+    },
+    {
+      "email": "confirm@pb.com",
+      "status": "confirm",
+      "password": "Password123!"
+    },
+    {
+      "email": "inactive@pb.com",
+      "status": "inactive",
+      "password": "Password123!"
+    },
+    {
+      "email": "active@pb.com",
+      "status": "active",
+      "password": "Password123!"
+    },
+    {
+      "email": "locked@pb.com",
+      "status": "locked",
+      "password": "Password123!"
+    }
+  ]
+}

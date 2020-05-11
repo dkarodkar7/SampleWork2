@@ -1,0 +1,57 @@
+.dataTables_wrapper {
+
+  .dataTables_filter {
+    input {
+      margin-left: 10px;
+    }
+  }
+
+  .dataTable {
+
+    thead {
+      tr {
+        th {
+          &.sorting {
+            white-space: nowrap;
+            &:after {
+              font-family: FontAwesome;
+              content: '\f0dc';
+              display: inline-block;
+              padding-left: 10px;
+              color: $pb-gray-300;
+            }
+          }
+          &.sorting_asc {
+            white-space: nowrap;
+            &:after {
+              font-family: FontAwesome;
+              content: '\f0dd';
+              display: inline-block;
+              padding-left: 10px;
+              color: $pb-gray-300;
+            }
+            &:before {
+              content: '';
+              padding: 0;
+            }
+          }
+          &.sorting_desc {
+            white-space: nowrap;
+            &:after {
+              font-family: FontAwesome;
+              content: '\f0de';
+              display: inline-block;
+              padding-left: 10px;
+              color: $pb-gray-300;
+            }
+            &:before {
+              content: '';
+              padding: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

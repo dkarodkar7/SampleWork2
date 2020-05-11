@@ -1,0 +1,180 @@
+<div class="modal-header no-borders">
+  <div class="container-fluid">
+    <div class="row text-right pull-right">
+      <a href="" ng-click="close()" class="modal__close"><span class="icon-close dark-gray"></span></a>
+    </div>
+    <div class="row">
+      <div class="col-xs-12" ng-hide="confirm">
+        <h2 class="header--sm no-margin-top">Edit Address</h2>
+        <p class="ps-light">You may update the install address and its associated billing for one or more products. If you wish to change any other information please contact
+            <span class="hidden-xs">1-(800) 522-0020</span>
+            <a href="tel:1-800-522-0020" class="visible-xs disabled" title=""><span itemprop="telephone">1-(800) 522-0020</span></a>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-body">
+  <section class="container-fluid" ng-hide="confirm">
+    <form id="modalForm" name="modalForm" novalidate role="form">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="street">Street Address 1<sup>*</sup></label>
+            <input type="text" id="street" ng-model="model.street" name="street" class="form-control" required  ng-class="{ 'error' : modalForm.street.$invalid && modalForm.street.$touched }"/>
+            <div ng-show="modalForm.$submitted || modalForm.street.$touched">
+              <p class="error" ng-show="modalForm.street.$error.required">
+                Please provide a value.
+              </p>
+              <p class="error" ng-show="!!model.errorText && !modalForm.street.$error.required">
+                {{model.errorText}}
+              </p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="suite">Street Address 2</label>
+            <input type="text" id="suite" ng-model="model.suite" name="suite" class="form-control"/>
+          </div>
+          <div class="row">
+            <div class="col-md-5">
+                <div class="form-group">
+                  <label for="city">City<sup>*</sup></label>
+                  <input type="text" id="city" ng-model="model.city" name="city" class="form-control" required ng-class="{ 'error' : modalForm.city.$invalid && modalForm.city.$touched }"/>
+                  <div ng-show="modalForm.$submitted || modalForm.city.$touched">
+                    <p class="error" ng-show="modalForm.city.$error.required">
+                      Please provide a value.
+                    </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                  <label for="state">State<sup>*</sup></label>
+                  <select name="state" id="state" ng-model="model.state" class="form-control" required ng-class="{ 'error' : modalForm.state.$invalid && modalForm.state.$touched }"
+                          ng-options="item.id as item.name for item in states" />
+
+                  <div ng-show="modalForm.$submitted || modalForm.state.$touched">
+                    <p class="error" ng-show="modalForm.state.$error.required">
+                      Please select a value.
+                    </p>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="postalCode">Zip Code<sup>*</sup></label>
+                    <input type="text" id="postalCode" ng-model="model.postalCode" name="postalCode" class="form-control" required ng-class="{ 'error' : modalForm.postalCode.$invalid && modalForm.postalCode.$touched }" pattern="^([0-9/-][0-9/-]*)$"/>
+                    <div ng-show="modalForm.$submitted || modalForm.postalCode.$touched">
+                        <p class="error" ng-show="modalForm.postalCode.$error.pattern">
+                            Numbers only please.
+                        </p>
+                    </div>
+                    <div ng-show="modalForm.$submitted || modalForm.postalCode.$touched">
+                        <p class="error" ng-show="modalForm.postalCode.$error.required">
+                            Please provide a value.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group checkbox spacer-bottom-md">
+                <input ng-checked="true" type="checkbox" id="updateAllProducts" ng-model="model.updateAllProducts" data-error-type="confirm-check"/>
+                <label for="updateAllProducts">
+                  <i></i><span class="checkbox-custom"></span>
+                  <span>Update All Products on this account with this information</span>
+                </label>
+              </div>
+              <div class="form-group checkbox spacer-bottom-md">
+                <input ng-checked="true" type="checkbox" id="updateBillingAddress" ng-model="model.updateBillingAddress" data-error-type="confirm-check"/>
+                <label for="updateBillingAddress">
+                  <i></i><span class="checkbox-custom"></span>
+                  <span>Update billing address with this information.</span>
+                </label>
+              </div>
+            </div>
+            <div class="spacer-bottom-md row">
+              <div class="col-xs-12">
+                <div class="col-sm-6">
+                  When should these changes take effect?
+                </div>
+                <div class="col-sm-6">
+                  <div class="input-group">
+                    <!--<input class="form-control" date-range-picker ng-model="model.effectiveDate"  type="text"/>-->
+                    <span class="form-control uneditable-input" id="date" date-range-picker ng-model="daterangepicker.date" options="daterangepicker.options"> {{daterangepicker.date.startDate | formatDate:'MM/dd/yyyy' }}  </span>
+                    <span class="input-group-addon">
+                      <i class="fa fa-fw fa-calendar"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12">
+              <div class="form-group checkbox spacer-bottom-md">
+                <input type="checkbox" id="agreedToTerms" ng-model="model.agreedToTerms" data-error-type="confirm-check" required/>
+                <label for="agreedToTerms">
+                  <i></i><span class="checkbox-custom"></span>
+                  <span>I agree to the <a href="http://www.pitneybowes.com/us/legal.html" target="_blank">Pitney Bowes Terms & Conditions</a><sup>*</sup></span>
+                </label>
+                <div ng-show="modalForm.$submitted || modalForm.agreedToTerms.$touched">
+                  <p class="error" ng-show="modalForm.agreedToTerms.$error.required">
+                    Field is required.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+            <button class="rounded-button gray"  ng-click="close()">Cancel</button>
+        </div>
+        <div class="col-xs-6 text-right">
+          <button class="rounded-button primary" type="submit" 
+            ng-click="next(modalForm)" ng-disabled="modalForm.$invalid" 
+            ng-class="{ gray:modalForm.$invalid }">Next</button>
+        </div>
+      </div>
+    </form>
+  </section>
+
+  <section class="container-fluid" ng-show="confirm">
+    <div class="row">
+       <div class="col-xs-12 spacer-bottom-md">
+          <h2 class="header--sm no-margin-top">Confirm Address Edit</h2>
+          <a class="block spacer-bottom-sm" ng-click="confirm = false; model.agreedToTerms = '';">Edit</a>
+          <p class="text-large">{{ model.name }}</p>
+          <p class="text-large">{{ model.street }}</p>
+          <p class="text-large spacer-bottom-md"
+            ng-model="pbProductsModuleCtrl.selectedLocationCityFilter">{{model.city }}, {{ model.state }} {{ model.postalCode }}</p>
+
+          <ul class="spacer-bottom-md">
+              <li ng-show="model.updateAllProducts">
+                  All products on this account will be updated to this address.
+              </li>
+              <li ng-show="model.updateBillingAddress">
+                  All billing on this account will be updated to this address.
+              </li>
+          </ul>
+
+          <p class="text-large spacer-bottom-md" ng-show="!!daterangepicker.date.startDate">
+           Effective Date: {{daterangepicker.date.startDate | formatDate:'MM/dd/yyyy'}}
+          </p>
+          <p class="text-small">Please note:</p>
+          <p class="text-small">If you are moving location you may require an engineer to help you relocate your equipment.
+            Please call us at
+              <span class="hidden-xs">1-(800) 522-0020</span>
+              <a href="tel:1-800-522-0020" class="visible-xs disabled" title=""><span itemprop="telephone">1-(800) 522-0020</span></a>.
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <button class="rounded-button gray"  ng-click="close()">Cancel</button>
+        </div>
+        <div class="col-xs-6 text-right">
+          <button class="rounded-button primary" type="submit" ng-click="save()">Confirm</button>
+        </div>
+      </div>
+  </section>
+
+</div>

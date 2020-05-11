@@ -1,0 +1,57 @@
+{
+  "GLOBALIZATION": {
+    "TITLE": "Profil",
+    "BUTTONS": {
+      "SAVE": "Enregistrer",
+      "CANCEL": "Annuler",
+      "EDIT": "Éditer",
+      "DELETE": "Supprimer"
+    },
+    "DROPDOWN": {
+      "SYSTEM": "Système",
+      "LICENSINGEXPIRATION": "Licences et expiration",
+      "VERSION": "Version",
+      "SECURITY": "Sécurité",
+      "LOGS": "Journaux",
+      "MAILSERVER": "Serveur de messagerie"
+    },
+    "INPUTS": {
+      "CHECKBOX": {
+        "ONE": "Enregistrer les rapports dans l'historique des tâches",
+        "TWO": "Enregistrer les rapports dans un fichier"
+      },
+      "RADIO": {
+        "ONE": "Nombre d'enregistrements non conformes qui déclenchent la fin de la tâche",
+        "TWO": "Ne pas terminer les tâches ayant des enregistrements non conformes"
+      },
+      "TEXT": {
+        "LABEL": "E-mail",
+        "PLACEHOLDER": "Entrer une adresse e-mail"
+      },
+      "SELECT": {
+        "LABEL": "Niveau de traçabilité par défaut du système",
+        "OPTION1": "Désactivé",
+        "OPTION2": "Erreur fatale",
+        "OPTION3": "Erreur",
+        "OPTION4": "Avertissement",
+        "OPTION5": "Information",
+        "OPTION6": "Déboguage",
+        "OPTION7": "Suivre"
+      }
+    },
+    "CONTROLLER": {
+      "TITLE": "Exemple de contrôle avec le service $translate",
+      "EXAMPLE": "Utilisez ces paramètres pour définir les options de rapport par défaut pour votre système."
+    },
+    "FORMATS": {
+      "NUMBER": "Nombres",
+      "DATE": "Dates",
+      "TIME": {
+        "TITLE": "Heure",
+        "TIMESHORT": "Court",
+        "TIMEMEDIUM": "Moyen"
+      },
+      "CURRENCY": "Devises"
+    }
+  }
+}

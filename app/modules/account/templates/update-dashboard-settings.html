@@ -1,0 +1,118 @@
+<!-- ====================================== MOBILE 'ACCORDION' LINK  =========================== -->
+<div class="visible-xs accordion__button container-fluid" ui-sref="account.profilemanagement.basicinfo" >
+    <div class="row">
+        <div class="col-xs-12">
+            <span class="link header--sm">Basic Info</span>
+            <span class="primary pull-right icon-caret-down"></span>
+        </div>
+    </div>
+</div>
+<!-- ====================================== MOBILE 'ACCORDION' LINK  =========================== -->
+<div class="visible-xs accordion__button container-fluid" ui-sref="account.profilemanagement.password" >
+    <div class="row">
+        <div class="col-xs-12">
+            <span class="link header--sm">Password & Security</span>
+            <span class="primary pull-right icon-caret-down"></span>
+        </div>
+    </div>
+</div>
+<!-- ====================================== MOBILE 'ACCORDION' LINK  =========================== -->
+<div  class="visible-xs accordion__button container-fluid" ng-click="collapse = !collapse">
+    <div class="row">
+        <div class="col-xs-12">
+            <span class="link header--sm">Dashboard Settings</span>
+            <span ng-class="collapse ? 'icon-caret-down' : 'icon-caret-up'" class="primary pull-right"></span>
+        </div>
+    </div>
+</div>
+
+<section ng-hide="collapse" class="container-fluid">
+    <div class="row">
+        <form id="form" name="form" novalidate role="form" class="col-xs-12 col-sm-6 col-sm-offset-3 spacer-top-lg">
+
+            <p class="text-gray-500 spacer-bottom-sm">Manage Your Account Number(s)<!--i class="tooltip__icon tooltip--form collapsed" data-toggle="collapse" data-target="#collapse" aria-expanded="false">i</i--></p>
+            <!--div class="tooltip__info spacer-top-sm panel-collapse collapse" id="collapse" aria-expanded="false">
+                <div class="tooltip__close__container">
+                    <a href="" class="tooltip__close" data-toggle="collapse" data-target="#collapse" aria-expanded="false">
+                        <span class="icon-close tooltip__close__icon"></span>
+                    </a>
+                </div>
+                <p class="tooltip__text">You can get your Account Number by finding it at the top of your Pitney Bowes invoice.</p>
+                <img src="modules/registration/assets/images/tooltip.jpg" class="tooltip__image"/>
+                <p class="tooltip__text spacer-top-sm">Learn other ways  to locate your Account Number <a href="#" target="_blank" class="tooltip__link">View Support</a>.</p>
+            </div-->
+            <ul class="add-account-module__list  spacer-top-sm spacer-bottom-md">
+                <!-- remove functionality was removed -->
+                <!--<li ng-if="pmDashboardCtrl.user.accounts.length > 1" ng-repeat="account in pmDashboardCtrl.user.accounts">-->
+                    <!--<div class="dlist-group">-->
+                        <!--<div class="definition"><span>{{account.accountNumber}}</span></div>-->
+                        <!--<a class="defined" ng-click="pmDashboardCtrl.modals.removeAccountModal(account)"><span>Remove</span><span class="icon-close"></span></a>-->
+                    <!--</div>-->
+                <!--</li>-->
+                <li ng-if="pmDashboardCtrl.user.accounts.length > 1" ng-repeat="account in pmDashboardCtrl.user.accounts">
+                    <div class="dlist-group">
+                        <div class="definition"><span>{{account.accountNumber}}</span></div>
+                    </div>
+                </li>
+            </ul>
+            <a ng-click="pmDashboardCtrl.modals.addAccountModal(account,data);" class="add-account-modal spacer-bottom-md text-large vcenter">Add Account Number + </a>
+            <div class="row">
+                <hr/>
+            </div>
+
+            <p class="spacer-bottom-sm">Identify the Types of Products You Use</p>
+            <p class="spacer-bottom-md text-gray-300">Select a product category or categories so we can customize your Dashboard.</p>
+
+            <div ng-repeat="category in pmDashboardCtrl.user.categories" class="checkbox checkbox-group spacer-bottom-sm {{category.id}}">
+                <input type="checkbox" id="{{category.id + $index}}" ng-model="category.id" data-error-type="confirm-check"/>
+                <label for="{{category.id + $index}}" class="text-large spacer-bottom-sm" >
+                    <i></i><span class="checkbox-custom"></span>
+                    <span>{{category.name}} Products</span>
+                </label>
+                <ul>
+                    <li ng-repeat="product in category.products" class="text-large">{{ product.name }}</li>
+                </ul>
+            </div>
+
+            <div class="row spacer-top-md">
+                <hr/>
+            </div>
+
+            <!-- for countries available in multiple languages - ex: Canada -->
+            <div class="form-group required">
+                <label for="language">Language Preference</label>
+                <select class="form-control input-lg" size="1" id="language" name="language"
+                        ng-model="pmDashboardCtrl.user.language"
+                        ng-class="{ 'error' : form.language.$invalid && form.language.$touched }" required>
+                    <option value="English">English</option>
+                    <option value="French">French</option>
+                </select>
+                <div ng-show="form.$submitted || form.prefix.$touched">
+                    <p class="error" ng-show="form.prefix.$error.required">
+                        Please select a prefix
+                    </p>
+                    <span class="icon-alert-circle error-icon"
+                          ng-show="form.prefix.$invalid && form.prefix.$touched"></span>
+                </div>
+            </div>
+            <div ng-show="pmDashboardCtrl.saved">
+                <p class="success" ng-show="form.$valid">
+                    <span class="pull-left icon-check-circle text-green"></span>
+                    Your information has been updated.
+                </p>
+            </div>
+
+            <div class="text-center-xs">
+                <button class="rounded-button primary spacer-top-md" ng-disabled="form.$invalid || !form.$dirty"
+                        type="submit" ng-click="pmDashboardCtrl.updateDashboard(pmDashboardCtrl.user,form)" ng-class="{ gray:form.$invalid || !form.$dirty }">
+                    Save Changes
+                </button>
+            </div>
+
+            <div class="row col-xs-12">
+                <p class="spacer-top-sm">Do you have a colleague you want to give access to these accounts?</p>
+                <p class="spacer-bottom-sm" ng-click="pmDashboardCtrl.modals.accountCloningModal(data);"><a>Invite them to Sign Up</a></p>
+            </div>
+        </form>
+    </div>
+</section>

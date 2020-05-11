@@ -1,0 +1,92 @@
+.bs-wizard {
+  $track-color: $pb-gray-300;
+  $dot-color: $text-color;
+  $bar-height: 8px;
+  $offset: 1.75; // amount larger the dots should be than bar
+  $dot-size: $bar-height * $offset;
+     .bs-wizard-step {
+        padding: 0;
+        position: relative;
+        .bs-wizard-stepnum {
+            color: $dot-color;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        .bs-wizard-info {
+            color: $dot-color;
+            font-size: 12px;
+        }
+        .bs-wizard-dot {
+            position: absolute;
+            width: $dot-size;
+            height: $dot-size;
+            display: block;
+            background: darken($pb-gray-300, 10%);
+            top: -(($dot-size/2)-($bar-height/2));
+            left: 55%;
+            margin-left: -$dot-size;
+            border: 2px solid #fff;
+        }
+        .progress {
+           position: relative;
+            border-radius: 0;
+            height: $bar-height;
+            box-shadow: none;
+            left: 50%;
+            .progress-bar {
+                width:0;
+                box-shadow: none;
+                background: $track-color;
+            }
+        }
+        &.complete {
+            > .progress {
+                 > .progress-bar {
+                    width:100%;
+                    background-color: $chart-green;
+                }
+            }
+            .bs-wizard-stepnum {
+              color: $chart-green;
+            }
+        }
+        &.active {
+             > .progress {
+                 > .progress-bar {
+                    width:50%;
+                    background-color: $chart-blue;
+                }
+            }
+            .bs-wizard-stepnum {
+              color: $chart-blue;
+            }
+        }
+    }
+
+     > .bs-wizard-step:first-child.active {
+         > .progress {
+             > .progress-bar {
+                width:0%;
+            }
+        }
+    }
+     > .bs-wizard-step:last-child.active {
+         > .progress {
+             > .progress-bar {
+                width: 100%;
+            }
+        }
+    }
+
+     > .bs-wizard-step:first-child {
+         > .progress {
+            left: 50%;
+
+        }
+    }
+     > .bs-wizard-step:last-child {
+         > .progress {
+            width: 0;
+        }
+    }
+}

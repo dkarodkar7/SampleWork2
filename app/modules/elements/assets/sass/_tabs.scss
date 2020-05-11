@@ -1,0 +1,311 @@
+//* TABS */
+.tab-pane {
+  padding: 15px;
+}
+.tabbable.scroll >.tab-content {
+  padding: 20px;
+}
+.tab-content {
+  &.tab-content-bordered {
+    border: 1px solid $nav-tabs-border-color;
+    border-top: 0;
+  }
+}
+
+
+
+
+
+
+
+// Tabs
+// -------------------------
+
+// Give the tabs something to sit on
+.nav-tabs {
+  border-bottom: 1px solid $nav-tabs-border-color;
+  >li {
+    float: left;
+    // Make the list-items overlay the bottom border
+    margin-bottom: -1px;
+
+    // Actual tabs (as links)
+    >a {
+      margin-right: 0;
+      line-height: $line-height-base;
+      border-radius: 0;
+      color: #717171;
+      background-color: #f7f7f7;
+      border: 1px solid $nav-tabs-border-color;
+      border-bottom-color: transparent;
+      &:hover {
+        border-color: $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color transparent;
+      }
+    }
+
+    // Active state, and its :hover to override normal :hover
+    &.active >a {
+      &,
+      &:hover,
+      &:focus {
+        color: $header-color;
+        background-color: $nav-tabs-active-link-hover-bg;
+        border: 1px solid $nav-tabs-active-link-hover-border-color;
+        border-top: 2px solid $pb-blue;
+        border-bottom-color: transparent;
+        cursor: default;
+      }
+    }
+  }
+  // pulling this in mainly for less shorthand
+  &.nav-justified {
+    @extend .nav-justified;
+    @extend .nav-tabs-justified;
+  }
+}
+
+
+// Justified nav links
+// -------------------------
+
+.nav-justified {
+  width: 100%;
+
+  >li {
+    float: none;
+    >a {
+      text-align: center;
+      margin-bottom: 5px;
+    }
+  }
+
+  >.dropdown .dropdown-menu {
+    top: auto;
+    left: auto;
+  }
+
+  @media (min-width: $screen-sm-min) {
+    >li {
+      display: table-cell;
+      width: 1%;
+      >a {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// Move borders to anchors instead of bottom of list
+//
+// Mixin for adding on top the shared `.nav-justified` styles for our tabs
+.nav-tabs-justified {
+  border-bottom: 0;
+
+  >li >a {
+    // Override margin from .nav-tabs
+    margin-right: 0;
+    border-radius: 0;
+  }
+
+  >.active >a,
+  >.active >a:hover,
+  >.active >a:focus {
+    border: 1px solid $nav-tabs-justified-link-border-color;
+  }
+
+  @media (min-width: $screen-sm-min) {
+    >li >a {
+      border-bottom: 1px solid $nav-tabs-justified-link-border-color;
+      border-radius: 0;
+    }
+    >.active >a,
+    >.active >a:hover,
+    >.active >a:focus {
+      border-bottom-color: $nav-tabs-justified-active-link-border-color;
+      border-top: 2px solid $pb-blue;
+    }
+  }
+}
+
+
+
+
+
+
+//As I was lyin' in a hospital bed
+//A rock 'n' roll nurse went into my head
+//She says, hold ya arm, stick out ya tongue
+//I gots some pills I'm gonna give you somes
+.nav-pills {
+  >li {
+    >a {
+      color: $text-color;
+      &:hover {
+        background-color: $nav-link-hover-bg;
+      }
+    }
+  }
+}
+
+.nav-pills >li.active >a,
+.nav-pills >li.active >a:hover,
+.nav-pills >li.active >a:focus {
+  background-color: $pb-blue;
+}
+
+
+// scss-lint:disable MergeableSelector
+// fancy tab styles */
+// All the overrides needed to unstyle default behavior */
+.tabs-fancy .nav.nav-tabs li {
+  //width: 20%;
+  &.col-sm-2{
+    width:16.66666667%;
+  }
+  &.col-sm-3{
+    width:25%;
+  }
+  &.col-sm-4{
+    width:33.33333333%;
+  }
+  &.col-sm-6{
+    width:50%;
+  }
+  text-align:center;
+}
+.tabs-fancy >.nav.nav-tabs li >a {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  line-height: 16px;
+  padding: 0 4px;
+  height: 40px;
+}
+.tabs-fancy >.nav.nav-tabs li,
+.tabs-fancy >.nav.nav-tabs li >a,
+.tabs-fancy >.nav.nav-tabs li.active,
+.tabs-fancy >.nav.nav-tabs li.active >a {
+  margin-bottom: 0;
+  border: 0;
+  outline: none;
+}
+.tabs-fancy >.nav.nav-tabs {
+  border-color: $pb-light-gray;
+}
+.tabs-fancy >.nav.nav-tabs li.active a,
+.tabs-fancy >.nav.nav-tabs li.active a:active,
+.tabs-fancy >.nav.nav-tabs li.active a:focus {
+  border: 0;
+}
+.tabs-fancy >.nav.nav-tabs li.active a:hover,
+.tabs-fancy >.nav.nav-tabs li.active a:active,
+.tabs-fancy >.nav.nav-tabs li.active a:focus {
+  border: 0;
+  margin-bottom: 0;
+}
+.tabs-fancy >.nav.nav-tabs li a,
+.tabs-fancy >.nav.nav-tabs li a:hover,
+.tabs-fancy >.nav.nav-tabs li a:active,
+.tabs-fancy >.nav.nav-tabs li a:focus {
+  background-color: transparent;
+}
+
+//* start tab styles for undlerline */
+.tabs-fancy >.nav.nav-tabs li:last-child:after {
+  content: '';
+  margin-left:-15px;
+  width: 100%;
+  height: 20px;
+  background-color: $pb-medium-blue-500;
+  position: absolute;
+  display: block;
+  bottom: -2px;
+  transform: translateX(0);
+  transition: all .2s linear;
+}
+.tabs-fancy li:nth-child(1).active ~li:last-child:after {
+  transform: translateX(-300%);
+}
+.tabs-fancy li:nth-child(2).active ~li:last-child:after {
+  transform: translateX(-200%);
+}
+.tabs-fancy li:nth-child(3).active ~li:last-child:after {
+  transform: translateX(-100%);
+}
+.tabs-fancy li:nth-child(4).active ~li:last-child:after {
+  transform: translateX(0);
+}
+
+// dynamic positioning based on bootstrap classes
+
+// 2 tabs
+.tabs-fancy li.col-sm-6:nth-child(1).active ~li:last-child:after {
+  transform: translateX(-100%);
+}
+.tabs-fancy li.col-sm-6:nth-child(2).active ~li:last-child:after {
+  transform: translateX(0);
+}
+
+// 3 tabs
+.tabs-fancy li.col-sm-4:nth-child(1).active ~li:last-child:after {
+  transform: translateX(-200%);
+}
+.tabs-fancy li.col-sm-4:nth-child(2).active ~li:last-child:after {
+  transform: translateX(-100%);
+}
+.tabs-fancy li.col-sm-4:nth-child(3).active ~li:last-child:after {
+  transform: translateX(0);
+}
+
+// 4 tabs
+.tabs-fancy li.col-sm-3:nth-child(1).active ~li:last-child:after {
+  transform: translateX(-300%);
+}
+.tabs-fancy li.col-sm-3:nth-child(2).active ~li:last-child:after {
+  transform: translateX(-200%);
+}
+.tabs-fancy li.col-sm-3:nth-child(3).active ~li:last-child:after {
+  transform: translateX(-100%);
+}
+.tabs-fancy li.col-sm-3:nth-child(4).active ~li:last-child:after {
+  transform: translateX(0);
+}
+
+// 5 tabs
+.tabs-fancy li.col-sm-2:nth-child(1).active ~li:last-child:after {
+  transform: translateX(-400%);
+}
+.tabs-fancy li.col-sm-2:nth-child(2).active ~li:last-child:after {
+  transform: translateX(-300%);
+}
+.tabs-fancy li.col-sm-2:nth-child(3).active ~li:last-child:after {
+  transform: translateX(-200%);
+}
+.tabs-fancy li.col-sm-2:nth-child(4).active ~li:last-child:after {
+  transform: translateX(-100%);
+}
+.tabs-fancy li.col-sm-2:nth-child(5).active ~li:last-child:after {
+  transform: translateX(0);
+}
+
+// 6 tabs
+
+.tabs-fancy li.col-sm-2:nth-child(1).active ~li:last-child:after {
+  transform: translateX(-500%);
+}
+.tabs-fancy li.col-sm-2:nth-child(2).active ~li:last-child:after {
+  transform: translateX(-400%);
+}
+.tabs-fancy li.col-sm-2:nth-child(3).active ~li:last-child:after {
+  transform: translateX(-300%);
+}
+.tabs-fancy li.col-sm-2:nth-child(4).active ~li:last-child:after {
+  transform: translateX(-200%);
+}
+.tabs-fancy li.col-sm-2:nth-child(5).active ~li:last-child:after {
+  transform: translateX(-100%);
+}
+.tabs-fancy li.col-sm-2:nth-child(6).active ~li:last-child:after {
+  transform: translateX(0);
+}

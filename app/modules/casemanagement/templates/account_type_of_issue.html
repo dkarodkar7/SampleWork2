@@ -1,0 +1,19 @@
+<div pb-create-case-breadcrumbs></div>
+
+<div class="container-fluid">
+    <!--========================================
+    == Header
+    =========================================-->
+    <div class="row">
+        <div class="headline col-sm-10 col-sm-offset-1 col-xs-12 text-center">
+            <h2 class="header--sm spacer-bottom-md no-margin-top">What do you need help with?</h2>
+        </div>
+    </div>
+    <div class="row text-center">
+        <ul class="container-fluid col-sm-12 account-selection-option">
+            <li class="col-sm-4"  ng-repeat="item in accountissuetypeCtrl.account[7].issueType">
+                   <a class="col-xs-12 rounded-button btn-lg primary" ng-model="accountissuetypeCtrl.account[7].issueType" ng-click="issuedetails();">{{item.name }}</a>
+            </li>
+        </ul>
+   </div>
+</div>

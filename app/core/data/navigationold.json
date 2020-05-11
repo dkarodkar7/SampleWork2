@@ -1,0 +1,232 @@
+[{
+    "label": "Principles",
+    "value": "",
+    "toggle": "dropdown",
+    "children": [{
+      "label": "Design Philosopy",
+      "value": "principles.designphilosophy"
+      }]
+    },
+
+    {
+      "label": "Brand",
+      "value": "",
+      "toggle": "dropdown",
+      "children": [{
+        "label": "Style Guide",
+        "value": "brand.styleguide"
+      }, {
+        "label": "Brand Personality",
+        "value": "brand.personality"
+      }, {
+        "label": "Tone of Voice",
+        "value": "brand.voice"
+      }]
+    },
+
+    {
+      "label": "Product Framework",
+      "value": "",
+      "toggle": "dropdown",
+      "children": [{
+        "label": "Globalization",
+        "value": "globalization.overview"
+      }]
+    },
+
+    {
+      "label": "Globalization",
+      "value": "",
+      "toggle": "dropdown",
+      "children": [{
+        "label": "Responsive Web",
+        "value": "",
+        "toggle": "dropdown",
+        "children": [
+          {
+          "label": "Foundation",
+          "value": "",
+          "toggle": "dropdown",
+          "children": [{
+
+            }]
+          }]
+
+      }]
+    },
+
+
+
+    {
+      "label": "Resources",
+      "value": "",
+      "toggle": "dropdown",
+      "children": [{
+        "label": "Tools for Designers",
+        "value": "resources.designers"
+        },{
+        "label": "Tools for Developers",
+        "value": "resources.developers"
+        }]
+    },
+
+
+
+    {
+    "label": "Foundation",
+    "value": "",
+    "toggle": "dropdown",
+    "children": [{
+      "label": "Buttons",
+      "value": "elements.buttons"
+    }, {
+      "label": "Accordion",
+      "value": "elements.accordion"
+    }, {
+      "label": "Grid",
+      "value": "elements.grid"
+    }, {
+      "label": "Icons",
+      "value": "elements.icons"
+    }, {
+      "label": "Inputs",
+      "value": "elements.inputs"
+    }, {
+      "label": "Panels",
+      "value": "elements.panels"
+    }, {
+      "label": "Popovers",
+      "value": "elements.popovers",
+      "className": "popovers"
+    }, {
+      "label": "Progress",
+      "value": "elements.progress"
+    }]
+  },
+
+  {
+    "label": "Pages",
+    "value": "",
+    "toggle": "dropdown",
+    "children": [{
+      "label": "Sign-in",
+      "value": "pages.signin"
+    }, {
+      "label": "Registration",
+      "value": "pages.registration"
+    }, {
+      "label": "Forgot Password",
+      "value": "pages.forgotpassword"
+    }, {
+      "label": "Welcome",
+      "value": "pages.welcome"
+    }, {
+      "label": "Under Maintenance",
+      "value": "pages.undermaintenance"
+    }, {
+      "label": "404",
+      "value": "pages.404"
+    }, {
+      "label": "500",
+      "value": "pages.500"
+    }]
+  },
+
+  {
+    "label": "Notifications",
+    "value": "",
+    "toggle": "dropdown",
+    "children": [{
+      "label": "Spinners",
+      "value": "notification.spinners"
+    }, {
+      "label": "Loading Bar",
+      "value": "notification.loadingbar"
+    }, {
+      "label": "Alerts",
+      "value": "notification.alerts"
+    }, {
+      "label": "Header Message",
+      "value": "notification.headermessage"
+    }]
+  },
+
+  {
+    "label": "Tables",
+    "value": "",
+    "toggle": "dropdown",
+    "children": [{
+      "label": "Simple",
+      "value": "tables.simple"
+    }, {
+      "label": "Datatable",
+      "value": "tables.datatable.overview"
+    }, {
+      "label": "Faceted Search",
+      "value": "tables.facetedsearch"
+    }, {
+      "label": "Datatable.net",
+      "value": "tables.datatablesnet"
+    }]
+  },
+
+  {
+    "label": "Graphs",
+    "value": "",
+    "toggle": "dropdown",
+    "children": [{
+      "label": "C3",
+      "value": "graphs.c3"
+    }, {
+      "label": "Chart.js",
+      "value": "graphs.chartjs"
+    }]
+  },
+
+  {
+    "label": "Foundation",
+    "value": "",
+    "toggle": "dropdown",
+    "children": [ {
+      "label": "Color",
+      "value": "foundation.color"
+    }, {
+      "label": "Font",
+      "value": "foundation.font"
+    }, {
+      "label": "Typography",
+      "value": "foundation.typography"
+    }, {
+      "label": "Chart Colors",
+      "value": "foundation.chartcolors"
+    }]
+  },
+
+  {
+    "label": "Mobile",
+    "value": "mobile",
+    "toggle": "dropdown",
+    "children": [{
+      "label": "Mobile Guide",
+      "value": "mobile"
+    }]
+  },
+
+
+  {
+    "label": "Other",
+    "value": "other",
+    "toggle": "dropdown",
+    "children": [ {
+      "label": "Helpers",
+      "value": "helpers"
+    }, {
+      "label": "Wordpress",
+      "value": "wordpress"
+    },{
+      "label": "Product Writing Guide",
+      "value": "writing"
+    }]
+  }
+
+]

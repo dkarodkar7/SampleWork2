@@ -1,0 +1,27 @@
+.related-support-module {
+  margin-bottom: 30px;
+
+  &__header {
+    @include breakpoint(0, $tablet) {
+      text-align: center;
+    }
+  }
+
+
+  ul{
+    padding:0;
+  }
+
+  li {
+    list-style-type: none;
+    font-size:$font-size-mobile-sm;
+    line-height: 1.2em;
+    border: none;
+    margin: 5px 0;
+    @include breakpoint($tablet) {
+      margin: 10px 0;
+      font-weight: $fontLight;
+      font-size: 1.571em;
+    }
+  }
+}

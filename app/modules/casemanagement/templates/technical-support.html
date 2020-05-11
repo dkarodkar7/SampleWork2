@@ -1,0 +1,151 @@
+<div pb-create-case-breadcrumbs></div>
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="headline col-sm-10 col-sm-offset-1 col-xs-12 text-center">
+            <h2 class="header--sm spacer-bottom-md no-margin-top">Select your product.</h2>
+        </div>
+    </div>
+    <div class="row col-xs-12">
+        <section class="filters">
+            <div class="col-xs-12">
+                    <span class="hidden-xs">
+                        <span>Filter by:</span>
+    <span class="products-filter-toggle hidden-xs">
+    <span ng-click="typeFilter = !typeFilter; locFilter = false">
+    Product Type
+    <span class="medium" ng-class="typeFilter ? 'icon-caret-up' : 'icon-caret-down'"></span>
+    </span>
+    <span ng-click="locFilter = !locFilter; typeFilter = false">
+    Locations
+    <span class="medium" ng-class="locFilter ? 'icon-caret-up' : 'icon-caret-down'"></span>
+    </span>
+        <span ng-click="accountFilter = !accountFilter; locFilter = false">
+    Accounts
+    <span class="medium" ng-class="accountFilter ? 'icon-caret-up' : 'icon-caret-down'"></span>
+    </span>
+    </span>
+   </span></div>
+            <div class="visible-xs accordion__button container-fluid">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <span class="link header--sm">Filter By</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Filters -->
+            <!-- Location Filter-->
+            <div class="visible-xs accordion__button container-fluid"
+                 ng-click="locFilter = !locFilter; typeFilter = false">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <span class="link header--sm">Locations</span>
+        <span class="medium light pull-right"
+              ng-class="locFilter ? 'icon-caret-up' : 'icon-caret-down'"></span>
+                    </div>
+                </div>
+            </div>
+            <figure ng-show="locFilter">
+                <div class="filters--options">
+                    <div class="controls"
+                         ng-repeat="choice in technicalsupportCtrl.slides | unique:'type'" ng-if="choice.location">
+                        <label class="control checkbox" for="filter{{$index}}">
+                            <input id="filter{{$index}}" name="filter{{$index}}"
+                                   ng-click="technicalsupportCtrl.setSelectedLocation(choice)" type="checkbox"/>
+                            <i></i><span class="checkbox-custom" tabindex="{{$index}}"></span>
+                            <span class="control-indicator"></span>
+        <span>
+        <span class="text-large">{{ choice.location.city }}</span>
+        <span class="text-large">{{ choice.location.state }}</span>
+            <!--span class="text-large"
+                  ng-model="productselectCtrl.selectedLocationCityFilter">{{ choice.location.city }}, {{ choice.location.state }}</span-->
+        </span>
+                        </label>
+                    </div>
+                </div>
+            </figure>
+            <!-- End Location Filter-->
+            <!-- Type Filter-->
+            <div class="visible-xs accordion__button container-fluid spacer-bottom-md"
+                 ng-click="typeFilter = !typeFilter; locFilter = false">
+                <div class="row">
+                    <div class="col-xs-12">
+                            <span class="link header--sm">Product Type
+</span>
+        <span class="medium light pull-right"
+              ng-class="typeFilter ? 'icon-caret-up' : 'icon-caret-down'"></span>
+                    </div>
+                </div>
+            </div>
+            <figure ng-show="typeFilter">
+                <div class="filters--options">
+                    <div class="controls"
+                         ng-repeat="choice in technicalsupportCtrl.slides | unique:'type'">
+                        <!-- Using unique here to limit multiple same values to display once -->
+                        <label class="control checkbox" for="typeFilter{{$index}}">
+                            <input id="typeFilter{{$index}}" name="typeFilter{{$index}}"
+                                   ng-click="technicalsupportCtrl.setSelectedProductType(choice)" type="checkbox"/>
+                            <i></i><span class="checkbox-custom" tabindex="{{$index}}"></span>
+                            <span class="control-indicator"></span>
+        <span>
+        <span class="text-large" ng-model="technicalsupportCtrl.selectedProductTypeFilter">
+        {{ choice.type }}
+        </span>
+        </span>
+                        </label>
+                    </div>
+                </div>
+            </figure>
+            <!-- End Type Filter-->
+
+            <!-- Account Filter-->
+            <div class="visible-xs accordion__button container-fluid spacer-bottom-md"
+                 ng-click="accountFilter = !accountFilter; locFilter = false">
+                <div class="row">
+                    <div class="col-xs-12">
+                            <span class="link header--sm">Product Type
+</span>
+        <span class="medium light pull-right"
+              ng-class="typeFilter ? 'icon-caret-up' : 'icon-caret-down'"></span>
+                    </div>
+                </div>
+            </div>
+            <figure ng-show="accountFilter">
+                <div class="filters--options">
+                    <div class="controls"
+                         ng-repeat="choice in technicalsupportCtrl.slides | unique:'account'">
+                        <!-- Using unique here to limit multiple same values to display once -->
+                        <label class="control checkbox" for="accountFilter{{$index}}">
+                            <input id="accountFilter{{$index}}" name="accountFilter{{$index}}"
+                                   ng-click="technicalsupportCtrl.setSelectedAccountType(choice)" type="checkbox"/>
+                            <span class="checkbox-custom" tabindex="{{$index}}">
+                                <span class="control-indicator"></span>
+</span>
+        <span>
+        <span class="text-large" ng-model="technicalsupportCtrl.setSelectedAccountType">
+        {{ choice.account }}
+        </span>
+        </span>
+                        </label>
+                    </div>
+                </div>
+            </figure>
+        </section>
+    </div>
+
+    <div class="row text-center">
+            <div class="product-list container-fluid col-sm-12 account-selection-option">
+                <pb-product-list></pb-product-list>
+            </div>
+        </div>
+
+        <!-- End Filters -->
+
+        <div class="text-center">
+            <button class="rounded-button secondary spacer-top-md"
+                    ng-click="globalcontactus();">
+                <!--a ui-sref="http://www.pitneybowes.com/us/contact-global.html" href="http://www.pitneybowes.com/us/contact-global.html" target="_blank"></a-->
+                My product is not shown</button>
+        </div>
+</div>

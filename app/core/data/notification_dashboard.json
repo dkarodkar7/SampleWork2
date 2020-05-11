@@ -1,0 +1,33 @@
+[
+    {
+        "notifications": [
+            {
+                "title": "Lease or renewal date notification",
+                "description": "",
+                "cta": "CTA"
+            },
+            {
+                "title": "Please connect your meter for data capture",
+                "description": "",
+                "cta": "See How"
+            },
+            {
+                "title": "USPS Rate change taking effect on 11/25/2015",
+                "description": "",
+                "cta": "Learn how to add funds"
+            }
+        ],
+        "messages": [
+            {
+                "title": "Your profile is incomplete",
+                "description": "",
+                "cta": "Update Profile"
+            },
+            {
+                "title": "Horizon is now available for your business. Try it now for free.",
+                "description": "",
+                "cta": "Download App"
+            }
+        ]
+    }
+]

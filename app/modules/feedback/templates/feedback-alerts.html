@@ -1,0 +1,245 @@
+<div class="container">
+
+
+  <div class="row">
+    <div class="col-md-8">
+      <h1 id="alerts" class="doc-head">Alerts</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Usage</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <ul>
+        <li>Limit to 1-2 sentences.</li>
+        <li>Be sure to apply the correct color for an alert&rsquo;s level.</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Levels</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <p>We have four levels of alerts:</p>
+      <ul>
+        <li>Error: an application error has occurred.</li>
+        <li>Warning: the user is about to perform an irreversible or destructive action; or the result of an action is unexpected, but is not an error.</li>
+        <li>Success: confirmation that the application was able to complete a user’s action or request.</li>
+        <li>Info: the application has non-critical — but helpful — information to share.</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Default Alerts</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <figure>
+        <figcaption>Error</figcaption>
+        <div class="alert alert-danger">
+          We couldn’t complete your request. Please try again in a moment.
+        </div>
+      </figure>
+
+      <figure>
+        <figcaption>Warning</figcaption>
+        <div class="alert alert-warning">
+          Enter a valid date using mm/dd/yyyy.
+        </div>
+      </figure>
+
+      <figure>
+        <figcaption>Success</figcaption>
+        <div class="alert alert-success">
+          A new address was imported.
+        </div>
+      </figure>
+
+      <figure>
+        <figcaption>Info</figcaption>
+        <div class="alert alert-info">
+          Learn more about Cost Accounts in the Help section.
+        </div>
+      </figure>
+
+      <figure>
+        <figcaption>Alert with Link</figcaption>
+        <div class="alert alert-info">
+          Learn more about <a class="alert-link" href="">Cost Accounts</a>.
+        </div>
+      </figure>
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Spot Alerts</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+
+      <figure>
+        <figcaption>Error</figcaption>
+        <div class="alert alert-danger">
+          <i class="fa fa-fw fa-info-circle fa-lg"></i> <strong>Sorry.</strong> We couldn’t complete your request. Please try again in a moment.
+        </div>
+      </figure>
+
+      <figure>
+        <figcaption>Warning</figcaption>
+        <div class="alert alert-warning">
+          <i class="fa fa-fw fa-exclamation-circle fa-lg"></i> <strong>Warning!</strong> You are about to erase all of your addresses.
+        </div>
+      </figure>
+
+      <figure>
+        <figcaption>Success</figcaption>
+        <div class="alert alert-success">
+          <i class="fa fa-fw fa-exclamation-triangle fa-lg"></i> <strong>Success!</strong> Your new address was imported.
+        </div>
+      </figure>
+
+      <figure>
+        <figcaption>Info</figcaption>
+        <div class="alert alert-info">
+          <i class="fa fa-fw fa-info-circle fa-lg"></i> <strong>Tip:</strong> You can find more options under the Settings menu.
+        </div>
+      </figure>
+
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Dismissable Alerts</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <figure>
+        <figcaption>Error</figcaption>
+        <div class="alert alert-danger">
+          <button aria-hidden="true" class="close" data-dismiss="alert" type="button"></button>
+          We couldn’t complete your request. Please try again in a moment.
+        </div>
+      </figure>
+
+      <figure>
+        <figcaption>Warning</figcaption>
+        <div class="alert alert-warning">
+          <button aria-hidden="true" class="close" data-dismiss="alert" type="button"></button>
+          Enter a valid date using mm/dd/yyyy.
+        </div>
+      </figure>
+
+      <figure>
+        <figcaption>Success</figcaption>
+        <div class="alert alert-success">
+          <button aria-hidden="true" class="close" data-dismiss="alert" type="button"></button>
+          A new address was imported.
+        </div>
+      </figure>
+
+      <figure>
+        <figcaption>Info</figcaption>
+        <div class="alert alert-info">
+          <button aria-hidden="true" class="close" data-dismiss="alert" type="button"></button>
+          Learn more about Cost Accounts in the Help section.
+        </div>
+      </figure>
+
+      <figure>
+        <figcaption>Angular ui-bootstrap example</figcaption>
+          <uib-alert type="warning" ng-if="!alerts.uibootstrap" close="alerts.uibootstrap = true">UI bootstrap test</uib-alert>
+      </figure>
+    </div>
+
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Transitory Alert</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <p>Use to provide an inline alert for a specific onscreen element.</p>
+    </div>
+
+    <div class="col-md-8 col-md-offset-1">
+
+      <figure>
+        <figcaption>Transitory Alert</figcaption>
+        <span ng-model="alerts.transitoryAlert" pb-transitory-alert>
+          <button class="btn btn-primary" ng-click="setMessage()">Click Me</button>
+        </span>
+      </figure>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Writing Alert Copy</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <p>When writing your alerts, focus on providing a clear, simple description of what has happened or what needs to happen next. Here are some basic guidelines for how to write these critical pieces of user interface copy.</p>
+
+      <h3>Goals</h3>
+      <ul>
+        <li>Help the user understand what action caused the alert.</li>
+        <li>Explain what the user can do next to remedy the situation, if applicable.</li>
+      </ul>
+      <h3>Style</h3>
+      <ul>
+        <li>Use active rather than passive writing.</li>
+        <li>Focus on what the user most needs to know.</li>
+        <li>Provide solutions to a problem where possible.</li>
+        <li>Construct short sentences, written in plain language.</li>
+      </ul>
+
+      <h3>Capitalization</h3>
+      <p>Alert labels use sentence capitalization, except when they include words or phrases that are acronyms or proper nouns (e.g., “RMA number,” “Cost Account,” “ZIP Code”).</p>
+
+      <h3>Punctuation</h3>
+      <ul>
+        <li>Conclude your alert copy with a period.</li>
+        <li>Don’t phrase your alert copy as a question.</li>
+        <li>You can include exclamation points in success alerts. For warning alerts, reserve their use when alerting users to critical information, not to everyday alerts. Never include an exclamation point in an error alert.</li>
+      </ul>
+
+    </div>
+  </div>
+
+
+
+
+</div>

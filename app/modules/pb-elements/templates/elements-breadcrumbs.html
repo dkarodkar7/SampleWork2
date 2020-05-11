@@ -1,0 +1,34 @@
+<div class="breadcrumbs bg-pb-gray-50 spacer-bottom-lg" ng-controller="PbBreadcrumbsController as pbCrumbs">
+    <div class="container-fluid">
+        <ul class="breadcrumbs__links">
+            <!-- first link -->
+            <li ng-class="{'hidden-xs':$state.current.data.breadCrumbData.length > 2}" ng-class="hidden-xs" ng-repeat="breadcrumb in $state.current.data.breadCrumbData | limitTo:1">
+                <span class="icon-left-arrow primary visible-xs-inline-block"></span>
+                <a ui-sref="{{breadcrumb.link}}">
+                    {{breadcrumb.label}}
+                </a>
+                <span class="icon-right-arrow primary hidden-xs"></span>
+            </li>
+            <!--<li>{{ $state.current }}</li>-->
+            <!-- all links between first and last link -->
+            <li ng-if="$state.current.data.breadCrumbData.length > 2" ng-repeat="breadcrumb in $state.current.data.breadCrumbData | startFrom:1 | limitTo:$state.current.data.breadCrumbData.length - 2">
+                <span class="icon-left-arrow primary visible-xs-inline-block"></span>
+                <a ui-sref="{{breadcrumb.link}}">
+                    {{breadcrumb.label}}
+                </a>
+                <span class="icon-right-arrow primary hidden-xs"></span>
+            </li>
+            <!-- last link -->
+            <li class="hidden-xs" ng-repeat="breadcrumb in $state.current.data.breadCrumbData | startFrom:$state.current.data.breadCrumbData.length - 1">
+                <!--<a aria-disabled="true">-->
+                    {{breadcrumb.label}}  <span ng-if="pbCrumbs.currentId">...</span>{{ pbCrumbs.currentId | limitTo:-4 }}
+                <!--</a>-->
+            </li>
+        </ul>
+        <ul class="breadcrumbs__contact pull-right hidden-xs hidden-sm hidden-md">
+            <!--<li class=""><span class="icon-email2 primary"></span><a href="#">Email Us</a></li>-->
+            <li><span class="icon-chat primary"></span><a href="#">Chat</a></li>
+            <li><span class="icon-call gray"></span>(800) 672-6937</li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,631 @@
+.prod {
+  //cursor: pointer;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+
+  .home-revamp & {
+    &:hover {
+      //@include opacity(1); // need to add mixin
+    }
+    &.inactive{
+      //@include opacity(.6); // need to add mixin
+    }
+  }
+
+  .cover-link {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+  }
+
+  padding: 10px 15px;
+  @include breakpoint($tablet) {
+    padding: 10px;
+  }
+  text-align: center;
+  min-height: 300px;
+
+  @include breakpoint($tablet) {
+    &.large-margin-bottom{
+      margin-bottom:60px;
+    }
+  }
+
+  a {
+    font-size: 1em;
+    line-height: initial;
+  }
+
+  p {
+    font-size: 2.000em;
+    font-weight: $fontLight;
+    color:$pb-gray-500;
+
+    @include breakpoint($tablet) {
+      font-size: 1.143em;
+    }
+  }
+
+  .rounded-button{
+    clear:left;
+  }
+
+  &.large-header {
+    .prod__info__header {
+      font-size: 2.429em;
+      font-weight: $fontLight;
+      line-height: 1.2em;
+      margin-bottom: 10px;
+
+    }
+  }
+
+  &.light-text a.prod__info,
+  &.light-text a.prod__info .prod__info__header,
+  &.light-text .prod__info,
+  &.light-text .prod__info .prod__info__header {
+    color: $darkBgFontColor;
+    p{
+      color: $darkBgFontColor;
+    }
+  }
+
+  > div {
+    padding: 20px 20px 0;
+    border:1px solid #FFF;
+    background-color: #eaeaea;
+    background-size: cover;
+    background-position: center bottom;
+    position: relative;
+    overflow: hidden;
+
+    max-height: 260px;
+
+    @include breakpoint($tablet) {
+      max-height: 260px;
+    }
+
+    @include border-bottom-radius(10px);
+
+  }
+
+  &.theme {
+    &__blue > div {
+      @include gradient-directional($start-color: #0062ab, $end-color: #2caace, $deg: 100deg);
+    }
+    &__orange > div {
+      background-color: $pb-orange;
+    }
+    &__purple > div {
+      @include gradient-directional($start-color: #5e2b8b, $end-color: $pb-magenta-500, $deg: 100deg);
+    }
+
+    &__blue > div,
+    &__purple > div {
+      @include breakpoint($desktop, max) {
+        max-height: 600px !important;
+        .prod__image {
+          margin-bottom: $margin-md;
+        }
+      }
+    }
+    &__light-bg-motiff-primary > div {
+      border: 1px solid $pb-blue-500;
+      background: #FFF url('../../modules/espot/assets/images/primary-motiff.png') no-repeat bottom right;
+      background-size: auto;
+    }
+    &__info-bg-motiff-primary-gradient,
+    &__info-bg-motiff-secodary-gradient,
+    &__info-bg-motiff-primary-gradient.large-header,
+    &__info-bg-motiff-secodary-gradient.large-header {
+      > div {
+        @include breakpoint($tablet, max) {
+          //min-height: 300px;
+          padding-bottom: 20%;
+          background-image: url('../../modules/espot/assets/images/primary-motiff-mobile.jpg') !important;
+          background-size: cover;
+        }
+      }
+      .prod__info {
+        @include breakpoint(769px) {
+          height: calc(100% - 60px);
+          padding: 20px;
+          background: url('../../modules/espot/assets/images/bg_primary_motiff.jpg') no-repeat bottom right;
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
+      }
+      &.col-md-12,
+      &.col-sm-12 {
+        .prod__info {
+          @include breakpoint($tablet) {
+            width: 66.6666666667%;
+          }
+        }
+      }
+      &.col-md-6,
+      &.col-sm-6 {
+        .prod__info {
+          @include breakpoint($tablet) {
+            width: 75%;
+          }
+        }
+      }
+    }
+    &__info-bg-motiff-secodary-gradient,
+    &__info-bg-motiff-secodary-gradient.large-header {
+      > div {
+        @include breakpoint($tablet, max) {
+          background-image: url('../images/flex-shop-module/secondary-motiff-mobile.jpg') !important;
+        }
+      }
+      .prod__info {
+        @include breakpoint(769px) {
+          background-image: url('../../modules/espot/assets/images/bg_pink_motiff.jpg');
+        }
+      }
+    }
+  }
+
+  &.primary-border{
+    > div{
+      border:1px solid $pb-blue-500;
+    }
+  }
+
+  &.tall-mobile {
+    > div{
+      @include breakpoint($tablet, max) {
+        padding-bottom:65%;
+      }
+    }
+  }
+
+  &.text-left,
+  &.col-md-12,
+  &.col-sm-12,
+  &__info-bg-motiff-primary-gradient.col-md-6,
+  &__info-bg-motiff-secodary-gradient.col-md-6{
+    text-align: left;
+
+    > div:before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+      margin-right: -0.25em; /* Adjusts for spacing */
+      margin-top: -20px;
+    }
+  }
+  &.col-md,
+  &.col-sm {
+    &-8,
+    &-6 {
+      &.large-header{
+        > div {
+          height: auto;
+          min-height: 260px;
+          max-height: 350px;
+          text-align: center;
+
+          /* May want to do this if there is risk the container may be narrower than the element inside */
+          //white-space: nowrap;
+
+          @include breakpoint($desktop) {
+            height: 260px;
+            text-align: left;
+          }
+
+          &:before {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+            margin-right: -0.25em; /* Adjusts for spacing */
+            margin-top: -20px;
+          }
+        }
+
+        .prod__info {
+          width: 100%;
+          margin-bottom: 30px;
+          @include breakpoint($desktop) {
+            width: 55%;
+            margin-bottom: auto;
+            display: inline-block;
+            vertical-align: middle;
+          }
+        }
+
+        .prod__image {
+          width: 100%;
+          display: inline-block;
+          text-align: center;
+          float: right;
+
+          @include breakpoint($desktop) {
+            width: 44%;
+          }
+        }
+
+        &.tall {
+          &.pull-right{
+            clear:left;
+          }
+          > div {
+            text-align: center;
+            border:none;
+            height: auto;
+
+            &:before {
+              vertical-align: top;
+            }
+
+            .prod__info {
+              width: 80%;
+            }
+
+            .prod__image {
+              width: 100%;
+            }
+
+            @include breakpoint($desktop, max) {
+              background-position:center center;
+              //padding-bottom:50%; // some height is getting set on this with js
+            }
+          }
+        }
+
+        &.prod--default-image-position {
+
+          .prod__image {
+            width: 100%;
+
+            @include breakpoint($desktop) {
+              width: 44%;
+              height:100%;
+
+              /* The ghost, nudged to maintain perfect centering */
+              &:before {
+                content: '';
+                display: inline-block;
+                height: 100%;
+                vertical-align: middle;
+                margin-right: -0.25em; /* Adjusts for spacing */
+              }
+
+              img{
+                max-width:100%;
+                display: inline-block;
+                vertical-align: middle;
+              }
+            }
+          }
+        }
+        &.prod--hang-off-right {
+
+          .prod__image {
+
+            @include breakpoint($desktop) {
+              height:100%;
+
+              /* The ghost, nudged to maintain perfect centering */
+              &:before {
+                content: '';
+                display: inline-block;
+                height: 100%;
+                vertical-align: middle;
+                margin-right: -0.25em; /* Adjusts for spacing */
+              }
+
+              img{
+                max-width:200%;
+                width:130%;
+                height: auto;
+                display: inline-block;
+                vertical-align: middle;
+                margin-right:-40%;
+              }
+            }
+          }
+        }
+      }
+    }
+    &-12 {
+      > div {
+        height: auto;
+        min-height: initial;
+        max-height: initial;
+        background-size: cover;
+
+        @include breakpoint($tablet) {
+          height: 260px;
+        }
+      }
+
+      .prod__info {
+        width: 100%;
+        text-align: center;
+        vertical-align: middle;
+
+        @include breakpoint($tablet) {
+          width: 45.33333%;
+          text-align: left;
+          display: inline-block;
+        }
+
+        > span {
+          width: 100%;
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+
+      .prod__image {
+        text-align: center;
+        width: 90%;
+        display: inline-block;
+        margin-top: 30px;
+
+        @include breakpoint($tablet) {
+          width: 55.33333%;
+          position: absolute;
+          bottom: -2px;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          display: inline-block;
+
+          @include breakpoint($tablet) {
+            width: 75%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.prod__info {
+  width: 85%;
+  display: inline-block;
+  margin-bottom: 10px;
+
+  a {
+    @include breakpoint($tablet) {
+      font-size: 1em;
+    }
+  }
+
+  &__item-number {
+    margin-bottom: 5px;
+    font-size: 1.500em;
+    display: block;
+    color:$pb-gray-500;
+
+    @include breakpoint($tablet) {
+      font-size: 0.857em;
+    }
+  }
+
+  &__name,
+  &__header {
+    color: $pb-blue-500;
+    font-size: 2.750em;
+    font-weight: $fontRegular;
+    display: block;
+
+    @include breakpoint($tablet) {
+      font-size: 1.571em;
+    }
+  }
+
+  &__name {
+    margin-bottom: 5px;
+    font-size: 2.250em;
+
+    @include breakpoint($tablet) {
+      font-size: 1.286em;
+    }
+  }
+
+  &__price {
+    display: block;
+
+    p {
+      color:$pb-gray-500;
+      font-weight: $fontRegular;
+      font-size: 2em;
+
+      @include breakpoint($tablet) {
+        font-size: 1.143em;
+      }
+
+      &.highlight {
+        color:$pb-orange-500;
+      }
+    }
+  }
+
+  button {
+    padding: 8px 15px;
+    margin: 10px 0;
+
+    //&:active {
+    //  background-color: TODO $darkBG; // #053043 ? navy blue color I don't think this is actually used
+    //}
+  }
+}
+
+// =========== not sure if we need this - if we get rid of shop-section
+.shop-section.prod {
+  > div {
+    background: transparent;
+    max-height: none;
+  }
+  .prod__info {
+    text-align: center;
+    margin-bottom:60px;
+    @include breakpoint($tablet) {
+      text-align: left;
+    }
+
+    &__name {
+      margin: 10px 0;
+
+      // remove truncate
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
+    }
+    &__price {
+      margin-bottom: 10px;
+    }
+  }
+}
+//================================================================
+
+
+
+// Shop Modules
+//
+.prod--light-bg {
+  > div {
+    background-color: #FFFFFF;
+
+    img {
+      mix-blend-mode: initial;
+    }
+  }
+}
+.prod--ink-module {
+  > div {
+    background-color: #0078c6;
+
+    img {
+      mix-blend-mode: initial;
+    }
+  }
+}
+.prod--postage-tape-module {
+  > div {
+    background-color: #0078c6;
+
+    img {
+      max-width: none;
+      position: relative;
+      top: -20px;
+      mix-blend-mode: initial;
+
+      @include breakpoint($tablet) {
+        top: -55px;
+        left: -75px;
+      }
+    }
+  }
+}
+.prod--location-data {
+  > div {
+    @include gradient-directional($start-color: #651f96, $end-color: #f7451b, $deg: 135deg);
+
+
+    img {
+      max-width: none;
+      mix-blend-mode: initial;
+
+      @include breakpoint($tablet) {
+        position: relative;
+        top: 25px;
+      }
+    }
+  }
+}
+.prod--officeright-module {
+  > div {
+
+    img {
+      max-width: none;
+      mix-blend-mode: initial;
+
+      @include breakpoint($tablet) {
+        position: relative;
+        top: 25px;
+      }
+    }
+  }
+}
+.prod--smart-postage {
+  > div {
+    background-color: #ed8100;
+
+    img {
+      max-width: none;
+      position: relative;
+      mix-blend-mode: initial;
+
+      @include breakpoint($tablet) {
+        left: -50px;
+      }
+    }
+  }
+}
+  .prod--connect-plus-300-pro-module {
+    > div {
+
+      img {
+        max-width: none;
+        position: relative;
+        mix-blend-mode: initial;
+
+        @include breakpoint($tablet) {
+          bottom: -40px;
+        }
+      }
+    }
+  }
+  .gradient-a {
+    span, p {
+      color: #fff;
+    }
+
+    .motif-bg{
+      display: none;
+    }
+    @include gradient-directional-three-colors($start-color: #a9184d, $mid-color: #c71f84, $end-color: #dc4c41, $deg: 135deg);
+
+    img {
+      mix-blend-mode: initial;
+    }
+  }
+
+  .gradient-b {
+    @include gradient-directional-three-colors($start-color: #00a2e0, $mid-color: #1d4fa3, $end-color: #913a96, $deg: 135deg);
+    @include breakpoint($tablet) {
+      .motif-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('../../modules/espot/assets/images/promo_theme_b_motif.png');
+        background-repeat: no-repeat;
+        background-position: bottom right;
+      }
+    }
+    img {
+      mix-blend-mode: initial;
+    }
+  }
+
+  .gradient-c {
+    @include gradient-directional-three-colors($start-color: #035fae, $mid-color: #00a0dc, $end-color: #5cb582, $deg: 135deg);
+
+    img {
+      mix-blend-mode: initial;
+    }
+  }

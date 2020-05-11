@@ -1,0 +1,88 @@
+<div class="product-list container-fluid col-sm-12 account-selection-option">
+    <figure>
+
+<uib-carousel no-wrap="true" interval="-1"  data-type="multi"  >
+        <uib-slide ng-repeat="slideCollection in groupedSlides"  active="slide.active" index="slide.id" template-url="modules/casemanagement/templates/slide.html">
+            <!--img src="{{slideCollection.image}}"/>
+            <a ng-click="tecnicalsupport();" class="">{{slideCollection.name}}</a>
+            <p class="text-large spacer-bottom-md">{{slideCollection.PONumber}}</p>
+            <p class="text-large spacer-bottom-md">{{slideCollection.location.city}},{{slide.state}}</p-->
+            <div class="slide col-sm-3">
+            <img ng-src="{{slideCollection.image1.image}}"/>
+            <a href="#" ng-click="technicalissueselect()">{{slideCollection.image1.name}}</a>
+            <p class="text-large spacer-bottom-md">{{slideCollection.image1.PONumber}}</p>
+            <p class="text-large spacer-bottom-md">{{slideCollection.image1.location.city}}{{slideCollection.image1.location.state}}</p>
+            </div>
+
+            <div class="slide col-sm-3">
+            <img ng-src="{{slideCollection.image2.image}}"/>
+            <a ng-click="tecnicalselectissue()" class="">{{slideCollection.image2.name}}</a>
+            <p class="text-large spacer-bottom-md">{{slideCollection.image2.PONumber}}</p>
+            <p class="text-large spacer-bottom-md">{{slideCollection.image2.location.city}}{{slideCollection.image2.location.state}}</p>
+            </div>
+
+            <div class="slide col-sm-3">
+            <img ng-src="{{slideCollection.image3.image}}"/>
+            <a  class="">{{slideCollection.image3.name}}</a>
+            <p class="text-large spacer-bottom-md">{{slideCollection.image3.PONumber}}</p>
+            <p class="text-large spacer-bottom-md">{{slideCollection.image3.location.city}}{{slideCollection.image3.location.state}}</p>
+            </div>
+
+            <div class="slide col-sm-3">
+                <img ng-src="{{slideCollection.image4.image}}"/>
+                <a  class="">{{slideCollection.image4.name}}</a>
+                <p class="text-large spacer-bottom-md">{{slideCollection.image4.PONumber}}</p>
+                <p class="text-large spacer-bottom-md">{{slideCollection.image4.location.city}}{{slideCollection.image4.location.state}}</p>
+            </div>
+
+            <div class="slide col-sm-3">
+                <img ng-src="{{slideCollection.image5.image}}"/>
+                <a  class="">{{slideCollection.image5.name}}</a>
+                <p class="text-large spacer-bottom-md">{{slideCollection.image5.PONumber}}</p>
+                <p class="text-large spacer-bottom-md">{{slideCollection.image5.location.city}}{{slideCollection.image5.location.state}}</p>
+            </div>
+
+            <div class="slide col-sm-3">
+                <img ng-src="{{slideCollection.image6.image}}"/>
+                <a  class="">{{slideCollection.image6.name}}</a>
+                <p class="text-large spacer-bottom-md">{{slideCollection.image6.PONumber}}</p>
+                <p class="text-large spacer-bottom-md">{{slideCollection.image6.location.city}}{{slideCollection.image6.location.state}}</p>
+            </div>
+            <div class="slide col-sm-3">
+                <img ng-src="{{slideCollection.image7.image}}"/>
+                <a  class="">{{slideCollection.image7.name}}</a>
+                <p class="text-large spacer-bottom-md">{{slideCollection.image7.PONumber}}</p>
+                <p class="text-large spacer-bottom-md">{{slideCollection.image7.location.city}}{{slideCollection.image7.location.state}}</p>
+            </div>
+            <div class="slide col-sm-3">
+                <img ng-src="{{slideCollection.image8.image}}"/>
+                <a  class="">{{slideCollection.image8.name}}</a>
+                <p class="text-large spacer-bottom-md">{{slideCollection.image8.PONumber}}</p>
+                <p class="text-large spacer-bottom-md">{{slideCollection.image8.location.city}}{{slideCollection.image8.location.state}}</p>
+            </div>
+        </uib-slide>
+</uib-carousel>
+        <section class="onboarding__content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                        <div class="onboarding__carousel spacer-bottom-md" role="listbox" id="onboardCarousel">
+                            <div ng-init="pause()" class="carousel" ng-swipe-right="prev()" ng-swipe-left="next()" >
+                                <div class="carousel-inner">
+                                <a role="button" href class="left carousel-control" ng-click="prev();" ng-show="carousel.getCurrentIndex() > 0">
+                                    <span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>
+                                    <span class="sr-only">previous</span>
+                                </a>
+                                <a role="button" href class="right carousel-control" ng-click="next();" ng-show="carousel.getCurrentIndex() < 24">
+                                    <span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>
+                                    <span class="sr-only">next</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </figure>
+
+</div>

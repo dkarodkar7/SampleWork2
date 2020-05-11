@@ -1,0 +1,374 @@
+.onboarding {
+    @include transition(all .25s ease);
+    margin: 60px 0 0;
+    top: 0;
+    z-index: 1;
+    position: relative;
+
+    .dashboard &{ margin-top: 0; }
+
+    &.opened {
+        height: 100%;
+        .onboarding__navigation__image {
+            margin-top: 0;
+            margin-bottom: -75px;
+        }
+        .onboarding__content { 
+            height: 100%; 
+            margin-bottom: 30px;
+        }
+
+        .onboarding__navigation__link{
+            @include opacity(0.7);
+
+            &.active { @include opacity(1.0); }
+        }
+    }
+
+    &__navbar { 
+        padding: 20px 0;
+        color: #fff;
+        background: $brand-onboard-bg;
+    }
+
+    &__navigation {
+        padding: 10px 0;
+        @include breakpoint($tablet){
+            border-right: 1px solid #fff;
+        }
+
+        &__header {
+            font-size: $font-size-mobile-md;
+            font-family: $font-family-ps-light;
+            color: #fff;
+            margin-bottom: $margin-md;
+            margin-top: 0;
+        }
+
+        &__image {
+            @include transition(all .25s ease);
+
+            @include breakpoint($tablet){
+                margin-top: -5%;
+            }
+        }
+
+        &__title {
+            margin: 0 0 $margin-md;
+        }
+
+        &__links {
+            padding: 0;
+            margin: 0;
+            list-style-type: disc;
+            position: static;
+            width: auto;
+
+            @include breakpoint($tablet){
+                list-style-type: none;
+                margin-left: 0;
+                //overriding carousel
+                position: static;
+                text-align: left;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+            }
+        }
+        &__link{
+            margin-bottom: $margin-sm;
+            padding: 0;
+
+            @include breakpoint($tablet){
+                cursor: pointer;
+                margin: 0;
+
+                &:before { 
+                    content: "";
+                    height: 25px;
+                    width: 1px;
+                    background-color: #fff;
+                    display: inline-block;
+                    vertical-align: top;
+                    margin-top: -5px;
+                }
+
+                &:first-of-type{
+                    &:before { width: 0; }  
+                    span { padding-left: 0; }
+                }
+            }
+
+            @include breakpoint($screen-desktop){
+                &:before { height: 30px; }
+            }
+
+            span { 
+                @include breakpoint($tablet){
+                    padding-left: 10px;
+                    display: inline-block;
+                    width: 90%;
+
+                }
+            }
+        }
+        &__cta { 
+            &--xs { 
+                @include breakpoint($tablet) { display: none; } 
+            }
+
+            &--lg { 
+                display: none;
+                color: #fff;
+                &:hover,
+                &:focus,
+                &:active { 
+                    color: inherit; 
+                    text-decoration: none;
+                }
+                @include breakpoint($tablet) { 
+                    white-space: nowrap;
+                    display: block; 
+                    padding: 20px 0;
+                } 
+            }
+        }
+    }
+    &__content {
+        @include transition(all .25s ease);
+        height: 0;
+        background: #fff;
+        overflow: hidden;
+        .onboarding--dashboard & {
+            height: auto;
+            width: 85%;
+            margin: 0 auto;
+        }
+    }
+
+
+    &__carousel {
+        margin: 60px 0 0;
+        position: relative;
+        cursor: auto;
+
+        h2,
+        p {
+            font-family: $font-family-ps-light;
+        }
+    }
+    &__slide{
+        img { 
+            margin: 0 auto;
+            width: 85%; 
+
+            .onboarding--dashboard & {
+                width: 100%;
+                display: block;
+                max-width: 100%;
+
+            }
+        }
+        &.onboarding--welcome {
+            img{
+                display: none;
+
+                @include breakpoint($tablet){
+                    display: block;
+                    float: left;
+                    width: 25%; 
+                } 
+                
+            }
+        }
+        .onboarding--dashboard & {
+            @include breakpoint($tablet){
+                min-height: 575px;
+            }
+            @include breakpoint($desktop){
+                min-height: 595px;
+            }
+        }
+        &.onboarding--steps{ 
+            img { width: 80%; }
+        }
+
+        .onboarding--login & {
+            @include breakpoint($tablet){
+                min-height: 380px;
+            }
+            @include breakpoint($desktop){
+                min-height: 450px;
+            }
+        }
+    }
+
+    &__text { 
+        .onboarding--dashboard & {
+            text-align: center;
+            font-family: $font-family-ps-light;
+            margin-bottom: $margin-lg;
+
+            @include breakpoint($tablet){
+                text-align: left;
+            }
+        }
+        .onboarding--products & {
+            margin-bottom: $margin-sm;
+        }
+        .onboarding--welcome &,
+        .onboarding--products {  
+            padding-top: 14%;
+            font-family: $font-family-ps-light;
+            @include breakpoint($tablet){
+                float: right;
+                width: 65%;
+                text-align: left;
+            }
+        }
+    }
+
+    &--login{
+        margin-bottom: -40px;
+        .carousel-inner{ 
+            overflow: visible;
+        }
+        .carousel-indicators{ 
+            list-style-type: disc;
+            margin-left: 15px;
+            font-size: $font-size-mobile-sm;
+
+            @include breakpoint($tablet){
+                list-style-type: none;
+                font-size: 1em;
+            }
+            li{
+                width: 100%;
+                height: auto;
+                background: transparent;
+                text-indent: initial;
+                display: list-item;
+                border: none;
+                margin: 0 0 $margin-sm;
+                border-radius: initial; 
+                text-align: left;
+
+                @include breakpoint($tablet){
+                    display: inline;
+                    width: 25%;
+                    margin: 0;
+                }
+            }
+        }
+
+        .carousel-control{
+            @include opacity(1.0);
+            background-image: none;
+            position: absolute; 
+            text-shadow: none;
+            display: none;
+            font-size: 1em;
+            top: 60%;
+            width: auto;
+
+            @include breakpoint($tablet){ display: block; }
+            
+            &.right { 
+                right: -60px;
+                span{
+                    @extend .icon-right-arrow;
+                    color: $pb-blue;
+                    font-family: "icomoon"; 
+                }
+            }
+            &.left{ 
+                left: -60px;
+                span{
+                    @extend .icon-left-arrow;
+                    color: $pb-blue;
+                    font-family: "icomoon";
+                }
+            }
+        }
+    }
+
+    &--dashboard{
+        .onboarding--welcome,
+        .onboarding--products {
+            .onboarding__header{ 
+                background-image: url('../../assets/images/onboarding-gradient.jpg'); 
+                background-repeat: no-repeat;
+                background-position: top right;
+                background-size: cover;
+                padding: 60px 0;
+                margin-bottom: $margin-md;
+
+                h2{ 
+                    color: #fff; 
+                    text-align: center;
+                    @include breakpoint($tablet){
+                        text-align: left;
+                    }
+                }
+            }
+        }
+        .onboarding__header { 
+            padding-top: 30px;
+            h2 { 
+                text-align: center;
+                margin-top:0;
+
+                @include breakpoint($tablet){
+                    text-align: left;
+                    width: 80%;
+                    margin-left: 8%; 
+                }
+            }
+        }
+        
+        .carousel-indicators{ 
+            .dashboard &{
+                margin-bottom: $margin-sm;
+            }
+            
+            li{
+                .dashboard &{
+                    background-color: $pb-gray-500;
+                    border-color: $pb-gray-500;
+                }
+            }
+        }
+
+        .carousel-controls{
+            @include opacity(1.0);
+            background-image: none;
+            position: absolute; 
+            text-shadow: none;
+            display: none;
+            font-size: 1em;
+            width: auto;
+            top: 50%;
+
+            @include breakpoint($tablet){
+                display: block;
+            }
+
+            &.right { 
+                right: 20px;
+                span{
+                    @extend .icon-right-arrow;
+                    color: $pb-blue;
+                    font-family: "icomoon"; 
+                }
+            }
+            &.left{ 
+                left: 20px;
+                span{
+                    @extend .icon-left-arrow;
+                    color: $pb-blue;
+                    font-family: "icomoon";
+                }
+            }
+        }
+    }
+}

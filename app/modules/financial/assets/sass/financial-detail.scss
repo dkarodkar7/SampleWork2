@@ -1,0 +1,321 @@
+.daterange-label{vertical-align: top;}
+
+.date-range{
+  display: inline-block;
+  color: #4e4e4e;
+
+  label{
+    float:left;
+    position: relative;
+    top:15px;
+    right:20px;
+  }
+  .input-group[class*="col-"]{
+    float:left;
+
+    .glyphicon{
+      padding:3px 0;
+    }
+  }
+
+  .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group{
+    margin-left: 258px;
+  }
+  .input-group .form-control{
+    height:40px;
+  }
+  .input-group-btn{
+    position:absolute;
+  }
+  table{
+    tbody{
+      text-align: center;
+      position: relative;
+      margin-left: 20px;
+    }
+  .h6 {
+    visibility: hidden !important;
+  }
+  }
+.btn-info
+{
+  display: none !important;
+}
+
+
+.btn-danger
+
+{
+  display: none !important;
+}
+  .btn-success
+  {
+    display: none !important;
+  }
+}
+
+
+.recent-activity__group__container{
+  margin-top:$margin-md;
+  color: $bodyFontColor;
+  .medium-blue{
+    color:$pb-blue-500;
+  }
+  @include breakpoint($tablet){
+    margin-top:60px;
+  }
+}
+
+.recent-activity{
+
+  [class^="icon-"],
+  [class*=" icon-"] {
+    color: $pb-blue-500;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__headers {
+    margin-bottom:15px;
+
+    h2 {
+      display:inline-block;
+      margin-bottom: 0;
+      font-size:2.143em;
+      margin-right:30px;
+      @include breakpoint($desktop) {
+        margin-right:60px;
+      }
+    }
+
+    .dropdown {
+      line-height: 2.357em;
+      button {
+        font-size: 1em;
+        line-height: 1em;
+        padding-top: 0;
+        padding-bottom: 0;
+        vertical-align: bottom;
+        //color:$pb-blue;
+      }
+      .dropdown-menu{
+        margin-top:10px;
+      }
+    }
+
+    @include breakpoint(0, $tablet) {
+      .dropdown{
+        display: block;
+        width: 100%;
+        button {
+          font-size:$font-size-mobile-md;
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+      .dropdown-menu{
+        width:100%;
+      }
+    }
+
+
+    @include breakpoint($tablet, $screen-md) {
+      .dropdown {
+        display: inline-block;
+        float: none !important;
+      }
+    }
+
+    @include breakpoint($screen-md) {
+      //.dropdown {
+      //  margin-right: 15px;
+      //}
+      .dropdown,
+      a {
+        display: inline-block;
+      }
+    }
+
+  }
+
+  &__table{
+    table{
+      min-width:100%;
+      clear:both;
+    }
+
+    thead,
+    tbody {
+      th,
+      td {
+        line-height: 1.2em;
+
+        @include breakpoint(0, $tablet) {
+          font-size: 1em;
+          line-height: 1em;
+          width:70%;
+          padding-left:15px;
+          padding-right:15px;
+          &.recent-activity__transaction-amount{
+            position:absolute;
+            width:30%;
+            top:$margin-sm;
+            right:0;
+            text-align:right;
+            @include breakpoint(0,$tablet){
+              font-size:$font-size-mobile-sm;
+            }
+          }
+          &.recent-activity__details {
+            font-size: 1.250em;
+            line-height: 1.2em;
+          }
+          &[class*=col-]{
+            display:block;
+            float:left;
+          }
+        }
+        @include breakpoint($tablet) {
+          padding: 20px;
+          font-size:1.143em;
+        }
+
+
+        &:first-of-type{
+          @include breakpoint($tablet) {
+            width: 15%;
+          }
+        }
+
+        &.recent-activity__details{
+          @include breakpoint($tablet) {
+            width:20%;
+          }
+        }
+
+      }
+
+      th {
+        background-color: $pb-light-gray; // previously $pb-ui-gray;
+        padding: 15px;
+        vertical-align: middle;
+        font-size: 0.857em;
+        font-weight: $fontRegular;
+        text-align:left;
+
+        //&:nth-of-type(5),
+        //&:nth-of-type(6) {
+        //	text-align: right;
+        //}
+      }
+    }
+
+    tbody{
+      tr{
+        border-bottom: 1px solid $pb-gray-300;
+        @include breakpoint(0, $tablet) {
+          float:left;
+          width:100%;
+          padding-top:$margin-sm;
+          padding-bottom:$margin-sm;
+        }
+      }
+    }
+
+    tfoot {
+      td{
+        padding: 15px;
+        text-align: center;
+
+        a{ margin: 0 15px; }
+      }
+    }
+
+    @include breakpoint(0, $tablet) {
+        table,
+      thead,
+      tbody,
+      tfoot,
+      tr,
+      td{
+        display:block;
+      }
+      tr{
+        position: relative;
+      }
+      td{
+        padding: 5px 20px;
+        line-height: 1em;
+      }
+
+    }
+  }
+
+  &__datepicker{
+    padding-top:20px;
+    padding-bottom:20px;
+    background-color: $pb-light-gray;
+    a {
+      line-height: 45px;
+      margin-right:15px;
+      display:inline-block;
+    }
+    button{
+      margin-bottom:0;
+     /* margin-top:5px;*/
+    }
+    @include breakpoint(0, $screen-md) {
+      font-size:$font-size-mobile-md;
+      figure{
+        margin-right:-15px;
+        margin-left:-15px;
+      }
+    }
+  }
+
+  &__datepicker-label{
+    display:inline-block;
+    float:left;
+    line-height: 45px;
+    @include breakpoint(0, $screen-md) {
+      //clear:left;
+      //width:15%;
+      display:block;
+      width:100%;
+    }
+  }
+
+
+  //
+  //&__datepicker{
+  //  padding-top:15px;
+  //  border-bottom: 1px solid $pb-gray-300;
+  //  background-color: $pb-light-gray;
+  //  .rounded-button{
+  //    margin-bottom:0;
+  //  }
+  //  a{
+  //    margin-right:20px;
+  //    line-height: 34px;
+  //  }
+  //
+  //  .input-group.date{
+  //    display:table-cell;
+  //    label,
+  //    .form-control{
+  //      display:inline-block;
+  //      padding:1px;
+  //      border-radius:0;
+  //    }
+  //    .form-control{
+  //      width:100px;
+  //      margin-left:10px;
+  //      margin-right:5px;
+  //    }
+  //    .input-group-addon{
+  //      vertical-align:middle;
+  //      font-size:26px;
+  //    }
+  //  }
+  //}
+}

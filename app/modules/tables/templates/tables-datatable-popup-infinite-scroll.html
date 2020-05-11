@@ -1,0 +1,192 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="main-title">Infinite Scroll Example</h1>
+    </div>
+  </div>
+
+
+  <div class="row toolbar spacer-top-xl spacer-bottom-md">
+
+    <div class="col-md-3">
+      <div class="btn-group">
+        <button type="button" class="btn btn-default" uib-tooltip="Add&nbsp;user">
+          <i class="fa fa-fw fa-plus"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <div class="col-md-9">
+
+      <form class="form-inline pull-right">
+
+        <!-- <a href="" date-range-picker class="btn btn-link date-picker" ng-model="datatable.table.daterangepicker.date" options="datatable.table.daterangepicker.options">
+          <i class="fa fa-fw fa-calendar"></i> {{datatable.table.daterangepicker.displayDate()}} <i class="fa fa-angle-down"></i>
+        </a> -->
+
+        <div class="form-group dropdown">
+          <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-fw fa-filter"></i> {{datatable.table.search.country || 'All countries'}} <i class="fa fa-angle-down"></i>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li class="dropdown-header">Country filter</li>
+            <li>
+              <a ng-click="datatable.table.search.country = ''">Show all</a>
+            </li>
+            <li class="divider"></li>
+            <li ng-repeat="item in datatable.table.data | unique: 'country' | orderBy:'country'">
+              <a ng-click="datatable.table.searchCountry(item)">{{item.country}}</a>
+            </li>
+          </ul>
+        </div>
+
+
+        <div class="input-group">
+
+          <div class="input-group-addon">
+              <i class="fa fa-fw fa-search"></i>
+          </div>
+
+            <input class="form-control search" type="text" placeholder="Search" ng-model="datatable.table.search.$" ng-change="datatable.table.searchChange()" ng-model-options="{debounce: 300}" required>
+            <button class="btn btn-link search-clear" type="reset" ng-click="datatable.table.searchClear()"><i class="fa fa-fw fa-times-circle"></i></button>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <div class="row">
+
+    <div class="col-md-12">
+
+      <table class="table table-datatable table-hover" infinite-scroll="datatable.table.infinite.load()" infinite-scroll-distance="0" infinite-scroll-disabled="datatable.table.infinite.disabled" infinite-scroll-listen-for-event="list:reset">
+        <thead>
+          <tr>
+            <th>&nbsp;</th>
+            <th>
+              <a href="" class="text-nowrap" ng-click="datatable.table.sort.change('first_name')">First Name
+                <i class="fa fa-fw fa-sort text-muted" ng-if="datatable.table.sort.type !== 'first_name'"></i>
+                <i class="fa fa-fw fa-sort" ng-if="datatable.table.sort.type === 'first_name'" ng-class="{'fa-sort-desc': !datatable.table.sort.reverse, 'fa-sort-asc': datatable.table.sort.reverse}"></i>
+              </a>
+            </th>
+            <th>
+              <a href="" class="text-nowrap" ng-click="datatable.table.sort.change('last_name')">Last Name
+                <i class="fa fa-fw fa-sort text-muted" ng-if="datatable.table.sort.type !== 'last_name'"></i>
+                <i class="fa fa-fw" ng-if="datatable.table.sort.type === 'last_name'" ng-class="{'fa-sort-desc': !datatable.table.sort.reverse, 'fa-sort-asc': datatable.table.sort.reverse}"></i>
+              </a>
+            </th>
+            <th>Email</th>
+            <th>Country</th>
+            <th>Created</th>
+            <th>Type</th>
+            <th style="width: 300px;">Groups</th>
+            <th>&nbsp;</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr ng-show="!datatable.table.dataFiltered.length">
+            <td colspan="9" class="text-center">There are no results.</td>
+          </tr>
+          <tr ng-repeat-start="item in datatable.table.dataFiltered = (datatable.table.data | orderBy:datatable.table.sort.type:datatable.table.sort.reverse | filter: datatable.table.search | daterange:datatable.table.daterangepicker.date.startDate:datatable.table.daterangepicker.date.endDate | limitTo: datatable.table.limit )" ng-class="{'row-open': item.showDetails}">
+            <td>
+              <a href="" ng-init="item.showDetails = false" ng-click="item.showDetails = !item.showDetails">
+                <i class="fa fa-fw fa-lg fa-angle-right transition-all" ng-class="{'fa-rotate-90': item.showDetails}"></i>
+              </a>
+            </td>
+            <td>{{item.first_name}}</td>
+            <td>{{item.last_name}}</td>
+            <td><a href="">{{item.email}}</a></td>
+            <td><span class="text-nowrap">{{item.country}}</span></td>
+            <td>{{item.date.created | date:'MM/dd/yyyy'}}</td>
+            <td><i class="fa fa-fw" ng-class="{'fa-user': item.userType === 'user', 'fa-user-secret': item.userType === 'admin'}"></i></td>
+            <td>
+              <span ng-repeat="group in (item.groups | orderBy: group | limitTo: item.limit || datatable.table.groups.min) track by $index">
+                {{group}}<span ng-if="!$last">, </span>
+              </span>
+              <div>
+                <a class="small" href="" ng-if="item.groups.length > datatable.table.groups.min" ng-show="!item.limit" ng-click="item.limit = datatable.table.groups.max">Show all</a>
+                <a class="small" href="" ng-show="item.limit" ng-click="item.limit = undefined">Show less</a>
+              </div>
+            </td>
+            <td>
+              <div class="dropdown pull-right">
+                <a href="" class="dropdown-toggle text-nowrap" data-toggle="dropdown">
+                  Action <i class="fa fa-fw fa-angle-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                  <li><a href="">Edit</a></li>
+                  <li><a href="">Delete</a></li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+          <tr class="table-details" ng-repeat-end="item in datatable.table.data">
+            <td></td>
+            <td colspan="8">
+              <div uib-collapse="!item.showDetails">
+                <div class="table-details-content">
+
+                  <div class="row">
+
+                    <div class="col-md-3">
+
+                      <dl class="condensed">
+                        <dt>Phone Numbers</dt>
+                        <dd>Work: {{::item.phone.work}}</dd>
+                        <dd>Cell: {{::item.phone.cell}}</dd>
+                      </dl>
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                      <dl class="condensed">
+                        <dt>Address</dt>
+                        <dd>{{::item.address.street}}</dd>
+                        <dd>{{::item.address.city}}, {{::item.address.state}} {{::item.address.postalCode}}</dd>
+                      </dl>
+
+                    </div>
+
+                    <div class="col-md-2">
+
+                      <dl class="condensed">
+                        <dt>IP Address</dt>
+                        <dd>{{::item.ip_address}}</dd>
+                      </dl>
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                      <dl class="condensed">
+                        <dt>Website</dt>
+                        <dd>{{::item.url}}</dd>
+                      </dl>
+
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="text-center spacer-bottom-lg" ng-show="datatable.table.infinite.disabled">
+        <span class="badge badge-link" style="padding: 10px; font-size: 1em;"><i class="fa fa-refresh fa-spin"></i> Loading...</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,33 @@
+#loading-bar {
+
+  .bar {
+    background: #fff;
+    height: 1px;
+  }
+
+  .peg {
+    -moz-box-shadow: #29d 1px 0 6px 1px;
+    -ms-box-shadow: #29d 1px 0 6px 1px;
+    -webkit-box-shadow: #29d 1px 0 6px 1px;
+    box-shadow: #29d 1px 0 6px 1px;
+    height: 1px;
+  }
+  
+}
+
+#loading-bar-spinner {
+  display: none;
+  position: fixed;
+  z-index: 10002;
+  top: 10px;
+  left: 10px;
+}
+
+#loading-bar-spinner {
+
+  .spinner-icon {
+    border-top-color:  #fff;
+    border-left-color: #fff;
+  }
+
+}

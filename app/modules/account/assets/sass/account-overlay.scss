@@ -1,0 +1,30 @@
+.account-overlay{
+  list-style:none;
+  padding-left:0;
+  max-height:350px;
+  overflow-y: auto;
+  ul {
+    list-style: none;
+    padding:0;
+
+    li {
+      margin-bottom: $margin-sm;
+      padding: 7px 5px;
+      list-style-type: none;
+
+      .bpn_address{
+        color: #4E4E4E ;
+      }
+    }
+
+  }
+
+}
+
+.success .icon-check-circle{
+  margin-left:0;
+}
+
+
+
+

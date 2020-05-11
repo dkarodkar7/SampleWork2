@@ -1,0 +1,117 @@
+<div class="dashboard-module col-xs-12 financial-overview-module spacer-bottom-md {{ responsiveClasses }}">
+    <!-- Module Label -->
+    <section>
+        <div class="col-xs-12">
+            <h2 class="dashboard-module__header header--sm ko ps-light text-left"
+                ng-click="showDetail()">
+                {{ financialModuleCtrl.moduleTitle }}
+            </h2>
+        </div>
+    </section>
+
+    <section class="dashboard-module__module bg-white list-view-module">
+
+        <pb-loader show-loader="!financialModuleCtrl.model" load-failed="financialModuleCtrl.promiseResolvedFailed"></pb-loader>
+
+        <!-- Variable Height List -->
+        <div class="row">
+            <ul class="col-xs-12 variable-height list-view-module__list financial-overview-module__list">
+                <li>
+                    <div class="dlist-group">
+                        <div href class="definition">
+                            <a ui-sref="financial.purchasepower" >Purchase Power</a>
+                        </div>
+                        <div class="defined">
+                            <a href="#/financial/purchase-power/6100908000205591">View Activity</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="dlist-group">
+                        <div class="definition">
+                            <a href="" >Rewards Points</a>
+                        </div>
+                        <div class="defined">
+                            <span>{{ financialModuleCtrl.financialModule.getPoints() }}</span>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="dlist-group">
+                        <div class="definition">
+                            <a ui-sref="financial.prepaidaccount" >Prepaid Balance</a>
+                        </div>
+                        <div class="defined">
+                            <span>{{ financialModuleCtrl.financialModule.getBalance() | currency }}</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="ctas__manage row static-height">
+            <a href="#">
+                <span>Total Postage Management</span>
+                <span class="icon-next-circle"></span>
+            </a>
+            <a href="#">
+                <span>Easy Permit Postage</span>
+                <span class="icon-next-circle"></span>
+            </a>
+        </div>
+
+
+        <!-- Bottom Content -->
+        <section class="ctas static-height">
+            <div class="ctas__inner border-top">
+
+                <!-- Payment Alert -->
+                <!-- ng-if toggles uses test toggles from above -->
+                <!-- replace test ng-if with real logic for prod -->
+                <div class="bills" ng-repeat="item in financialModuleCtrl.model | orderBy:'-dueDate' | limitTo:1">
+                    <div class="col-xs-12 col-sm-6 bills__message ctas__link text-large">
+                        <span class="notification__icon icon-alert-circle" ng-if="inputs.haveBill"></span>
+                        <a href="#" ng-if="!inputs.haveBill">Invoice And Statements</a>
+
+                        <span ng-if="inputs.haveBill && inputs.billOverdue">
+                            Payment for {{ item.balance | currency }} is overdue
+                        </span>
+                        <span ng-if="inputs.haveBill && !inputs.billOverdue">
+                            Bill for {{ item.balance | currency }} due on {{ item.dueDate | date:'medium' }}
+                        </span>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 ctas__button no-padding">
+                        <button class="rounded-button btn-sm primary" ng-if="!inputs.haveBill">View Details</button>
+                        <button class="rounded-button btn-sm primary" ng-if="inputs.haveBill">View Bills</button>
+                    </div>
+                </div>
+
+                <!-- Upgrade notification -->
+                <div class="callout row">
+                    <h3 class="subhead subheader--md ps-light nmt text-left">Upgrade to Reserve Account</h3>
+
+                    <p>A Pitney Bowes credit line that allows you to pay for the meter, postage and supplies through a
+                        single account. <a href="#">Learn More.</a></p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- For testing -->
+    <figure>
+        <figcaption>Bills status test</figcaption>
+        <span class="form-group">
+            <div model="inputs.haveBill" on-label="yes" off-label="no" knob-label="Bill" toggle-switch>&nbsp;</div>
+        </span>
+
+        <span class="form-group">
+            <div model="inputs.billOverdue" on-label="yes" off-label="no" knob-label="Overdue" toggle-switch>&nbsp;</div>
+        </span>
+    </figure>
+</div>
+
+
+

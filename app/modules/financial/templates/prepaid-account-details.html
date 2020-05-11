@@ -1,0 +1,217 @@
+<!------------------------------------------------------------------------------------------------
+                Template changes to address issues #11-17 & #29
+            ------------------------------------------------------------------------------------------------->
+
+<!------------------------------------------------------------------------------------------------
+    The updates to the template includes:
+    1. Fix issue #11 -
+            * disable "By Postage Meter" title - changed from <a> tag to span
+            * Removed ng-click from <a> tag that is now span
+            * Removed divider li above title
+            * Add class for sub menu styling, added '-' before the word Meter
+    2. Fix issue #13 - Clicking Clear Results now resets the Filter by Statement / Date dropdown text.
+            * Added "date" class to Month to Date dropdown in order to target title switch upon clear
+            * Removed filters.activityDate from <a> tag
+            * Added clear-button class needed for targeting to <a> tag
+            # Added call to checkMonthYear function to reset current month to <a> tag
+            * Added call to switchFilterText function to switch title to <a> tag
+    3. Fix issue #14 - Filter by Transaction fix
+            * Updated ngClick on <th> and consolidated icon logic into one span
+            * Updated <td> to filter value by num - to ensure numbers and not strings
+    4. Fix issue #17 - Filter by Balance Fix
+            * Updated ngClick on <th> and consolidated icon logic into one span
+            * Updated <td> to filter value by num and currency
+    5. Fix issue #15 - Missing Date arrow on load
+            * Initiate sort type by date on table on page load
+            * Removed orderBy:dueDateFormatter from <tr> - was causing issues with other column sorting
+            * Updated ngClick on <th> and consolidated icon logic into one span
+    6. Fix issue #16 Removed sorting from Description and Reference / Meter columns
+
+    ** These number can be referenced from the some of the comments below.
+------------------------------------------------------------------------------------------------->
+
+<!-- ====================================== MOBILE 'ACCORDION' LINK  =========================== -->
+<div class="visible-xs accordion__button container-fluid" ui-sref="financial.purchasepower({ collapse : true})"  >
+    <div class="row">
+        <div class="col-xs-12">
+            <span class="link header--sm">Purchase Power</span>
+            <span class="primary pull-right icon-caret-down"></span>
+        </div>
+    </div>
+</div>
+
+<!-- ====================================== START TAB PANE CONTENT =========================== -->
+<div class="tab-pane panel-default fade in active" id="prepaid-accounts">
+    <div  class="visible-xs accordion__button container-fluid" ng-click="collapse = !collapse">
+        <div class="row">
+            <div class="col-xs-12">
+                <span class="link header--sm">Prepaid Accounts</span>
+                <span ng-class="collapse ? 'icon-caret-down' : 'icon-caret-up'" class="primary pull-right"></span>
+            </div>
+        </div>
+    </div>
+    <div ng-hide="collapse" class="tab-pane-content">
+        <div class="border-bottom gray">
+            <section class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
+                        <div pb-financial-overview pb-financial-overview-data="pPaidDetailCtrl.financialOverview" pb-financial-overview-back-link="financial.prepaidaccount"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <div pb-notification-inline notification-data="pPaidDetailCtrl.notificationsInline"></div>
+        <div pb-notifications notification-list-data="pPaidDetailCtrl.notifications" additional-classes="notification--primary"></div>
+
+        <!-- ====================================== RECENT ACTIVITY =========================== -->
+        <section class="container-fluid">
+            <div class="row spacer-bottom-md">
+                <div class="col-sm-12 col-md-10 col-md-offset-1">
+                    <!-- ========================= RECENT ACTIVITY TABLE FILTER DROPDOWNS ============= -->
+                    <div class="recent-activity__group__container row">
+                        <div class="recent-activity__headers col-xs-12">
+                            <h2 class="header--sm no-margin-top pull-left hidden-xs">Account Activity</h2>
+
+                            <!-- by date -->
+                            <!-- Updated (See 2 above) -->
+                            <div class="dropdown date pull-left">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="text">Month to Date</span><span class="icon-down-arrow small medium-blue"></span></button>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                                    <li>
+                                        <a ng-click="dateRange = false; checkMonthYear(CurrentMonth,CurrentYear); switchFilterText($event,'Month to Date'); mobileClose($event);">Month to Date</a>
+                                    </li>
+                                    <li>
+                                        <a ng-click="dateRange = false; checkMonthYear(PreviousMonth,PrevMonthYear); switchFilterText($event,'Previous Month'); mobileClose($event);">Previous Month
+                                            <span class="sub-text">{{ PreviousMonthText }} - {{ CurrentMonthText }}</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a ng-click="dateRange = !dateRange; switchFilterText($event,'Custom Date Range'); mobileClose($event);">Custom Date Range</a>
+                                    </li>
+                                  </ul>
+                              </div>
+
+
+                            <!-- by transaction -->
+                            <!-- Updated (See 1 above) -->
+                            <div class="dropdown pull-left hidden-xs">
+                                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="text">All transactions</span><span class="icon-down-arrow small medium-blue"></span></button>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                                    <li><a ng-click="setbyTransactionType(''); filters.refMeter = undefined; switchFilterText($event, 'All Transactions')">All Transactions</a></li>
+                                    <li><a ng-click="setbyTransactionType('refMeter'); filters.refMeter = undefined; switchFilterText($event, 'Postage Transactions')">Postage Transactions</a></li>
+                                    <li><span aria-disabled="true">By Postage Meter</span></li>
+                                    <li ng-repeat="transaction in pPaidDetailCtrl.detail | orderBy:'refMeter' | unique:'refMeter'">
+                                        <a ng-if="transaction.refMeter" ng-click="filters.refMeter = transaction.refMeter; switchFilterText($event, transaction.refMeter);" class="sub-menu">
+                                            - Meter# {{ transaction.refMeter }}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                              <!-- download -->
+                              <div class="dropdown pull-right hidden-sm hidden-xs hidden-md">
+                                  <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="text">Download</span><span class="icon-down-arrow small medium-blue"></span></button>
+                                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu"> <!-- style="display: block; position: static; margin-bottom: 5px; *width: 180px;" -->
+                                      <li><a>PDF</a></li>
+                                      <li><a>CSV</a></li>
+                                      <li><a>XLS</a></li>
+                                  </ul>
+                              </div>
+                          </div>
+
+                          <!-- daterange show when filter selected -->
+                          <div ng-show="dateRange" class="recent-activity__datepicker border-bottom gray col-xs-12">
+                              <div class="row">
+                                  <div class="col-xs-12 col-sm-12 col-md-7">
+                                      <p class="recent-activity__datepicker-label">Date Range</p>
+                                      <div class="col-xs-12 col-sm-12 col-md-7">
+                                          <figure>
+                                              <div class="input-group">
+                                                  <input class="form-control" date-range-picker ng-model="daterangepicker.date" options="daterangepicker.options" type="text"/>
+                                                      <span class="input-group-addon">
+                                                        <i class="fa fa-fw fa-calendar"></i>
+                                                      </span>
+                                              </div>
+                                          </figure>
+                                      </div>
+                                      <!-- Updated (See 2 above) -->
+                                      <a class="clear-button" ng-click="dateRange = false; checkMonthYear(CurrentMonth,CurrentYear); switchFilterText($event,'Month to Date');">Clear Results</a>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <!-- ========================= RECENT ACTIVITY TABLE ========================= -->
+                          <div class="recent-activity__table">
+                              <!-- Updated (See 5 above) -->
+                              <table class="spacer-bottom-md" ng-init="sortType = dueDateFormatter">
+                                  <thead class="hidden-xs">
+                                  <tr>
+                                      <!-- Updated (See 5 above) -->
+                                      <th class="hand-cursor" ng-click="sortType = dueDateFormatter; sortReverse = !sortReverse">
+                                          Date
+                                          <span class="fa" ng-class="{'fa-caret-up': sortType == dueDateFormatter && !sortReverse, 'fa-caret-down': sortType == dueDateFormatter && sortReverse}"></span>
+                                      </th>
+                                      <!-- Updated (See 6 above) -->
+                                      <th>Description</th>
+                                      <th>Reference / Meter</th>
+                                      <!-- Updated (See 3 above) -->
+                                      <th class="hand-cursor" ng-click="sortType = currencySortAmount; sortReverse = !sortReverse">
+                                          Transaction Amount
+                                          <span class="fa" ng-class="{'fa-caret-up': sortType == currencySortAmount && !sortReverse, 'fa-caret-down': sortType == currencySortAmount && sortReverse}"></span>
+                                      </th>
+                                      <!-- Updated (See 4 above) -->
+                                      <th class="hand-cursor" ng-click="sortType = currencySortBalance; sortReverse = !sortReverse">
+                                          Balance
+                                          <span class="fa" ng-class="{'fa-caret-up': sortType == currencySortBalance && !sortReverse, 'fa-caret-down': sortType == currencySortBalance && sortReverse}"></span>
+                                      </th>
+                                  </tr>
+                                  </thead>
+
+                                  <tbody>
+                                  <!-- Updated (See 5 above) -->
+                                  <tr dir-paginate="transaction in pPaidDetailCtrl.detail | orderBy:sortType:sortReverse | filter:filters | isCurrentMonthFilter:currentMonthSet | isCurrentYearFilter:currentYearSet | byTransactionTypeFilter:byTransactionTypeSet | itemsPerPage: 20">
+                                      <td>{{ transaction.activityDate | formatDate:'MM/dd/yyyy'}}</td>
+                                      <td class="recent-activity__details">{{ transaction.descrip }}</td>
+                                      <td ng-if="transaction.transfer" class="hidden-xs">{{ transaction.transfer }}</td>
+                                      <td ng-if="transaction.refMeter" class="hidden-xs">{{ transaction.refMeter }}</td>
+                                      <!-- Updated (See 3 above) -->
+                                      <td class="recent-activity__transaction-amount">{{ transaction.amount | num | currency }}</td>
+                                      <!-- Updated (See 4 above) -->
+                                      <td>{{ transaction.balance | num | currency}}</td>
+                                  </tr>
+                                  </tbody>
+
+                              </table>
+
+                              <!-- ========================= RECENT ACTIVITY PAGINATION ========================= -->
+                              <dir-pagination-controls class="pagination-container"
+                                                       [max-size=""]
+                                                       [direction-links=""]
+                                                       [boundary-links=""]
+                                                       [on-page-change=""]
+                                                       [pagination-id=""]
+                                                       [template-url=""]
+                                                       [auto-hide=""]>
+                              </dir-pagination-controls>
+
+                          </div>
+                          <p class="subheader--md spacer-top-lg col-xs-12">You can view all your past and present statements in <a href="#">the billing section</a></p>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- ========================= RELATED LINKS  ========================= -->
+              <div class="row">
+                  <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+                      <div class="row">
+                          <div pb-related-links pb-related-twocols="true"></div>
+                      </div>
+                  </div>
+              </div>
+
+          </section>
+    </div>
+</div>
+<!-- ====================================== END TAB PANE CONTENT =========================== -->

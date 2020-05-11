@@ -1,0 +1,382 @@
+<div class="row">
+  <div class="col-sm-8">
+    <h1 class="doc-head" id="data-tables">Data Tables</h1>
+  </div>
+</div>
+
+<!-- PLACEMENT -->
+<div class="row">
+  <div class="col-sm-12">
+    <h2 class="doc-sectionhead">Placement</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+
+    <div class="row">
+      <div class="col-sm-12">
+        <h2>Table Title</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="well well-sm text-center">
+          Tabbed sections
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="well well-sm text-center">
+              Bulk Action
+            </div>
+          </div>
+
+          <div class="col-sm-5 col-sm-offset-2">
+            <div class="well well-sm text-center">
+              Filters
+            </div>
+          </div>
+
+          <div class="col-sm-2">
+            <div class="well well-sm text-center">
+              Table Utility
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="well well-sm text-center" style="padding: 100px 0">
+          Data
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col-sm-4">
+        <div class="well well-sm text-center">
+          Page count
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="well well-sm text-center">
+          Page size
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="well well-sm text-center">
+          Paging control
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- THIS STUFF IS ESSENTIALLY COVERED BELOW ON THE PAGE AND IS REDUNDANT -->
+
+<!-- <div class="row">
+  <div class="col-sm-12">
+    <h2 class="doc-sectionhead">Action Menu On Each Row</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+
+    <div class="toolbar">
+
+      <div class="row toolbar spacer-top-md spacer-bottom-md">
+
+        <div class="col-sm-3">
+
+          <button class="btn btn-link" type="button">
+            <i class="fa fa-plus"></i>
+          </button>
+
+        </div>
+
+        <div class="col-sm-9">
+
+          <form class="form-inline pull-right">
+
+            <button class="btn btn-link" type="button">
+              <i class="fa fa-fw fa-filter"></i>Filter One
+              <i class="fa fa-angle-down"></i>
+            </button>
+
+            <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" type="button">
+              <i class="fa fa-fw fa-filter"></i>Filter Two
+              <i class="fa fa-angle-down"></i>
+            </button>
+
+            <div class="input-group">
+
+              <div class="input-group-addon">
+                <i class="fa fa-fw fa-search"></i>
+              </div>
+
+              <input class="form-control search" placeholder="Search" required type="text">
+              <button class="btn btn-link search-clear" ng-click="datatable.table.searchClear()" type="reset">
+                <i class="fa fa-fw fa-times-circle"></i>
+              </button>
+            </div>
+
+            <div class="btn-group" data-toggle="buttons">
+              <label class="btn btn-default active">
+                <input autocomplete="off" checked name="options-1" type="radio">
+                <i class="fa fa-fw fa-th-list"></i>
+              </label>
+
+              <label class="btn btn-default">
+                <input autocomplete="off" checked name="options-1" type="radio">
+                <i class="fa fa-fw fa-th"></i>
+              </label>
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>
+            <a href="">Date</a>
+          </th>
+          <th>
+            <a href="">Recipient</a>
+          </th>
+          <th>
+            <a href="">Carrier</a>
+          </th>
+          <th>
+            <a href="">Shipping Info</a>
+          </th>
+          <th>Tracking #</th>
+          <th>Status</th>
+          <th>Amount</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Date</td>
+          <td>Recipient</td>
+          <td>Carrier</td>
+          <td>Shipping Info</td>
+          <td>Tracking #</td>
+          <td>Status</td>
+          <td>Amount</td>
+          <td>
+            <div class="dropdown pull-right">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                Actions
+                <i class="fa fa-fw fa-angle-down"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                <li>
+                  <a href="">Edit</a>
+                </li>
+                <li>
+                  <a href="">Delete</a>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Date</td>
+          <td>Recipient</td>
+          <td>Carrier</td>
+          <td>Shipping Info</td>
+          <td>Tracking #</td>
+          <td>Status</td>
+          <td>Amount</td>
+          <td>
+            <div class="dropdown pull-right">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                Actions
+                <i class="fa fa-fw fa-angle-down"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                <li>
+                  <a href="">Edit</a>
+                </li>
+                <li>
+                  <a href="">Delete</a>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Date</td>
+          <td>Recipient</td>
+          <td>Carrier</td>
+          <td>Shipping Info</td>
+          <td>Tracking #</td>
+          <td>Status</td>
+          <td>Amount</td>
+          <td>
+            <div class="dropdown pull-right">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                Actions
+                <i class="fa fa-fw fa-angle-down"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                <li>
+                  <a href="">Edit</a>
+                </li>
+                <li>
+                  <a href="">Delete</a>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="8">&#8230;</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div> -->
+
+<!-- MULTIPLE SELECT -->
+<!-- <div class="row">
+  <div class="col-sm-12">
+    <h2 class="doc-sectionhead">Multiple Row Selection</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+
+    <div class="toolbar">
+
+      <div class="row toolbar spacer-top-md spacer-bottom-md">
+
+        <div class="col-sm-3">
+
+          <button class="btn btn-link" type="button">
+            <i class="fa fa-plus"></i>
+          </button>
+
+          <button class="btn btn-link" ng-show="overview.table.selectedRows.length" type="button">
+            <i class="fa fa-trash-o"></i>
+          </button>
+
+          <button class="btn btn-link" ng-show="overview.table.selectedRows.length === 1" type="button">
+            <i class="fa fa-pencil"></i>
+          </button>
+
+        </div>
+
+        <div class="col-sm-9">
+
+          <form class="form-inline pull-right">
+
+            <button class="btn btn-link" type="button">
+              <i class="fa fa-fw fa-filter"></i>Filter One
+              <i class="fa fa-angle-down"></i>
+            </button>
+
+            <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" type="button">
+              <i class="fa fa-fw fa-filter"></i>Filter Two
+              <i class="fa fa-angle-down"></i>
+            </button>
+
+            <div class="input-group">
+
+              <div class="input-group-addon">
+                <i class="fa fa-fw fa-search"></i>
+              </div>
+
+              <input class="form-control search" placeholder="Search" required type="text">
+              <button class="btn btn-link search-clear" ng-click="datatable.table.searchClear()" type="reset">
+                <i class="fa fa-fw fa-times-circle"></i>
+              </button>
+            </div>
+
+            <div class="btn-group" data-toggle="buttons">
+              <label class="btn btn-default active">
+                <input autocomplete="off" checked name="options-1" type="radio">
+                <i class="fa fa-fw fa-th-list"></i>
+              </label>
+
+              <label class="btn btn-default">
+                <input autocomplete="off" checked name="options-1" type="radio">
+                <i class="fa fa-fw fa-th"></i>
+              </label>
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>
+            <input ng-checked="overview.table.selectAllFilteredRows()" ng-click="overview.table.selectAllRows()" ng-model="overview.table.allRowsSelected" type="checkbox"/>
+          </th>
+          <th>
+            <a href="">Date</a>
+          </th>
+          <th>
+            <a href="">Recipient</a>
+          </th>
+          <th>
+            <a href="">Carrier</a>
+          </th>
+          <th>
+            <a href="">Shipping Info</a>
+          </th>
+          <th>Tracking #</th>
+          <th>Status</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-class="{'table-row-selected': item.selected}" ng-click="overview.table.selectRow(item, $event)" ng-repeat="item in overview.table.dataFiltered = (overview.table.data)">
+          <td><input ng-click="overview.table.selectRow(item)" ng-model="item.selected" type="checkbox"></td>
+          <td>Date</td>
+          <td>Recipient</td>
+          <td>Carrier</td>
+          <td>Shipping Info</td>
+          <td>Tracking #</td>
+          <td>Status</td>
+          <td>Amount</td>
+        </tr>
+        <tr>
+          <td colspan="8">&#8230;</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div> -->

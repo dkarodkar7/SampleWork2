@@ -1,0 +1,684 @@
+[
+    {
+        "products": [
+            {
+                "name"      : "DM 125 Postage Meter",
+                "serial"    : "6847665",
+                "type"      : "meter",
+                "smartlinkEnabled":"yes",
+                "updates"   : false,
+                "postage"   :false,
+                "inklevel"  :true,
+
+                "supplies"  : [
+                    {
+                        "itemNumber"    : "797-4",
+                        "productName"   : "Red Ink Cartridge for DM 100, DM 200 Series",
+                        "price"         : "99.99",
+                        "thumb"         : "https://www.pitneybowes.us/suppliesui/pbui/site-content/images/large/en_US/793-5.jpg",
+                        "postageFunds"  : "341.79",
+                        "availableFunds": "3420.18",
+                        "lowFunds"      : "30"
+                    },
+                    {
+                        "itemNumber"    : "234234234",
+                        "productName"   : "Postage Tape Sheets",
+                        "price"         : "69.99",
+                        "thumb"         : "https://www.pitneybowes.us/suppliesui/pbui/site-content/images/large/en_US/620-9.jpg"
+                    }
+                ],
+
+                "supportCases": [
+                    {
+                        "caseNumber"        : "ABC123000",
+                        "status"            : "pending",
+                        "caseDescription"   : "Error 130: We have detected an abc issue on 3/15/16.The service call was placed on your behalf."
+                    },
+                    {
+                        "caseNumber"        : "ABC123000",
+                        "status"            : "open",
+                        "caseDescription"   : "Open case example description"
+                    },
+                    {
+                        "caseNumber"        : "ABC123000",
+                        "status"            : "pending",
+                        "caseDescription"   : "Error 130: We have detected an abc issue on 3/15/16.The service call was placed on your behalf."
+                    }
+                ],
+
+                "statusHistory": [
+                    "Version 17.2 installed",
+                    "USPS Rates up to date",
+                    "ZIP Codes up to date"
+                ],
+
+                "availableUpdates": [],
+
+                "location": {
+                    "address": {
+                        "name"      : "Delta Real Estate",
+                        "street"    : "7812 Redsky Dr",
+                        "suite"     : "",
+                        "city"      : "Cincinnati",
+                        "state"     : "OH",
+                        "postalCode": "45249-1632"
+                    }
+            },
+                    "resources": [
+                        {
+                            "name"  : "Envelope Messaging",
+                            "url"   : "https://www.pb.com/MyAccount/SloganEnquiry?storeId=11556&langId=-1"
+                        },
+                        {
+                            "name"  : "How to Request Postage Refund",
+                            "url"   : "https://support.pb.com/ekip/index?page=content&id=RE8704"
+                        },
+                        {
+                            "name"  : "Track Mail From This Meter",
+                            "url"   : "https://www.pitneybowes.com/us/trackmymail.html"
+                        }
+                    ],
+                    "contractInfo": {
+                        "pcnNumber"     : "P720B",
+                        "serialNumber"  : "6847665",
+                        "contract"      : "Leased, 4 Months left",
+                        "installDate"   : "07/10/14",
+
+                        "requestDetails": {
+                            "linkName"  : "Request Contract Details",
+                            "url"       : "http://www.pb.com"
+                        }
+
+                },
+
+                "support": {
+                    "links": {
+                        "supportContent": [
+                            {
+                                "name"  : "How to replace the Ink Cartridge",
+                                "url"   : "http://www.pb.com"
+                            },
+                            {
+                                "name"  : "Adding Postage",
+                                "url"   : "http://www.pb.com"
+                            }
+                        ],
+                        "learnContent": [
+                            {
+                                "name"  : "Product Settings",
+                                "url"   : "http://www.pb.com"
+                            },
+                            {
+                                "name"  : "Using Presets on Your Mailing System",
+                                "url"   : "http://www.pb.com"
+                            }
+                        ],
+                        "cases": [
+                            {
+                                "name"  : "Product Settings",
+                                "url"   : "http://www.pb.com"
+                            },
+                            {
+                                "name"  : "Using Presets on Your Mailing System",
+                                "url"   : "http://www.pb.com"
+                            }
+                        ]
+                    }
+                }
+            },
+
+            {
+                "name"      : "Non-Meter Product",
+                "serial"    : "6854321",
+                "type"      : "non-meter",
+                "smartlinkEnabled":"no",
+
+
+                "supportCases": [
+                    {
+                        "caseNumber"        : "ABC123000",
+                        "status"            : "pending",
+                        "caseDescription"   : "Error 130: We have detected an abc issue on 3/15/16.The service call was placed on your behalf."
+                    },
+                    {
+                        "caseNumber"        : "ABC123000",
+                        "status"            : "closed",
+                        "caseDescription"   : "Lorem ipsum.."
+                    },
+                    {
+                        "caseNumber"        : "ABC123000",
+                        "status"            : "open",
+                        "caseDescription"   : "Open case example description"
+                    }
+                ],
+
+                "location": {
+                    "address": {
+                        "name"      : "ABCDF RS",
+                        "street"    : "7 Kimberly Dr",
+                        "suite"     : "",
+                        "city"      : "Danvers",
+                        "state"     : "MA",
+                        "postalCode": "01923-1632"
+                    },
+                    "resources": [
+                        {
+                            "name"  : "Support for SendSuite Live",
+                            "url"   : "https://www.pb.com/MyAccount/SloganEnquiry?storeId=11556&langId=-1"
+                        },
+                        {
+                            "name"  : "QP Advantage",
+                            "url"   : "https://support.pb.com/ekip/index?page=content&id=RE8704"
+                        }
+                    ],
+                    "contractInfo": {
+                        "pcnNumber"     : "P720B",
+                        "serialNumber"  : "6847665"
+                    }
+                }
+            },
+
+            {
+                "name"      : "Software Product Template",
+                "type"      : "software",
+                "updates"   : false,
+                "smartlinkEnabled":"no",
+
+
+                "additionalLinks" : [
+                    {
+                        "label": "Additional Link 1",
+                        "url"  : "http://wwww.pb.com"
+                    },
+                    {
+                        "label": "Additional Link 2",
+                        "url"  : "http://wwww.pb.com"
+                    }
+                ],
+
+                "knowledgeBase": [
+                    {
+                        "articleTitle": "MapInfo Pro and Creating Doughnut Shaped Objects",
+                        "url": "http://www.pb.com"
+                    },
+                    {
+                        "articleTitle": "Simulating the Interleaved Streets from StreetPro in StreetInfo",
+                        "url": "http://www.pb.com"
+                    },
+                    {
+                        "articleTitle": "Setting the image processing preferences",
+                        "url": "http://www.pb.com"
+                    }
+                ],
+
+                "supportDocuments": [
+                    {
+                        "title": "MapInfo Pro 15.2 Release Notes",
+                        "downloadURL": "http://www.pb.com"
+                    },
+                    {
+                        "title": "MapInfo Pro 15.2 Install Guide",
+                        "downloadURL": "http://www.pb.com"
+                    },
+                    {
+                        "title": "MapInfo Pro 15.2 User Guide",
+                        "downloadURL": "http://www.pb.com"
+                    },
+                    {
+                        "title": "MapInfo Pro 15.2 Data Directory",
+                        "downloadURL": "http://www.pb.com"
+                    },
+                    {
+                        "title": "MapInfo Pro 15.2 Printing Guide",
+                        "downloadURL": "http://www.pb.com"
+                    },
+                    {
+                        "title": "MapInfo Pro 15.2 Datasheet",
+                        "downloadURL": "http://www.pb.com"
+                    },
+                    {
+                        "title": "Maintenance and Technical Support (MATS) Datasheet",
+                        "downloadURL": "http://www.pb.com"
+                    },
+                    {
+                        "title": "MapInfo Pro Premium Services Datasheet",
+                        "downloadURL": "http://www.pb.com"
+                    }
+                ],
+
+
+                "community": [
+                    {
+                        "title": "Retaining Name Page Groupd from AFP-IN to AFP OUT",
+                        "author": "psm503",
+                        "date": "Jan 27, 2015"
+                    },
+                    {
+                        "title": "Retaining Name Page Groupd from AFP-IN to AFP OUT",
+                        "author": "psm503",
+                        "date": "Jan 27, 2015"
+                    },
+                    {
+                        "title": "Special characters in Annotations text SSA",
+                        "author": "Pallavi",
+                        "date": "Jan 18, 2015"
+                    },
+                    {
+                        "title": "Scalebar Removal",
+                        "author": "PaulNuusa",
+                        "date": "Jan 12, 2015"
+                    },
+                    {
+                        "title": "Scalebar Removal",
+                        "author": "PaulNuusa",
+                        "date": "Jan 12, 2015"
+                    },
+                    {
+                        "title": "Special characters in Annotations text SSA",
+                        "author": "Pallavi",
+                        "date": "Jan 18, 2015"
+                    }
+                ],
+
+                "relatedProducts": [
+                    {
+                        "name": "MapInfo Crime Profiler",
+                        "description": "Analyze Crime Data to help protect againts theft, fraud and more"
+                    },
+                    {
+                        "name": "MapInfo Manager",
+                        "description": "Take command of your spatial data assets - catalog, publish and share your data."
+                    },
+                    {
+                        "name": "MapInfo Stratus",
+                        "description": "Instantly share location data via powerful interactive maps online."
+                    },
+                    {
+                        "name": "MapInfo Pro Premium Services",
+                        "description": "Up to date world wide street mapping at the click of a button."
+                    }
+                ]
+
+            },
+
+            {
+                "name"      : "Software Product No Additonal Links & No Support Documents",
+                "type"      : "software",
+                "updates"   : false,
+                "smartlinkEnabled":"no",
+
+
+                "additionalLinks" : [],
+
+                "supportCases": [
+                    {
+                        "caseNumber"        : "ABC123000",
+                        "status"            : "pending",
+                        "caseDescription"   : "Error 130: We have detected an abc issue on 3/15/16.The service call was placed on your behalf."
+                    },
+                    {
+                        "caseNumber"        : "ABC123000",
+                        "status"            : "open",
+                        "caseDescription"   : "Open case example description"
+                    },
+                    {
+                        "caseNumber"        : "ABC123000",
+                        "status"            : "pending",
+                        "caseDescription"   : "Error 130: We have detected an abc issue on 3/15/16.The service call was placed on your behalf."
+                    }
+                ],
+
+                "knowledgeBase": [
+                    {
+                        "articleTitle": "MapInfo Pro and Creating Doughnut Shaped Objects",
+                        "url": "http://www.pb.com"
+                    },
+                    {
+                        "articleTitle": "Simulating the Interleaved Streets from StreetPro in StreetInfo",
+                        "url": "http://www.pb.com"
+                    },
+                    {
+                        "articleTitle": "Setting the image processing preferences",
+                        "url": "http://www.pb.com"
+                    }
+                ],
+
+
+                "community": [
+                    {
+                        "title": "Retaining Name Page Groupd from AFP-IN to AFP OUT",
+                        "author": "psm503",
+                        "date": "Jan 27, 2015"
+                    },
+                    {
+                        "title": "Retaining Name Page Groupd from AFP-IN to AFP OUT",
+                        "author": "psm503",
+                        "date": "Jan 27, 2015"
+                    },
+                    {
+                        "title": "Special characters in Annotations text SSA",
+                        "author": "Pallavi",
+                        "date": "Jan 18, 2015"
+                    },
+                    {
+                        "title": "Scalebar Removal",
+                        "author": "PaulNuusa",
+                        "date": "Jan 12, 2015"
+                    },
+                    {
+                        "title": "Scalebar Removal",
+                        "author": "PaulNuusa",
+                        "date": "Jan 12, 2015"
+                    },
+                    {
+                        "title": "Special characters in Annotations text SSA",
+                        "author": "Pallavi",
+                        "date": "Jan 18, 2015"
+                    }
+                ],
+
+                "relatedProducts": [
+                    {
+                        "name": "MapInfo Crime Profiler",
+                        "description": "Analyze Crime Data to help protect againts theft, fraud and more"
+                    },
+                    {
+                        "name": "MapInfo Manager",
+                        "description": "Take command of your spatial data assets - catalog, publish and share your data."
+                    },
+                    {
+                        "name": "MapInfo Stratus",
+                        "description": "Instantly share location data via powerful interactive maps online."
+                    },
+                    {
+                        "name": "MapInfo Pro Premium Services",
+                        "description": "Up to date world wide street mapping at the click of a button."
+                    }
+                ]
+
+            },
+
+            {
+                "name"      : "Software Product No extra content to expand",
+                "type"      : "software",
+                "updates"   : false,
+
+                "additionalLinks" : [],
+
+                "knowledgeBase": []
+            },
+
+
+
+            {
+                "name"      : "DM 125 Postage Meter",
+                "serial"    : "6847665",
+                "type"      : "meter",
+                "updates"   : true,
+                "smartlinkEnabled":"no",
+
+
+                "supplies"  : [
+                    {
+                        "itemNumber"    : "797-4",
+                        "productName"   : "Red Ink Cartridge for DM 100, DM 200 Series",
+                        "price"         : "99.99",
+                        "thumb"         : "https://www.pitneybowes.us/suppliesui/pbui/site-content/images/large/en_US/793-5.jpg"
+                    },
+                    {
+                        "itemNumber"    : "234234234",
+                        "productName"   : "Postage Tape Sheets",
+                        "price"         : "69.99",
+                        "thumb"         : "https://www.pitneybowes.us/suppliesui/pbui/site-content/images/large/en_US/620-9.jpg"
+                    }
+                ],
+
+                "statusHistory": [
+                    "Version 17.2 installed",
+                    "USPS Rates up to date",
+                    "ZIP Codes up to date"
+                ],
+
+                "availableUpdates": [
+                    {
+                        "updateLabel"   : "Version 17.3 available",
+                        "ctaLabel"      : "Update Now",
+                        "url"           : ""
+                    },
+                    {
+                        "updateLabel"   : "USPS Rate change",
+                        "ctaLabel"      : "Update Rates",
+                        "url"           : ""
+                    },
+                    {
+                        "updateLabel"   : "ZIP Codes",
+                        "ctaLabel"      : "Update ZIP Codes",
+                        "url"           : ""
+                    }
+                ],
+
+                "location": {
+                    "address": {
+                        "name"      : "TEST Location 3",
+                        "street"    : "10610 Newkirk",
+                        "suite"     : "St #206",
+                        "city"      : "Dallas",
+                        "state"     : "TX",
+                        "postalCode": "75220"
+                    },
+                    "resources": [
+                        {
+                            "name"  : "Envelope Messaging",
+                            "url"   : "https://www.pb.com/MyAccount/SloganEnquiry?storeId=11556&langId=-1"
+                        },
+                        {
+                            "name"  : "How to Request Postage Refund",
+                            "url"   : "https://support.pb.com/ekip/index?page=content&id=RE8704"
+                        },
+                        {
+                            "name"  : "Track Mail From This Meter",
+                            "url"   : "https://www.pitneybowes.com/us/trackmymail.html"
+                        },
+                        {
+                            "name"  : "Set Meter Refill Notifications",
+                            "url"   : "http://support.pb.com/ekip/index?id=fa2405&page=content"
+                        }
+                    ],
+                    "contractInfo": {
+                        "pcnNumber"     : "P720B",
+                        "serialNumber"  : "6847665",
+                        "contract"      : "Leased, 4 Months left",
+                        "installDate"   : "07/10/14",
+
+                        "requestDetails": {
+                            "linkName"  : "Request Contract Details",
+                            "url"       : "http://www.pb.com"
+                        }
+                    }
+                },
+
+                "support": {
+                    "links": {
+                        "supportContent": [
+                            {
+                                "name"  : "How to replace the Ink Cartridge",
+                                "url"   : "http://www.pb.com"
+                            },
+                            {
+                                "name"  : "Adding Postage",
+                                "url"   : "http://www.pb.com"
+                            }
+                        ],
+                        "learnContent": [
+                            {
+                                "name"  : "Product Settings",
+                                "url"   : "http://www.pb.com"
+                            },
+                            {
+                                "name"  : "Using Presets on Your Mailing System",
+                                "url"   : "http://www.pb.com"
+                            }
+                        ],
+                        "cases": [
+                            {
+                                "name"  : "Product Settings",
+                                "url"   : "http://www.pb.com"
+                            },
+                            {
+                                "name"  : "Using Presets on Your Mailing System",
+                                "url"   : "http://www.pb.com"
+                            }
+                        ]
+                    }
+                }
+            },
+
+
+
+
+            {
+                "name"      : "Fake Product 7 No extra content to expand",
+                "type"      : "software",
+                "updates"   : false,
+                "smartlinkEnabled":"no",
+                "additionalLinks" : [],
+                "knowledgeBase": []
+
+
+            },
+
+            {
+                "name"      : "Fake Product to view more No extra content to expand",
+                "type"      : "software",
+                "updates"   : false,
+                "smartlinkEnabled":"no",
+                "additionalLinks" : [],
+                "knowledgeBase": []
+            },
+
+            {
+                "name"      : "Fake Product to view more No extra content to expand",
+                "type"      : "software",
+                "updates"   : false,
+                "smartlinkEnabled":"no",
+                "additionalLinks" : [],
+                "knowledgeBase": []
+            },
+
+            {
+                "name"      : "Fake Product to view more No extra content to expand",
+                "type"      : "software",
+                "updates"   : false,
+                "smartlinkEnabled":"no",
+                "additionalLinks" : [],
+                "knowledgeBase": []
+            },
+
+
+            {
+                "name"      : "Fake Product to view more No extra content to expand",
+                "type"      : "software",
+                "updates"   : false,
+                "smartlinkEnabled":"no",
+                "additionalLinks" : [],
+                "knowledgeBase": []
+            },
+
+            {
+                "name"      : "Fake Product to view more No extra content to expand",
+                "type"      : "software",
+                "updates"   : false,
+                "smartlinkEnabled":"no",
+                "additionalLinks" : [],
+                "knowledgeBase": []
+            },
+
+            {
+                "name"      : "Fake Product to view more No extra content to expand",
+                "type"      : "software",
+                "updates"   : false,
+                "smartlinkEnabled":"no",
+                "additionalLinks" : [],
+                "knowledgeBase": []
+            },
+            {
+                "name"      : "Fake Product to view more No extra content to expand",
+                "type"      : "software",
+                "updates"   : false,
+                "smartlinkEnabled":"no",
+                "additionalLinks" : [],
+                "knowledgeBase": []
+            },
+
+            {
+                "name"      : "Fake Product to view more No extra content to expand",
+                "type"      : "software",
+                "updates"   : false,
+                "smartlinkEnabled":"no",
+                "additionalLinks" : [],
+                "knowledgeBase": []
+            },
+
+            {
+                "name"      : "Fake Product to view more No extra content to expand",
+                "type"      : "software",
+                "updates"   : false,
+                "smartlinkEnabled":"no",
+                "additionalLinks" : [],
+                "knowledgeBase": []
+            },
+            {
+                "name"      : "Fake Product to view more No extra content to expand",
+                "type"      : "software",
+                "updates"   : false,
+                "smartlinkEnabled":"no",
+                "additionalLinks" : [],
+                "knowledgeBase": []
+            },
+
+            {
+                "name"      : "Fake Product to view more No extra content to expand",
+                "type"      : "software",
+                "updates"   : false,
+                "smartlinkEnabled":"no",
+                "additionalLinks" : [],
+                "knowledgeBase": []
+            },
+
+            {
+                "name"      : "Fake Product to view more No extra content to expand",
+                "type"      : "software",
+                "updates"   : false,
+                "smartlinkEnabled":"no",
+                "additionalLinks" : [],
+                "knowledgeBase": []
+            },
+            {
+                "name"      : "Fake Product to view more No extra content to expand",
+                "type"      : "software",
+                "updates"   : false,
+                "smartlinkEnabled":"no",
+                "additionalLinks" : [],
+                "knowledgeBase": []
+            },
+
+            {
+                "name"      : "Fake Product to view more No extra content to expand",
+                "type"      : "software",
+                "updates"   : false,
+                "smartlinkEnabled":"no",
+                "additionalLinks" : [],
+                "knowledgeBase": []
+            },
+
+            {
+                "name"      : "Fake Product to view more No extra content to expand",
+                "type"      : "software",
+                "updates"   : false,
+                "smartlinkEnabled":"no",
+                "additionalLinks" : [],
+                "knowledgeBase": []
+            }
+        ]
+    }
+]

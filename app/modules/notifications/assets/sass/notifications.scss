@@ -1,0 +1,303 @@
+.notification {
+    @include clearfix();
+    background-color: #fff;
+    color: $pb-orange;
+
+    .icon-close {
+        font-size: 12px;
+        color: $pb-gray;
+        z-index: 1;
+        cursor: pointer;
+        position: relative;
+
+        // The following properties are used
+        // to increase click/hit area
+        //
+            padding: 10px;
+            margin-right: 0;
+            margin-left: -10px;
+        //
+
+        &:hover {
+            color: $pb-error-red;
+        }
+    }
+
+    //@include breakpoint(0, $tablet) {
+    //    // TODO remove bootstrap hacks with move fresh start
+    //    [class^="col-"],
+    //    [class*=" col-"] {
+    //        padding-left: 15px;
+    //        padding-right: 15px;
+    //    }
+    //    .col-xs-12 .row {
+    //        margin-left: -5%;
+    //        margin-right: -5%;
+    //    }
+    //}
+
+    //@include breakpoint(0, 767px) {
+    //    [class^="col-"],
+    //    [class*=" col-"] {
+    //        padding-left: 15px;
+    //        padding-right: 15px;
+    //    }
+    //    .container-fluid {
+    //        padding-left: 5%;
+    //        padding-right: 5%;
+    //        .row {
+    //            margin-left: -15px;
+    //            margin-right: -15px;
+    //        }
+    //    }
+    //}
+
+    + .notification:not(.notification--primary) {
+        .notification__inner {
+            border-top: 1px solid $pb-gray-300;
+        }
+    }
+
+    //.shell & {
+    //  &:first-of-type{
+    //    @include border-top-radius($border-radius);
+    //    padding-top: 15px;
+    //    //.my-account-financial & {
+    //    //	border-top: 1px solid $pb-orange;
+    //    //}
+    //  }
+    //  &:last-of-type{
+    //    @include border-bottom-radius($border-radius);
+    //    border-bottom: 1px solid $pb-light-gray;
+    //    margin-bottom: 30px;
+    //
+    //    //.my-account-financial & {
+    //    //	border-bottom-color: $pb-orange;
+    //    //	margin-bottom: 60px;
+    //    //}
+    //
+    //    &:after{
+    //      border-bottom: 0;
+    //      padding-top: 0;
+    //    }
+    //  }
+    //}
+
+    &--primary {
+        &.notification__group__container {
+            border-top: 4px solid $pb-orange-500;
+            border-bottom: 2px solid $pb-orange-500;
+            //background-color: $pb-orange-50; // $pb-orange-300;
+        }
+
+        .notification__inner {
+            border-top: none;
+        }
+
+        .notification{
+            background-color: $pb-orange-50;
+            + .notification {
+                border-top: none;
+                .notification__inner {
+                    border-top: 2px solid $pb-orange-500;
+                }
+            }
+        }
+    }
+
+    &--secondary {
+        color: $bodyFontColor;
+        .notification__inner {
+            @include border-bottom-radius($border-radius);
+            background: $pb-light-gray;
+        }
+    }
+
+    &--ko {
+        .notification {
+            color: $pb-gray-500;
+            background-color: transparent;
+
+            &__inner {
+                background-color: #fff;
+
+                &.empty {
+                    font-size: $font-size-large;
+                    padding: 14px 0;
+                    color: white;
+                    border: 1px solid white;
+                    background-color: transparent;
+                }
+
+                .notification__message {
+                    display: inline-block;
+                    white-space: normal;
+                }
+            }
+
+            &:first-child {
+                .notification__inner {
+                    @include border-top-radius($border-radius-large + 2);
+                }
+            }
+
+            &:last-child {
+                .notification__inner {
+                    @include border-bottom-radius($border-radius-large + 2);
+                }
+            }
+        }
+    }
+
+    &--inline {
+        position: relative;
+        text-align: center;
+        .icon-close-circle {
+            position: absolute;
+            right: 0;
+            //font-size:9px;
+            //padding:4px 3px 3px 4px;
+            //@include border-bottom-radius(20px);
+            //@include border-top-radius(20px);
+            @include breakpoint($tablet) {
+                right: 9.5%;
+                margin-left:0;
+                margin-right:0;
+            }
+        }
+        .notification__message,
+        .notification__message2,
+        .notification__link {
+            white-space: normal;
+            @include breakpoint($tablet) {
+                font-size: 1em;
+                line-height:1.2em;
+            }
+        }
+        .notification__message {
+            @include breakpoint(0, $tablet) {
+                padding-left: 44px;
+                padding-right: 44px;
+            }
+        }
+        .notification__link {
+            display: inline-block;
+            color: $pb-blue;
+        }
+    }
+
+    &__inner {
+        padding-top:$padding-sm;
+        padding-bottom:$padding-sm;
+    }
+
+    &__message,
+    &__message2,
+    &__link {
+        @include breakpoint($tablet) {
+            line-height: 35px;
+        }
+    }
+
+    &__message,
+    &__message2 {
+        @at-root span#{&} {
+            display: inline-block;
+            margin-bottom: 0;
+            white-space: nowrap;
+            font-size: 1.429em;
+
+            .notification--order & { font-size: 1em; }
+
+            .notification--product &{
+                //needs the same styles for the entire experience since smaller space
+                font-size: 1em;
+                margin-left: 35px;
+                white-space: normal;
+                line-height: 1.2em;
+            }
+
+            @include breakpoint(0, $tablet){
+                margin-left: 35px;
+                white-space: normal;
+                line-height: 1.2em;
+            }
+        }
+        vertical-align: middle;
+    }
+
+    &__message2 {
+        margin-left: 15px;
+        @include breakpoint(0, $tablet) {
+            margin-left: 35px;
+            margin-top:10px;
+        }
+
+        @include breakpoint($tablet, $screen-md){
+            margin-left: 15px;
+            padding-left: 15px;
+            clear:both;
+        }
+
+        @include breakpoint($screen-md) {
+            font-size: 1.25em;
+            padding-left:15px;
+            border-left:1px solid;
+        }
+        &.newline{
+            clear:both;
+            display:block;
+            border-left:none;
+            padding-left:34px;
+            margin-left:0;
+        }
+    }
+
+    &__link {
+        @include breakpoint($tablet) {
+            font-size: 1.429em;
+        }
+
+        .notification__icon,
+        [class^="icon-"],
+        [class*=" icon-"] {
+            margin-left: 10px;
+            margin-right: 0;
+            //.my-account-financial & {
+            //	color: $pb-orange;
+            //}
+        }
+    }
+
+    &__icon {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 0;
+
+        .notification & {
+            @include breakpoint(0, $tablet) {
+                position: absolute;
+                left: 15px;
+            }
+        }
+        .notification--product &{
+            position: absolute;
+                left: 15px;
+        }
+        
+        //@include breakpoint($tablet) {
+        // 	font-size: 1.714em;
+        //}
+        //
+        ////.my-account-financial & {
+        ////	color: $pb-red;
+        ////}
+        //
+        //@include breakpoint($tablet, 'max'){ font-size: 1.875em; }
+    }
+
+    &--order{
+        background-color: $pb-medium-blue-500;
+        color: #fff;
+    }
+}

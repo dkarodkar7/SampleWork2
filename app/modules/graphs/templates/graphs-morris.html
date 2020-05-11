@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="main-header"><h1>Morris Charts</h1></div>
+    </div>
+  </div>
+
+
+  <div class="row spacer-top-xl">
+    <div class="col-md-5">
+      <div donut-chart donut-data='morris.donut.data' donut-resize='true'></div>
+    </div>
+
+
+    <div class="col-md-5 col-md-offset-1">
+      <div bar-chart
+        bar-data='morris.bar.data'
+        bar-x='{{morris.bar.barX}}'
+        bar-y='{{morris.bar.barY}}'
+        bar-labels='{{morris.bar.barLabels}}'>
+      </div>
+    </div>
+
+  </div>
+
+<div class="row spacer-top-xl spacer-bottom-xl">
+
+  <div class="col-md-5">
+    <div line-chart
+      line-data='morris.line.data'
+      line-xkey='{{morris.line.xKey}}'
+      line-ykeys='{{morris.line.yKeys}}'
+      line-labels='{{morris.line.labels}}' >
+</div>
+  </div>
+
+  <div class="col-md-5 col-md-offset-1">
+    <div area-chart
+      area-data='morris.area.data'
+      area-xkey='{{morris.area.xKey}}'
+      area-ykeys='{{morris.area.yKeys}}'
+      area-labels='{{morris.area.labels}}'>
+    </div>
+  </div>
+
+</div>

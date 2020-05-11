@@ -1,0 +1,607 @@
+//*/ Buttons */
+// --------------------------------------------------
+
+// scss-lint:disable MergeableSelector ImportantRule
+
+// for simplicity's sake in endlessly tweaking button colors
+// i have abandoned the Bootstrap mixin "button-variant"
+// and all of the mixin is hard-coded below for each button type
+// Mazel Tov!
+
+.btn-primary {
+    color: #fff;
+    background-color: $pb-blue;
+    border-color: $pb-blue;
+
+    //hover
+    &:hover, &.hover, &:focus, &.focus, &:active, &.active,
+    .open > &.dropdown-toggle {
+        color: #fff;
+        background-color: #314183;
+        border-color: #314183;
+    }
+
+    // bootstrap no idea why
+    &:active,
+    &.active,
+    .open > &.dropdown-toggle {
+        background-image: none;
+    }
+
+    //disabled
+    &.disabled, &[disabled], fieldset[disabled] & {
+        &,
+        &:hover,
+        &.hover,
+        &:focus,
+        &.focus,
+        &:active,
+        &.active {
+            background-color: #c0c0c0;
+            border-color: #c0c0c0;
+            color: #fff;
+            opacity: 1;
+
+        }
+    }
+    // badge in a button - doesn't happen often
+    .badge {
+        color: #fff;
+        background-color: $pb-magenta;
+        margin-left: 10px;
+    }
+}
+
+.btn-default, .btn-cancel, .btn-group .btn-default, .btn-group-vertical .btn-default {
+    color: $pb-blue;
+    background-color: transparent;
+    border-color: $pb-blue;
+
+    &:hover, &.hover, &:focus, &.focus, &:active, &.active,
+    .open > &.dropdown-toggle {
+        color: #314183;
+        background-color: #d9dced;
+        border-color: #314183;
+    }
+
+    &:active,
+    &.active,
+    .open > &.dropdown-toggle {
+        background-image: none;
+    }
+
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        &,
+        &:hover,
+        &.hover,
+        &:focus,
+        &.focus,
+        &:active,
+        &.active {
+            color: #c0c0c0;
+            background-color: transparent;
+            border-color: #c0c0c0;
+            opacity: 1;
+        }
+    }
+
+    .badge {
+        color: #fff;
+        background-color: $pb-magenta;
+        margin-left: 10px;
+    }
+}
+
+.btn-group-borderless .btn-default {
+    color: $pb-blue;
+    background-color: transparent;
+    border-color: transparent;
+
+    &:hover, &.hover, &:focus, &.focus, &:active, &.active,
+    .open > &.dropdown-toggle {
+        color: #314183;
+        background-color: #d9dced;
+        border-color: transparent;
+    }
+
+    &:active,
+    &.active,
+    .open > &.dropdown-toggle {
+        background-image: none;
+    }
+
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        &,
+        &:hover,
+        &.hover,
+        &:focus,
+        &.focus,
+        &:active,
+        &.active {
+            color: #c0c0c0;
+            background-color: transparent;
+            border-color: transparent;
+            opacity: 1;
+        }
+    }
+
+    .badge {
+        color: #fff;
+        background-color: $pb-magenta;
+        margin-left: 10px;
+    }
+}
+
+.btn-link {
+    color: $pb-blue;
+    background-color: transparent;
+    border-color: transparent;
+
+    &:hover,
+    &.hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active,
+    .open > &.dropdown-toggle {
+        color: $pb-blue;
+        background-color: #d9dced;
+        border-color: #d9dced;
+    }
+    &:active,
+    &.active,
+    .open > &.dropdown-toggle {
+        background-image: none;
+    }
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        &,
+        &:hover,
+        &.hover,
+        &:focus,
+        &.focus,
+        &:active,
+        &.active {
+            color: #c0c0c0;
+            background-color: transparent;
+            border-color: transparent;
+            opacity: 1;
+        }
+    }
+}
+
+.btn-right {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.btn-left {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+//"tertiary", or pill-shaped buttons
+
+.btn-pill-ko {
+    color: $pb-blue;
+    background-color: #fff;
+    border-radius: 40px !important;
+    border: 1px solid #fff;
+    padding: $padding-base-vertical $padding-large-horizontal;
+    min-width: 120px;
+
+    &:disabled {
+        color: #c0c0c0;
+        background-color: transparent;
+        border: 1px solid #c0c0c0;
+    }
+    &:hover, &.hover {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        color: $pb-blue;
+    }
+    &:active, &.active {
+        opacity: 0.8;
+    }
+}
+
+.btn-pill-brand {
+    color: #fff;
+    background-color: $pb-blue;
+    border-radius: 40px !important;
+    border: 1px solid $pb-blue;
+    padding: $padding-base-vertical $padding-large-horizontal;
+    min-width: 120px;
+
+    &:disabled {
+        color: #fff;
+        background-color: #c0c0c0;
+        border: 1px solid #c0c0c0;
+        opacity: 1;
+    }
+
+    &:hover {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        color: #fff;
+        background-color: $pb-blue;
+        border: 1px solid $pb-blue;
+    }
+
+    &:active {
+        opacity: 0.8;
+    }
+
+}
+
+// $fg, $bg, $border, $disabled-fg, $disabled-bg, $hover-fg:$fg, $hover-bg:$bg
+
+// bootstrap buttons
+.btn-success {
+    @include button-variant(
+            #fff, $brand-success, $brand-success,
+            $pb-gray-300, $pb-bg2, $pb-gray-300);
+}
+
+.btn-info {
+    @include button-variant(
+            #fff, $brand-info, $brand-info,
+            $pb-gray-300, $pb-bg2, $pb-gray-300);
+}
+
+.btn-warning {
+    @include button-variant(
+            #fff, $brand-warning, $brand-warning,
+            $pb-gray-300, $pb-bg2, $pb-gray-300);
+}
+
+.btn-danger {
+    @include button-variant(
+            #fff, $brand-danger, $brand-danger,
+            $pb-gray-300, $pb-bg2, $pb-gray-300);
+}
+
+// -- sizing definitions
+.btn {
+    // line-height: ensure even-numbered height of button next to input
+    @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-base);
+}
+
+.btn-lg {
+    // line-height: ensure even-numbered height of button next to large input
+    @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large);
+}
+
+.btn-sm {
+    // line-height: ensure proper height of button next to small input
+    @include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small);
+}
+
+.btn-xs {
+    @include button-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-small, $line-height-small, $border-radius-small);
+}
+
+///** bs overrides **//
+// i give up, bootstrap, here you go
+.open > .dropdown-toggle.btn-default {
+    color: #fff;
+    background-color: $pb-blue-300;
+    border-color: $pb-blue;
+    box-shadow: none;
+}
+
+// just to remove the BS inset shadows
+.btn:active,
+.btn.active {
+    outline: 0;
+    background-image: none;
+    box-shadow: none;
+}
+
+.dropdown-menu > li > a:focus,
+.dropdown-menu > li > a:hover {
+    color: $pb-gray-700;
+    text-decoration: none;
+    background-color: $pb-light-gray;
+}
+
+// DTAS dropdown custom styles
+/* ================== styling for bootstrap submenu which doesn't exist in Bootstrap 3 ================== */
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu > .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+}
+
+.dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu.pull-left {
+    float: none;
+}
+
+.dropdown-submenu.pull-left > .dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+}
+
+.dropdown-menu > li > a .sub-text{
+    display:block;
+    margin-top:-3px;
+    color:$pb-gray-300;
+    font-size:.85em;
+}
+
+//
+
+.dropdown {
+    position: relative;
+    &.open{
+        .icon-down-arrow{
+            &:before{
+                display: inline-block;
+                transform: rotate(180deg);
+            }
+        }
+    }
+}
+
+.dropdown-menu {
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.dropdown-menu > li > a,
+.dropdown-menu > li > span {
+    display:block;
+    padding: 3px 10px;
+    &.sub-menu{
+        padding-left:20px;
+    }
+}
+
+
+.dropdown button {
+    border: none;
+    background: none;
+    &:focus {
+        outline: none;
+    }
+}
+
+// font awesome icon size overrides in button groups
+.btn-group {
+    &-sm {
+        .btn {
+            i.fa {
+                font-size: 16px;
+            }
+        }
+    }
+    &-xs {
+        .btn {
+            i.fa {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+.btn-group-borderless {
+    .btn {
+        border: 0;
+    }
+}
+
+.btn-group .btn-default.active {
+    background-color: $pb-blue;
+    color: #fff;
+}
+
+.btn.disabled,
+.btn[disabled],
+fieldset[disabled] .btn {
+    pointer-events: none;
+    cursor: not-allowed;
+    box-shadow: none;
+    // opacity: 0.35;
+}
+
+.btn-group-justified {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+    > .btn,
+    > .btn-group {
+        float: none;
+        display: table-cell;
+        width: 1%;
+    }
+    > .btn-group .btn {
+        width: 100%;
+    }
+    // correct the "double borders"
+    > .btn-group:not(:first-child) > .btn {
+        border-left: 0;
+    }
+    > .btn-group .dropdown-menu {
+        left: auto;
+    }
+}
+
+//  transitory alert msg next to button
+.btn-response {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+// overrides for bootstrap's Close button
+.close {
+    transition: color 0.5s;
+    opacity: 1;
+    filter: alpha(opacity=1);
+    &:hover {
+        opacity: 1;
+        filter: alpha(opacity=1);
+    }
+}
+
+/////////////////
+// Tile Buttons
+/////////////////
+
+.tile-button {
+    border-radius: 0;
+    height: 120px;
+    width: 160px;
+    &:hover, &.hover {
+        @extend %fancy-focus;
+        background-color: #fff;
+    }
+    &:active,
+    &.active {
+        border-width: 2px;
+        background-color: #fff;
+        &:hover {
+            border-width: 2px;
+            background-color: #fff;
+            border-color: $pb-blue;
+        }
+    }
+    &.disabled, &[disabled] {
+        img {
+            filter: grayscale(100%);
+            border-color: #9b9b9b;
+        }
+    }
+}
+
+// Vertical button groups
+// ----------------------
+.btn-group-vertical {
+    > .btn-group {
+        &:first-child:not(:last-child) {
+            > .btn {
+                &:last-child {
+                    border-top-right-radius: $border-radius-base;
+                }
+            }
+            > .dropdown-toggle {
+                border-top-right-radius: $border-radius-base;
+            }
+        }
+
+        &:last-child:not(:first-child) {
+            > .btn {
+                &:first-child {
+                    border-bottom-left-radius: $border-radius-base;
+                }
+            }
+        }
+    }
+}
+
+//== Added By DTAS team
+//== buttons
+
+.btn-tertiary {
+    color: $body-bg;
+    background: $pb-orange-500;
+
+    &:hover,
+    &:active,
+    &:visited,
+    &:focus {
+        color: $body-bg;
+    }
+}
+
+.rounded-button,
+.btn.rounded {
+    border: 0;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    color: $pb-blue;
+    font-weight: $fontMedium;
+    font-size: 1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    @include border-top-radius(20px);
+    @include border-bottom-radius(20px);
+    background: #FFF;
+    outline: 0;
+    + .rounded-button {
+        margin-left: 20px;
+    }
+
+    &.btn-sm {
+        padding: 7px 20px;
+    }
+
+    &.primary,
+    &.secondary,
+    &.gray {
+        color: #FFFFFF;
+    }
+    &.primary {
+        background: $pb-blue-500;
+    }
+    &.secondary {
+        background: $pb-magenta;
+    }
+    &.tertiary {
+        color: $body-bg;
+        background: $pb-orange-500;
+    }
+    &.gray {
+        background: $pb-gray-300;
+        &[disabled=disabled]{
+          background: $pb-gray;
+        }
+    }
+    &.light {
+        background: #FFF;
+        color: $pb-blue;
+        &.secondary {
+            color: $pb-magenta;
+        }
+    }
+    &.white {
+        color: $pb-gray-300;
+        border: 1px solid $pb-gray-300;
+    }
+
+    &:hover {
+        text-decoration: none;
+    }
+    &:focus,
+    &:active { 
+      outline: 0;
+    }
+
+}
+
+@media (max-width: 767px) {
+
+    .rounded-button {
+        line-height: 1.2em;
+        padding: 5px 10px;
+    }
+    .rounded-button.visible-xs {
+        display: inline-block !important;
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

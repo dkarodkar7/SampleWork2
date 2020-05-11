@@ -1,0 +1,348 @@
+<div class="doc-hero ng-scope">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="hero-header">
+          <div class="eyebrow">Elements</div>
+          <h1>Helpers</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+<div class="container">
+
+
+  <!-- SPACERS -->
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Spacers</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <p>Use <code>spacer-*</code> classes to add margin above or below any element (typically used on a row). Note that the spacers have media queries and will automatically resize to 75% based on screen dimensions.</p>
+    </div>
+  </div>
+
+  <div class="preview-example">
+
+    <div class="row">
+
+      <div class="col-md-3">
+
+        <div class="form-group">
+          <label>Top spacer</label>
+          <select class="form-control input-sm" ng-model="helpers.spacers.top.selected" ng-options="spacer as spacer for spacer in helpers.spacers.top.values"></select>
+        </div>
+
+        <div class="form-group">
+          <label>Bottom spacer</label>
+          <select class="form-control input-sm" ng-model="helpers.spacers.bottom.selected" ng-options="spacer as spacer for spacer in helpers.spacers.bottom.values"></select>
+        </div>
+
+      </div>
+
+      <div class="col-md-8 col-md-offset-1">
+        <div class="row">
+            <div class="col-sm-12">Some content here.</div>
+        </div>
+
+        <div class="row" ng-class="[helpers.spacers.top.selected, helpers.spacers.bottom.selected]">
+            <div class="col-sm-12">
+              This row has <code>{{helpers.spacers.top.selected}}</code> and <code>{{helpers.spacers.bottom.selected}}</code>.
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">Some content here.</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+<div class="preview-code" hljs language="xml">
+<div class="row spacer-top-sm spacer-bottom-xs"></div>
+<div class="row spacer-top-sm spacer-bottom-sm"></div>
+<div class="row spacer-top-md spacer-bottom-md"></div>
+<div class="row spacer-top-lg spacer-bottom-lg"></div>
+<div class="row spacer-top-xl spacer-bottom-xl"></div>
+</div>
+
+
+
+  <!-- NOMARGIN -->
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">No Margins</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <p>Use the <code>.no-margin</code>, <code>.no-margin-top</code> and <code>.no-margin-bottom</code> classes to remove margins from an element.</p>
+    </div>
+  </div>
+
+  <div class="preview-example">
+
+    <p>I have a bottom margin by default</p>
+    <p class="no-margin-bottom">I have bottom margin removed using the <code>.no-margin-bottom</code> class</p>
+    <p>I have a bottom margin by default</p>
+
+  </div>
+
+<div class="preview-code" hljs language="xml">
+<p class="no-margins">...</p>
+<p class="no-margin-top">...</p>
+<p class="no-margin-bottom">...</p>
+</div>
+
+
+
+  <!-- TRANSITION ALL -->
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Transition All</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <p>Quickly add CSS transitions by adding <code>.transition-all</code>. When adding modifier classes, such as <code>.fa-rotate-90</code> in Font Awesome to an icon, the element will animate all property changes.</p>
+    </div>
+  </div>
+
+
+  <div class="preview-example">
+
+    <div class="row">
+
+      <div class="col-md-4">
+        <h2>
+          <a href="" ng-init="helpers.icon1.rotate = false" ng-click="helpers.icon1.rotate = !helpers.icon1.rotate">
+            <i class="fa fa-fw fa-icon fa-angle-right fa-lg transition-all" ng-class="{'fa-rotate-90': helpers.icon1.rotate}"></i> Click me and I will rotate
+          </a>
+        </h2>
+      </div>
+
+      <div class="col-md-4">
+        <h2>
+          <a href="" ng-init="helpers.icon2.rotate = false" ng-click="helpers.icon2.rotate = !helpers.icon2.rotate">
+            <i class="fa fa-fw fa-icon fa-arrow-down fa-lg transition-all" ng-class="{'fa-rotate-90': helpers.icon2.rotate}"></i> Click me and I will rotate
+          </a>
+        </h2>
+      </div>
+
+      <div class="col-md-4">
+        <h2>
+          <a href="" ng-init="helpers.icon3.rotate = false" ng-click="helpers.icon3.rotate = !helpers.icon3.rotate">
+            <i class="fa fa-fw fa-icon fa-bars fa-lg transition-all" ng-class="{'fa-rotate-90': helpers.icon3.rotate}"></i> Click me and I will rotate
+          </a>
+        </h2>
+      </div>
+
+    </div>
+
+  </div>
+
+<div class="preview-code" hljs language="xml">
+<div>
+  <a href="" ng-click="someClickHandler()">
+    <i class="fa fa-fw fa-icon fa-angle-right transition-all" ng-class="{'fa-rotate-90': some.model.boolean}"></i> Click me and I will rotate
+  </a>
+</div>
+</div>
+
+
+
+<!-- TRANSITION ALL -->
+<div class="row">
+  <div class="col-md-12">
+    <h2 class="doc-sectionhead">Contextual Background Colors</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <p>Add background colors to elements using modifier classes.</p>
+  </div>
+</div>
+
+
+<div class="preview-example">
+
+  <div class="row">
+    <div class="col-md-8">
+      <p class="bg-primary" style="padding: 10px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, sapiente!</p>
+      <p class="bg-danger" style="padding: 10px;">Dolores assumenda vero tempore a deleniti perferendis veniam ipsa.</p>
+      <p class="bg-warning" style="padding: 10px;">Dolores assumenda vero tempore a deleniti perferendis veniam ipsa.</p>
+      <p class="bg-success" style="padding: 10px;">Sequi asperiores quia est, tempora recusandae, deleniti laboriosam molestiae.</p>
+      <p class="bg-info" style="padding: 10px;">Delectus rerum earum dolorem unde. Explicabo dolorum distinctio vel!</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="preview-code" hljs language="xml">
+<p class="bg-primary">Lorem ipsum dolor sit amet</p>
+<p class="bg-danger">Lorem ipsum dolor sit amet</p>
+<p class="bg-warning">Lorem ipsum dolor sit amet</p>
+<p class="bg-success">Lorem ipsum dolor sit amet</p>
+<p class="bg-info">Lorem ipsum dolor sit amet</p>
+</div>
+
+
+
+
+
+<div class="row">
+  <div class="col-md-12">
+    <h2 class="doc-sectionhead">Brand Background Colors</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <p>Add background colors to elements using modifier classes.</p>
+  </div>
+</div>
+<div class="preview-example">
+
+  <div class="row">
+    <div class="col-md-12">
+      <p ng-repeat="bg in helpers.backgrounds" ng-class="bg" style="width: 60px; height: 60px; float: left; margin: 0 10px 10px 0"></p>
+    </div>
+  </div>
+
+</div>
+
+<div class="preview-code" hljs language="xml">
+  <p class="bg-header-color"></p>
+  <p class="bg-header-color-alt"></p>
+  <p class="bg-white"></p>
+  <p class="bg-pb-medium-blue-300"></p>
+  <p class="bg-pb-medium-blue"></p>
+  <p class="bg-pb-medium-blue-700"></p>
+  <p class="bg-pb-blue-300"></p>
+  <p class="bg-pb-blue"></p>
+  <p class="bg-pb-blue-700"></p>
+  <p class="bg-pb-purple-300"></p>
+  <p class="bg-pb-purple"></p>
+  <p class="bg-pb-purple-700"></p>
+  <p class="bg-pb-cyan-300"></p>
+  <p class="bg-pb-cyan"></p>
+  <p class="bg-pb-cyan-700"></p>
+  <p class="bg-pb-magenta-300"></p>
+  <p class="bg-pb-magenta"></p>
+  <p class="bg-pb-magenta-700"></p>
+  <p class="bg-pb-dark-orange-300"></p>
+  <p class="bg-pb-dark-orange"></p>
+  <p class="bg-pb-dark-orange-700"></p>
+  <p class="bg-pb-orange-300"></p>
+  <p class="bg-pb-orange"></p>
+  <p class="bg-pb-orange-700"></p>
+  <p class="bg-pb-yellow-300"></p>
+  <p class="bg-pb-yellow"></p>
+  <p class="bg-pb-green-300"></p>
+  <p class="bg-pb-green"></p>
+  <p class="bg-pb-green-700"></p>
+  <p class="bg-pb-dark-green-300"></p>
+  <p class="bg-pb-dark-green"></p>
+  <p class="bg-pb-dark-green-700"></p>
+  <p class="bg-pb-gray-700"></p>
+  <p class="bg-pb-gray-500"></p>
+  <p class="bg-pb-gray-400"></p>
+  <p class="bg-pb-gray-300"></p>
+  <p class="bg-pb-gray"></p>
+  <p class="bg-pb-light-gray"></p>
+  <p class="bg-pb-bg1"></p>
+  <p class="bg-pb-bg2"></p>
+  <p class="bg-pb-bg3"></p>
+  <p class="bg-pb-bg4"></p>
+  <p class="bg-pb-bg5"></p>
+</div>
+
+
+
+
+
+
+
+<div class="row">
+  <div class="col-md-12">
+    <h2 class="doc-sectionhead">Brand Foreground Colors</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <p>Add colors to elements using modifier classes.</p>
+  </div>
+</div>
+<div class="preview-example">
+
+  <div class="row">
+    <div class="col-md-8">
+      <p ng-repeat="fg in helpers.foregrounds" ng-class="fg">This is some text.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="preview-code" hljs language="xml">
+  <p class="text-medium-blue-300"></p>
+  <p class="text-medium-blue"></p>
+  <p class="text-medium-blue-700"></p>
+  <p class="text-blue-300"></p>
+  <p class="text-blue"></p>
+  <p class="text-blue-700"></p>
+  <p class="text-purple-300"></p>
+  <p class="text-purple"></p>
+  <p class="text-purple-700"></p>
+  <p class="text-cyan-300"></p>
+  <p class="text-cyan"></p>
+  <p class="text-cyan-700"></p>
+  <p class="text-magenta-300"></p>
+  <p class="text-magenta"></p>
+  <p class="text-magenta-700"></p>
+  <p class="text-dark-orange-300"></p>
+  <p class="text-dark-orange"></p>
+  <p class="text-dark-orange-700"></p>
+  <p class="text-orange-300"></p>
+  <p class="text-orange"></p>
+  <p class="text-orange-700"></p>
+  <p class="text-yellow-300"></p>
+  <p class="text-yellow"></p>
+  <p class="text-green-300"></p>
+  <p class="text-green"></p>
+  <p class="text-green-700"></p>
+  <p class="text-dark-green-300"></p>
+  <p class="text-dark-green"></p>
+  <p class="text-dark-green-700"></p>
+  <p class="text-gray-700"></p>
+  <p class="text-gray-500"></p>
+  <p class="text-gray-400"></p>
+  <p class="text-gray-300"></p>
+  <p class="text-gray"></p>
+  <p class="text-light-gray"></p>
+  <p class="text-bg1"></p>
+  <p class="text-bg2"></p>
+  <p class="text-bg3"></p>
+  <p class="text-bg4"></p>
+  <p class="text-bg5"></p>
+</div>
+
+
+
+</div>

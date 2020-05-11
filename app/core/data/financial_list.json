@@ -1,0 +1,320 @@
+[
+    {
+        "mockData": [
+            {
+                "name": "Purchase Power Billing",
+                "account": "876547892",
+                "warnings": "4",
+                "minimum": "10,000,000",
+                "dueDate": "1/15/2016",
+                "availableCredit": "10,000,000",
+                "address": "2407 Trafalgar Sq, Hillsborough, VA 85297",
+                "balance": "10,000,000"
+            },
+            {
+                "name": "Purchase Power Billing",
+                "account": "52550109",
+                "warnings": "3",
+                "minimum": "15",
+                "dueDate": "1/15/2016",
+                "availableCredit": "9655",
+                "address": "32 James st, Houston, TX 56842",
+                "balance": "48.24"
+            },
+            {
+                "name": "Purchase Power Billing",
+                "account": "4243251082",
+                "warnings": "2",
+                "minimum": "175",
+                "dueDate": "1/15/2016",
+                "availableCredit": "898",
+                "address": "644 St. Anthony, Lower Point, MN 45632",
+                "balance": "409.12"
+            },
+            {
+                "name": "Purchase Power Billing",
+                "account": "08233560",
+                "warnings": "",
+                "minimum": "18",
+                "dueDate": "1/15/2016",
+                "availableCredit": "4999.35",
+                "address": "233 Rembrandt Ave, Pontiac, MI 55478",
+                "balance": "45.13"
+            },
+            {
+                "name": "Purchase Power Billing",
+                "account": "013982340",
+                "warnings": "",
+                "minimum": "97",
+                "dueDate": "1/15/2016",
+                "availableCredit": "450",
+                "address": "7 Kimberly Drive, Danvers, MA 01923",
+                "balance": "1298.56"
+            },
+            {
+                "name": "Purchase Power Billing",
+                "account": "09182340912",
+                "warnings": "",
+                "minimum": "35",
+                "dueDate": "1/15/2016",
+                "availableCredit": "2879",
+                "address": "42 Thornton Road, Needham, CT 90142",
+                "balance": "289.31"
+            },
+            {
+                "name": "Purchase Power Billing",
+                "account": "12340730",
+                "warnings": "",
+                "minimum": "74",
+                "dueDate": "1/15/2016",
+                "availableCredit": "7297.66",
+                "address": "867 Flamingo Way, Denver, CO 7290",
+                "balance": "567.98"
+            },
+            {
+                "name": "Purchase Power Billing",
+                "account": "9128346208",
+                "warnings": "",
+                "minimum": "25",
+                "dueDate": "1/15/2016",
+                "availableCredit": "2578",
+                "address": "355 Park Ave South, New York, NY 10011",
+                "balance": "78.46"
+            },
+            {
+                "name": "Purchase Power Billing",
+                "account": "123415147",
+                "minimum": "125",
+                "dueDate": "11/08/2015",
+                "availableCredit": "6782.2",
+                "address": "2407 Trafalgar Sq, Hillsborough, VA 85297",
+                "balance": "876.36"
+            },
+            {
+                "name": "Purchase Power Billing",
+                "account": "0988767892",
+                "warnings": "",
+                "minimum": "55",
+                "dueDate": "11/08/2015",
+                "availableCredit": "8768",
+                "address": "32 James st, Houston, TX 56842",
+                "balance": "168.54"
+            },
+            {
+                "name": "Purchase Power Billing",
+                "account": "13410109",
+                "warnings": "",
+                "minimum": "25",
+                "dueDate": "11/15/2015",
+                "availableCredit": "9283.74",
+                "address": "7 Kimberly Drive, Danvers, MA 01923",
+                "balance": "67.09"
+            },
+            {
+                "name": "Purchase Power Billing",
+                "account": "091821082",
+                "minimum": "64",
+                "dueDate": "12/12/2015",
+                "availableCredit": "1230",
+                "address": "42 Thornton Road, Needham, CT 90142",
+                "balance": "234.56"
+            },
+            {
+                "name": "Purchase Power Billing",
+                "account": "98763560",
+                "warnings": "",
+                "minimum": "25",
+                "dueDate": "12/15/2015",
+                "availableCredit": "648",
+                "address": "355 Park Ave South, New York, NY 10011",
+                "balance": "129.65"
+            },
+            {
+                "name": "Purchase Power Billing",
+                "account": "10293842340",
+                "minimum": "75",
+                "dueDate": "12/15/2015",
+                "availableCredit": "92384",
+                "address": "867 Flamingo Way, Denver, CO 7290",
+                "balance": "387"
+            },
+            {
+                "name": "Purchase Power Billing",
+                "account": "1923840912",
+                "warnings": "",
+                "minimum": "25",
+                "dueDate": "1/15/2016",
+                "availableCredit": "139687073",
+                "address": "42 Thornton Road, Needham, CT 90142",
+                "balance": "178"
+            },
+            {
+                "name": "Purchase Power Billing",
+                "account": "10293840730",
+                "warnings": "",
+                "minimum": "45",
+                "dueDate": "1/15/2016",
+                "availableCredit": "234",
+                "address": "7 Kimberly Drive, Danvers, MA 01923",
+                "balance": "$226"
+            },
+            {
+                "name": "Purchase Power Billing",
+                "account": "435676208",
+                "warnings": "",
+                "minimum": "25",
+                "dueDate": "1/15/16",
+                "availableCredit": "2038.40",
+                "address": "233 Rembrandt Ave, Pontiac, MI 55478",
+                "balance": "197"
+            },
+            {
+                "name": "Purchase Power Billing",
+                "account": "9812345147",
+                "minimum": "137",
+                "dueDate": "1/15/2016",
+                "availableCredit": "5380.40",
+                "address": "644 St. Anthony, Lower Point, MN 45632",
+                "balance": "987"
+            }
+        ]
+    },
+
+    {
+        "MyBillResponse": [
+            {
+                "BILL_TO_BPN": [
+                    {
+                        "value": "There are no active records available for this account ",
+                        "status": "107"
+                    }
+                ]
+            },
+            {
+                "purchasepower": [
+                    {
+                        "billType": "Pitney Works",
+                        "value": "Successful",
+                        "dueDate": "01/07/2016",
+                        "status": "100",
+                        "accountNumber": "6100908000205591",
+                        "invoiceNumber": "610090800020559120151213",
+                        "amountDue": 1052.04,
+                        "availableCredit": 10000000,
+                        "invoiceBalance": 10000000,
+                        "warnings": "4"
+                    },
+                    {
+                        "billType": "Pitney Works",
+                        "value": "Successful",
+                        "dueDate": "01/07/2016",
+                        "status": "100",
+                        "accountNumber": "6100908000227066",
+                        "invoiceNumber": "610090800022706620151213",
+                        "amountDue": 0.00,
+                        "availableCredit": 5380.40,
+                        "invoiceBalance": 0.00,
+                        "warnings": "2"
+                    },
+                    {
+                        "billType": "Pitney Works",
+                        "value": "Successful",
+                        "dueDate": "01/21/2016",
+                        "status": "100",
+                        "accountNumber": "6100908001238294",
+                        "invoiceNumber": "610090800123829420151227",
+                        "amountDue": 752.04,
+                        "availableCredit": 5380.40,
+                        "invoiceBalance": 752.04,
+                        "singleAccountExample":true
+                    },
+                    {
+                        "billType": "Pitney Works",
+                        "value": "Successful",
+                        "dueDate": "01/21/2016",
+                        "availableCredit": 5380.40,
+                        "status": "100",
+                        "accountNumber": "6100908001307123",
+                        "invoiceNumber": "610090800130712320151227",
+                        "amountDue": 0.00,
+                        "invoiceBalance": 0.00,
+                        "warnings": "2"
+                    }
+                ]
+            },
+            {
+                "userId": "jissa@ca.com",
+                "TSYS": [
+                    {
+                        "value": "There are no active records available for this account ",
+                        "status": "107"
+                    },
+                    {
+                        "value": "There are no active records available for this account ",
+                        "status": "107"
+                    },
+                    {
+                        "value": "There are no active records available for this account ",
+                        "status": "107"
+                    },
+                    {
+                        "value": "There are no active records available for this account ",
+                        "status": "107"
+                    }
+                ],
+                "PBP": [
+                    {
+                        "value": "There are no active records available for this account ",
+                        "status": "107"
+                    },
+                    {
+                        "value": "There are no active records available for this account ",
+                        "status": "107"
+                    },
+                    {
+                        "value": "There are no active records available for this account ",
+                        "status": "107"
+                    },
+                    {
+                        "value": "There are no active records available for this account ",
+                        "status": "107"
+                    },
+                    {
+                        "value": "There are no active records available for this account ",
+                        "status": "107"
+                    },
+                    {
+                        "value": "There are no active records available for this account ",
+                        "status": "107"
+                    },
+                    {
+                        "value": "There are no active records available for this account ",
+                        "status": "107"
+                    },
+                    {
+                        "value": "There are no active records available for this account ",
+                        "status": "107"
+                    },
+                    {
+                        "value": "There are no active records available for this account ",
+                        "status": "107"
+                    },
+                    {
+                        "value": "There are no active records available for this account ",
+                        "status": "107"
+                    },
+                    {
+                        "value": "There are no active records available for this account ",
+                        "status": "107"
+                    }
+                ]
+            },
+            {
+                "SHIP_TO_BPN": {
+                    "value": "There are no active records available for this account ",
+                    "status": "107"
+                }
+            }
+        ]
+    }
+]

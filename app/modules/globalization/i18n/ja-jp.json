@@ -1,0 +1,57 @@
+{
+  "GLOBALIZATION": {
+    "TITLE": "プロファイル",
+    "BUTTONS": {
+      "SAVE": "保存",
+      "CANCEL": "キャンセル",
+      "EDIT": "編集",
+      "DELETE": "削除"
+    },
+    "DROPDOWN": {
+      "SYSTEM": "システム",
+      "LICENSINGEXPIRATION": "ライセンスと有効期限",
+      "VERSION": "バージョン",
+      "SECURITY": "セキュリティ",
+      "LOGS": "ログ",
+      "MAILSERVER": "メール サーバー"
+    },
+    "INPUTS": {
+      "CHECKBOX": {
+        "ONE": "レポートをジョブ履歴に保存",
+        "TWO": "レポートをファイルに保存"
+      },
+      "RADIO": {
+        "ONE": "ジョブの終了につながる形式に誤りのあるレコード数",
+        "TWO": "形式に誤りのあるレコードによってジョブを終了しない"
+      },
+      "TEXT": {
+        "LABEL": "電子メール",
+        "PLACEHOLDER": "メールアドレスを入力"
+      },
+      "SELECT": {
+        "LABEL": "システムのデフォルト ログ レベル",
+        "OPTION1": "無効",
+        "OPTION2": "致命的",
+        "OPTION3": "エラー",
+        "OPTION4": "警告",
+        "OPTION5": "情報",
+        "OPTION6": "デバッグ",
+        "OPTION7": "トレース"
+      }
+    },
+    "CONTROLLER": {
+      "TITLE": "$translate service を使用したコントローラーの例",
+      "EXAMPLE": "これらの設定でシステムのデフォルトレポートオプションをセットしてください。"
+    },
+    "FORMATS": {
+      "NUMBER": "番号の形式",
+      "DATE": "日付の形式",
+      "TIME": {
+        "TITLE": "時刻の形式",
+        "TIMESHORT": "短縮",
+        "TIMEMEDIUM": "中間"
+      },
+      "CURRENCY": "通貨の形式"
+    }
+  }
+}

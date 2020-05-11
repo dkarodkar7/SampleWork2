@@ -1,0 +1,71 @@
+<div class="onboarding onboarding--login" ng-init="onboardOpened = false" ng-class="{'opened':onboardOpened}">
+    <section class="onboarding__navbar">
+        <div class="container-fluid">
+            <div class="row">
+                <img src="modules/account/assets/images/account-dash-micro-2x.jpg" 
+                    class="col-xs-4 col-sm-1 col-sm-offset-1 onboarding__navigation__image"/>
+
+                <div class="col-xs-8 col-sm-7 onboarding__navigation">
+                    <h3 class="onboarding__navigation__header">
+                        <span class="hidden-xs">Tour the enhanced Pitney Bowes account experience.</span>
+                        <span class="visible-xs">Start using your account now.</span>
+                    </h3>
+                    <ul class="onboarding__navigation__links carousel-indicators">
+                        <li class="onboarding__navigation__link col-sm-3" 
+                            ng-class="{ active: isActive(slides[0]) }" ng-click="select(slides[0]);">
+                            <span>View account activity</span>
+                        </li>
+                        <li class="onboarding__navigation__link col-sm-3" 
+                            ng-class="{ active: isActive(slides[1]) }" ng-click="select(slides[1]);">
+                            <span>Analyze spend & usage</span>
+                        </li>
+                        <li class="onboarding__navigation__link col-sm-3" 
+                            ng-class="{ active: isActive(slides[2]) }" ng-click="select(slides[2]);">
+                            <span>Monitor product activity</span>
+                        </li>
+                        <li class="onboarding__navigation__link col-sm-3" 
+                            ng-class="{ active: isActive(slides[3]) }" ng-click="select(slides[3]);">
+                            <span>Find support & report issues</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-2 onboarding__navigation__cta text-center-xs">
+                    <a ui-sref="register.step1" class="rounded-button light onboarding__navigation__cta--xs">
+                        Sign Up
+                    </a>
+                    <a tour-start class="bottom-drawer__toggle-btn onboarding__navigation__cta--lg" 
+                        ng-click="onboardOpened = !onboardOpened; select(slides[0]);">
+                        <h3 class="subheader--lg white">
+                            <span ng-show="!onboardOpened">Take a Tour<span class="icon-up-caret-circle"></span></span> 
+                            <span ng-show="onboardOpened">Close Tour<span class="icon-close-circle"></span></span> 
+                        </h3> 
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="onboarding__content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                    <div class="onboarding__carousel spacer-bottom-md" role="listbox" id="onboardCarousel">
+                        <div ng-init="pause()" class="carousel" ng-swipe-right="prev()" ng-swipe-left="next()" >
+                            <div class="carousel-inner" ng-transclude></div>
+                            <a role="button" href class="left carousel-control" ng-click="prev();" ng-show="carousel.getCurrentIndex() > 0">
+                              <span aria-hidden="true" class="icon-left-arrow"></span>
+                              <span class="sr-only">previous</span>
+                            </a>
+                            <a role="button" href class="right carousel-control" ng-click="next();" ng-show="carousel.getCurrentIndex() < 3">
+                              <span aria-hidden="true" class="icon-right-arrow"></span>
+                              <span class="sr-only">next</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="text-center spacer-bottom-lg">
+                        <a ui-sref="register.step1" class="rounded-button primary">Sign Up Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

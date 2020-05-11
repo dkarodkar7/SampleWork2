@@ -1,0 +1,109 @@
+<!-- financial overview module -->
+
+<section class="account-module financial-overview-module list-view-module">
+
+    <div class="visible-xs">
+        <div class="row">
+            <div class="col-xs-12 back__button vcenter">
+                <a ng-if="pbFinancialOverviewData.purchasePowerAccountNumber" ui-sref="{{ pbFinancialOverviewBackLink }}" class="link header--sm vcenter"><span class="icon-previous-circle primary no-margin-left vcenter"></span>Account  <span class="circle sm dark-gray"></span><span class="circle sm dark-gray"></span><span class="circle sm dark-gray"></span><span class="circle sm dark-gray"></span>{{ pbFinancialOverviewData.purchasePowerAccountNumber | limitTo: -4 }}</a>
+                <a ng-if="pbFinancialOverviewData.accNum" ui-sref="{{ pbFinancialOverviewBackLink }}" class="link header--sm"><span class="icon-previous-circle primary no-margin-left vcenter"></span>Account  <span class="circle sm dark-gray"></span><span class="circle sm dark-gray"></span><span class="circle sm dark-gray"></span><span class="circle sm dark-gray"></span>{{ pbFinancialOverviewData.accNum | limitTo: -4 }}</a>
+                <span ng-click="financialOverviewHide = !financialOverviewHide;" ng-class="financialOverviewHide ? 'icon-plus-circle' : 'icon-minus-circle'" class="primary pull-right no-margin-right vcenter"></span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Fluid List -->
+    <section ng-hide="financialOverviewHide">
+        <div class="row">
+            <ul class="list-view-module__list financial-overview-module__list col-sm-12 col-md-6">
+                <li>
+                    <div class="dlist-group">
+                        <div class="definition"><span>{{ pbFinancialOverviewData.acctType }}</span></div>
+                        <div ng-if="pbFinancialOverviewData.purchasePowerAccountNumber" class="defined"><span><span class="circle sm dark-gray"></span><span class="circle sm dark-gray"></span><span class="circle sm dark-gray"></span><span class="circle sm dark-gray"></span>{{ pbFinancialOverviewData.purchasePowerAccountNumber | limitTo: -4 }}</span></div>
+                        <div ng-if="pbFinancialOverviewData.accNum" class="defined"><span><span class="circle sm dark-gray"></span><span class="circle sm dark-gray"></span><span class="circle sm dark-gray"></span><span class="circle sm dark-gray"></span>{{ pbFinancialOverviewData.accNum  | limitTo: -4 }}</span></div>
+                    </div>
+                </li>
+                <!-- singleAccount is a variable that was only set for a quick demonstration,
+                  -- logic should be set based on if data contains a locations array etc -->
+                <li ng-if="pbFinancialOverviewData.Locations && !singleAccount">
+                    <div class="dlist-group">
+                        <div class="definition"><span>Locations</span></div>
+                        <div class="defined"><span>{{ pbFinancialOverviewData.Locations.length }}</span></div>
+                    </div>
+                    <ul class="locations-box spacer-top-sm">
+                        <li ng-repeat="location in pbFinancialOverviewData.Locations">
+                            <p>{{ location.address }}</p>
+                            <p>Acount Number: ....{{ location.accountNumber | limitTo: -4 }}</p>
+                        </li>
+                    </ul>
+                </li>
+                <li ng-if="!pbFinancialOverviewData.Locations || singleAccount" class="spacer-bottom-md">
+                    <div class="dlist-group">
+                        <div class="definition"><span>Account Address</span></div>
+                    </div>
+                    <div class="info-below"><span>{{ pbFinancialOverviewData.city }}</span></div>
+                </li>
+            </ul>
+            <ul class="list-view-module__list financial-overview-module__list col-sm-12 col-md-6">
+                <!-- first 4 for Purchase Power -->
+                <li ng-if="pbFinancialOverviewData.creditLimit" class="spacer-bottom-md">
+                    <div class="dlist-group">
+                        <div class="definition"><span>Credit Limit</span></div>
+                        <div class="defined"><span>{{ pbFinancialOverviewData.creditLimit | currency }}</span></div>
+                    </div>
+                    <div>
+                        <a href="#" class="link-below">Increase Limit</a>
+                    </div>
+                </li>
+                <li ng-if="pbFinancialOverviewData.availableCredit" class="spacer-bottom-md">
+                    <div class="dlist-group">
+                        <div class="definition"><span>Available Credit</span></div>
+                        <div class="defined"><span>{{ pbFinancialOverviewData.availableCredit | currency }}</span></div>
+                    </div>
+                </li>
+                <li ng-if="pbFinancialOverviewData.totalAmountDue" class="spacer-bottom-md">
+                    <div class="dlist-group">
+                        <div class="definition"><span>Current Balance</span></div>
+                        <div ng-if="pbFinancialOverviewData.totalAmountDue" class="defined"><span>{{ pbFinancialOverviewData.totalAmountDue | currency }}</span></div>
+                    </div>
+                    <div>
+                        <p ng-if="pbFinancialOverviewData.totalAmountDue" class="info-below">Minimum {{ pbFinancialOverviewData.minimumAmountDueDate | currency }} due on {{pbFinancialOverviewData.minimumAmountDueDate }}</p>
+                    </div>
+                </li>
+                <li ng-if="pbFinancialOverviewData.rewards" class="spacer-bottom-md">
+                    <div class="dlist-group">
+                        <div class="definition"><span>Rewards Program</span></div>
+                        <div class="defined"><span>{{ pbFinancialOverviewData.rewards }} Points</span></div>
+                    </div>
+                    <div>
+                        <a href="#" class="link-below">Upgrade</a>
+                        <a href="#" class="link-below">Redeem Points</a>
+                        <p class="info-below text-gray-300 pull-right">Updated {{ pbFinancialOverviewData.rewardsUpdated}}</p>
+                    </div>
+                </li>
+                <!-- for Prepaid -->
+                <li ng-if="pbFinancialOverviewData.prepaidCurrentBalance" class="spacer-bottom-md">
+                    <div class="dlist-group">
+                        <div class="definition"><span>Current Balance</span></div>
+                        <div ng-if="pbFinancialOverviewData.prepaidCurrentBalance" class="defined"><span>{{ pbFinancialOverviewData.prepaidCurrentBalance | currency }}</span></div>
+                    </div>
+                    <div>
+                        <a href="#" ng-if="pbFinancialOverviewData.prepaidCurrentBalance" class="link-below">Transfer Funds to Purchase Power</a>
+                    </div>
+                </li>
+                <li ng-if="pbFinancialOverviewData.prepaidNextAutoDeposit" class="spacer-bottom-md">
+                    <div class="dlist-group">
+                        <div class="definition"><span>Next Autodeposit on {{ pbFinancialOverviewData.prepaidNextAutoDeposit}}</span></div>
+                        <div ng-if="pbFinancialOverviewData.prepaidAutoDepositAmount" class="defined"><span>{{ pbFinancialOverviewData.prepaidAutoDepositAmount | currency }}</span></div>
+                    </div>
+                    <div>
+                        <a href="#" ng-if="pbFinancialOverviewData.prepaidAutoDepositAmount" class="link-below">Schedule a Deposit</a>
+                        <a href="#" ng-if="pbFinancialOverviewData.prepaidAutoDepositAmount" class="link-below">Order Deposit Slips</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+</section>
+<!-- financial overview module -->

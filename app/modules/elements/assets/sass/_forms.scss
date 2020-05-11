@@ -1,0 +1,442 @@
+//* -- FORMS -- */
+// scss-lint:disable VendorPrefix
+::-webkit-input-placeholder {
+  font-family: $font-family-sans-serif;
+  color: #c1c1c1;
+}
+
+::-moz-placeholder {
+  font-family: $font-family-sans-serif;
+  color: #c1c1c1;
+}
+
+:-ms-input-placeholder {
+  font-family: $font-family-sans-serif;
+  color: #c1c1c1;
+}
+
+
+// Prevent IE10 from adding clear X to inputs
+// see SO http://stackoverflow.com/questions/19291044/ie-10-cuts-off-text-in-text-box-after-100-px
+// and DS issue https://github.com/PBGUX/designsystem/issues/19
+::-ms-clear {
+  display: none;
+}
+
+//removes native droparrows from select menus in IE11
+select::-ms-expand {
+    display: none;
+}
+
+
+label {
+  font-weight: normal;
+  .optional {
+    font-size: 12px;
+    font-style: italic;
+  }
+}
+
+
+// all help-block with a text-error class are hidden by default
+.help-block.text-error {
+  display: none;
+  // once the parent has-error, the help-block will show and be red
+  .has-error & {
+    display: block;
+    color: $brand-danger;
+  }
+}
+
+// any help block class text-error or text-danger is red, period
+.help-block.text-error, .help-block.text-danger {
+    color: $brand-danger;
+}
+
+
+
+
+
+.read-only-data {
+  label {
+    margin: 5px 0 0;
+    + p {
+      font-weight: bold;
+    }
+  }
+}
+
+
+fieldset {
+  margin-top: 40px;
+  legend {
+    color: $pb-gray-500;
+  }
+}
+
+.checkboxList {
+  // scss-lint:disable ImportantRule
+  height: 110px !important;
+  overflow-y: scroll;
+
+  label {
+    margin: 0;
+  }
+  span {
+    color: $text-color;
+  }
+}
+
+
+// some items need to be set back to default body font
+// don't know why
+.checkboxList span,
+a.list-group-item {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+}
+
+
+// extend this in fields where you want the 2.0 focus treatment
+%fancy-focus {
+  border-color: $pb-blue;
+  border-width: 1px;
+  outline: 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .3);
+}
+
+
+.form-control {
+  display: block;
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  color: $input-color;
+  background-color: $input-bg;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid $input-border;
+  border-radius: 0; //can't use input-border-radius since buttons use that and buttons DO have radius.
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
+  // trying to remove focus ring on FFx
+  &:focus {
+    outline: none;
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+
+  // Customize the `:focus` state to use the FA "fancy focus" defined above.
+  //@include form-control-focus;
+  &:focus,
+  &.focus {
+    @extend %fancy-focus;
+  }
+
+  .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    background-color: #f0f0f0;
+    border-color: #dbdbdb;
+    color: #c0c0c0;
+    opacity: 1;
+}
+
+  // Disabled and read-only inputs
+  //
+  // HTML5 says that controls under a fieldset > legend:first-child won't be
+  // disabled if the fieldset is disabled. Due to implementation difficulty, we
+  // don't honor that edge case; we style them as disabled anyway.
+
+  &[disabled],
+  fieldset[disabled] & {
+    background-color: $input-bg-disabled;
+    border-color: $input-border-disabled;
+    color: $input-color-disabled;
+    cursor: $cursor-disabled;
+    opacity: 1; // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655
+  }
+
+  &[readonly] {
+    background-color: lighten($input-bg-disabled, 3%);
+    border-color: lighten($input-border-disabled, 8%);
+    color: #4e4e4e;
+    pointer-events: none;
+  }
+
+}
+
+//****  INPUT GROUPS ***************************
+.input-group-addon {
+  background-color: transparent;
+  border-color: $input-border;
+  border-radius: 0;
+}
+.input-group-btn > .btn {
+  border-radius: 0;
+  line-height: $line-height-base + .01; //HACK : no idea why, just sick of it
+  border-color: $input-border;
+}
+
+.input-group-btn:first-child > .btn, .input-group-btn:first-child > .btn-group {
+  border-right-color: transparent;
+
+}
+
+select {
+  //  scss-lint:disable ImportantRule
+
+  background: #fff url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMjIiIHZpZXdCb3g9IjAgMCAxNiAyMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+ZHJvcGFycm93PC90aXRsZT48cGF0aCBkPSJNMCA3LjM0NGgxMC41bC01LjI1IDUuNTY2LTUuMjUtNS41NjV6IiBmaWxsPSIjNzE3MTcxIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=') right center no-repeat !important;
+  &[multiple],
+  &[size] {
+    color: $text-color;
+    option {
+      &:selected {
+        background-color: #fff;
+        color: $pb-blue;
+      }
+    }
+  }
+  &.form-control {
+    padding-right: 22px;
+  }
+}
+
+.ui-select-bootstrap .ui-select-choices-row.active > a {
+    color: $pb-gray-700;
+    text-decoration: none;
+    outline: 0;
+    background-color: $pb-bg3;
+}
+
+.input-sm,
+select.input-sm {
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: $line-height-base;
+}
+
+
+.input-group-sm > .form-control, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .btn {
+    border-radius: 0;
+}
+
+.input-lg,
+select.input-lg {
+  line-height: 1.42857;
+}
+
+
+.widget-header {
+  h3 {
+    font-family: $font-family-sans-serif;
+  }
+}
+
+
+.has-error {
+  .form-control, .form-control:focus  {
+    border-color: $brand-danger;
+  }
+}
+
+
+// date and time picker
+.form-control[disabled].datepicker,
+.form-control[readonly].datepicker,
+fieldset[disabled] .form-control.datepicker,
+.form-control[disabled].timepicker,
+.form-control[readonly].timepicker,
+fieldset[disabled] .form-control.timepicker {
+  cursor: pointer;
+  background-color: #fff;
+}
+
+
+
+
+
+.repeated-field {
+  margin-bottom: 20px;
+  &.last {
+    margin-bottom: 3px;
+  }
+}
+
+.add-another-link {
+  font-size: 12px;
+  text-decoration: underline;
+}
+
+
+// for the item buttons
+@mixin logo-button($logo, $w: 160px, $h:120px) {
+  position: relative;
+  cursor: pointer;
+  border: 1px solid $input-border;
+  padding: 15px;
+  border-radius: 0;
+  color: #000;
+  width: 160px;
+  height: 120px;
+  background: #fff url('../images/logo-#{$logo}.png') center center no-repeat;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  &:hover,
+  &.hover {
+    @extend %fancy-focus;
+  }
+
+
+  &:active,
+  &.active {
+    border-width: 2px;
+    border-color: $pb-blue;
+  }
+
+
+  &.disabled {
+    background-image: url('../images/logo-#{$logo}-disabled.png');
+    cursor: not-allowed;
+
+    // @include hidpi(1.5) {
+    //   background-image: url('../images/logo-usps-disabled@2x.png');
+    // }
+    &:hover {
+      border: 1px solid $input-border;
+      box-shadow: none;
+    }
+  }
+}
+
+
+// declare actual buttons here
+// include logo name and see above for naming structure
+.logo-button-usps {
+  @include logo-button('usps');
+}
+
+
+@mixin arrow-inside($color: #fff, $left: 65px) {
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -13px;
+    left: 66px;
+    border-width: 14px 14px 0;
+    border-style: solid;
+    border-color: $color transparent;
+  }
+}
+
+
+@mixin arrow-outside($color: $pb-blue, $left: 65px) {
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 66px;
+    border-width: 14px 14px 0;
+    border-style: solid;
+    border-color: $color transparent;
+  }
+}
+
+
+// for the item buttons
+.item-selector-button {
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid $input-border;
+  padding: 15px;
+  border-radius: 0;
+  color: #000;
+  width: 160px;
+  height: 120px;
+  transition: all ease-in-out .1s, box-shadow ease-in-out .1s;
+
+  .title {
+    color: $pb-blue;
+    font-size: 12px;
+    margin: 0;
+    padding-top: -3px;
+    font-family: $font-family-ps-medium;
+  }
+
+
+  .divider {
+    height: 1px;
+    width: 20px;
+    background-color: $input-border;
+    margin: 4px auto 10px;
+  }
+
+
+  .image {
+    background: #fff url('../images/box.png') center center no-repeat;
+    width: 64px;
+    height: 57px;
+    margin: 4px auto;
+  }
+
+
+  &:hover,
+  &.hover {
+    padding: 14px;
+    @extend %fancy-focus;
+    @include arrow-inside;
+    @include arrow-outside;
+  }
+
+
+  &:active,
+  &.active {
+    border-width: 2px;
+    border-color: $pb-blue;
+    background-color: $pb-blue;
+    @include arrow-outside;
+
+    .title {
+      color: #fff;
+    }
+
+    .divider {
+      background-color: #fff;
+    }
+
+    .image {
+      background-color: $pb-blue;
+    }
+
+    &:hover {
+      padding: 15px;
+      box-shadow: none;
+      @include arrow-inside($pb-blue);
+    }
+  }
+
+
+  &.disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+
+    .title {
+      color: #c3c3c3;
+    }
+
+    .image {
+      background-image: url('../images/box-disabled.png');
+    }
+
+
+    // @include hidpi(1.5) {
+    //   background-image: url('../images/logo-usps-disabled@2x.png');
+    // }
+    &:hover {
+      padding: 15px;
+      border: 1px solid $input-border;
+      box-shadow: none;
+    }
+  }
+}

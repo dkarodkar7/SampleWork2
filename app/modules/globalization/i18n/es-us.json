@@ -1,0 +1,57 @@
+{
+  "GLOBALIZATION": {
+    "TITLE": "Perfil",
+    "BUTTONS": {
+      "SAVE": "Guardar",
+      "CANCEL": "Cancelar",
+      "EDIT": "Editar",
+      "DELETE": "Eliminar"
+    },
+    "DROPDOWN": {
+      "SYSTEM": "Sistema",
+      "LICENSINGEXPIRATION": "Licencia y vencimiento",
+      "VERSION": "Versión",
+      "SECURITY": "Seguridad",
+      "LOGS": "Registros",
+      "MAILSERVER": "Servidor de correo electrónico"
+    },
+    "INPUTS": {
+      "CHECKBOX": {
+        "ONE": "Guardar informes en historial de trabajos",
+        "TWO": "Guardar informes en un archivo"
+      },
+      "RADIO": {
+        "ONE": "Número de registros malformados que finalizarán el trabajo",
+        "TWO": "No finalice trabajos con registros malformados"
+      },
+      "TEXT": {
+        "LABEL": "Correo electrónico",
+        "PLACEHOLDER": "Ingresar correo electrónico"
+      },
+      "SELECT": {
+        "LABEL": "Nivel de registro predeterminado del sistema",
+        "OPTION1": "Deshabilitado",
+        "OPTION2": "Error irrecuperable",
+        "OPTION3": "Error",
+        "OPTION4": "Advertencia",
+        "OPTION5": "Información",
+        "OPTION6": "Depurar",
+        "OPTION7": "Seguimiento"
+      }
+    },
+    "CONTROLLER": {
+      "TITLE": "Ejemplo de un controlador con servicio de $translate",
+      "EXAMPLE": "Utilice estas configuraciones para establecer las opciones de informe predeterminadas de su sistema."
+    },
+    "FORMATS": {
+      "NUMBER": "Formatos de número",
+      "DATE": "Formatos de fecha",
+      "TIME": {
+        "TITLE": "Formatos de hora",
+        "TIMESHORT": "Tiempo corto",
+        "TIMEMEDIUM": "Medio tiempo"
+      },
+      "CURRENCY": "Formatos de moneda"
+    }
+  }
+}

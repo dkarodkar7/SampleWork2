@@ -1,0 +1,61 @@
+.alert {
+  border-radius: 0;
+
+  // hide the close button, ui-bootstrap templates add it dynamically
+  // close icon is added in each alert modifier below
+  .close {
+    width: 21px;
+    height: 21px;
+    
+    span:not(.sr-only) {
+      display: none;
+    }
+  }
+
+  &.alert-danger {
+    color: $state-danger-text;
+    background-color: $state-danger-bg;
+    border-color: $state-danger-border;
+
+    .close {
+      background: transparent url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTciIHZpZXdCb3g9IjAgMCAxNyAxNyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBzdHJva2U9IiNkYzAwMDAiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTE1LjIxNiAxLjc4NGwtMTQuMTQgMTQuMTRNMS4wNzYgMS43ODRsMTQuMTQgMTQuMTQiLz48L2c+PC9zdmc+') center center no-repeat;
+    }
+  }
+
+  &.alert-warning {
+    color: $state-warning-text;
+    background-color: $state-warning-bg;
+    border-color: $state-warning-border;
+
+    .close {
+      background: transparent url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTciIHZpZXdCb3g9IjAgMCAxNyAxNyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBzdHJva2U9IiNiZjY4MDAiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTE1LjIxNiAxLjc4NGwtMTQuMTQgMTQuMTRNMS4wNzYgMS43ODRsMTQuMTQgMTQuMTQiLz48L2c+PC9zdmc+') center center no-repeat;
+    }
+  }
+
+  &.alert-success {
+    color: $state-success-text;
+    background-color: $state-success-bg;
+    border-color: $state-success-border;
+
+    .close {
+      background: transparent url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTciIHZpZXdCb3g9IjAgMCAxNyAxNyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBzdHJva2U9IiMwMDgwMDAiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTE1LjIxNiAxLjc4NGwtMTQuMTQgMTQuMTRNMS4wNzYgMS43ODRsMTQuMTQgMTQuMTQiLz48L2c+PC9zdmc+') center center no-repeat;
+    }
+  }
+
+  &.alert-info {
+    color: $state-info-text;
+    background-color: $state-info-bg;
+    border-color: $state-info-border;
+
+    .close {
+      background: transparent url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTciIHZpZXdCb3g9IjAgMCAxNyAxNyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBzdHJva2U9IiMzZTUzYTQiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSI+PHBhdGggZD0iTTE1LjIxNiAxLjc4NGwtMTQuMTQgMTQuMTRNMS4wNzYgMS43ODRsMTQuMTQgMTQuMTQiLz48L2c+PC9zdmc+') center center no-repeat;
+    }
+  }
+
+  .alert-link {
+    text-decoration: underline;
+    font-weight: inherit;
+    color: inherit;
+  }
+
+}

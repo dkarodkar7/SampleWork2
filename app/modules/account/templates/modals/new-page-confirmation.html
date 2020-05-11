@@ -1,0 +1,31 @@
+<div class="modal-header no-borders spacer-bottom-md">
+    <div class="container-fluid">
+        <div class="row text-right pull-right">
+            <a href="" ng-click="newPageCtrl.close()" class="modal__close"><span class="icon-close dark-gray"></span></a>
+        </div>
+        <div class="row">
+            <div class="col-xs-11">
+                <h1 class="header--sm no-margin-top no-margin-bottom">Are you sure you want to leave this page?</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-body">
+    <section class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <p class="text-large spacer-bottom-md">Please note any changes you've made will not be saved</p>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="modal-footer">
+    <section class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 text-center-xs">
+                <a type="button" class="rounded-button gray" ui-sref="{{newPageCtrl.newPage.name}}" ng-click="newPageCtrl.setLeaveStatus(true);">Leave this page anyway</a>
+                <button type="button" class="rounded-button primary pull-right" ng-click="newPageCtrl.close();">Continue Editing</button>
+            </div>
+        </div>
+    </section>
+</div>

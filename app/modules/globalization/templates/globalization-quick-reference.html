@@ -1,0 +1,330 @@
+<div class="container">
+
+  <div id="action-buttons" class="row">
+    <div class="col-md-8">
+      <h1 id="quick-reference" class="doc-head">Reference</h1>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-8">
+
+      <p>The Design System&rsquo;s guidance on UI, branding, voice and other user-related considerations is meant to be as comprehensive as possible. In some cases, however, our &ldquo;out of the box&rdquo; guidelines may not apply to a specific local or regional scenario. So be aware that certain elements or portions of your code will probably need to be reviewed and customized to meet specific internationalization requirements and user needs. The Globalization Team, as part of the globalization process, can review your product plans to identify these kinds of exceptions.</p>
+
+      <h3>Pseudo Localization</h3>
+
+      <p>Pseudo localization is one of the services that the Globalization Team can provide early on in your development process. Here&rsquo;s how it works:</p>
+
+      <ol>
+        <li><strong>You provide code for evaluation.</strong> When you have some product code that contains UI-related content that will need localizing (such as text strings, buttons, errors, etc.), you send it to the Globalization Team.</li>
+        <li><strong>We &ldquo;test translate&rdquo; your code.</strong> The team will run some translation tests, generating target localized files and importing them into the build. This helps us assess your strings to see how well your product supports localization and if it can properly display your target languages.</li>
+        <li><strong>We help you address any issues we found.</strong> The team will work with your QA testers and developers to review and remedy any issues we find in your strings or files.</li>
+      </ol>
+
+      <p>Since pseudo localization is such a critical piece of your product&rsquo;s internationalization process, be sure to:</p>
+
+      <ul>
+        <li>Add it as a task to your backlog.</li>
+        <li>Assign it to the Globalization Team as early in development as possible.</li>
+      </ul>
+
+      <h3>Strings</h3>
+
+      <p>How you write and structure your strings will have a big impact on streamlining the localization process.</p>
+
+      <p><strong>Prepare your work for translation.</strong> Translators and other localization professionals are not programmers. They can&rsquo;t always tell your code from your copy. You can help prevent accidental modifications to your code (and speed up their work) by structuring your strings and the files that contain them to anticipate and prevent such issues by following the basic guidelines below.</p>
+
+      <p><strong>Separate your files to ease translation.</strong> You should also break out the strings that need to be translated vs. those that don&rsquo;t into separate files. In this example, developers have created two separate files for strings and dialogs, which form the basis for the eventual translations into Japanese and German. They will send only these files to their translation resource.</p>
+
+      <img src="modules/globalization/assets/images/ui.png" class="img-responsive">
+
+      <p>Taking the time to separate your content accomplishes two things: first, it ensures that translators can clearly recognize what needs to be translated in your code; second, it prevents them from spending time translating items that don&rsquo;t need to be localized.</p>
+
+      <h3>Basic Guidelines for Strings</h3>
+
+      <p>Here are some basic things to keep in mind when authoring strings. (For guidance on specific aspects, such as concatenation, line breaks, and working with non-Latin languages, refer to the additional sections below.)</p>
+
+      <ul>
+        <li><strong>Create a glossary of exceptions.</strong> Things like product names will appear in strings but shouldn&rsquo;t be translated. For cases like these, create a glossary and list these items as &ldquo;non-translatable terms.&rdquo;</li>
+        <li><strong>Use Unicode.</strong> By using the Unicode standard in all of your text, file formats and databases you&rsquo;ll be producing assets that will be recognized across all other platforms, programs and languages.</li>
+        <li><strong>Wrap text dynamically.</strong> Translated or truncated text will render better this way.</li>
+        <li><strong>Use standard file formats.</strong> Stick to industry standards rather than creating special file formats. Translation Memory software won&rsquo;t recognize nonstandard formats.</li>
+        <li><strong>Don&rsquo;t reuse resource IDs.</strong> Delete the old ID and create a new one.</li>
+        <li><strong>Be careful with what you hardcode.</strong> Avoid creating static references for anything that&rsquo;s likely to be localized (such as UI-related text or location-related information).</li>
+        <li><strong>Separate UI controls from copy.</strong> Keep things like button text out of string variables and sentences.</li>
+        <li><strong>Show UI controls.</strong> Don&rsquo;t use hidden or overlapping controls.</li>
+        <li><strong>Call out variables.</strong> When variables are necessary, use unique names. Don&rsquo;t compound several variables.</li>
+        <li><strong>Construct full sentences using a single string.</strong> In this example the translator sees &ldquo;I saw a &rdquo; and has no idea what follows &ldquo;a&rdquo;. In some languages, such as German, nouns have gender (masculine, feminine, or neuter), which influences a sentence&rsquo;s syntax and grammar. In cases like this the translator must make a choice, one that will not fit all possible cases.<br>
+        <p><code>char szString[] = &ldquo;I saw a &rdquo;; char szFinalString[cbMaxSz]= szString + szObject + &ldquo;?&rdquo;;</code></p>
+
+        <img src="modules/globalization/assets/images/strings.png" class="img-responsive">
+
+          <!-- <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>English</th>
+                <th>German</th>
+                <th>Comments</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>I saw a child</td>
+                <td>Ich habe <u>ein</u> Kind gesehen.</td>
+                <td>Neuter</td>
+              </tr>
+              <tr>
+                <td>I saw a woman</td>
+                <td>Ich habe <u>eine</u> Frau gesehen.</td>
+                <td>Feminine</td>
+              </tr>
+              <tr>
+                <td>I saw a dog</td>
+                <td>Ich habe <u>einen</u> Hund gesehen.</td>
+                <td>Masculine</td>
+              </tr>
+            </tbody>
+          </table> -->
+        </li>
+      </ul>
+
+      <div class="callout callout-info">
+        <p><strong>Best Practices</strong></p>
+        <p>Microsoft provides an excellent <a href="https://msdn.microsoft.com/en-us/goglobal/bb688118.aspx" target="blank">reference</a> on string construction for globalization.</p>
+      </div>
+
+      <h3>Capitalization</h3>
+
+      <p>How you use capitalization and cases can impact localization work.</p>
+
+      <ul>
+        <li><strong>What will and won&rsquo;t be translated.</strong> Words in all UPPERCASE will not be translated unless they are headings. CamelCase items will not be translated either.</li>
+        <li><strong>Many languages don&rsquo;t use cases at all.</strong> Also note that some languages don&rsquo;t have a one-to-one mapping between uppercase and lowercase characters, if they use cases at all. Most non-Latin scripts do not — including Chinese, Japanese, Korean, Arabic, Farsi, Hebrew and Thai.<br>
+
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Language</th>
+                <th>Lowercase</th>
+                <th>Uppercase</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>German</td>
+                <td>&#223;</td>
+                <td>SS</td>
+              </tr>
+              <tr>
+                <td>Turkish</td>
+                <td>i</td>
+                <td>i</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </li>
+
+        <li><strong>Watch your accents.</strong> Many languages include uppercase characters with accents (<code>É</code>, <code>Ý</code>, <code>Ñ</code>, <code>Ð</code>, <code>Ø</code>, <code>Å</code>, etc.). As part of localization you&rsquo;ll need to ensure that your product displays those correctly.</li>
+      </ul>
+
+      <h4>Concatenation</h4>
+
+      <p>Concatenated words won&rsquo;t be translated. For example, translators will ignore <code>DateFormat</code>, <code>Date_Format</code> and <code>Date.Format</code> but they will translate <code>Date Format</code>.</p>
+
+      <h3>Sorting Order</h3>
+
+      <p>Languages other than English may use sort orders that differ from English&rsquo;s alphabetical sort order. Your code needs to support the sort order used by all of your target languages.</p>
+
+     <!--  <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td>English</td>
+            <td>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</td>
+          </tr>
+          <tr>
+            <td>Danish</td>
+            <td>A B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z  Æ  Ø  Å</td>
+          </tr>
+          <tr>
+            <td>Finnish</td>
+            <td>A B  C  D  E  F  G  H  I  J  K  L  M  N  O  P  Q  R  S  T  U  V  X  Y  Z  Å  Ä  Ö</td>
+          </tr>
+          <tr>
+            <td rowspan="2">Japanese</td>
+            <td>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</td>
+          </tr>
+          <tr>
+            <td>あいうえお かきくけこ さしすせそ たちつてと な に ぬ ね の は ひ ふ へ ほ ま み む め も や　ゆ よ わ を ん
+            <div class="alert alert-danger">NEED TO VERIFIY THIS IS CORRECT, CONTENT IS IN AN IMAGE CANNOT BE EASILY COPIED</div>
+            </td>
+          </tr>
+        </tbody>
+      </table> -->
+
+      <img src="modules/globalization/assets/images/sorting_order.png" class="img-responsive">
+
+      <h3>Nouns vs. Verbs</h3>
+
+      <p>When constructing control labels and other user-facing copy, try to avoid ambiguity between noun and verb forms. For example, the word &ldquo;view&rdquo; in <code>View File</code> could be interpreted as either a noun or a verb. To reduce confusion for translators and users, say <code>View the File</code> instead.</p>
+
+      <h3>Line and Word Breaks</h3>
+
+      <p>If a sentence won&rsquo;t fit in a given line width then it will have to wrap. In some languages, this presents challenges for developers.</p>
+
+      <p>In English and other Latin-based languages it&rsquo;s easy to find natural breakpoints between syllables using basic parsing techniques. However, in non-Latin languages these natural breaks are not so easy to find.</p>
+
+      <p>Some languages don&rsquo;t use a period to indicate the end of a sentence. Others don&rsquo;t even have spaces between words. Because of these essential differences between English and other languages, you can&rsquo;t rely on standard line-break or word-wrap algorithms, space characters or standard punctuation rules. So in these cases line and word breaks are based on grammatical analysis and on word matching to dictionaries at runtime.</p>
+
+      <img src="modules/globalization/assets/images/line_and_breaks.png" class="img-responsive">
+
+      <h3>Bidirectional Alphabets</h3>
+
+      <p>English and other Latin-based languages flow from left to right (or &ldquo;LTR&rdquo;)  whereas many non-Latin languages flow from right to left (or &ldquo;RTL&rdquo;). It’s best to avoid using them, but if you have to then here are some tips.</p>
+
+      <p>Bidirectional (or &ldquo;bidi&rdquo;) text typically refers to text that uses a mixture of right-to-left and left-to-right scripts. For example, Arabic and Hebrew flow predominantly from right to left, although any embedded numerical digits (or, obviously, excerpts from LTR languages) will appear in their native order.</p>
+
+      <img src="modules/globalization/assets/images/arabic2.png" class="img-responsive">
+
+      <p>Because bidirectional language introduces complexity into development, it&rsquo;s best to use it only when necessary. If you must include it, here are two aspects of development to be especially aware of:</p>
+
+      <ul>
+        <li><strong>Use text-align carefully.</strong> You may need to override default alignments to enable clear display of bidirectional text if necessary.</li>
+        <li><strong>Avoid CSS.</strong> Don&rsquo;t use CSS styling for direction in HTML.</li>
+      </ul>
+
+      <div class="callout callout-info">
+        <strong>Best Practices</strong><br>
+        <p>The W3&rsquo;s <a href="http://www.w3.or/TR/i18n-html-tech-bidi/" target="_blank">article</a> on bidirectional language is an excellent resource.</p>
+      </div>
+
+      <h3>Symbols</h3>
+
+      <p>Imagery, gestures and other forms of visual communication can have varying meanings across different cultures. Here are some of the things to avoid when choosing imagery:</p>
+      <ul>
+        <li><strong>Hand gestures.</strong> A &ldquo;thumbs up,&rdquo; &ldquo;okay,&rdquo; &ldquo;fingers crossed for luck&rdquo; or &ldquo;V for victory&rdquo; hand gesture means something positive in the U.S., but something quite negative or insulting in other countries.</li>
+        <li><strong>Road signs.</strong> Road signs or road markings may look completely different from one country to the next.</li>
+        <li><strong>Symbolic objects.</strong> Crescents, magic wands, wizard hats — even an eye — can be the source of either confusion or offense in certain cultures.</li>
+      </ul>
+
+      <h3>User Preferences</h3>
+
+      <p>All users of your product should be able to choose certain preferred settings. If your product uses a mechanism that automatically detects the user&rsquo;s location to define their default settings, that&rsquo;s great — but you shouldn&rsquo;t assume what users actually want. So always allow them to set the values they want.</p>
+
+      <ul>
+        <li><strong>Languages.</strong> Many users speak a language that&rsquo;s not native to the country in which they&rsquo;re located. Always allow users to choose their preferred display language.</li>
+        <li><strong>Time formats.</strong> Time formatting varies around the world, so make sure your users can display time-related information in their country&rsquo;s format.</li>
+        <li><strong>Dates.</strong> Never hard code date displays. For example, the short date 07/04/01 means three completely different things depending on country.
+          <table class="table table-bordered">
+            <tr>
+              <td>English (US)</td>
+              <td>July 4th, 2001</td>
+            </tr>
+            <tr>
+              <td>English (UK)</td>
+              <td>April 7th, 2001</td>
+            </tr>
+            <tr>
+              <td>Japanese</td>
+              <td>April 1st, 2007</td>
+            </tr>
+          </table>
+        </li>
+        <li><strong>Calendars.</strong> Not everyone uses the Gregorian (Western) calendar. Your product must support other calendar types.
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Locale</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tr>
+              <td>Gregorian (Western)</td>
+              <td>Year 2000</td>
+            </tr>
+            <tr>
+              <td>Japanese</td>
+              <td>Emperor Heisei 12th year</td>
+            </tr>
+            <tr>
+              <td>Hebrew</td>
+              <td>Lunar Hijri 1421</td>
+            </tr>
+          </table>
+        </li>
+        <li><strong>Currencies and numbers.</strong> Displaying correct currency formats is especially critical. You can use predefined currency symbols (such as the European Euro <code>€</code> or the U.S. Dollar <code>$</code>) or recognized acronyms for those currencies (such as <code>GPB</code> for the British Pound or <code>USD</code> for the U.S. Dollar). Also note that numbers are represented in various different ways around the world. The presence and location of a comma or decimal point can vary wildly from country to country in terms of what it means in terms of real numerical value.
+
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Special Cases</th>
+                <th>Comment</th>
+                <th>Country</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tr>
+              <td rowspan="3">Thousands seperator character</td>
+              <td rowspan="3">&ldquo;One thousand and twenty five&rdquo;</td>
+              <td>U.S.</td>
+              <td>1,025</td>
+            </tr>
+            <tr>
+              <td>Germany</td>
+              <td>1.025</td>
+            </tr>
+            <tr>
+              <td>Sweden</td>
+              <td>1 025</td>
+            </tr>
+
+            <tr>
+              <td rowspan="2">Decimal seperator character</td>
+              <td rowspan="2">&ldquo;One and a half&rdquo;</td>
+              <td>U.S.</td>
+              <td>1.5</td>
+            </tr>
+            <tr>
+              <td>Germany</td>
+              <td>1,5</td>
+            </tr>
+
+            <tr>
+              <td rowspan="2">Digit grouping</td>
+              <td rowspan="2">Different placement of the thousands separator</td>
+              <td>U.S.</td>
+              <td>123,456,789,00</td>
+            </tr>
+            <tr>
+              <td>Hindi</td>
+              <td>12,34,56,789.00</td>
+            </tr>
+
+            <tr>
+              <td rowspan="4">Percent Sign</td>
+              <td rowspan="4">Don&rsquo;t hard code the % sign</td>
+              <td>U.S.</td>
+              <td>98%</td>
+            </tr>
+            <tr>
+              <td>France</td>
+              <td>98 %</td>
+            </tr>
+            <tr>
+              <td>Abbreviation</td>
+              <td>98 pct / 98 pc</td>
+            </tr>
+            <tr>
+              <td>Turkey, Euskadi</td>
+              <td>%98</td>
+            </tr>
+          </table>
+
+        </li>
+        <li><strong>Measurements.</strong> If your product displays size, weight, volume or other measurement-related information, chances are good that your non-U.S. audience is among the 95% of the world&rsquo;s population who are using the metric system. You&rsquo;ll probably want to use metric for these users, but still offer them the option of using the imperial (U.S.) system.</li>
+      </ul>
+
+    </div>
+  </div>
+  </div>

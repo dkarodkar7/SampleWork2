@@ -1,0 +1,155 @@
+{
+        "account": [{
+            "name": "A maintenance-contract",
+            "link":"a-maintenance-contract"
+        },
+          {
+            "name": "Refill my meter",
+            "link":"refill-my-meter"
+          },
+          {
+            "name": "A recent invoice",
+            "link":"a-recent-invoice"
+          },
+          {
+            "name": "Online assistance",
+            "link":"Online assistance"
+        },
+        {
+            "name": "My account",
+            "link":"my-account"
+        },
+        {
+            "name": "Refill a meter",
+            "link":"refill-a-meter"
+        },
+            {
+                "name": "A recent order",
+                "link":"a-recent-order"
+            },
+            {
+                "name": "Make a change to my account",
+                "link":"make-a-change-to-my-account",
+
+              "issueType": [
+                {
+                  "name"        : "Your lease account",
+                  "link"        : "your-lease-account"
+                },
+                {
+                  "name"        : "Your rental account",
+                  "link"        : "your-rental-account"
+                },
+                {
+                  "name"        : "Puchase power/ Pitney Works",
+                  "link"        : "purchase-power"
+                },
+                {
+                  "name"        : "Software Account",
+                  "link"        : "software-account",
+
+                  "issueDetails": [
+                    {
+                      "inquiry"        : "Account Support",
+                      "account"        : "PB DEMO(1234567890)",
+                      "name"        : "Russell Blank",
+                      "address"        : "123 Park ave, 12 FL,NEW YORK, NY, 110015"
+
+                    }
+                  ]
+
+                },
+                {
+                  "name"        : "Postage by phone account",
+                  "link"        : "postage-by-phone-account"
+                }
+              ]
+            },
+            {
+                "name": "Make a payment",
+                "link":"make-a-payment"
+
+            },
+            {
+                "name": "Request an equipment repair",
+                "link":"request-an-equipment-repair"
+            },
+            {
+                "name": "Request a copy of my invoice",
+                "link":"request-a-copy-of-my-invoice"
+            },
+            {
+                "name": "Request a credit limit increase",
+                "link":"request-acredit-limit-increase"
+            }
+
+
+        ],
+
+
+  "technical": [{
+    "name": "An error message",
+    "link":"an-error-message"
+  },
+    {
+      "name": "Feeding / Jams",
+      "link":"feeding"
+    },
+    {
+      "name": "Printing Issues",
+      "link":"printing-issues"
+    },
+    {
+      "name": "Request an equipment repair",
+      "link":"request-an-equipment-repair"
+    },
+    {
+      "name": "Connectivity issues",
+      "link":"connectivity-issues",
+
+      "issueDetails": [
+        {
+          "inquiry"        : "Technical Support",
+          "account"        : "PB DEMO(1234567890)",
+          "name"        : "Russell Blank",
+          "address"        : "123 Park ave, 12 FL,NEW YORK, NY, 110015",
+          "product": "DM 125",
+          "service contract":"Accepted",
+          "issue":"Waste Tank Full Error"
+
+        }
+      ]
+    },
+    {
+      "name": "Low battery warning",
+      "link":"low-battery-warning"
+    },
+    {
+      "name": "Product functionality ",
+      "link":"product-fuctionality"
+    },
+    {
+      "name": "Schedule preventative maintenance",
+      "link":"schedule-preventative-maintenance"
+    },
+    {
+      "name": "Envelope messaging",
+      "link": "envelope-messaging"
+    },
+    {
+      "name": "Post office rate change",
+      "link":"post-office-rate-change"
+
+    },
+    {
+      "name": "Request training",
+      "link":"request-training"
+    },
+    {
+      "name": "Waste tank full error",
+      "link":"waste-tank-full-error"
+    }
+  ]
+
+
+}

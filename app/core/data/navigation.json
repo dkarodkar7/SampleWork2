@@ -1,0 +1,305 @@
+[{
+    "label": "Globalization",
+    "value": "globalization.page"
+  }, {
+    "label": "Resources",
+    "value": "resources.developers"
+  }, {
+    "menu": [{
+      "label": "Menu",
+      "value": "manu value",
+      "toggle": "menu",
+      "languages": [
+        {
+          "label": "English",
+          "value": "http://www.pitneybowes.com/ca/en"
+        },{
+          "label": "French",
+          "value": "http://www.pitneybowes.com/ca/fr"
+        }
+      ],
+      "categories": {
+        "label": "What we do",
+        "value": "Categories",
+        "children": [
+          {
+            "label": "Shipping & Mailing",
+            "value": "icon-shipping-mailing",
+            "children": [
+              {
+                "label": "Postage Meters",
+                "value": "http://pitneybowes.com"
+              },
+              {
+                "label": "Online Postage",
+                "value": "http://pitneybowes.com"
+              },
+              {
+                "label": "Inserting",
+                "value": "http://pitneybowes.com"
+              },
+              {
+                "label": "Printing",
+                "value": "http://pitneybowes.com"
+              },
+              {
+                "label": "See All Solutions",
+                "value": "http://pitneybowes.com"
+              }
+            ]
+          },
+          {
+            "label": "Customer Information Management",
+            "value": "icon-customer-information-management",
+            "children": [
+              {
+                "label": "Customer Analytics",
+                "value": "http://pitneybowes.com"
+              },
+              {
+                "label": "Data Management & Integration",
+                "value": "http://pitneybowes.com"
+              },
+              {
+                "label": "Data Quality",
+                "value": "http://pitneybowes.com"
+              }
+            ]
+          },
+          {
+            "label": "Location Intelligence",
+            "value": "icon-location-intelligence",
+            "children": [
+              {
+                "label": "Geographic Information Systems Market Analytics",
+                "value": "http://pitneybowes.com"
+              },
+              {
+                "label": "Location Intelligence Software",
+                "value": "http://pitneybowes.com"
+              },
+              {
+                "label": "Location & Business Data",
+                "value": "http://pitneybowes.com"
+              }
+            ]
+          },
+          {
+            "label": "Customer Engagement",
+            "value": "icon-customer-engagement",
+            "children": [
+              {
+                "label": "Communication Archiving Solutions",
+                "value": "http://pitneybowes.com"
+              },
+              {
+                "label": "Customer Interaction & Communication Delivery",
+                "value": "http://pitneybowes.com"
+              },
+              {
+                "label": "Document Composition",
+                "value": "http://pitneybowes.com"
+              },
+              {
+                "label": "Production Intelligence",
+                "value": "http://pitneybowes.com"
+              }
+            ]
+          },
+          {
+            "label": "Global eCommerce",
+            "value": "icon-global-ecommerce",
+            "children": [
+              {
+                "label": "ClearPath",
+                "value": "http://pitneybowes.com"
+              },
+              {
+                "label": "BorderFree",
+                "value": "http://pitneybowes.com"
+              }
+            ]
+          }
+        ]
+      },
+
+      "popularProducts": [{
+        "label": "Popular Products",
+        "value": "popular products value",
+        "children": [{
+          "label": "mailstation2™",
+          "value": "http://pitneybowes.com"
+        }, {
+          "label": "Relay™ 2000 Inserting System",
+          "value": "http://pitneybowes.com"
+        }, {
+          "label": "DM125™ Postage Meter",
+          "value": "http://pitneybowes.com"
+        }, {
+          "label": "pbSmartPostage™",
+          "value": "http://pitneybowes.com"
+        }, {
+          "label": "IntelliJet 20® Printing System",
+          "value": "http://pitneybowes.com"
+        }, {
+          "label": "MapInfo Pro™",
+          "value": "http://pitneybowes.com"
+        }, {
+          "label": "EngageOne™",
+          "value": "http://pitneybowes.com"
+        }]
+      }],
+
+      "aboutUs": [{
+        "label": "About Us",
+        "value": "about us label",
+        "children": [{
+          "label": "Our Company",
+          "value": "http://pitneybowes.com"
+        }, {
+          "label": "Newsroom",
+          "value": "http://pitneybowes.com"
+        }, {
+          "label": "Investor Relations",
+          "value": "http://pitneybowes.com"
+        }, {
+          "label": "Careers",
+          "value": "http://pitneybowes.com"
+        }]
+      }]
+
+    }]
+  }, {
+    "footer": [{
+      "categories": {
+        "children": [
+          {
+            "label": "About Pitney Bowes",
+            "links": [
+              {
+                "label": "Our Company",
+                "value": "http://www.pitneybowes.com/us/our-company.html"
+              },
+              {
+                "label": "Newsroom",
+                "value": "http://news.pb.com/"
+              },
+              {
+                "label": "Investor Relations",
+                "value": "http://www.investorrelations.pitneybowes.com/phoenix.zhtml?c=83377&p=irol-irhome"
+              },
+              {
+                "label": "Careers",
+                "value": "http://careers.pitneybowes.com/"
+              },
+              {
+                "label": "Partners",
+                "value": "http://www.pitneybowes.com/us/partners.html"
+              },
+              {
+                "label": "Events & Tradeshows",
+                "value": "http://www.pitneybowes.com/us/our-company/events-and-tradeshows.html"
+              }
+            ]
+          },
+          {
+            "label": "Shop",
+            "links": [
+              {
+                "label": "Postage Meters",
+                "value": "http://www.pitneybowes.com/us/shipping-and-mailing/postage-meters.html"
+              },
+              {
+                "label": "Online Postage",
+                "value": "http://www.pitneybowes.com/us/shipping-and-mailing/online-postage-service/pbsmartpostage.html"
+              },
+              {
+                "label": "Postage Meter Ink",
+                "value": "https://www.pitneybowes.us/shop/ink-and-supplies/postage-meter-ink-supplies/postage-meter-ink-supplies/en-us/storeus"
+              },
+              {
+                "label": "Mailing Supplies",
+                "value": "https://www.pitneybowes.us/shop/ink-and-supplies/shipping-and-packing-supplies/shipping-and-packing-supplies/en-us/storeus"
+              },
+              {
+                "label": "Production Mail Repair Parts",
+                "value": "https://www.pb.com/MyAccount/DMTPartsHome_12756_11055_-1"
+              }
+            ]
+          },
+          {
+            "label": "Customer Service",
+            "links": [
+              {
+                "label": "View & Pay Bills",
+                "value": "https://www.pb.com/bv2was/LoginHome.go?lang=en&country=US&request_locale=en_US"
+              },
+              {
+                "label": "Product Support",
+                "value": "http://support.pb.com/ekip/index?page=home"
+              },
+              {
+                "label": "Postal Rate Change",
+                "value": "http://support.pb.com/ekip/index?page=rate_change"
+              },
+              {
+                "label": "My Account",
+                "value": "https://www.pitneybowes.us/signin/LoginHome.go?lang=en&country=US&request_locale=en_US"
+              },
+              {
+                "label": "Contact Us",
+                "value": "http://www.pitneybowes.com/us/contact-us.html"
+              },
+              {
+                "label": "Envelope Messaging",
+                "value": "http://www.pitneybowes.com/us/envelope-messages.html"
+              }
+            ]
+          },
+          {
+            "label": "Follow Us",
+            "links": [
+              {
+                "label": "facebook",
+                "value": "https://www.facebook.com/PitneyBowes",
+                "icon" : "icon-facebook"
+              },
+              {
+                "label": "twitter",
+                "value": "https://twitter.com/pitneybowes",
+                "icon" : "icon-twitter"
+              },
+              {
+                "label": "linkin",
+                "value": "https://www.linkedin.com/company/pitney-bowes",
+                "icon" : "icon-linkedin"
+              },
+              {
+                "label": "youtube",
+                "value": "https://www.youtube.com/user/PitneyBowesInc",
+                "icon" : "icon-youtube"
+              }
+            ]
+          },
+          {
+            "label": "©1996-2016 Pitney Bowes Inc. All rights reserved.",
+            "links": [
+              {
+                "label": "Legal",
+                "value": "http://www.pitneybowes.com/us/legal.html"
+              },
+              {
+                "label": "Privacy Statement",
+                "value": "http://www.pitneybowes.com/us/legal/privacy-statement.html"
+              },
+              {
+                "label": "Site Map",
+                "value": "http://www.pitneybowes.com/us/sitemap.html"
+              }
+            ]
+          }
+        ]
+      }
+    }]
+  }
+]

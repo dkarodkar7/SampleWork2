@@ -1,0 +1,338 @@
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Tabbed</h2>
+    </div>
+  </div>
+
+
+  <!-- USE OF ICONS -->
+  <div class="row">
+
+    <div class="col-md-12">
+
+        <h2>Table's Title Position</h2>
+
+        <uib-tabset>
+          <uib-tab>
+            <tab-heading>Shipments</tab-heading>
+
+            <div class="row toolbar spacer-top-md spacer-bottom-md">
+
+              <div class="col-md-3">
+
+                <div class="btn-group">
+                  <button class="btn btn-link dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                    <i class="fa fa-print"></i> <i class="fa fa-angle-down"></i>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li><a href="#">Separated link</a></li>
+                  </ul>
+                </div>
+
+                <button class="btn btn-link " type="button">
+                  <i class="fa fa-external-link"></i> Export
+                </button>
+
+              </div>
+
+              <div class="col-md-9">
+
+                <form class="form-inline pull-right">
+
+                  <div class="form-group dropdown">
+                    <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+                      <i class="fa fa-fw fa-filter"></i>Filter One <i class="fa fa-angle-down"></i>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li class="dropdown-header">Show:</li>
+                      <li>
+                        <a>Show all</a>
+                        <a>Example link</a>
+                        <a>Example link</a>
+                        <a>Example link</a>
+                        <a>Example link</a>
+                        <a>Example link</a>
+                        <a>Example link</a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="form-group dropdown">
+                    <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+                      <i class="fa fa-fw fa-filter"></i>Filter Two <i class="fa fa-angle-down"></i>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li class="dropdown-header">Show:</li>
+                      <li>
+                        <a>Show all</a>
+                        <a>Example link</a>
+                        <a>Example link</a>
+                        <a>Example link</a>
+                        <a>Example link</a>
+                        <a>Example link</a>
+                        <a>Example link</a>
+                      </li>
+                    </ul>
+                  </div>
+
+
+                  <div class="input-group">
+
+                    <div class="input-group-addon">
+                        <i class="fa fa-fw fa-search"></i>
+                    </div>
+
+                      <input class="form-control search" type="text" placeholder="Search" required>
+                      <button class="btn btn-link search-clear" type="reset" ng-click="datatable.table.searchClear()"><i class="fa fa-fw fa-times-circle"></i></button>
+                  </div>
+
+                  <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-default active">
+                      <input type="radio" name="options-1" autocomplete="off" checked><i class="fa fa-fw fa-th-list"></i>
+                    </label>
+
+                    <label class="btn btn-default">
+                      <input type="radio" name="options-1" autocomplete="off" checked><i class="fa fa-fw fa-th"></i>
+                    </label>
+                  </div>
+
+                </form>
+
+              </div>
+
+            </div>
+
+            <table class="table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Date</th>
+                  <th>Recipient</th>
+                  <th>Carrier</th>
+                  <th>Shipping Info</th>
+                  <th>Tracking #</th>
+                  <th>Status</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a href=""><i class="fa fa-fw fa-lg fa-angle-right"></i></a></td>
+                  <td>Date</td>
+                  <td>Recipient</td>
+                  <td>Carrier</td>
+                  <td>Shipping Info</td>
+                  <td>Tracking #</td>
+                  <td>Status</td>
+                  <td>Amount</td>
+                </tr>
+                <tr><td colspan="8">&#8230;</td></tr>
+                <tr><td colspan="8">&#8230;</td></tr>
+              </tbody>
+            </table>
+
+
+          </uib-tab>
+
+
+
+          <!-- POSTAGE -->
+          <uib-tab>
+            <tab-heading>Postage</tab-heading>
+
+            <div class="row toolbar spacer-top-md spacer-bottom-md">
+
+              <div class="col-md-3">
+
+                <div class="btn-group">
+                  <button class="btn btn-link" type="button">
+                    <i class="fa fa-plus"></i>
+                  </button>
+                </div>
+
+                <button class="btn btn-link " type="button">
+                  <i class="fa fa-database"></i>
+                </button>
+
+                <button class="btn btn-link " type="button">
+                  <i class="fa fa-trash-o"></i>
+                </button>
+
+                <button class="btn btn-link " type="button">
+                  <i class="fa fa-pencil"></i>
+                </button>
+
+              </div>
+
+              <div class="col-md-9">
+
+                <form class="form-inline pull-right">
+
+                  <div class="form-group dropdown">
+                    <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+                      <i class="fa fa-fw fa-filter"></i>Filter One <i class="fa fa-angle-down"></i>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li class="dropdown-header">Show:</li>
+                      <li>
+                        <a>Show all</a>
+                        <a>Example link</a>
+                        <a>Example link</a>
+                        <a>Example link</a>
+                        <a>Example link</a>
+                        <a>Example link</a>
+                        <a>Example link</a>
+                      </li>
+                    </ul>
+                  </div>
+
+
+                  <div class="input-group">
+
+                    <div class="input-group-addon">
+                        <i class="fa fa-fw fa-search"></i>
+                    </div>
+
+                    <input class="form-control search" type="text" placeholder="Search" required>
+                    <button class="btn btn-link search-clear" type="reset" ng-click="datatable.table.searchClear()"><i class="fa fa-fw fa-times-circle"></i></button>
+
+                  </div>
+
+                </form>
+
+              </div>
+
+            </div>
+
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Recipient</th>
+                  <th>Carrier</th>
+                  <th>Status</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Date</td>
+                  <td>Recipient</td>
+                  <td>Carrier</td>
+                  <td>Status</td>
+                  <td>Amount</td>
+                </tr>
+                <tr><td colspan="8">&#8230;</td></tr>
+                <tr><td colspan="8">&#8230;</td></tr>
+              </tbody>
+            </table>
+
+          </uib-tab>
+
+          <uib-tab>
+            <tab-heading>Refunds</tab-heading>
+
+            <div class="row toolbar spacer-top-md spacer-bottom-md">
+
+              <div class="col-md-3">
+
+                <div class="btn-group">
+                  <button class="btn btn-link" type="button">
+                    <i class="fa fa-plus"></i>
+                  </button>
+                </div>
+
+                <button class="btn btn-link " type="button">
+                  <i class="fa fa-trash-o"></i>
+                </button>
+
+                <button class="btn btn-link " type="button">
+                  <i class="fa fa-pencil"></i>
+                </button>
+
+              </div>
+
+              <div class="col-md-9">
+
+                <form class="form-inline pull-right">
+
+                  <div class="form-group dropdown">
+                    <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+                      <i class="fa fa-fw fa-filter"></i>Filter One <i class="fa fa-angle-down"></i>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li class="dropdown-header">Show:</li>
+                      <li>
+                        <a>Show all</a>
+                        <a>Example link</a>
+                        <a>Example link</a>
+                        <a>Example link</a>
+                        <a>Example link</a>
+                        <a>Example link</a>
+                        <a>Example link</a>
+                      </li>
+                    </ul>
+                  </div>
+
+
+                  <div class="input-group">
+
+                    <div class="input-group-addon">
+                        <i class="fa fa-fw fa-search"></i>
+                    </div>
+
+                    <input class="form-control search" type="text" placeholder="Search" required>
+                    <button class="btn btn-link search-clear" type="reset" ng-click="datatable.table.searchClear()"><i class="fa fa-fw fa-times-circle"></i></button>
+
+                  </div>
+
+                  <button class="btn btn-link " type="button">
+                    <i class="fa fa-refresh"></i>
+                  </button>
+
+                </form>
+
+              </div>
+
+            </div>
+
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Recipient</th>
+                  <th>Carrier</th>
+                  <th>Shipping Info</th>
+                  <th>Tracking #</th>
+                  <th>Refund&nbsp;Status</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Date</td>
+                  <td>Recipient</td>
+                  <td>Carrier</td>
+                  <td>Shipping Info</td>
+                  <td>Tracking #</td>
+                  <td>Refund Status</td>
+                  <td>Amount</td>
+                </tr>
+                <tr><td colspan="8">&#8230;</td></tr>
+                <tr><td colspan="8">&#8230;</td></tr>
+              </tbody>
+            </table>
+
+          </uib-tab>
+        </uib-tabset>
+
+
+
+    </div>
+
+  </div>

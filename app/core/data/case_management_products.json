@@ -1,0 +1,319 @@
+{
+  "slides":[
+    {
+      "image":"modules/casemanagement/assets/images/product-icon.jpg",
+      "id":0,
+      "type":"Hardware",
+      "name":"DM125",
+      "PONumber":"#1234567",
+      "account":"PB DEMO(1234567890)",
+      "location":{
+        "addrType":"",
+        "address1":"300 Stamford Pl",
+        "address2":"",
+        "city":"Stamford",
+        "country":"US",
+        "orgName":"WEBVISIBILITY PITNEY BOWES INC",
+        "phone1":"203-924-3000",
+        "state":"CT",
+        "zipCode":"06902-6735"
+      }
+    },
+    {
+      "image":"modules/casemanagement/assets/images/product-icon.jpg",
+      "id":1,
+      "type":"Hardware",
+      "name":"DM125",
+      "PONumber":"#1234567",
+      "account":"PB DEMO(1234567890)",
+      "location":{
+        "addrType":"",
+        "address1":"300 Stamford Pl",
+        "address2":"",
+        "city":"Stamford",
+        "country":"US",
+        "orgName":"WEBVISIBILITY PITNEY BOWES INC",
+        "phone1":"203-924-3000",
+        "state":"CT",
+        "zipCode":"06902-6735"
+      }    },
+    {
+      "image":"modules/casemanagement/assets/images/product-icon.jpg",
+      "id":2,
+      "type":"Hardware",
+      "name":"DM125",
+      "PONumber":"#1234567",
+      "account":"PB DEMO(1234567890)",
+      "location":{
+        "addrType":"",
+        "address1":"300 Stamford Pl",
+        "address2":"",
+        "city":"Stamford",
+        "country":"US",
+        "orgName":"WEBVISIBILITY PITNEY BOWES INC",
+        "phone1":"203-924-3000",
+        "state":"CT",
+        "zipCode":"06902-6735"
+      }
+    },
+    {
+      "image":"modules/casemanagement/assets/images/product-icon.jpg",
+      "id":3,
+      "type":"Hardware",
+      "name":"DM125",
+      "PONumber":"#1234567",
+      "account":"PB DEMO(1234567890)",
+      "location":{
+        "addrType":"",
+        "address1":"300 Stamford Pl",
+        "address2":"",
+        "city":"Newyork",
+        "country":"US",
+        "orgName":"WEBVISIBILITY PITNEY BOWES INC",
+        "phone1":"203-924-3000",
+        "state":"NY",
+        "zipCode":"06902-6735"
+      }
+    },
+    {
+      "image":"modules/casemanagement/assets/images/product-icon.jpg",
+      "id":4,
+      "type":"Hardware",
+      "name":"DM125",
+      "PONumber":"#1234567",
+      "account":"PB DEMO(1234567890)",
+      "location":{
+        "addrType":"",
+        "address1":"300 Stamford Pl",
+        "address2":"",
+        "city":"Newyork",
+        "country":"US",
+        "orgName":"WEBVISIBILITY PITNEY BOWES INC",
+        "phone1":"203-924-3000",
+        "state":"NY",
+        "zipCode":"06902-6735"
+      }
+    },
+    {
+      "image":"modules/casemanagement/assets/images/product-icon.jpg",
+      "id":5,
+      "type":"Hardware",
+      "name":"DM125",
+      "PONumber":"#1234567",
+      "account":"PB DEMO(1234567890)",
+      "location":{
+        "addrType":"",
+        "address1":"300 Stamford Pl",
+        "address2":"",
+        "city":"Newyork",
+        "country":"US",
+        "orgName":"WEBVISIBILITY PITNEY BOWES INC",
+        "phone1":"203-924-3000",
+        "state":"NY",
+        "zipCode":"06902-6735"
+      }
+    },
+    {
+      "image":"modules/casemanagement/assets/images/product-icon.jpg",
+      "id":6,
+      "type":"Hardware",
+      "name":"DM125",
+      "PONumber":"#1234567",
+      "account":"PB DEMO(1234567890)",
+      "location":{
+        "addrType":"",
+        "address1":"300 Stamford Pl",
+        "address2":"",
+        "city":"Newyork",
+        "country":"US",
+        "orgName":"WEBVISIBILITY PITNEY BOWES INC",
+        "phone1":"203-924-3000",
+        "state":"NY",
+        "zipCode":"06902-6735"
+      }
+    },
+    {
+      "image":"modules/casemanagement/assets/images/product-icon.jpg",
+      "id":7,
+      "type":"Hardware",
+      "name":"DM125",
+      "PONumber":"#1234567",
+      "account":"PB DEMO(1234567890)",
+      "location":"New York, NY"
+    },
+    {
+      "image":"modules/casemanagement/assets/images/product-icon.jpg",
+      "id":8,
+      "type":"Hardware",
+      "name":"DM125",
+      "PONumber":"#1234567",
+      "account":"PB DEMO(1234567890)",
+      "location":"New York, NY"
+    },
+    {
+      "image":"modules/casemanagement/assets/images/product-icon.jpg",
+      "id":9,
+      "type":"Hardware",
+      "name":"DM126",
+      "PONumber":"#1234567",
+      "account":"PB DEMO(1234567890)",
+      "location":"New York, NY"
+    },
+    {
+      "image":"modules/casemanagement/assets/images/product-icon.jpg",
+      "id":10,
+      "type":"Hardware",
+      "name":"DM126",
+      "PONumber":"#1234567",
+      "account":"PB DEMO(1234567890)",
+      "location":"New York, NY"
+    },
+    {
+      "image":"modules/casemanagement/assets/images/product-icon.jpg",
+      "id":11,
+      "type":"Hardware",
+      "name":"DM126",
+      "PONumber":"#1234567",
+      "account":"PB DEMO(1234567890)",
+      "location":"New York, NY"
+    },
+    {
+      "image":"modules/casemanagement/assets/images/product-icon.jpg",
+      "id":12,
+      "type":"Hardware",
+      "name":"DM126",
+      "PONumber":"#1234567",
+      "account":"PB DEMO(1234567890)",
+      "location":"New York, NY"
+    },
+    {
+      "image":"modules/casemanagement/assets/images/product-icon.jpg",
+      "id":13,
+      "type":"Hardware",
+      "name":"DM126",
+      "PONumber":"#1234567",
+      "account":"PB DEMO(1234567890)",
+      "location":"New York, NY"
+    },
+    {
+      "image":"modules/casemanagement/assets/images/product-icon.jpg",
+      "id":14,
+      "type":"Hardware",
+      "name":"DM126",
+      "PONumber":"#1234567",
+      "account":"PB DEMO(1234567890)",
+      "location":"New York, NY"
+    },
+    {
+      "image":"modules/casemanagement/assets/images/product-icon.jpg",
+      "id":15,
+      "type":"Hardware",
+      "name":"DM126",
+      "PONumber":"#1234567",
+      "account":"PB DEMO(1234567890)",
+      "location":"New York, NY"
+    },
+    {
+      "image":"modules/casemanagement/assets/images/product-icon.jpg",
+      "id":16,
+      "type":"Hardware",
+      "name":"DM126",
+      "PONumber":"#1234567",
+      "account":"PB DEMO(1234567890)",
+      "location":"New York, NY"
+    },
+    {
+      "image":"modules/casemanagement/assets/images/product-icon.jpg",
+      "id":17,
+      "type":"Hardware",
+      "name":"DM126",
+      "PONumber":"#1234567",
+      "account":"PB DEMO(1234567890)",
+      "location":"New York, NY"
+    },
+    {
+      "image":"modules/casemanagement/assets/images/product-icon.jpg",
+      "id":18,
+      "type":"Hardware",
+      "name":"DM127",
+      "PONumber":"#1234567",
+      "account":"PB DEMO(1234567890)",
+      "location":"New York, NY"
+    },
+    {
+      "image":"modules/casemanagement/assets/images/product-icon.jpg",
+      "id":19,
+      "type":"Hardware",
+      "name":"DM127",
+      "PONumber":"#1234567",
+      "account":"PB DEMO(1234567890)",
+      "location":"New York, NY"
+    },
+    {
+      "image":"modules/casemanagement/assets/images/product-icon.jpg",
+      "id":20,
+      "type":"Hardware",
+      "name":"DM127",
+      "PONumber":"#1234567",
+      "account":"PB DEMO(1234567890)",
+      "location":"New York, NY"
+    },
+    {
+      "image":"modules/casemanagement/assets/images/product-icon.jpg",
+      "id":21,
+      "type":"Hardware",
+      "name":"DM127",
+      "PONumber":"#1234567",
+      "account":"PB DEMO(1234567890)",
+      "location":{
+        "addrType":"",
+        "address1":"300 Stamford Pl",
+        "address2":"",
+        "city":"Stamford",
+        "country":"US",
+        "orgName":"WEBVISIBILITY PITNEY BOWES INC",
+        "phone1":"203-924-3000",
+        "state":"CT",
+        "zipCode":"06902-6735"
+      }
+    },
+    {
+      "image":"modules/casemanagement/assets/images/product-icon.jpg",
+      "id":22,
+      "type":"Hardware",
+      "name":"DM127",
+      "PONumber":"#1234567",
+      "account":"PB DEMO(1234567890)",
+      "location":{
+        "addrType":"",
+        "address1":"300 Stamford Pl",
+        "address2":"",
+        "city":"Newyork",
+        "country":"US",
+        "orgName":"WEBVISIBILITY PITNEY BOWES INC",
+        "phone1":"203-924-3000",
+        "state":"NY",
+        "zipCode":"06902-6735"
+      }
+    },
+    {
+      "image":"modules/casemanagement/assets/images/no-image.jpg",
+      "id":23,
+      "type":"Software",
+      "name":"DM127",
+      "PONumber":"#1234567",
+      "account":"PB DEMO(7891234)",
+      "location":{
+        "addrType":"",
+        "address1":"300 Stamford Pl",
+        "address2":"",
+        "city":"Newyork",
+        "country":"US",
+        "orgName":"WEBVISIBILITY PITNEY BOWES INC",
+        "phone1":"203-924-3000",
+        "state":"NY",
+        "zipCode":"06902-6735"
+      }
+    }
+  ]
+}

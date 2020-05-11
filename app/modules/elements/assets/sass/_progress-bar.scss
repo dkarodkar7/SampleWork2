@@ -1,0 +1,98 @@
+.sequence-map {
+  .complete {
+    color:$brand-success;
+    fill: $brand-success;
+  }
+  .dot {
+    fill: $pb-gray-500;
+  }
+}
+
+// Progress bars
+
+@mixin progress-bar-variant($color) {
+  background-color: $color;
+
+}
+
+.progress-bar {
+  background-color: $pb-blue;
+}
+
+// for angular-loading-bar
+
+#loading-bar .bar {
+  background: pbcolor($pb-blue);
+  height: 2px;
+}
+
+#loading-bar-spinner .spinner-icon {
+  border-top-color:  pbcolor($pb-blue);
+  border-left-color: pbcolor($pb-blue);
+}
+
+/* Fancy blur effect */
+#loading-bar .peg {
+  box-shadow: pbcolor($pb-blue) 1px 0 6px 1px;
+}
+
+
+
+
+// Variations
+// -------------------------
+
+
+.progress-bar-success {
+  @include progress-bar-variant($progress-bar-success-bg);
+}
+
+.progress-bar-info {
+  @include progress-bar-variant($progress-bar-info-bg);
+}
+
+.progress-bar-warning {
+  @include progress-bar-variant($progress-bar-warning-bg);
+}
+
+.progress-bar-danger {
+  @include progress-bar-variant($progress-bar-danger-bg);
+}
+
+// stacked
+.progress-bar-green {
+  @include progress-bar-variant($chart-green);
+}
+.progress-bar-blue {
+  @include progress-bar-variant($chart-blue);
+}
+.progress-bar-purple {
+  @include progress-bar-variant($chart-purple);
+}
+.progress-bar-yellow {
+  @include progress-bar-variant($chart-yellow);
+}
+.progress-bar-orange {
+  @include progress-bar-variant($chart-orange);
+}
+.progress-bar-red {
+  @include progress-bar-variant($chart-red);
+}
+.progress-bar-blue1 {
+  @include progress-bar-variant($blue1);
+}
+.progress-bar-blue2 {
+  @include progress-bar-variant($blue2);
+}
+.progress-bar-blue3 {
+  @include progress-bar-variant($blue3);
+}
+.progress-bar-blue4 {
+  @include progress-bar-variant($blue4);
+}
+.progress-bar-blue5 {
+  @include progress-bar-variant($blue5);
+}
+.progress-bar-blue6 {
+  @include progress-bar-variant($blue6);
+}

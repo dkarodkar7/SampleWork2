@@ -1,0 +1,79 @@
+<section class="container-fluid">
+    <div class="col-sm-9 col-sm-offset-3">
+
+        <div id="pb-pgBody">
+            <!--Body Starts -->
+            <a name="skipNav"></a>
+            <div id="pb-pgBodyContents" class="clearfix">
+                <!--Body Content Starts -->
+                <div id="graphicErrorMessage" style="display: none;">
+                    <br>
+                    <br>
+                    <div style="border: 1px solid #64aa00; color: #874700; font-size: 93%; font-weight: bold; font-size: 123.1%;">
+                        <img src="/modules/dashboard/assets/images/checkSry.png"> Please check one of the checkbox or check "Select All" checkbox.
+                    </div>
+                </div>
+                <div id="ms1wrapper">
+                    <!--Start MS1 Content Section -->
+
+                    <h1>
+                        MyGraphics&trade; Designer
+                    </h1>
+                    <p class="subhead">
+                        Your library of images and envelope design options.
+                    </p>
+                    <form role="form" name="pcnForm" class="ms1DataForm" id="pcnForm" ng-submit="">
+                        <div class="form-group required ">
+
+                        <p class="intro">
+                            To begin select products:
+                        </p>
+                        <span class="subdued">Only the mailing machines you select will be able to print your new graphic.</span>
+
+                        <div class="formRow">
+                            <input class="printer" name="check_list" value="MSF2-0001458-0016316844" id="check_list" checked="checked" type="checkbox">
+                            <label for="selection1">
+                                <div class="PCN">
+                                    <span class="itemLabel">PCN :</span>
+
+                                    <span class="itemData">MSF2</span>
+                                </div>
+                                <div class="SN">
+                                    <span class="itemLabel">Serial Number : </span> <span class="itemData">0001458</span>
+
+                                </div>
+                            </label>
+                        </div>
+</div>
+                        </form>
+                    <form role="form" name="frmToMS1" id="frmToMS1" target="_new" action="" ng-submit="">
+
+                        <input value="" name="CAN" id="CAN" type="hidden">
+                        <input value="" name="PCN" id="PCN" type="hidden">
+                        <input value="" name="SN" id="SN" type="hidden">
+                        <input value="en-US" name="lang" id="lang" type="hidden">
+                        <input value="US" name="country" id="country" type="hidden">
+                        <input value="youraccount_us@mailinator.com" name="emailID" id="emailID" type="hidden">
+                        <input value="2a54a7fcd42bde157b447baae7a93de6" name="guptKeyToken" id="guptKeyToken" type="hidden">
+                        <input value="youraccount_us@mailinator.com" name="user" id="user" type="hidden">
+                    </form>
+
+                    <div class="selectRow">
+                        <br>
+                    </div>
+                    <div class="selectRow">
+                        <input class="printer" name="SelectAll" id="SelectAll" checked="false" ng-click="mygraphicCtrl.manageCheckBox();" type="checkbox">
+                        <div class="SelectN">
+                            <label><span class="SelectLabel">Select All</span></label>
+                        </div>
+                    </div>
+                    <div class="actionsRow">
+                        <a id="nextButton" ng-click="mygraphicCtrl.validatePcnSn();" class="btn-g12" title="Only the mailing machines you select will be able to print your new graphic."><span>Next</span></a>
+                    </div>
+                </div>
+                <!--End MS1 Content Section -->
+            </div>
+
+        </div>
+    </div>
+</section>

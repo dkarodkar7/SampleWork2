@@ -1,0 +1,82 @@
+{
+  "colors": {
+
+    "primary": [{
+        "varname": "pb-cyan",
+        "hex": "#009dbf"
+      }, {
+        "varname": "pb-medium-blue",
+        "hex": "#0072b8"
+      }, {
+        "varname": "pb-blue",
+        "hex": "#3e53a4"
+      }, {
+        "varname": "pb-blue-700",
+        "hex": "#314183"
+      }, {
+        "varname": "pb-blue-300",
+        "hex": "#8B98C8"
+      }, {
+        "varname": "pb-purple",
+        "hex": "#a03f9b"
+      }, {
+        "varname": "pb-magenta",
+        "hex": "#cf0989"
+      }, {
+        "varname": "pb-dark-green",
+        "hex": "#00b140"
+      }, {
+        "varname": "pb-error-red",
+        "hex": "#f32d2d"
+      }
+
+    ],
+    "grays": [
+      {
+        "varname": "pb-gray-50",
+        "hex": "#f0f0f0"
+      },
+
+      {
+        "varname": "pb-gray-200",
+        "hex": "#c0c0c0"
+      },
+      {
+        "varname": "pb-gray-300",
+        "hex": "#9b9b9b"
+      },
+      {
+        "varname": "pb-gray-500",
+        "hex": "#4e4e4e",
+        "name": "Text"
+      },
+      {
+        "varname": "pb-gray-700",
+        "hex": "#2e2e2e"
+      }
+    ],
+
+    "functional": [{
+        "varname": "$brand-danger",
+        "hex": "#cc0000",
+        "name": "Brand Danger"
+
+      }, {
+        "varname": "$brand-warning",
+        "hex": "#F0AD4E",
+        "name": "Brand Warning"
+
+      }, {
+        "varname": "$brand-success",
+        "hex": "#5CB85C",
+        "name": "Brand Sucess"
+      }, {
+        "varname": "$brand-info",
+        "hex": "#5BC0DE",
+        "name": "Brand Info"
+      }
+
+    ]
+
+  }
+}

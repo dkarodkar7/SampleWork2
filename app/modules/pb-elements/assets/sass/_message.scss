@@ -1,0 +1,22 @@
+.message {
+	@include border-bottom-radius($border-radius);
+    @include clearfix();
+    padding: $padding-md 0;
+    margin-bottom: $margin-md;
+
+	&--login{
+	    background-color: $brand-message-bg;
+	    color: $pb-gray-500;
+
+	    .message__icon{
+	    	color: $pb-orange;
+	    	position: absolute;
+	    	left: -25px;
+	    	@include breakpoint($tablet){
+	    		left: -30px;
+	    	}
+	    	&.green,
+	    	&.success { color: $pb-green; }
+	    }	    
+	}
+}

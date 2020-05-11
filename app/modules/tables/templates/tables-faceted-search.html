@@ -1,0 +1,186 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="main-header"><h1>Faceted Search</h1></div>
+      </div>
+  </div>
+
+
+  <div class="row spacer-top-lg">
+
+    <div class="col-md-3">
+
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Filters</div>
+
+        <!-- List group -->
+        <ul class="list-group">
+
+          <li class="list-group-item" ng-if="faceted.facet.list.length">
+            <p>Refined by <a class="pull-right" href="" ng-click="faceted.facet.clear()">Reset</a></p>
+            <ul class="list-unstyled">
+              <li ng-repeat="item in faceted.facet.list"><a class="badge badge-gray-text" href="">{{item}} <i class="fa fa-times-circle fa-reverse" ng-click="faceted.facet.clearBadge(item, $event)"></i></a></li>
+            </ul>
+          </li>
+
+          <li class="list-group-item">
+            <div><a style="display: block;" href="" ng-click="faceted.show = !faceted.show">Countries <i class="fa fa-lg fa-angle-right transition-all pull-right" ng-class="{'fa-rotate-90': !faceted.show}"></i></a></div>
+
+            <div collapse="faceted.show" class="collapse" style="height: auto;">
+
+              <div class="spacer-top-xs">
+                <select class="form-control input-sm" ng-change="faceted.facet.selectChange()" ng-model="faceted.table.search.country" ng-options="item.country as item.country for item in faceted.table.data | unique: 'country' | orderBy: 'country'">
+                  <option value="">Show all</option>
+                </select>
+              </div>
+
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div><a style="display: block;" href="" ng-click="facetedGroups.show = !facetedGroups.show">Groups <i class="fa fa-lg fa-angle-right transition-all pull-right" ng-class="{'fa-rotate-90': !facetedGroups.show}"></i></a></div>
+
+            <div collapse="facetedGroups.show" class="collapse" style="height: auto;">
+              <div class="checkbox" ng-repeat="item in faceted.facet.groups | orderBy: 'toString()'">
+                <label ng-show="(item | countGroups:'groups':faceted.table.dataFiltered)">
+                  <input type="checkbox" ng-model="faceted.table.search.group[item]" ng-click="faceted.facet.checked(faceted.table.search.group[item], item)"> {{item}} (<span>{{item | countGroups:'groups':faceted.table.dataFiltered}}</span>)
+                </label>
+              </div>
+            </div>
+          </li>
+
+          <li class="list-group-item">
+            <div><a style="display: block;" href="" ng-click="facetedType.show = !facetedType.show">User type <i class="fa fa-lg fa-angle-right transition-all pull-right" ng-class="{'fa-rotate-90': facetedType.show}"></i></a></div>
+
+            <div collapse="!facetedType.show" class="collapse" style="height: auto;">
+              <div class="checkbox" ng-repeat="item in faceted.table.data | unique: 'userType' | orderBy: 'userType'">
+                <label ng-show="(item.userType | count:'userType':faceted.table.dataFiltered)">
+                  <input type="checkbox" ng-model="faceted.table.search.userType[item.userType]" ng-click="faceted.facet.checked(faceted.table.search.userType[item.userType], item.userType)"> {{item.userType}} (<span>{{item.userType | count:'userType':faceted.table.dataFiltered}}</span>)
+                </label>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="col-md-9">
+
+      <div class="row toolbar spacer-bottom-md">
+
+
+        <div class="col-md-12">
+
+          <form class="form-inline pull-right">
+
+            <div class="form-group dropdown">
+              <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-fw fa-filter"></i> {{faceted.table.sort.selected}} <i class="fa fa-angle-down"></i>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li ng-repeat="item in faceted.table.sort.data">
+                  <a href="" ng-click="faceted.table.sort.change(item)">
+                    <i class="fa fa-fw" ng-class="{'fa-check': faceted.table.sort.type === item.value}"></i> {{item.label}}
+                  </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <a href="" ng-model="faceted.table.sort.reverse" ng-click="faceted.table.sort.reverse = !faceted.table.sort.reverse">
+                    <i class="fa fa-fw" ng-class="{'fa-check':faceted.table.sort.reverse}"></i> Reverse
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+
+            <div class="input-group">
+
+              <div class="input-group-addon">
+                  <i class="fa fa-fw fa-search"></i>
+              </div>
+
+                <input class="form-control search" type="text" placeholder="Search" ng-model="faceted.table.searchtext.$" ng-model-options="{debounce: 300}" required>
+                <button class="btn btn-link search-clear" type="reset" ng-click="faceted.table.searchClear()"><i class="fa fa-fw fa-times-circle"></i></button>
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+
+
+      <div class="row">
+
+        <div class="col-md-12">
+
+          <table class="table table-datatable table-hover table-border-bottom">
+            <thead>
+              <tr>
+                <th class="text-nowrap">First Name</th>
+                <th class="text-nowrap">Last Name</th>
+                <th>Email</th>
+                <th>Country</th>
+                <th>Created</th>
+                <th>Type</th>
+                <th style="width: 300px;">Groups</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr ng-if="!faceted.table.dataFiltered.length">
+                <td colspan="9" class="text-center">There are no results.</td>
+              </tr>
+              <tr ng-click="faceted.table.selectRow(item, $event)"
+                  dir-paginate="item in faceted.table.dataFiltered = (faceted.table.data | orderBy:faceted.table.sort.type:faceted.table.sort.reverse | filter: faceted.table.filter | filter: faceted.table.searchtext) | itemsPerPage: faceted.table.paging.size "
+                  ng-class="{'table-row-selected': item.selected}">
+
+                <td>{{::item.first_name}}</td>
+                <td>{{::item.last_name}}</td>
+                <td><a href="#" ng-click="faceted.table.selectEmail(item, $event)">{{::item.email}}</a></td>
+                <td><span class="text-nowrap">{{::item.country}}</span></td>
+                <td>{{::item.date.created | date:'MM/dd/yyyy'}}</td>
+                <td><i class="fa fa-fw" ng-class="{'fa-user': item.userType === 'user', 'fa-user-secret': item.userType === 'admin'}"></i></td>
+                <td>
+                  <span ng-repeat="group in (item.groups | orderBy: group | limitTo: item.limit || faceted.table.groups.min) track by $index">
+                    {{::group}}<span ng-if="!$last">, </span>
+                  </span>
+                  <div>
+                    <a class="small" href="" ng-if="item.groups.length > faceted.table.groups.min" ng-show="!item.limit" ng-click="faceted.table.showMore(item, true, $event)">Show more</a>
+                    <a class="small" href="" ng-show="item.limit" ng-click="faceted.table.showMore(item, false, $event)">Show less</a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+
+      </div>
+
+      <div class="row toolbar toolbar-footer">
+
+        <div class="col-md-2 col-md-push-5 text-center">
+          <form class="form-inline">
+            <select class="form-control" ng-model="faceted.table.paging.size" ng-options="size as size for size in faceted.table.paging.sizes"></select> per page
+          </form>
+        </div>
+
+
+
+          <div dir-pagination-controls boundary-links="true" max-size="6" template-url="modules/tables/templates/tables-datatable-dirPaginate.html"></div>
+
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</div>

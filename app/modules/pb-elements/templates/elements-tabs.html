@@ -1,0 +1,18 @@
+<div class="hidden-xs">
+    <div class="row">
+        <div class="">
+            <div>
+                <div class="tabs-fancy">
+
+                    <ul class="nav nav-tabs container-fluid {{tabsWidthClass}}">
+                        <li ng-class="{active: $state.$current.name.indexOf(tab.link) === 0}" class="{{tab.bootstrapClass}}" ng-repeat="tab in tabs">
+                            <a ng-if="!tab.externalLink" ui-sref="{{tab.link}}">{{tab.label}}</a>
+                            <a ng-if="tab.externalLink" href="{{tab.externalLink}}" target="_blank">{{tab.label}} <span class="icon-arrow-right primary hidden-sm hidden-xs"></span></a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

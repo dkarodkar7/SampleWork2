@@ -1,0 +1,122 @@
+{
+  "eppFlag": "true",
+  "noRecords": "No Records Found",
+  "prepaidAccountsTotal": "22952.43",
+  "prepaidAccountsUpdated": "12/15/15",
+  "recordsArray": [
+    {
+      "usps": "",
+      "meterpermit": "1402151",
+      "purchasepower": "",
+      "creditcardlastfour": "&nbsp;",
+      "activitytype": "Meter Activity",
+      "creditcard": "",
+      "postageonmeter": "17.933",
+      "reference": "",
+      "date": "11/23/2015",
+      "reserveAccount": "-200.00",
+      "fonumber": "",
+      "accountnum": "10673325",
+      "description": "Refill",
+      "totalamount": "-200.0",
+      "totalPPRecords": 0,
+      "totalRecords": 0
+    },
+    {
+      "usps": "",
+      "meterpermit": "1402151",
+      "purchasepower": "",
+      "creditcardlastfour": "&nbsp;",
+      "activitytype": "Meter Activity",
+      "creditcard": "",
+      "postageonmeter": "71.718",
+      "reference": "",
+      "date": "11/23/2015",
+      "reserveAccount": "-200.00",
+      "fonumber": "",
+      "accountnum": "10673325",
+      "description": "Refill",
+      "totalamount": "-200.0",
+      "totalPPRecords": 0,
+      "totalRecords": 0
+    }
+  ],
+  "ppaccountsArray": [
+    {
+      "acctType":"Purchase Power Billing",
+      "availableCredit": "13413.05",
+      "creditLimit": "15000.00",
+      "purchasePowerAccountNumber": "8000900000180400",
+      "totalAmountDue": "1587.84",
+      "minimumAmountDueDate": "10/28/2015",
+      "payments": "",
+      "minimumAmountDue": "25.00",
+      "rewards":"500",
+      "rewardsUpdated": "12/25/2015",
+      "city": "355 Atlanta Student Movement Boulevard, Fuerstenfeldbruck MA 10003",
+      "Locations": [
+        {
+          "accountNumber": "0119238470182340981",
+          "address": "155 Park Ave S., New York NY 10003"
+        },
+        {
+          "accountNumber": "0119238470182322222",
+          "address": "255 Park Ave S., New York NY 10003"
+        },
+        {
+          "accountNumber": "0119238470182343333",
+          "address": "355 Park Ave S., New York NY 10003"
+        },
+        {
+          "accountNumber": "0119238470182344444",
+          "address": "455 Park Ave S., New York NY 10003"
+        },
+        {
+          "accountNumber": "0119238470182340555",
+          "address": "555 Park Ave S., New York NY 10003"
+        },
+        {
+          "accountNumber": "0119238470182346666",
+          "address": "655 Park Ave S., New York NY 10003"
+        }
+      ],
+      "totalPPRecords": 0,
+      "totalRecords": 0
+    }
+  ],
+  "accountsArray": [
+    {
+      "acctType": "Reserve Account",
+      "state": "",
+      "errorFlag": "N",
+      "accNum": "MA1000000522",
+      "city": "1733 3rd Ave New York NY 10003",
+      "accBalance": "0.00",
+      "totalPPRecords": 0,
+      "totalRecords": 0,
+      "warnings":1,
+      "numofMet": "",
+      "prepaidCurrentBalance": "2384.52",
+      "prepaidNextAutoDeposit": "5/7/2015",
+      "prepaidAutoDepositAmount": "150"
+    },
+    {
+      "acctType": "Reserve Account",
+      "errorFlag": "N",
+      "accNum": "10673325",
+      "city": "WEST COVINA, CA",
+      "accBalance": "11301.05",
+      "schedPayflag": "Y",
+      "totalPPRecords": 0,
+      "totalRecords": 0,
+      "numofMet": "1"
+    }
+  ],
+  "errorFlag": "N",
+  "ppAccountNum": "",
+  "pbpFlag": "single",
+  "ppaccBalance": "nodisplay",
+  "ppFlag": "none",
+  "totalPPRecords": 1,
+  "addToDisp": "NA"
+}

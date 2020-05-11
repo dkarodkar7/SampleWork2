@@ -1,0 +1,32 @@
+//* TABLES */
+
+.table-open > thead > tr > th, .table-open > thead > tr > td, .table-open > tbody > tr > th, .table-open > tbody > tr > td, .table-open > tfoot > tr > th, .table > tfoot > tr > td {
+	border-top: 1px solid #C5CBE3;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: 1px solid #C5CBE3;
+}
+.table-open > tbody > tr > td:last-child, .table-open > tfoot > tr > td:last-child {
+	border-right: 0;
+}
+.table-open {
+	border-style: solid none none;
+	background-color: transparent;
+}
+
+
+.table-unstyled {
+	border: 0;
+	background-color: transparent;
+}
+.table-unstyled > thead > tr > th, .table-unstyled > thead > tr > td, .table-unstyled > tbody > tr > th, .table-unstyled > tbody > tr > td, .table-unstyled > tfoot > tr > th, .table-unstyled > tfoot > tr > td {
+	border: 0;
+	background-color: transparent;
+
+}
+.table-unstyled > tbody > tr > td, .table-unstyled > tfoot > tr > td {
+	border-right: 0;
+}
+.table-unstyled > tbody > tr > td:last-child, .table-unstyled > tfoot > tr > td:last-child {
+	border-right: 0;
+}

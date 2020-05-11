@@ -1,0 +1,138 @@
+<!-- ====================================== MOBILE 'ACCORDION' LINK  =========================== -->
+<div  class="visible-xs accordion__button container-fluid" ng-click="collapse = !collapse">
+    <div class="row">
+        <div class="col-xs-12">
+            <span class="link header--sm">Basic Info</span>
+            <span ng-class="collapse ? 'icon-caret-down' : 'icon-caret-up'" class="primary pull-right"></span>
+        </div>
+    </div>
+</div>
+<section ng-hide="collapse" class="container-fluid">
+    <div class="row">
+        <form id="form" name="form" novalidate role="form" class="col-xs-12 col-sm-6 col-sm-offset-3 spacer-top-lg">
+            <!-- Prefix only available in some markets - currently checks for user location -->
+            <div ng-if="pmBasicInfoCtrl.user.location == germany" class="form-group required">
+                <label for="prefix">Prefix</label>
+                <select class="form-control input-lg" size="1" id="prefix" name="prefix"
+                        ng-model="pmBasicInfoCtrl.user.prefix"
+                        ng-class="{ 'error' : form.prefix.$invalid && form.prefix.$touched }" required>
+                    <option value="Mr.">Mr.</option>
+                    <option value="Ms.">Ms.</option>
+                    <option value="Mrs.">Mrs.</option>
+                    <option value="Miss.">Miss.</option>
+                    <option value="Dr.">Dr.</option>
+                </select>
+                <div ng-show="form.$submitted || form.prefix.$touched">
+                    <p class="error" ng-show="form.prefix.$error.required">
+                        Please select a prefix
+                    </p>
+                    <span class="icon-alert-circle error-icon"
+                          ng-show="form.prefix.$invalid && form.prefix.$touched"></span>
+                </div>
+            </div>
+            <div class="form-group required">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" name="firstName" pattern="^([^0-9/*/$/#/@/%/^/&/!/(/)/+/=]*)$"  ng-model="pmBasicInfoCtrl.user.firstName" required
+                       ng-class="{ 'error' : form.firstName.$invalid && form.firstName.$touched }" />
+                <div ng-show="form.$submitted || form.firstName.$touched">
+                    <p class="error" ng-show="form.firstName.$error.pattern">
+                        Can not contain numbers and special characters.
+                    </p>
+                    <p class="error" ng-show="form.firstName.$error.required">
+                        First Name is required.
+                    </p>
+                    <span class="icon-alert-circle error-icon"
+                          ng-show="form.firstName.$invalid && form.firstName.$touched"></span>
+                </div>
+            </div>
+            <div class="form-group required">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" name="lastName" pattern="^([^0-9/*/$/#/@/%/^/&/!/(/)/+/=]*)$" ng-model="pmBasicInfoCtrl.user.lastName" required
+                       ng-class="{ 'error' : form.lastName.$invalid && form.lastName.$touched }" />
+                <div ng-show="form.$submitted || form.lastName.$touched">
+                    <p class="error" ng-show="form.lastName.$error.pattern">
+                        Can not contain numbers and special characters.
+                    </p>
+                    <p class="error" ng-show="form.lastName.$error.required">
+                        Last Name is required.
+                    </p>
+                    <span class="icon-alert-circle error-icon"
+                          ng-show="form.lastName.$invalid && form.lastName.$touched"></span>
+                </div>
+            </div>
+
+            <div class="form-group required">
+                <label for="email">Email Address</label>
+                <input type="email" name="email" required class="form-control" ng-model="pmBasicInfoCtrl.user.email"
+                       ng-class="{ 'error' : form.email.$invalid && form.email.$touched }" id="email" />
+                <div ng-show="form.$submitted || form.email.$touched">
+                    <p class="error" ng-show="form.email.$error.required">
+                        Email is empty
+                    </p>
+                    <p class="error" ng-show="form.email.$error.email">
+                        Invalid email format
+                    </p>
+                    <span class="icon-alert-circle error-icon" ng-show="form.email.$invalid && form.email.$touched"></span>
+                </div>
+                <div ng-show="form.$submitted" ng-hide="form.email.$invalid && form.email.$touched">
+                    <p class="error" ng-if="user.status == 'inactive'">
+                        There is already an account registered to this email.
+                        <br/><br/>
+                        We recently sent you an email to: {{user.email}}. The email contains a link to verify your identity. Please check your email and click the link to complete your registration. <a href="#" ng-click="resendEmail2(user)">Resend Email</a>
+                    </p>
+                    <p class="error" ng-if="user.status == 'active' || user.status == 'registered'">
+                        There is already an account registered to this email. <a ui-sref="account.login">Sign In Now</a>
+                    </p>
+                    <p class="error" ng-if="user.status == 'onboarded'">
+                        We recently sent you an email to: {{user.email}}. The email
+                        contains a link to verify your identity. Please check your email and click
+                        the link to complete your registration. <a href="#" ng-click="resendEmail2(user)">Resend Email</a>
+                    </p>
+                    <span class="icon-alert-circle error-icon" ng-if="user.status == 'inactive' || user.status == 'onboarded' || user.status == 'active' || user.status == 'registered'"></span>
+                </div>
+            </div>
+
+             <!--only shows up if user is located in germany -->
+            <div ng-if="pmBasicInfoCtrl.user.location == germany" class="checkbox spacer-bottom-md">
+                <input type="checkbox" id="newsletter" ng-model="newsletter" data-error-type="confirm-check"/>
+                <label for="newsletter" class="text-large" >
+                    <i></i><span class="checkbox-custom"></span>
+                    <span>Sign-up for Newsletter</span>
+                </label>
+            </div>
+
+            <div ng-show="pmBasicInfoCtrl.saved">
+                <p class="success" ng-show="form.$valid">
+                    <span class="pull-left icon-check-circle text-green"></span>
+                    Your information has been updated.
+                </p>
+            </div>
+            <div class="text-center-xs">
+                <button class="rounded-button primary spacer-top-md" ng-disabled="form.$invalid || !form.$dirty"
+                        type="submit" ng-click="pmBasicInfoCtrl.updateBasic(pmBasicInfoCtrl.user,form)" ng-class="{ gray:form.$invalid || !form.$dirty}">
+                    Save Changes
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- ====================================== MOBILE 'ACCORDION' LINK  =========================== -->
+<div class="visible-xs accordion__button container-fluid" ui-sref="account.profilemanagement.password" >
+    <div class="row">
+        <div class="col-xs-12">
+            <span class="link header--sm">Password & Security</span>
+            <span class="primary pull-right icon-caret-down"></span>
+        </div>
+    </div>
+</div>
+
+<!-- ====================================== MOBILE 'ACCORDION' LINK  =========================== -->
+<div class="visible-xs accordion__button container-fluid" ui-sref="account.profilemanagement.dashboard" >
+    <div class="row">
+        <div class="col-xs-12">
+            <span class="link header--sm">Dashboard Settings</span>
+            <span class="primary pull-right icon-caret-down"></span>
+        </div>
+    </div>
+</div>

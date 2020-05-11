@@ -1,0 +1,29 @@
+<!-- (1) Global Element - Support - Live Chat and Phone -->
+<div pb-order-history-breadcrumbs></div>
+
+
+<div class="container-fluid">
+    <!--========================================
+    == Header
+    =========================================-->
+    <div class="row">
+        <div class="headline col-sm-10 col-sm-offset-1 col-xs-12 text-center">
+            <h1 class="header--lg spacer-bottom-md no-margin-top">Order History</h1>
+        </div>
+    </div>
+
+    <pb-order-history-list order-history-model="orderHistoryCtrl.orderHistoryData"></pb-order-history-list>
+</div>
+
+
+
+<section class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1 no-padding">
+            <!-- Related Support Links -->
+            <div pb-related-links></div>
+
+            <div pb-espot espot-data="orderHistoryCtrl.espotModel"></div>
+        </div>
+    </div>
+</section>

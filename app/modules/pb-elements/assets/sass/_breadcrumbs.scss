@@ -1,0 +1,50 @@
+.breadcrumbs{
+  ul{
+    display:inline-block;
+    padding:0;
+    margin-bottom:0;
+    li{
+      display:inline-block;
+      list-style-type: none;
+      @include breakpoint(0, $tablet){
+        font-size:$font-size-mobile-sm;
+      }
+
+      [class^="icon-"], [class*=" icon-"]{
+        vertical-align: text-bottom;
+        @include breakpoint(0, $tablet){
+          //vertical-align: middle;
+          font-size:20px;
+          margin-left:0;
+        }
+      }
+      a{
+        display:inline-block;
+        padding-top:20px;
+        padding-bottom:20px;
+        @include breakpoint(0, $tablet){
+          padding-top:15px;
+          padding-bottom:15px;
+          line-height: 20px;
+        }
+      }
+    }
+    &.breadcrumbs__links{
+      li {
+        [class^="icon-"],
+        [class*=" icon-"] {
+          margin-left: 5px;
+        }
+      }
+    }
+    &.breadcrumbs__contact{
+      li {
+        [class^="icon-"],
+        [class*=" icon-"] {
+          font-size: 24px;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}

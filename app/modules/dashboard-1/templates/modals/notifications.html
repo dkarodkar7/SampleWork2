@@ -1,0 +1,129 @@
+<div class="modal-header no-borders">
+    <div class="container-fluid">
+        <div class="row text-right pull-right">
+            <a href="" ng-click="close()" class="modal__close"><span class="icon-close dark-gray"></span></a>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="header--sm no-margin-top">Notification Settings</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-body">
+    <section class="container-fluid">
+        <form id="modalForm" name="modalForm" novalidate role="form">
+          <div class="col-md-12 spacer-bottom-md notifications-list">
+                <h3 class="spacer-top-md spacer-bottom-md">Check the notifications you would like to receive </h3>
+                <div class="form-group checkbox spacer-bottom-md">
+                    <input ng-checked="true" type="checkbox" id="updateLowInk" ng-model="model.updateLowInk" data-error-type="confirm-check" />
+                    <label for="updateLowInk">
+                        <i></i><span class="checkbox-custom"></span>
+                        <span class="notifications-item">Low Ink Level</span>
+                        <span class="ps-light">Get notified if ink is detected as low.</span>
+                    </label>
+                </div>
+                <div class="form-group checkbox spacer-bottom-md">
+                    <input ng-checked="true" type="checkbox" id="updateLowMeterFunds" ng-model="model.updateLowMeterFunds" data-error-type="confirm-check" />
+                    <label for="updateLowMeterFunds">
+                        <i></i><span class="checkbox-custom"></span>
+                        <span class="notifications-item">Meter Funds Low</span>
+                        <span class="ps-light">Get notified if funds on the meter drops below the set amount.</span>
+                    </label>
+                </div>
+                <div class="form-group checkbox spacer-bottom-md">
+                    <input ng-checked="false" type="checkbox" id="updateMeterError" ng-model="model.updateMeterError" data-error-type="confirm-check" />
+                    <label for="updateMeterError">
+                        <i></i><span class="checkbox-custom"></span>
+                        <span class="notifications-item">Meter Error</span>
+                        <span class="ps-light">Get notified when your meter has funds added to it.</span>
+                       </label>
+                </div>
+              <div class="form-group checkbox spacer-bottom-md">
+                  <input ng-checked="true" type="checkbox" id="updateMeterRefillError" ng-model="model.updateMeterRefillError" data-error-type="confirm-check" />
+                  <label for="updateMeterRefillError">
+                      <i></i><span class="checkbox-custom"></span>
+                      <span class="notifications-item">Meter Refill Notification</span>
+                      <span class="ps-light">Get notified about meter errors.</span>
+                      <span class="text-blue-500 spacer-top-md add-recipitent" ng-click="addRecipitent = true;">+ Add/ change email recipient</span>
+
+                               <div class="notifications_form col-xs-12 col-sm-12" ng-show="addRecipitent">
+                                  <h3><label for="email-{{$index}}">profile@email.com</label></h3>
+                                  <div class="form-group">
+                                      <!-- 1st email -->
+                                      <div class="col-sm-8">
+
+                                      <div ng-repeat="input in inputs track by $index">
+                                      <input  type="email" name="email" class="form-control"  required ng-class="{ 'error' : modalForm.email.$invalid && modalForm.email.$touched }" ng-model="input.value[$index]" id="email-{{$index}}"/>
+                                        <div ng-if="modalForm.$submitted || modalForm.email.$touched">
+
+                                            <!--p class="error" ng-if="modalForm.email.$error.required">
+                                                Email is required.
+                                            </p-->
+                                               <p class="error" ng-show="modalForm.email.$error.email">
+                                                   <span class="icon-alert-circle error-icon" ng-show="modalForm.email.$invalid && modalForm.email.$touched"></span>
+
+                               Invalid email format
+                           </p>
+               </div>
+</div>
+</div>
+
+<div class="col-sm-2">
+<div ng-repeat="input in inputs track by $index" class="removeRecipitent">
+  <h3><div class="notification__icon icon-close dismissible" ng-click="removeInput($index);"></div>
+     </h3>
+
+</div>
+
+</div>
+</div>
+
+<div class="form-group col-sm-12">
+<div class="col-sm-2 col-sm-offset-2">
+<button class="rounded-button primary" type="submit" ng-click="addInput(modalForm,$index);Recipitent1=true;Recipitent2=true;" ng-disabled="modalForm.$invalid"
+   ng-class="{ gray:modalForm.$invalid }">
+Add
+</button></div>
+<div class="col-sm-6">
+<button ng-show="Recipitent1" class="rounded-button primary" type="submit"  ng-click="saveInput(modalForm, $index);Recipitent1=false;Recipitent2=true;" ng-disabled="modalForm.$invalid"
+  ng-class="{ gray:modalForm.$invalid }">
+Save
+</button>
+</div>
+</div>
+<div class="form-group">
+
+</div>
+<!--button ng-show="Recipitent2" class="rounded-button primary" type="submit"  ng-click="Recipitent1=true;Recipitent2=false;">
+Save
+</button-->
+
+
+
+
+
+
+                      </div>
+
+
+
+
+
+                      <!--/form--></label>
+</div>
+                                                 <div class="form-group checkbox spacer-bottom-md">
+                                                     <input ng-checked="false" type="checkbox" id="updateSoftware" ng-model="model.updateSoftware" data-error-type="confirm-check" />
+                                                     <label for="updateSoftware">
+                                                         <i></i><span class="checkbox-custom"></span>
+                                                         <span class="notifications-item">Software and Postage Rate Updates</span>
+                                                         <span class="ps-light">Get confirmation of software and rate table updates.</span>
+                                                     </label>
+                                                 </div>
+                                           </div>
+                                 </form>
+                                         <div class="text-center">
+                                 <button class="rounded-button btn-lg primary spacer-top-sm" ng-click="close()">Done</button></div>
+                                 </section>
+
+                                 </div>

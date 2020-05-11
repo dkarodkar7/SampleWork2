@@ -1,0 +1,595 @@
+.modal {
+
+  &.draggable {
+    .modal-content {
+      cursor: move;
+      &:active {
+        background-color: $pb-bg2;
+      }
+    }
+  }
+
+  .modal-header {
+    border-bottom: 1px solid #dddedf; //TODO: replace with correct color
+    padding: 0 0 10px;
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      width: 21px;
+      height: 21px;
+      margin: 0;
+      color: $pb-blue;
+      background: transparent url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9 Im5vIj8+Cjxzdmcgd2lkdGg9IjE3cHgiIGhlaWdodD0iMTdweCIgdmlld0JveD0i MCAwIDE3IDE3IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9y Zy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkv eGxpbmsiPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IlBhZ2UtMSIgc3Ry b2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVs ZT0iZXZlbm9kZCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpv aW49InJvdW5kIj4KICAgICAgICA8ZyBpZD0iaWNvbi1iaXRzIiB0cmFuc2Zvcm09 InRyYW5zbGF0ZSgtMTYxLjAwMDAwMCwgLTE1OC4wMDAwMDApIiBzdHJva2U9IiMz RTUzQTQiIHN0cm9rZS13aWR0aD0iMiI+CiAgICAgICAgICAgIDxnIGlkPSJjbG9z ZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTY5LjUwMDAwMCwgMTY2LjUwMDAwMCkg cm90YXRlKC00NS4wMDAwMDApIHRyYW5zbGF0ZSgtMTY5LjUwMDAwMCwgLTE2Ni41 MDAwMDApIHRyYW5zbGF0ZSgxNTkuMDAwMDAwLCAxNTYuMDAwMDAwKSI+CiAgICAg ICAgICAgICAgICA8cGF0aCBkPSJNMjAsMTAuNSBMMS4xMjI2NTc1MmUtMTIsMTAu NSIgaWQ9IkxpbmUiPjwvcGF0aD4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0x MCwwLjUgTDEwLDIwLjUiIGlkPSJMaW5lIj48L3BhdGg+CiAgICAgICAgICAgIDwv Zz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg== ') center center no-repeat;
+
+    }
+  }
+
+  .modal-content {
+    border-radius: 0;
+    padding: 60px;
+  }
+
+  .modal-body {
+    padding: 0;
+  }
+  .modal-footer {
+    border-top: 0;
+    text-align: left;
+    padding: 0;
+    margin-top: 40px;
+  }
+
+}
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+}
+
+
+// Activity Notification at top of page
+.activity {
+  position: relative;
+  &:hover {
+    color: $text-color !important;
+    .badge {
+      transform: scale(1.2);
+    }
+  }
+  .badge {
+    position: absolute;
+    top: 15%;
+    right: 0;
+    background: $pb-magenta;
+    font-size: 10px;
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    line-height: normal;
+    transition: all 0.1s;
+  }
+}
+// Contextual backgrounds
+// @mixin contextual-box($bg, $fg) {
+//   background-color: $bg;
+//   color: $fg;
+// }
+// .bg-primary {
+//   @include contextual-box($state-primary-bg, $state-primary-text);
+// }
+// .bg-success {
+//   @include contextual-box($state-success-bg, $state-success-text);
+// }
+// .bg-info {
+//   @include contextual-box($state-info-bg, $state-info-text);
+// }
+// .bg-warning {
+//   @include contextual-box($state-warning-bg, $state-warning-text);
+// }
+// .bg-danger {
+//   @include contextual-box($state-danger-bg, $state-danger-text);
+// }
+// blockquote {
+//   border-left: 4px solid $pb-bg2;
+// }
+//* CALLOUTS (from the BS docs, but useful) */
+.callout {
+  margin: 20px 0;
+  padding: 20px;
+  border-left: 4px solid $pb-bg2;
+  &.callout-info {
+    background-color: $state-info-bg;
+    border-color: $state-info-border;
+    h4 {
+      color: $state-info-text;
+    }
+  }
+  &.callout-danger {
+    background-color: $state-danger-bg;
+    border-color: $state-danger-border;
+    h4 {
+      color: $state-danger-text;
+    }
+  }
+  &.callout-warning {
+    background-color: $state-warning-bg;
+    border-color: $state-warning-border;
+    h4 {
+      color: $state-warning-text;
+    }
+  }
+  &.callout-success {
+    background-color: $state-success-bg;
+    border-color: $state-success-border;
+    h4 {
+      color: $state-success-text;
+    }
+  }
+}
+
+
+
+
+
+// what follows are overrides for extensions/plugins
+//*Messagebox */
+.divMessageBox {
+  background: rgba(0, 0, 0, .6);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100000;
+}
+//
+// .MessageIE{
+//     background-image: url("@{base-url}/bg.png");
+//
+// }
+.MessageBoxContainer {
+  background-color: rgba(0, 0, 0, .8);
+  color: #fff;
+  padding: 20px;
+  position: relative;
+  top: 35%;
+  width: 100%;
+  input {
+    padding: 5px;
+    width: 50%;
+  }
+  select {
+    padding: 5px;
+    width: 50%;
+  }
+}
+.MessageBoxMiddle {
+  left: 20%;
+  position: relative;
+  width: 60%;
+  .MsgTitle {
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: -1px;
+  }
+  .pText {
+    font-style: 30px;
+  }
+}
+.MessageBoxButtonSection {
+  height: 30px;
+  width: 100%;
+  button {
+    float: right;
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 7px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+//* End of MessageBox */
+.LoadingBoxContainer {
+  background-color: #232323;
+  color: #fff;
+  position: relative;
+  top: 20%;
+  width: 100%;
+}
+.LoadingBoxMiddle {
+  left: 20%;
+  padding: 10px;
+  position: relative;
+  width: 50%;
+  .MsgTitle {
+    font-size: 26px;
+  }
+  .pText {
+    font-style: 30px;
+  }
+}
+#LoadingPoints {
+  position: absolute;
+}
+//* bigBoxes */
+.bigBox {
+  background-color: #004d60;
+  border-left: 5px solid rgba(0, 0, 0, .15);
+  bottom: 10px;
+  box-sizing: content-box;
+  color: #fff;
+  height: 150px;
+  overflow: hidden;
+  padding: 10px 10px 5px;
+  position: fixed;
+  right: 10px;
+  width: 390px;
+  z-index: 99999;
+  span {
+    display: block;
+    font-size: 17px;
+    font-weight: 300;
+    letter-spacing: -1px;
+    padding: 5px 0 !important;
+  }
+  p {
+    font-size: 13px;
+    margin-top: 10px;
+  }
+  .bigboxicon {
+    font-size: 30px;
+    left: 6px;
+    position: absolute;
+    text-align: left;
+    top: 120px;
+    z-index: 0;
+  }
+  .bigboxnumber {
+    font-size: 25px;
+    text-align: right;
+    width: 100%;
+  }
+}
+#divMiniIcons {
+  bottom: 180px;
+  float: right;
+  position: fixed;
+  right: 10px;
+  width: 415px;
+  z-index: 9999;
+  .cajita {
+    background-color: #f00;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    float: right;
+    font-size: 17px;
+    margin-left: 4px;
+    margin-top: 5px;
+    padding: 4px 6px;
+    text-align: center;
+    vertical-align: middle;
+  }
+  .cajita:active {
+    left: 1px;
+    position: relative;
+    top: 1px;
+  }
+}
+.botClose {
+  cursor: pointer;
+  display: block;
+  font-size: 18px;
+  height: 16px;
+  opacity: 0.5;
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  width: 15px;
+}
+.botClose:hover {
+  opacity: 1;
+}
+.cajita img {
+  height: 23px;
+  padding-left: 3px;
+  padding-top: 3px;
+  width: 23px;
+}
+//* SmallBox */
+#divSmallBoxes {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 9999;
+}
+.SmallBox {
+  border: 1px solid transparent;
+  color: #fff;
+  overflow: hidden;
+  position: absolute;
+  right: 5px;
+  top: 20px;
+  width: 420px;
+  z-index: 9999;
+  .foto {
+    font-size: 50px;
+    left: 17px;
+    position: absolute;
+  }
+  .textoFull {
+    float: left;
+    padding-left: 20px;
+    width: 93%;
+  }
+  .textoFoto {
+    float: left;
+    margin: 3px 20px 3px 80px;
+    width: 78%;
+  }
+  span {
+    display: block;
+    font-size: 17px;
+    font-weight: 300;
+    letter-spacing: -1px;
+    margin: 4px 0;
+  }
+  p {
+    font-size: 13px;
+    margin-top: 2px;
+  }
+}
+.SmallBox:hover {
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+.miniPic {
+  bottom: 8px;
+  position: absolute;
+  right: 9px;
+}
+.miniIcono {
+  font-size: 20px;
+  height: 100%;
+}
+//* End of SmallBox */
+// TODO: what is this stuff?
+// #pageslide {
+//   -webkit-box-shadow: inset 0 0 5px 5px #222;
+//   // Specify the width of your pageslide here */
+//   // These styles MUST be included. Do not change. */
+//   height: 100%;
+//   position: fixed;
+//   padding: 20px;
+//   top: 0;
+//   z-index: 999999;
+//   // These styles are optional, and describe how the pageslide will look */
+//   position: absolute;
+//   -moz-shadow: inset 0 0 0 0 #222;
+//   display: none;
+//   box-shadow: inset 0 0 0 0 #222;
+//   color: #fff;
+//   background-color: #004d60;
+//   width: 305px;
+// }
+// .purehtml {
+//   color: #fff;
+//   font-size: 16px;
+//
+// }
+// Mobile Phones */
+@media screen and (max-width: 450px) and (max-width: 767px) {
+  .MessageBoxContainer select {
+    padding: 5px;
+    width: 50%;
+  }
+  // Messagebox Responsive */
+  // End of MessageBox Responsive */
+  // End of  bigBoxes  Responsive */
+  // bigBoxes Responsive */
+  // SmallBox Responsive */
+  .SmallBox:hover {
+    box-shadow: 0 0 10px #888;
+    cursor: pointer;
+  }
+  .bigBox {
+    background-color: #004d60;
+    bottom: 10px;
+    color: #fff;
+    height: 150px;
+    padding: 10px 10px 5px;
+    position: fixed;
+    right: 10px;
+    width: 88%;
+    z-index: 99999;
+  }
+  .MessageBoxMiddle .MsgTitle {
+    font-size: 22px;
+  }
+  .MessageBoxMiddle .pText {
+    font-style: 10px;
+  }
+  .divMessageBox {
+    background: rgba(0, 0, 0, .6);
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100000;
+  }
+  // End of SmallBox Responsive*/
+  .SmallBox span {
+    font-size: 16px;
+  }
+  .MessageBoxButtonSection {
+    height: 30px;
+    width: 100%;
+  }
+  .SmallBox .textoFoto {
+    float: left;
+    margin: 3px 20px 3px 80px;
+    width: 55%;
+  }
+  .MessageBoxButtonSection button {
+    float: right;
+    margin-right: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .SmallBox {
+    width: 95%;
+  }
+  .SmallBox .textoFull {
+    float: left;
+    padding-left: 20px;
+    width: 93%;
+  }
+  #divSmallBoxes {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 90%;
+  }
+  .SmallBox p {
+    font-size: 12px;
+    margin-top: 2px;
+  }
+  .MessageBoxContainer input {
+    padding: 5px;
+    width: 50%;
+  }
+  .MessageBoxMiddle {
+    left: 0;
+    padding: 3px;
+    position: relative;
+    width: 100%;
+  }
+  .MessageBoxContainer {
+    background-color: #232323;
+    color: #fff;
+    position: relative;
+    top: 25%;
+    width: 100%;
+  }
+}
+//* Animations */
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  &.fast {
+
+    animation-duration: 0.4s;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.fadeIn {
+  animation-name: fadeIn;
+}
+@keyframes fadeInRight {
+  0% {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+.fadeInRight {
+  animation-name: fadeInRight;
+}
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fadeInUp {
+  animation-name: fadeInUp;
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.fadeOut {
+  animation-name: fadeOut;
+}
+@keyframes fadeOutLeft {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeOutLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+}
+.fadeOutLeft {
+  animation-name: fadeOutLeft;
+}

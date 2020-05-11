@@ -1,0 +1,23 @@
+.ngrs-range-slider {
+  $bar-height: 14px;
+  $handle-size: 12px;
+  box-shadow: none;
+  border: 0;
+  background-color: pbcolor(pbgray, 50);;
+  .ngrs-join {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 0;
+    right: 100%;
+    height: $bar-height;
+    margin: -($bar-height/2) 0 0;
+    background-color: pbcolor(pbmediumblue);
+    background-image: none; // remove the gradient
+  }
+    .ngrs-handle {
+      background: #fff;
+      border: 1px solid pbcolor(pbgray, 200);
+      border-radius: 0;
+    }
+  }

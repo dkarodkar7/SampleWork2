@@ -1,0 +1,91 @@
+<section class="container-fluid">
+    <div class="col-sm-8 col-sm-offset-4">
+
+        <div id="pb-pgBody">
+            <!--Body Starts -->
+            <a name="skipNav"></a>
+            <div id="pb-pgBodyContents" class="clearfix">
+                <!--Body Content Starts -->
+                <div id="graphicErrorMessage" style="display: none;">
+                    <br>
+                    <br>
+                    <div style="border: 1px solid #64aa00; color: #874700; font-size: 93%; font-weight: bold; font-size: 123.1%;">
+                       Please check one of the checkbox or check "Select All" checkbox.
+                    </div>
+                </div>
+                <div id="ms1wrapper">
+                    <!--Start MS1 Content Section -->
+
+                    <h1>
+                        MyGraphics&trade; Designer
+                    </h1>
+                    <p class="subhead">
+                        Your library of images and envelope design options.
+                    </p>
+                    <form id="pcnForm" name="pcnForm" novalidate role="form" class="ms1DataForm">
+
+                    <!--form role="form"  class="ms1DataForm" id="pcnForm" ng-submit=""-->
+
+                            <p class="intro">
+                                To begin select products:
+                            </p>
+                            <span class="subdued">Only the mailing machines you select will be able to print your new graphic.</span>
+<div class="row col-sm-12">
+                        <div class="form-group checkbox spacer-top-sm">
+                            <input class="col-sm-2" ng-checked="true" type="checkbox" name="check_list" id="check_list"  ng-model="model.check_list" data-error-type="confirm-check" />
+                            <label for="check_list">
+                                <i></i><span class="checkbox-custom"></span>
+
+                            <div class="PCN">
+                                <span class="itemLabel">PCN :</span>
+                                <span class="itemData">MSF2</span>
+                                    </div>
+                            <div class="SN">
+                                <span class="itemLabel">Serial Number : </span> <span class="itemData">0001458</span>
+
+                            </div>
+
+                                <p class="error" ng-if="pcnForm.checkbox.$error.required">
+                                    Please check one of the checkbox or check "Select All" checkbox.
+                                         </p>
+                            </label>
+
+                        </div>
+</div>
+
+                    </form>
+                    <form role="form" name="frmToMS1" id="frmToMS1" target="_new" action="" ng-submit="">
+
+                        <input value="" name="CAN" id="CAN" type="hidden">
+                        <input value="" name="PCN" id="PCN" type="hidden">
+                        <input value="" name="SN" id="SN" type="hidden">
+                        <input value="en-US" name="lang" id="lang" type="hidden">
+                        <input value="US" name="country" id="country" type="hidden">
+                        <input value="youraccount_us@mailinator.com" name="emailID" id="emailID" type="hidden">
+                        <input value="2a54a7fcd42bde157b447baae7a93de6" name="guptKeyToken" id="guptKeyToken" type="hidden">
+                        <input value="youraccount_us@mailinator.com" name="user" id="user" type="hidden">
+                    </form>
+
+
+
+
+                    <div class="SelectN">
+                        <div class="form-group checkbox spacer-top-md">
+
+                    <input type="checkbox" name="SelectAll" id="SelectAll" ng-model="model.SelectAll"  ng-click="mygraphicCtrl.manageCheckBox();" />
+                            <label for="SelectAll">   <i></i><span class="checkbox-custom"></span>
+                                <span class="SelectLabel">Select All</span></label>
+                        </div>
+                    </div>
+                    <div class="actionsRow">
+                        <button id="nextButton" class="rounded-button primary col-sm-3 col-sm-offset-3" type="submit" title="Only the mailing machines you select will be able to print your new graphic."  ng-click="mygraphicCtrl.validatePcnSn();">
+                            Next
+                        </button>
+                    </div>
+                </div>
+                <!--End MS1 Content Section -->
+            </div>
+
+        </div>
+    </div>
+</section>

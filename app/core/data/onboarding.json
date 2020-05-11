@@ -1,0 +1,32 @@
+{
+	"slides" : [ 
+		{
+			"header"	: "View financial overview and recent orders.",
+			"text"		: "You can get a timely snapshot of current balances and open invoices that require your attention. You can also view recent orders and easily order supplies.",
+			"img" 		: "modules/account/assets/images/financials.jpg",
+			"id"		: 0,
+			"nav"		: "View account activity"
+		},
+		{
+			"header"	: "Analyze usage trends.",
+			"text"		: "You can get a helpful breakdown of your annual spend as well as tips to help you get the most out of your Pitney Bowes products.",
+			"img" 		: "modules/account/assets/images/trends.jpg",
+			"id"		: 1,
+			"nav"		: "Analyze spend & usage"
+		},
+		{
+			"header"	: "Monitor your Pitney Bowes products.",
+			"text"		: "You can view an activity snapshot of each of your products, get alerts to upgrade software and order supplies easily when you run out.",
+			"img" 		: "modules/account/assets/images/products.jpg",
+			"id"		: 2,
+			"nav"		: "Monitor product activity"
+		},
+		{
+			"header"	: "Get support directly from your account.",
+			"text"		: "You can find help for your Pitney Bowes account, ask a question to trobleshoot common issues or open a case to solve specific problems.",
+			"img" 		: "modules/account/assets/images/support.jpg",
+			"id"		: 3,
+			"nav"		: "Find support & report issues"
+		}
+	]
+}

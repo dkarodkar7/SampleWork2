@@ -1,0 +1,163 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-8">
+      <h1 id="chartjs" class="doc-head">Charts.js</h1>
+
+      <a class="more-info plugin" href="http://jtblin.github.io/angular-chart.js/" target="blank">angular-chartjs v0.7.2</a>
+      <a class="more-info plugin" href="http://www.chartjs.org/" target="blank">chartjs v1.0.2</a>
+
+    </div>
+  </div>
+
+
+  <!-- PIE -->
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Pie Charts</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-3">
+      <a class="btn btn-default" ng-click="chartjs.pie.click()">Update</a>
+    </div>
+
+    <div class="col-xs-12 col-md-4 col-md-offset-1">
+      <figure>
+        <figcaption>Multiple Category Pie Chart</figcaption>
+        <h2 class="section-divider">Object Name</h2>
+        <canvas id="pie" class="chart chart-pie" data="chartjs.pie.data" labels="chartjs.pie.labels" legend="true" series="chartjs.pie.series" colours="chartjs.colours"></canvas>
+      </figure>
+    </div>
+
+    <div class="col-xs-12 col-md-4">
+      <figure>
+        <figcaption>Single Category Pie Chart</figcaption>
+        <h2 class="section-divider">Object Name</h2>
+        <canvas id="pie-mono" class="chart chart-pie" data="chartjs.pie.data" labels="chartjs.pie.labels" legend="true" series="chartjs.pie.series" colours="chartjs.mono"></canvas>
+      </figure>
+    </div>
+  </div>
+
+
+
+  <!-- DONUT -->
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Donut Charts</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-3">
+      <a class="btn btn-default" ng-click="chartjs.donut.click()">Update</a>
+    </div>
+
+    <div class="col-xs-12 col-md-4 col-md-offset-1">
+      <figure>
+        <figcaption>Multiple Category Pie Chart</figcaption>
+        <h2 class="section-divider">Object Name</h2>
+        <canvas id="doughnut" class="chart chart-doughnut" data="chartjs.donut.data" labels="chartjs.donut.labels" legend="true" series="chartjs.series" colours="chartjs.colours"></canvas>
+      </figure>
+    </div>
+
+    <div class="col-xs-12 col-md-4">
+      <figure>
+        <figcaption>Single Category Pie Chart</figcaption>
+        <h2 class="section-divider">Object Name</h2>
+        <canvas id="doughnut-mono" class="chart chart-doughnut" data="chartjs.donut.data" labels="chartjs.donut.labels" legend="true" series="chartjs.series" colours="chartjs.mono"></canvas>
+      </figure>
+    </div>
+  </div>
+
+
+
+  <!-- BAR -->
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Bar Charts</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-3">
+      <a class="btn btn-default" ng-click="chartjs.bar.click()">Update</a>
+    </div>
+
+    <div class="col-xs-12 col-md-4 col-md-offset-1">
+      <figure>
+        <figcaption>Multiple Category Bar Chart</figcaption>
+        <h2 class="section-divider">Object Name</h2>
+        <canvas id="bar" class="chart chart-bar" data="chartjs.bar.data" labels="chartjs.bar.labels" legend="true" series="chartjs.bar.series" colours="chartjs.colours" options="chartjs.bar.options"></canvas>
+      </figure>
+    </div>
+
+    <div class="col-xs-12 col-md-4">
+      <figure>
+        <figcaption>Single Category Bar Chart</figcaption>
+        <h2 class="section-divider">Object Name</h2>
+        <canvas id="bar-mono" class="chart chart-bar" data="chartjs.bar.data" labels="chartjs.bar.labels" legend="true" series="chartjs.bar.series" colours="chartjs.mono" options="chartjs.bar.options"></canvas>
+      </figure>
+    </div>
+  </div>
+
+
+
+  <!-- AREA -->
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Area Charts</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-3">
+      <a class="btn btn-default" ng-click="chartjs.line.click()">Update</a>
+    </div>
+
+    <div class="col-xs-12 col-md-7 col-md-offset-1">
+      <figure>
+        <figcaption>Multiple Category Area Chart</figcaption>
+        <h2 class="section-divider">Object Name</h2>
+        <canvas id="line" class="chart chart-line" data="chartjs.line.data" labels="chartjs.line.labels" legend="true" series="chartjs.line.series" colours="chartjs.colours"></canvas>
+      </figure>
+    </div>
+  </div>
+
+
+
+  <!-- RADAR & POLAR -->
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Radar &amp; Polar Charts</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-3">
+      <p><a class="btn btn-default" ng-click="chartjs.radar.click()">Update Radar Chart</a></p>
+
+      <a class="btn btn-default" ng-click="chartjs.polar.click()">Update Polar Chart</a>
+    </div>
+
+    <div class="col-xs-12 col-md-4 col-md-offset-1">
+      <figure>
+        <figcaption>Multiple Category Radar Chart</figcaption>
+        <h2 class="section-divider">Object Name</h2>
+        <canvas id="radar" class="chart chart-radar" data="chartjs.radar.data" labels="chartjs.radar.labels" legend="true" series="chartjs.radar.series" colours="chartjs.radar.colours"></canvas>
+      </figure>
+    </div>
+
+    <div class="col-xs-12 col-md-4">
+      <figure>
+        <figcaption>Multiple Category Polar Chart</figcaption>
+        <h2 class="section-divider">Object Name</h2>
+        <canvas id="polar-area" class="chart chart-polar-area" data="chartjs.polar.data" labels="chartjs.polar.labels" legend="true" series="chartjs.polar.series" colours="chartjs.polar.colours"></canvas>
+      </figure>
+    </div>
+  </div>
+
+
+
+</div>

@@ -1,0 +1,217 @@
+<div class="container">
+
+  <div id="action-buttons" class="row">
+    <div class="col-md-8">
+      <h1 id="angularjs-translation" class="doc-head">AngularJS Translation</h1>
+
+      <p class="doc-lede">Angular Translate is an AngularJS module (<a href="http://angular-translate.github.io" target="_blank">angular-translate</a>) that helps speed tasks related to internationalization (i18n) and localization (l10n) of your product&rsquo;s UI elements. It supports lazy loading and provides components like filters and directives, asynchronous loading of i18n data and much more. It&rsquo;s flexible too &ndash; you can build your own loaders, storages or error handlers and extend angular-translate to meet your needs.</p>
+
+      <a class="more-info plugin" href="http://angular-translate.github.io/" target="_blank">angular translate v2.7.2</a>
+      <a class="more-info plugin" href="http://lgalfaso.github.io/angular-dynamic-locale/" target="_blank">angular dynamic locale v0.1.28</a>
+      <a class="more-info plugin" href="https://code.angularjs.org/1.4.5/docs/guide/i18n" target="_blank">angular-i18n v1.4.5</a>
+
+    </div>
+  </div>
+
+
+
+
+  <div class="row doc-sectionbreak">
+    <div class="col-md-8">
+
+       <p>The angular-translate <a href="http://angular-translate.github.io/docs/#/guide" target="_blank">Getting Started</a> guide provides detailed information on localizing your application. Or contact the Globalization Team at <a href="mailto:globalization@pb.com">globalization@pb.com</a> or through <a href="https://www.yammer.com/pb.com/#/threads/inGroup?type=in_grou&feedId=72211" target="blank">Yammer</a> for more information.</p>
+
+      <h3>How It Works</h3>
+
+      <ol>
+        <li>You develop your application in a native language (English, for example) using standard JSON files with keys for each string. (An sample of the JSON is shown after the example below.) The JSON keys are used in views and controllers, instructing angular-translate which string to display.</li>
+        <li>The Globalization Team consumes the native language JSON files in an application called Passolo and provides JSON files for each translated language.</li>
+        <li>As you update your native language files, Passolo is used to track what&rsquo;s changed between versions. This allows translators to focus on what&rsquo;s new, which saves them time and saves you money.</li>
+      </ol>
+
+      <h3>File Naming</h3>
+
+      <p>Your JSON file names should be constructed using standard two-letter codes for native language plus country. For example:</p>
+
+      <ul>
+        <li>English (U.S.): en-us.json</li>
+        <li>French (France): fr-fr.json</li>
+        <li>Portuguese (Brazil): pt-br.json</li>
+      </ul>
+
+      <h3>Using Locales</h3>
+
+      <p>Angular separates number, date and time, and currency formats into different files for each locale, and provides filters that use locale information to format and display this content correctly. A special library, <a href="http://lgalfaso.github.io/angular-dynamic-locale/" target="_blank">angular-dynamic-locale</a>, allows you to select your locale (and store or retrieve it from a cookie). To take advantage of this functionality, you&rsquo;ll need to include the angular-dynamic-locale library in your application.</p>
+
+      <p>See a <a href="https://github.com/angular/angular.js/tree/master/src/ngLocale" target="_blank">list of supported locales</a> or get more information on Angular&rsquo;s <a href="https://code.angularjs.org/1.4.5/docs/guide/i18n" target="_blank">support for i18n and l10n</a>.</p>
+
+</div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+
+      <div class="preview-example">
+
+        <div class="row spacer-top-md">
+
+          <div class="col-md-3">
+
+            <div class="form-group">
+              <label>Select country</label>
+              <select ng-options="c.name for c in translate.languages" ng-model="translate.selectedCountry" class="form-control"></select>
+            </div>
+
+            <div class="form-group" ng-show="translate.selectedCountry.languages.length > 1">
+              <label>Select language</label>
+              <select ng-options="l.name for l in translate.selectedCountry.languages" ng-change="translate.changeLang()" ng-model="translate.selectedLanguage" class="form-control"></select>
+            </div>
+
+          </div>
+
+          <div class="col-md-8 col-md-offset-1">
+
+            <h1 translate="GLOBALIZATION.TITLE"></h1>
+
+            <div class="row spacer-top-md">
+
+              <div class="col-xs-12">
+                <button class="btn btn-primary"><i class="fa fa-fw fa-save"></i> <span translate="GLOBALIZATION.BUTTONS.SAVE"></span></button>
+                <button class="btn btn-primary"><i class="fa fa-fw fa-pencil"></i> <span translate="GLOBALIZATION.BUTTONS.EDIT"></span></button>
+                <button class="btn btn-primary"><i class="fa fa-fw fa-trash-o"></i> <span translate="GLOBALIZATION.BUTTONS.DELETE"></span></button>
+                <button class="btn btn-primary" translate="GLOBALIZATION.BUTTONS.CANCEL"></button>
+
+                <div class="btn-group">
+                  <button class="btn btn-default btn dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                    <span translate="GLOBALIZATION.DROPDOWN.SYSTEM"></span> <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="" translate="GLOBALIZATION.DROPDOWN.LICENSINGEXPIRATION"></a></li>
+                    <li><a href="" translate="GLOBALIZATION.DROPDOWN.VERSION"></a></li>
+                    <li><a href="" translate="GLOBALIZATION.DROPDOWN.SECURITY"></a></li>
+                    <li><a href="" translate="GLOBALIZATION.DROPDOWN.LOGS"></a></li>
+                    <li class="divider"></li>
+                    <li><a href="" translate="GLOBALIZATION.DROPDOWN.MAILSERVER"></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-xs-8">
+                <div class="form-group spacer-top-md">
+                  <label translate="GLOBALIZATION.INPUTS.TEXT.LABEL"></label>
+                  <input class="form-control" type="text" placeholder="{{'GLOBALIZATION.INPUTS.TEXT.PLACEHOLDER' | translate}}">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-6">
+                <div class="form-group spacer-top-xs">
+                  <label translate="GLOBALIZATION.INPUTS.SELECT.LABEL"></label>
+                  <select class="form-control" ng-model="translate.logs.selected" ng-options="log.code as log.name | translate for log in translate.logs.data"></select>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="">
+                <span translate="GLOBALIZATION.INPUTS.CHECKBOX.ONE"></span>
+              </label>
+            </div>
+
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="">
+                <span translate="GLOBALIZATION.INPUTS.CHECKBOX.TWO"></span>
+              </label>
+            </div>
+
+            <div class="radio">
+              <label>
+                <input type="radio" name="optionsRadio" value="1" checked>
+                <span translate="GLOBALIZATION.INPUTS.RADIO.ONE"></span>
+              </label>
+            </div>
+
+            <div class="radio">
+              <label>
+                <input type="radio" name="optionsRadio" value="2">
+                <span translate="GLOBALIZATION.INPUTS.RADIO.TWO"></span>
+              </label>
+            </div>
+
+
+            <h4 class="spacer-top-md" translate="GLOBALIZATION.CONTROLLER.TITLE"></h4>
+            <p>{{translate.controllerExample}}</p>
+
+
+            <div class="row">
+              <div class="col-md-6">
+                <h4 class="spacer-top-md" translate="GLOBALIZATION.FORMATS.NUMBER"></h4>
+                <p>{{1234567890.28 | number}}</p>
+                <p>{{-12992992 | number}}</p>
+              </div>
+              <div class="col-md-6">
+                <h4 class="spacer-top-md" translate="GLOBALIZATION.FORMATS.CURRENCY"></h4>
+                <p>{{1000000 | currency:undefined:0}}</p>
+                <p>{{-1000 | currency:undefined:0}}</p>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-6">
+                <h4 class="spacer-top-md" translate="GLOBALIZATION.FORMATS.DATE"></h4>
+                <p>{{0 | date:'short'}}</p>
+                <p>{{0 | date:'fullDate'}}</p>
+                <p>{{0 | date:'longDate'}}</p>
+                <p>{{0 | date:'mediumDate'}}</p>
+                <p>{{0 | date:'shortDate'}}</p>
+              </div>
+              <div class="col-md-6">
+                <h4 class="spacer-top-md" translate="GLOBALIZATION.FORMATS.TIME.TITLE"></h4>
+                <p>{{1288323623006 | date:'mediumTime':'UTC'}}</p>
+                <p>{{1288323623006 | date:'shortTime':'UTC'}}</p>
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+<div class="preview-code" hljs language="json">
+Sample JSON strings:
+
+{
+  "GLOBALIZATION": {
+    "TITLE": "Profile",
+    "BUTTONS": {
+      "SAVE": "Save",
+      "CANCEL": "Cancel",
+      "EDIT": "Edit",
+      "DELETE": "Delete"
+    },
+    "DROPDOWN": {
+      "SYSTEM": "System",
+      "LICENSINGEXPIRATION": "Licensing and expiration",
+      "VERSION": "Version",
+      "SECURITY": "Security",
+      "LOGS": "Logs",
+      "MAILSERVER": "Mail server"
+    }
+  }
+}</div>
+
+    </div>
+  </div>
+
+  </div>

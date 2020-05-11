@@ -1,0 +1,57 @@
+{
+  "GLOBALIZATION": {
+    "TITLE": "Perfil",
+    "BUTTONS": {
+      "SAVE": "Salvar",
+      "CANCEL": "Cancelar",
+      "EDIT": "Editar",
+      "DELETE": "Excluir"
+    },
+    "DROPDOWN": {
+      "SYSTEM": "Sistema",
+      "LICENSINGEXPIRATION": "Licenciamento e validade",
+      "VERSION": "Versão",
+      "SECURITY": "Segurança",
+      "LOGS": "Registros",
+      "MAILSERVER": "Servidor de correspondência"
+    },
+    "INPUTS": {
+      "CHECKBOX": {
+        "ONE": "Salvar relatórios no histórico do trabalho",
+        "TWO": "Salvar relatórios em um arquivo"
+      },
+      "RADIO": {
+        "ONE": "Número de registros malformados que terminarão o trabalho",
+        "TWO": "Não terminar trabalhos com registros malformados"
+      },
+      "TEXT": {
+        "LABEL": "E-mail",
+        "PLACEHOLDER": "Inserir e-mail"
+      },
+      "SELECT": {
+        "LABEL": "Nível de criação de logs padrão do sistema",
+        "OPTION1": "Desativado",
+        "OPTION2": "Fatal",
+        "OPTION3": "Erro",
+        "OPTION4": "Avisar",
+        "OPTION5": "Informações",
+        "OPTION6": "Depurar",
+        "OPTION7": "Rastrear"
+      }
+    },
+    "CONTROLLER": {
+      "TITLE": "Exemplo de controlador com serviço de $translate",
+      "EXAMPLE": "Use estas configurações para definir as opções padrão de relatório para seu sistema."
+    },
+    "FORMATS": {
+      "NUMBER": "Formatos de número",
+      "DATE": "Formatos de data",
+      "TIME": {
+        "TITLE": "Formatos de hora",
+        "TIMESHORT": "Curto",
+        "TIMEMEDIUM": "Médio"
+      },
+      "CURRENCY": "Formatos de moeda"
+    }
+  }
+}

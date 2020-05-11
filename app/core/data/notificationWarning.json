@@ -1,0 +1,22 @@
+[
+  {
+    "PurchasePower": [
+      {
+        "id" : "purchase-power-intro",
+        "title": "",
+        "description": "Purchase Power is a Pitney Bowes credit line that allows you to pay for the meter, postage and supplies through a single account. Purchase Power customers earn reward points for every dollar spent.",
+        "cta": "Don't show this message again"
+      }
+    ]
+  },
+  {
+    "PrePaid": [
+      {
+        "id" : "prepaid-intro",
+        "title": "",
+        "description": "Details below for prepaid accounts include the Pitney Bowes Reserve Account as well as the USPS Prepaid Account if you have them. You can view, save or print an invoice or statement below.",
+        "cta": "Don't show this message again"
+      }
+    ]
+  }
+]

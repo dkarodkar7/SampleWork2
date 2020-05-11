@@ -1,0 +1,33 @@
+[
+    {
+        "cases": [
+            {
+                "date"          : "10/07/15",
+                "number"        : "ABC123000",
+                "description"   : "My recent payment for invoice #GHI345678901 was not processed",
+                "status"        : "open",
+                "statusMessage" : "Open"
+            },
+            {
+                "date"          : "10/07/15",
+                "number"        : "ABC123000",
+                "description"   : "I am missing invoice #DEF234567890",
+                "status"        : "closed",
+                "statusMessage" : "Closed"
+            },
+            {
+                "date"          : "10/07/15",
+                "number"        : "ABC123000",
+                "description"   : "Please provide confirmation for an invoice #ABC123456789 that was paid offline. Payment not reflected on my account lorem ipsum dolor sit amet",
+                "status"        : "pending",
+                "statusMessage" : "Pending Client Action"
+            }
+        ],
+        "articles": [
+            "Updating Account/Company Information",
+            "Updating Your Credit Card",
+            "Identifying your Pitney Bowes Account Numbers",
+            "Updating Account/Company Information"
+        ]
+    }
+]

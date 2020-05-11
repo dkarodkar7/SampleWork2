@@ -1,0 +1,173 @@
+<div class="navbar yamm navbar-default" role="navigation" >
+    <div class="container-fluid">
+
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <ul class="nav navbar-nav pull-right visible-xs">
+                <li ng-if="(header.currentItemsInCart + '').length == 0"><a href="https://www.pitneybowes.us/shop/home/en-us/storeus" class="cart"><span class="icon-cart-empty"></span></a></li>
+                <li ng-if="(header.currentItemsInCart + '').length == 1"><a href="https://www.pitneybowes.us/shop/home/en-us/storeus" class="cart single"><span class="text">{{header.currentItemsInCart}}</span><span class="icon-cart-single"></span></a></li>
+                <li ng-if="(header.currentItemsInCart + '').length == 2"><a href="https://www.pitneybowes.us/shop/home/en-us/storeus" class="cart double"><span class="text">{{header.currentItemsInCart}}</span><span class="icon-cart-double"></span></a></li>
+                <li ng-if="(header.currentItemsInCart + '').length >= 3"><a href="https://www.pitneybowes.us/shop/home/en-us/storeus" class="cart triple"><span class="text">{{header.currentItemsInCart}}</span><span class="icon-cart-triple"></span></a></li>
+                <li ng-click="header.showmenu = !header.showmenu; header.bodyHeight();"><span class="icon-patty"><div class="patty"></div></span><span ng-if="header.userAuthenticated && header.notifications.length" class="bg-pb-dark-orange-500 white circle-border">{{header.notifications.length}}</span></li> <!-- ui-sref="dashboard.page({notifications : true})" -->
+            </ul>
+            <a class="navbar-brand logo" href="#/"><span class="icon-pb-logo"></span></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav pull-right">
+                <!-- before user is signed in -->
+                <li ng-if="!header.userAuthenticated">
+                    <a ui-sref="account.login">Sign In</a>
+                </li>
+                <!-- authenticated user -->
+                <li ng-if="header.userAuthenticated" class="dropdown">
+                    <a ng-click="header.setCenter($event);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span ng-if="header.user.firstName">{{header.user.firstName}}</span>
+                        <span ng-if="!header.user.firstName">{{header.user.email}}</span>
+                        <span ng-if="!header.notifications.length || header.onDashboard" class="margin-left icon-up-caret-circle "></span>
+                        <span ng-if="header.notifications.length && !header.onDashboard" class="bg-pb-dark-orange-500 white circle-border margin-left">{{header.notifications.length}}</span>
+                    </a>
+                    <ul class="dropdown-menu pb-animate-menu">
+                        <li><span class="arrow up"></span></li>
+                        <li><a ui-sref="dashboard.page">Your Account</a></li>
+                        <li><a ui-sref="account.profilemanagement.basicinfo">Manage Profile</a></li>
+                        <li><a ng-click="header.userAuthenticated = false" ui-sref="account.logout">Sign Out</a></li>
+                        <li ng-if="header.notifications.length" class="bg-pb-dark-orange-500"><a ng-click="notification.showNotifications = true" ui-sref="dashboard.page({notifications : true})">You have {{header.notifications.length}} notifications <span class="icon-next-circle"></span></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="https://www.pitneybowes.us/shop/home/en-us/storeus">Shop</a>
+                </li>
+                <li>
+                    <a href="http://support.pb.com/ekip/index?page=home">Support</a>
+                </li>
+                <li class="divider-vertical" ></li>
+                <li>
+                    <a>
+                        <span data-href="#" ng-class="{'active':header.showsearch}" class="search-link">
+                            <input ng-keyup="$event.keyCode == 13 && header.searchSubmit($event, 'http://search.pb.com/baynote/socialsearch?cn=pitneybowes&cc=www&mode=gsa&irFilter=pb_com%2526client%253Dpb_com')" type="text" id="search" name="search" class="form-control search-input" placeholder="SEARCH">
+                            <span class="icon-search light" ng-click="header.showsearch = !header.showsearch"></span>
+                            <span class="icon-close light" ng-click="header.showsearch = false"></span>
+                        </span>
+                    </a>
+                </li>
+                <li ng-if="!header.userAuthenticated" class="divider-vertical"></li>
+
+                <li ng-if="!header.userAuthenticated" >
+                    <a href="http://www.pitneybowes.com/us/region-select.html" class="us country-select" uib-popover-template="header.dynamicPopover.templateUrl" popover-trigger="click, mouseenter" popover-placement="bottom" popover-popup-close-delay="1000" > <!-- uib-popover-html="<a href='' >English</a><a href='' >French</a>" -->
+                        <i class="icn flag sm"></i>
+                    </a>
+                </li>
+                <li class="divider-vertical"></li>
+                <li ng-if="(header.currentItemsInCart + '').length == 0"><a href="https://www.pitneybowes.us/shop/home/en-us/storeus" class="cart"><span class="icon-cart-empty"></span></a></li>
+                <li ng-if="(header.currentItemsInCart + '').length == 1"><a href="https://www.pitneybowes.us/shop/home/en-us/storeus" class="cart single"><span class="text">{{header.currentItemsInCart}}</span><span class="icon-cart-single"></span></a></li>
+                <li ng-if="(header.currentItemsInCart + '').length == 2"><a href="https://www.pitneybowes.us/shop/home/en-us/storeus" class="cart double"><span class="text">{{header.currentItemsInCart}}</span><span class="icon-cart-double"></span></a></li>
+                <li ng-if="(header.currentItemsInCart + '').length >= 3"><a href="https://www.pitneybowes.us/shop/home/en-us/storeus" class="cart triple"><span class="text">{{header.currentItemsInCart}}</span><span class="icon-cart-triple"></span></a></li>
+                <li class="divider-vertical"></li>
+                <li ng-click="header.showmenu = !header.showmenu; header.bodyHeight();"><a class="menu-link ">Menu</a><span class="icon-patty"><div class="patty"></div></span></li>
+                <!-- end "real" menus -->
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div>
+
+<div ng-show="header.showmenu" class="menu-overlay full-menu animated">
+    <div class="table">
+        <div class="vertical-wrap">
+            <div class="container-fluid">
+                <div class="secondary-nav visible-sm visible-xs">
+                    <a ng-if="!header.userAuthenticated" ng-click="header.userAuthenticated = true;" ui-sref="account.login">Sign In</a>
+                    <a ng-if="header.userAuthenticated" class="text-small">{{header.user.firstName}}</a>
+                    <a ng-if="header.userAuthenticated" ui-sref="dashboard.page">Your Account<span ng-if="header.notifications.length" class="bg-pb-dark-orange-500 white circle-border margin-left">{{header.notifications.length}}</span></a>
+                    <a ng-if="header.userAuthenticated" ui-sref="account.profilemanagement.basicinfo" ng-click="header.showmenu = !header.showmenu;">Manage Profile</a>
+                    <a ng-if="header.userAuthenticated" ng-click="header.userAuthenticated = false;" ui-sref="account.logout">Sign Out</a>
+                    <span ng-if="header.userAuthenticated" class="horizontal-border"></span>
+                    <a class="" href="#">Shop</a>
+                    <a class="" ui-sref="dashboard.page" ng-click="header.showmenu = !header.showmenu;">My Account</a>
+                    <a class="" href="#">Support</a>
+                    <a href="#">Industries</a>
+                    <a ng-if="!header.userAuthenticated" class=" ca" href="#"><span class="icn flag"></span>Canada (English)</a>
+                    <a>
+                        <span data-href="#" ng-class="{'active':header.showsearch}" class="search-link">
+                            <input ng-keyup="$event.keyCode == 13 && header.searchSubmit($event, 'http://search.pb.com/baynote/socialsearch?cn=pitneybowes&cc=www&mode=gsa&irFilter=pb_com%2526client%253Dpb_com')" type="text" id="search" name="search" class="form-control search-input" placeholder="SEARCH">
+                            <span class="icon-search primary"></span>
+                        </span>
+                    </a>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 col-sm-12">
+                        <div class="row">
+                            <div class="col-md-9 col-sm-12">
+                                <h3>What We Do</h3>
+                                <div class="row">
+                                    <!--<div ng-repeat="category in header.nav[2].menu[0].children[0].children" class="category-col col-md-4 col-sm-12">-->
+                                    <div class="category-col col-md-4 col-sm-12">
+                                    <!--<div ng-repeat="category in header.nav[2].menu[0].children[0]" class="category-col col-md-4 col-sm-12">-->
+                                        <span ng-repeat="category in header.nav[2].menu[0].categories.children | limitTo:2">
+                                            <a>
+                                                <h2><span class="ex-lg {{category.value}}"></span>{{category.label}}</h2>
+                                            </a>
+                                            <ul >
+                                                <li ng-repeat="item in category.children"><a href="{{item.value}}">{{item.label}}</a></li>
+                                            </ul>
+                                        </span>
+                                        <!--<a href="#"><h2><span class="icon-customer-information-management"></span>Customer Information Management</h2></a>-->
+                                        <!--<ul class="customer-information-management">-->
+                                            <!--<li><a href="">Customer Analytics</a></li>-->
+                                            <!--<li><a href="">Data Management & Integration</a></li>-->
+                                            <!--<li><a href="">Data Quality</a></li>-->
+                                        <!--</ul>-->
+                                    </div>
+                                    <div class="category-col col-md-4 col-sm-12 border">
+                                        <span ng-repeat="category in header.nav[2].menu[0].categories.children | startFrom:2 | limitTo:2">
+                                            <a>
+                                                <h2><span class="ex-lg {{category.value}}"></span>{{category.label}}</h2>
+                                            </a>
+                                            <ul >
+                                                <li ng-repeat="item in category.children"><a href="{{item.value}}">{{item.label}}</a></li>
+                                            </ul>
+                                        </span>
+                                    </div>
+                                    <div class="category-col col-md-4 col-sm-12 border">
+                                        <span ng-repeat="category in header.nav[2].menu[0].categories.children | startFrom:4">
+                                            <a>
+                                                <h2><span class="ex-lg {{category.value}}"></span>{{category.label}}</h2>
+                                            </a>
+                                            <ul >
+                                                <li ng-repeat="item in category.children"><a href="{{item.value}}">{{item.label}}</a></li>
+                                            </ul>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-12">
+                                <span ng-repeat="category in header.nav[2].menu[0].popularProducts">
+                                    <h3>{{category.label}}</h3>
+                                    <div class="row">
+                                        <div class="col-xs-12 border-left">
+                                            <ul>
+                                                <li ng-repeat="item in category.children"><a href="{{item.value}}">{{item.label}}</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </span>
+                                <span ng-repeat="category in header.nav[2].menu[0].aboutUs">
+                                    <h3>{{category.label}}</h3>
+                                    <div class="row">
+                                        <div class="col-xs-12 border-left">
+                                            <ul>
+                                                <li ng-repeat="item in category.children"><a href="{{item.value}}">{{item.label}}</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!--/.menu-overlay-->

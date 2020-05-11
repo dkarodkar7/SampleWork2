@@ -1,0 +1,12 @@
+// MEDIA OBJECT /
+.media {
+  background-color: $pb-bg2;
+  padding: 20px;
+  margin-top: 15px;
+  &.first, &:first-child {
+    margin-top: 0;
+  }
+}
+.media-heading {
+  font-weight: 700;
+}

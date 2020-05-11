@@ -1,0 +1,29 @@
+.nav-tabs {
+  &.skinny{
+    max-width:800px;
+  }
+}
+.add-account-module__list{
+    list-style:none;
+    padding-left:0;
+    li{
+        margin-bottom:$margin-sm;
+    }
+    .defined{
+        color:$pb-error-red;
+        .icon-close{
+          font-size:12px;
+          padding:0 0 2px 5px;
+          margin:0;
+          background:#FFFFFF;
+        }
+    }
+}
+
+.success .icon-check-circle{
+  margin-left:0;
+}
+
+
+
+

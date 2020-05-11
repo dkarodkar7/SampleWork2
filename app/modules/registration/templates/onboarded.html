@@ -1,0 +1,25 @@
+<section class="container-fluid">
+    <div class="row">
+        <div class="headline spacer-top-lg col-xs-12 col-sm-6 col-sm-offset-3">
+            <h1 class="header--md spacer-top-sm text-center-xs">You have already created a profile.</h1>
+        </div>
+    </div>
+    <div class="row spacer-bottom-md">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+            <p class="spacer-bottom-md">
+                We recently sent you an email to: {{user.email}}. Please check your email and click the link we sent you to complete the registration process.
+            </p>
+            <p>
+                If registration is not completed within 30 days, the registration access link will expire.
+            </p>
+        </div>
+    </div>
+    <div>
+        <div class="col-xs-6 col-sm-3 col-sm-offset-3">
+          <a href="#" class="rounded-button gray">Back to Home</a>
+        </div>
+        <div class="col-xs-6 col-sm-3 text-right">
+          <a href="" class="rounded-button primary" ng-click="resendEmail2(user)">Resend Email</a>
+        </div>
+    </div>
+</section>

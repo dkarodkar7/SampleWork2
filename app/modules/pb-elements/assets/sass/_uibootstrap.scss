@@ -1,0 +1,59 @@
+
+// UI-BOOTSTRAP OVERRIDES //
+
+
+// added per bootstrap-ui documentation */
+.nav, .pagination, .carousel, .panel-title a {
+  cursor: pointer;
+}
+//* DATEPICKER */
+ul[datepicker-popup-wrap] {
+  padding: 15px 10px;
+  table:focus {
+    outline: none;
+  }
+  thead {
+    tr th {
+      button {
+        border: 0;
+      }
+    }
+  }
+  tbody {
+    tr td {
+      padding-right: 1px;
+      padding-left: 1px;
+      //border: #f00;
+      button {
+        border: 0;
+        &.active {
+          background: $brand-primary;
+          span {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+//* TIMEPICKER */
+table[timepicker] {
+  tbody tr td {
+    padding-left: 3px;
+    padding-right: 3px;
+    input {
+      padding: 0;
+    }
+  }
+  .dropdown-menu & {
+    margin: 10px;
+  }
+}
+//* TABS */
+.tab-content-bordered {
+  .tab-content {
+    border: 1px solid $pb-bg2;
+    border-top: 0;
+    border-radius: 0 0 4px 4px;
+  }
+}

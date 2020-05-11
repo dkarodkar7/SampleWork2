@@ -1,0 +1,102 @@
+.nav.nav-list.tree-menu {
+  $indent: 10px;
+  a {
+    padding: 3px;
+    color: $text-color;
+    &:hover {
+      color: $brand-primary;
+    }
+  }
+  > li {
+    padding-top: 5px;
+  }
+
+  ul {
+    &.nav.nav-list.tree {
+      display: none;
+    }
+    li {
+      padding-left: $indent;
+      &:hover {
+        color: $brand-primary;
+      }
+    }
+  }
+  .nav-header {
+    margin-top    : 5px;
+    padding-top   : 2px;
+    padding-bottom: 2px;
+    cursor        : pointer;
+    display       : inline-block;
+    &:before {
+      content                 : '\25B8';
+      padding-right           : 3px;
+      font-weight             : normal;
+      display                 : inline-block;
+      color                   : $brand-primary;
+      -webkit-transition      : all .3s;
+      transition              : all .3s;
+      -webkit-transform-origin: 40% center;
+      transform-origin        : 40% center;
+    }
+    &.open {
+      &:before {
+        color            : $brand-primary;
+        -webkit-transform: rotate(90deg);
+        transform        : rotate(90deg);
+      }
+    }
+  }
+
+
+  // utility nav tree menu. no triangles. BYO icons.
+  &.utility-nav {
+    // caret at right of  header row
+
+    .nav-header {
+      width: 100%;
+      &:before { content: '';}
+      &:hover {
+        color: $brand-primary;
+      }
+    }
+    li {
+      b.fa:before {
+        content: '\f105';
+      }
+      &.open {
+        b.fa:before {
+          content: '\f107';
+        }
+        .minified & ul {
+          position          : absolute;
+          background-color  : $pb-bg2;
+          min-width         : 150px;
+          left              : 30px;
+          top               : 13px;
+          z-index           : 20;
+          -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, .3);
+          box-shadow        : 2px 2px 6px rgba(0, 0, 0, .3);
+          li {
+            padding-left  : 10px;
+            padding-bottom: 5px;
+          }
+        }
+      }
+    }
+    // submenus
+    ul {
+      li {
+        padding-left: $indent+17px;
+        padding-top : 5px;
+        width       : 100%;
+        &:hover {
+          //color: $brand-primary;
+          background: $pb-bg2;
+        }
+      }
+    }
+  }
+  // end utility nav version
+
+}

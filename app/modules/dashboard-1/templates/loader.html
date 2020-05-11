@@ -1,0 +1,8 @@
+<div ng-show="loaderCtrl.showLoader || loaderCtrl.loadFailed" id="loading">
+    <div class="loading-gif">
+        <div ng-if="loaderCtrl.loadFailed" class="text-center error spacer-top-xs">
+            <p>Sorry, There seems to be an issue loading your information.</p>
+            <p class="nmt">Please try again later</p>
+        </div>
+    </div>
+</div>

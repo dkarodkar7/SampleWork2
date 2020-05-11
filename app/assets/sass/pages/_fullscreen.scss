@@ -1,0 +1,10 @@
+// body is assigned class of 'fullscreen' via router
+
+.fullscreen {
+
+  header, #header,
+  footer, #footer {
+    display: none;
+  }
+
+}

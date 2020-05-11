@@ -1,0 +1,57 @@
+{
+  "GLOBALIZATION": {
+    "TITLE": "Profile",
+    "BUTTONS": {
+      "SAVE": "Save",
+      "CANCEL": "Cancel",
+      "EDIT": "Edit",
+      "DELETE": "Delete"
+    },
+    "DROPDOWN": {
+      "SYSTEM": "System",
+      "LICENSINGEXPIRATION": "Licensing and expiration",
+      "VERSION": "Version",
+      "SECURITY": "Security",
+      "LOGS": "Logs",
+      "MAILSERVER": "Mail server"
+    },
+    "INPUTS": {
+      "CHECKBOX": {
+        "ONE": "Save reports to job history",
+        "TWO": "Save reports to a file"
+      },
+      "RADIO": {
+        "ONE": "Number of malformed records that will terminate job",
+        "TWO": "Do not terminate jobs with malformed records"
+      },
+      "TEXT": {
+        "LABEL": "Email",
+        "PLACEHOLDER": "Enter email"
+      },
+      "SELECT": {
+        "LABEL": "System default logging level",
+        "OPTION1": "Disabled",
+        "OPTION2": "Fatal",
+        "OPTION3": "Error",
+        "OPTION4": "Warn",
+        "OPTION5": "Info",
+        "OPTION6": "Debug",
+        "OPTION7": "Trace"
+      }
+    },
+    "CONTROLLER": {
+      "TITLE": "Controller example with $translate service",
+      "EXAMPLE": "Use these settings to set the default report options for your system."
+    },
+    "FORMATS": {
+      "NUMBER": "Number formats",
+      "DATE": "Date formats",
+      "TIME": {
+        "TITLE": "Time formats",
+        "TIMESHORT": "Short",
+        "TIMEMEDIUM": "Medium"
+      },
+      "CURRENCY": "Currency formats"
+    }
+  }
+}

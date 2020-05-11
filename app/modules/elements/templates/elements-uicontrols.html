@@ -1,0 +1,1237 @@
+<div class="doc-hero">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="hero-header">
+          <div class="eyebrow">Elements</div>
+          <h1>UI Controls</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-header jump-bar headroom" classes="{'initial':'','pinned':'','unpinned':'','top':'headroom-top','notTop':'headroom-not-top'}" headroom offset="240" tolerance="5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="list-unstyled list-inline jump-menu">
+            <li>
+              <a du-smooth-scroll="inputfields" href="">Input Fields</a>
+            </li>
+            <li>
+              <a du-smooth-scroll="dropdowns" href="">Dropdowns</a>
+            </li>
+            <li>
+              <a du-smooth-scroll="checkboxes" href="">Checkboxes</a>
+            </li>
+            <li>
+              <a du-smooth-scroll="radios" href="">Radio Buttons</a>
+            </li>
+            <li>
+              <a du-smooth-scroll="steppers" href="">Steppers</a>
+            </li>
+            <li>
+              <a du-smooth-scroll="datepickers" href="">Date Picker</a>
+            </li>
+            <li>
+              <a du-smooth-scroll="switches" href="">Switches</a>
+            </li>
+            <li>
+              <a du-smooth-scroll="writing" href="">Writing</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <!-- intro text block is larger, but only 8 cols wide -->
+  <div class="row">
+    <div class="col-md-8">
+      <h1 class="doc-head" id="inputfields">Input Fields</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">States</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <p>Input fields have four primary states, each defined by its form and type coloring:</p>
+      <ul>
+        <li>Default</li>
+        <li>Active</li>
+        <li>Disabled</li>
+        <li>Error</li>
+      </ul>
+    </div>
+
+    <div class="col-md-7 col-md-offset-1">
+      <div class="row">
+        <div class="col-md-5">
+          <figure>
+            <figcaption>Default</figcaption>
+            <div class="form-group">
+              <label>Text label</label>
+              <input class="form-control" name="text1" placeholder="Optional placeholder text" type="text"/>
+            </div>
+          </figure>
+
+          <figure>
+            <figcaption>Active (Focused)</figcaption>
+            <div class="form-group">
+              <label>Text label</label>
+              <input class="form-control focus" name="text1" type="text" value="Some text has been entered"/>
+            </div>
+          </figure>
+
+        </div>
+        <div class="col-md-5">
+
+          <figure>
+            <figcaption>Disabled</figcaption>
+            <div class="form-group">
+              <label>Text label</label>
+              <input class="form-control" disabled="disabled" name="text1" type="text"/>
+            </div>
+          </figure>
+
+          <figure>
+            <figcaption>Error</figcaption>
+            <div class="form-group has-error">
+              <label>Text label</label>
+              <input class="form-control" type="text" value="I was entered in error!">
+              <span class="help-block text-error">Enter a valid email address.</span>
+            </div>
+          </figure>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Sizes</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <p>We have three sizes of input fields: small, default and large. Use the default size for all fields except when:</p>
+      <ul>
+        <li>You have a very crowded form (20+ fields), in which case consider using small input fields; these are also suitable for use in tables or space-challenged forms</li>
+        <li>You have only a few fields (&lt;10), in which case consider using large input fields; an example of this is a Sign In screen or is an input field of central importance, such as a Search field</li>
+      </ul>
+
+      <p>Once you&rsquo;ve selected an input field size, use it consistently throughout your product. The exceptions to this rule are pages that are outside of your product&rsquo;s flow (such as Sign In or Sign Up), which should use the large size.</p>
+
+      <p>Note that even when using large or small input fields the label font remains the default size.</p>
+    </div>
+
+    <div class="col-md-7 col-md-offset-1">
+
+      <div class="row">
+        <div class="col-md-5">
+          <figure>
+            <figcaption>Default</figcaption>
+            <div class="form-group">
+              <label>Text label</label>
+              <input class="form-control" type="text">
+            </div>
+          </figure>
+
+          <figure>
+            <figcaption>Small Input</figcaption>
+            <div class="form-group">
+              <label>Text label</label>
+              <input class="form-control input-sm" placeholder=".input-sm" type="text">
+            </div>
+          </figure>
+        </div>
+
+        <div class="col-md-5">
+          <figure>
+            <figcaption>Large Input</figcaption>
+            <div class="form-group">
+              <label>Text label</label>
+              <input class="form-control input-lg" placeholder=".input-lg" type="text">
+            </div>
+          </figure>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Errors</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <p>We apply red to field elements to alert users to an input error that needs their attention.</p>
+    </div>
+
+    <div class="col-md-7 col-md-offset-1">
+
+      <div class="row">
+        <div class="col-md-5">
+          <figure>
+            <figcaption>Error</figcaption>
+            <div class="form-group has-error">
+              <label>Text field with error</label>
+              <input class="form-control" type="text" value="I was entered in error!">
+              <span class="help-block text-error">Please enter a valid name.</span>
+            </div>
+          </figure>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Help Prompt</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <p>There are several ways to help users understand what they&rsquo;re being asked to input. These include:</p>
+      <ul>
+        <li>In-field prompt copy</li>
+        <li>A short line of instructional copy below the field</li>
+        <li>A small popover next to the field’s label that provide additional context</li>
+      </ul>
+    </div>
+
+    <div class="col-md-7 col-md-offset-1">
+
+      <div class="row">
+        <div class="col-md-5">
+          <figure>
+            <figcaption>Help Text Below Field</figcaption>
+            <div class="form-group">
+              <label>Text field label</label>
+              <input class="form-control" type="text">
+              <span class="help-block">Enter your full name.</span>
+            </div>
+          </figure>
+        </div>
+
+        <div class="col-md-5">
+          <figure>
+            <figcaption>Help Icon Next to Label</figcaption>
+            <div class="form-group">
+              <label>Text field label
+                <a href="">
+                  <i class="fa fa-info-circle"></i>
+                </a>
+              </label>
+              <input class="form-control" type="text">
+            </div>
+          </figure>
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="col-md-5">
+          <figure>
+            <figcaption>Optional Field</figcaption>
+            <div class="form-group">
+              <label>Text field label
+                <span class="optional">(optional)</span>
+              </label>
+              <input class="form-control" type="text">
+            </div>
+          </figure>
+        </div>
+        <div class="col-md-5">
+          <figure>
+            <figcaption>Read-only Field</figcaption>
+            <div class="form-group">
+              <label>Text field label</label>
+              <input class="form-control" readonly="readonly" type="text" value="Display text only">
+            </div>
+          </figure>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Input Groups</h2>
+    </div>
+  </div>
+
+  <div class="row ">
+    <div class="col-md-3">
+      You can augment regular input field behavior by prepending or appending icons, checkboxes, buttons or dropdown menus to them.
+    </div>
+
+    <div class="col-md-7 col-md-offset-1 ">
+
+      <div class="row">
+        <div class="col-md-5">
+          <figure>
+            <figcaption>Text Field Prepended</figcaption>
+            <div class="form-group">
+              <label for="">Text label</label>
+              <div class="input-group">
+                <span class="input-group-addon">@</span><input class="form-control" type="text"></div>
+            </div>
+          </figure>
+
+          <figure>
+            <figcaption>Text Field with Both</figcaption>
+            <div class="form-group">
+              <label for="">Text label</label>
+              <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input class="form-control" type="text" value="23">
+                <span class="input-group-addon">.00</span>
+              </div>
+            </div>
+          </figure>
+        </div>
+
+        <div class="col-md-5">
+          <figure>
+            <figcaption>Text Field Appended</figcaption>
+            <div class="form-group">
+              <label for="">
+                Text field appended</label>
+              <div class="input-group">
+                <input class="form-control" type="text">
+                <span class="input-group-addon">
+                  <i class="fa fa-filter"></i>
+                </span>
+              </div>
+            </div>
+          </figure>
+
+          <figure>
+            <figcaption>Text Field Prepended with Menu</figcaption>
+            <div class="form-group">
+              <label for="">Text label</label>
+              <div class="input-group">
+                <div class="input-group-btn">
+                  <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">Action&nbsp;<span class="caret"/></button>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a href="#">Action</a>
+                    </li>
+                    <li>
+                      <a href="#">Another action</a>
+                    </li>
+                    <li>
+                      <a href="#">Something else here</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                      <a href="#">Separated link</a>
+                    </li>
+                  </ul>
+                </div><input class="form-control" placeholder="Product name" type="text">
+              </div>
+            </div>
+          </figure>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-5">
+
+          <figure>
+            <figcaption>Text Field Appended with Button</figcaption>
+            <div class="form-group">
+              <label for="">Text label</label>
+              <div class="input-group">
+                <input class="form-control" placeholder="Product name" type="text">
+                <div class="input-group-btn">
+                  <button class="btn btn-pr" type="button">Action</button>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </div>
+        <div class="col-md-5">
+          <figure>
+            <figcaption>Text Field Appended with Button</figcaption>
+            <div class="form-group">
+              <label for="">Text label</label>
+              <div class="input-group">
+                <input class="form-control" placeholder="Product name" type="text">
+                <div class="input-group-btn">
+                  <button class="btn btn-default" type="button">Action</button>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-5">
+          <figure>
+            <figcaption>Custom Prepended Checkbox Control</figcaption>
+            <div class="form-group">
+              <label>Text label</label>
+              <div class="input-group" pb-checkable-input-group>
+                <span class="input-group-addon">
+                  <input ng-model="checkable.checked" type="checkbox">
+                </span>
+                <input class="form-control" ng-disabled="!checkable.checked" ng-model="checkable.value" type="text"></div>
+            </div>
+          </figure>
+        </div>
+        <div class="col-md-5">
+          <figure>
+            <figcaption>Small Text Field Prepended</figcaption>
+            <div class="form-group">
+              <label for="">Text label</label>
+              <div class="input-group input-group-sm">
+                <span class="input-group-addon" id="sizing-addon3">@</span>
+                <input aria-describedby="sizing-addon3" class="form-control" placeholder="Username" type="text">
+              </div>
+            </div>
+          </figure>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <h1 class="doc-head" id="dropdowns">Dropdown Menus</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Usage</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <ul>
+        <li>Best suited for lists containing 7-15 items. For fewer items consider using radio buttons.</li>
+        <li>Never present the user with a blank menu. In most cases, &ldquo;Select&rdquo; should be your first menu item, to help prompt the user to make a selection.</li>
+        <li>Use extreme caution with preselecting an item, especially in required or critical menus &mdash; only do so if at least 80% of users are likely to select that item.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">States</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <p>Dropdown menus have four primary states, each defined by its form and type coloring:</p>
+      <ul>
+        <li>Default</li>
+        <li>Focused</li>
+        <li>Active</li>
+        <li>Disabled</li>
+      </ul>
+    </div>
+
+    <div class="col-md-7 col-md-offset-1 ">
+
+      <div class="row">
+        <div class="col-md-5">
+          <figure>
+            <figcaption>Default Dropdown</figcaption>
+            <label>Text label</label>
+            <div class="form-group">
+              <select class="form-control" ng-model="selectedPerson" ng-options="person.full_name for person in inputs.samplePeople">
+                <option value="">Select</option>
+              </select>
+            </div>
+          </figure>
+
+          <figure>
+            <figcaption>Default Dropdown (Focused)</figcaption>
+            <div class="form-group">
+              <label>Text label</label>
+              <select class="form-control focus" ng-model="selectedPerson" ng-options="person.full_name for person in inputs.samplePeople">
+                <option value="">Select</option>
+              </select>
+            </div>
+          </figure>
+
+        </div>
+        <div class="col-md-5">
+
+          <figure>
+            <figcaption>Default Dropdown, Disabled</figcaption>
+            <div class="form-group">
+              <label>Text label</label>
+              <select class="form-control" disabled ng-model="selectedPerson" ng-options="person.full_name for person in inputs.samplePeople">
+                <option value="">Select</option>
+              </select>
+            </div>
+          </figure>
+
+          <figure>
+            <figcaption>Default Dropdown (Error)</figcaption>
+            <div class="form-group has-error">
+              <label>Text label</label>
+              <select class="form-control" ng-model="selectedPerson" ng-options="person.full_name for person in inputs.samplePeople">
+                <option value="">Select</option>
+              </select>
+            </div>
+          </figure>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Sizes</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <p>We have three sizes of dropdown menus: default, large and small. Use the default size for all dropdowns except when:</p>
+      <ul>
+        <li>You have a very crowded form (20+ dropdowns), in which case consider using small dropdown menus</li>
+        <li>You have only a few dropdowns (&lt;10), in which case consider using large dropdown menus</li>
+      </ul>
+
+      <p>Once you&rsquo;ve selected a dropdown menu size, use it consistently throughout your product. The exceptions to this rule are pages that are outside of your product&rsquo;s flow (such as Sign Up), which should use the large size.</p>
+
+      <p>Note that even when using large or small dropdown menus the label font remains the standard size.</p>
+
+    </div>
+
+    <div class="col-md-7 col-md-offset-1">
+
+      <div class="row">
+        <div class="col-md-5">
+          <figure>
+            <figcaption>Default</figcaption>
+            <div class="form-group">
+              <label>Text label</label>
+              <select class="form-control" ng-model="selectedPerson" ng-options="person.full_name for person in inputs.samplePeople">
+                <option value="">Select</option>
+              </select>
+            </div>
+          </figure>
+
+          <figure>
+            <div class="form-group">
+              <figcaption>Small</figcaption>
+              <label>Text label</label>
+              <select class="form-control input-sm" ng-model="selectedPerson" ng-options="person.full_name for person in inputs.samplePeople">
+                <option value="">Select</option>
+              </select>
+            </div>
+          </figure>
+        </div>
+
+        <div class="col-md-5">
+          <figure>
+            <figcaption>Large</figcaption>
+            <div class="form-group">
+              <label>Text label</label>
+              <select class="form-control input-lg" ng-model="selectedPerson" ng-options="person.full_name for person in inputs.samplePeople">
+                <option value="">
+                  Select
+                </option>
+              </select>
+            </div>
+          </figure>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Multiple Selection</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <p>When using multiple selection menus, consider letting users know which keys they need to use (Ctrl-click or Cmd-click) on desktop devices in order to use this feature. Or consider using the multi-select with tokens menu.</p>
+
+      <p>Mobile devices may present their own UI for making the multiple selection. On iOS, a tap will present a popover menu in which you can scroll and tap choices. Checkmarks appear next to chosen options. When the popover is closed, the "menu" now displays the number of chosen items.</p>
+    </div>
+
+    <div class="col-md-8 col-md-offset-1">
+
+      <div class="row">
+        <div class="col-md-5">
+          <figure>
+            <figcaption>Multi-Select Menu</figcaption>
+            <div class="form-group">
+              <label>Text label</label>
+              <select class="form-control" multiple ng-model="selectedPerson" ng-options="person.full_name for person in inputs.samplePeople" size="6"></select>
+            </div>
+          </figure>
+
+          <figure>
+            <figcaption>Multi-Row Select Menu with Checkboxes</figcaption>
+            <div class="form-group">
+              <label>Text label</label>
+              <div class="checkboxList form-control">
+                <div class="ms-checkboxitem" ng-repeat="person in inputs.samplePeople">
+                  <label>
+                    <input ng-model="person.isChecked" type="checkbox">&nbsp;
+                    <span>{{person.full_name}}</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </div>
+
+        <div class="col-md-5">
+          <figure>
+            <figcaption>Multi-Row Select Menu (Disabled)</figcaption>
+            <div class="form-group">
+              <label>Text label</label>
+              <select class="form-control" disabled multiple ng-model="selectedPersonn" ng-options="person.full_name for person in inputs.samplePeople" size="6"></select>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Advanced Select Menus</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <p>You can use these advanced menu types to augment our standard dropdown menus. “Multi-select with tokens” is a good alternative to the multi-section types above, as it allows users to create a persistent list of selections that they can easily edit.</p>
+
+      <p>
+        <a class="more-info plugin" href="https://github.com/angular-ui/ui-select" target="_blank">angular ui-select v0.13.2</a>
+      </p>
+
+      <!-- <p class="small spacer-top-md"><em>ui-select v0.12.1 has a known issue with webkit browsers displaying as a dropup. See this Github <a href="https://github.com/angular-ui/ui-select/issues/1016" target="blank">issue</a> and <a href="https://github.com/pulse14/ui-select/commit/f788aa555d10453d8ba455c0aaa97a4f4e832c72" target="blank">pending fix</a> on github. Downgrading to a previous version may be required as an interim solution.</em></p> -->
+    </div>
+
+    <div class="col-md-7 col-md-offset-1">
+
+      <div class="row">
+        <div class="col-md-10">
+          <figure>
+            <figcaption>Single-Select with Type-Ahead</figcaption>
+            <div class="form-group">
+              <label>Text label</label>
+              <ui-select ng-model="inputs.countrySelect.singleSelected" theme="bootstrap">
+                <ui-select-match placeholder="">{{$select.selected.name}}</ui-select-match>
+                <ui-select-choices repeat="item in inputs.countrySelect.countries | filter: $select.search">
+                  <div ng-bind-html="item.name | highlight: $select.search"></div>
+                </ui-select-choices>
+              </ui-select>
+            </div>
+          </figure>
+
+          <figure>
+            <figcaption>Multi-Select with Tokens</figcaption>
+            <div class="form-group">
+              <label>Text label</label>
+              <ui-select multiple  ng-model="inputs.countrySelect.multipleSelected" theme="bootstrap">
+                <ui-select-match placeholder="">{{$item.name}}</ui-select-match>
+                <ui-select-choices repeat="item in inputs.countrySelect.countries | filter: $select.search">
+                  <div ng-bind-html="item.name | highlight: $select.search"></div>
+                </ui-select-choices>
+              </ui-select>
+            </div>
+          </figure>
+
+          <figure>
+            <figcaption>Custom Menu Items</figcaption>
+            <div class="form-group">
+              <label>Text label</label>
+              <ui-select ng-model="inputs.peopleSelect.selected" theme="bootstrap">
+                <ui-select-match placeholder="">{{$select.selected.name}}</ui-select-match>
+                <ui-select-choices repeat="item in inputs.peopleSelect.people | filter: $select.search">
+                  <div ng-bind-html="item.name | highlight: $select.search"></div>
+                  <small ng-bind-html="item.email | highlight: $select.search"></small>
+                </ui-select-choices>
+              </ui-select>
+            </div>
+          </figure>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <h1 class="doc-head" id="checkboxes">Checkboxes</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Styles</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <p>We have two styles of checkboxes: enhanced and standard OS.</p>
+
+      <p>
+        <strong>Usage</strong>
+      </p>
+      <ul>
+        <li>When possible, you should use the enhanced style.</li>
+        <li>If your product has long lists of checkboxes (and space is an issue), consider using the standard OS style.</li>
+        <li>Use the same style for your checkboxes and radio buttons, and apply that style consistently across your product.</li>
+      </ul>
+    </div>
+
+    <div class="col-md-7 col-md-offset-1">
+      <figure>
+        <div class="row">
+          <div class="col-md-7">
+            <figcaption>Enhanced Checkboxes</figcaption>
+            <div class="controls-stacked">
+              <label class="control checkbox">
+                <input type="checkbox">
+                <span class="control-indicator"></span>
+                Check this custom checkbox
+              </label>
+              <label class="control checkbox">
+                <input type="checkbox">
+                <span class="control-indicator"></span>
+                Check this custom checkbox
+              </label>
+              <label class="control checkbox">
+                <input type="checkbox">
+                <span class="control-indicator"></span>
+                Check this custom checkbox
+              </label>
+              <label class="control checkbox disabled">
+                <!-- you can disabled to the label (class=control) only, or to both it and the input -->
+                <input disabled="disabled" type="checkbox">
+                <span class="control-indicator"></span>
+                But not this custom checkbox
+              </label>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <figcaption>Standard OS Checkboxes</figcaption>
+            <div class="checkbox">
+              <label for="c1">
+                <input checked id="c1" type="checkbox">
+                This is a checked checkbox</label>
+            </div>
+            <div class="checkbox">
+              <label for="c2">
+                <input id="c2" name="check" type="checkbox">
+                This is an unchecked checkbox
+              </label>
+            </div>
+            <div class="checkbox disabled">
+              <label for="c3">
+                <input disabled id="c3" name="check" type="checkbox">
+                This is a disabled checkbox
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row spacer-top-lg">
+          <div class="col-md-7">
+            <figcaption>Enhanced Inline Checkboxes</figcaption>
+            <div class="controls-inline">
+              <label class="control checkbox">
+                <input type="checkbox">
+                <span class="control-indicator"></span>
+                Custom checkbox
+              </label>
+              <label class="control checkbox">
+                <input type="checkbox">
+                <span class="control-indicator"></span>
+                Custom checkbox
+              </label>
+
+            </div>
+          </div>
+          <div class="col-md-5">
+            <figcaption>Standard OS Inline Checkboxes</figcaption>
+            <label class="checkbox-inline">
+              <input checked id="inlineCheckbox1" type="checkbox" value="option1">
+              One
+            </label>
+            <label class="checkbox-inline">
+              <input id="inlineCheckbox2" type="checkbox" value="option2">
+              Two
+            </label>
+            <label class="checkbox-inline">
+              <input id="inlineCheckbox3" type="checkbox" value="option3">
+              Three
+            </label>
+          </div>
+        </div>
+
+        <div class="row spacer-top-lg">
+          <div class="col-md-8">
+            <figcaption>Enhanced Inline Checkboxes (when enclosed in "form-inline")</figcaption>
+            <div class="controls-inline">
+              <form class="form-inline">
+              <label class="control checkbox">
+                <input type="checkbox">
+                <span class="control-indicator"></span>
+                Custom checkbox
+              </label>
+              <label class="control checkbox">
+                <input type="checkbox">
+                <span class="control-indicator"></span>
+                Custom checkbox
+              </label>
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+
+      </figure>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <h1 class="doc-head" id="radios">Radio Buttons</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Usage</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <ul>
+        <li>When possible, you should use the enhanced style.</li>
+        <li>If your product has long lists of radio buttons (and space is an issue), consider using the standard OS style.</li>
+        <li>Use the same style for your radio buttons and checkboxes, and apply that style consistently across your product.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Styles</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <p>We have two styles of radio buttons: enhanced and standard OS.</p>
+    </div>
+
+    <div class="col-md-7 col-md-offset-1">
+      <div class="row">
+        <figure>
+          <div class="col-md-7">
+            <figcaption>Enhanced Radio Buttons</figcaption>
+            <div class="controls-stacked">
+              <label class="control radio">
+                <input id="radio1" name="radio" type="radio">
+                <span class="control-indicator"></span>
+                Toggle this custom radio
+              </label>
+              <label class="control radio">
+                <input id="radio2" name="radio" type="radio">
+                <span class="control-indicator"></span>
+                Or toggle this other custom radio
+              </label>
+              <label class="control radio disabled">
+                <input id="radio3" name="radio" type="radio" disabled>
+                <span class="control-indicator"></span>
+                Or toggle this other custom radio
+              </label>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <figcaption>Standard OS Radio Buttons</figcaption>
+
+            <div class="radio">
+              <label for="rd11">
+                <input checked id="rd11" name="radioStandard" type="radio">
+                This is a selected radio button</label>
+            </div>
+            <div class="radio">
+              <label for="rd22">
+                <input id="rd22" name="radioStandard" type="radio">
+                This is a deselected radio button</label>
+            </div>
+            <div class="radio disabled">
+              <label for="rd33">
+                <input disabled id="rd33" name="radioStandard" type="radio">
+                This is a disabled radio button
+              </label>
+            </div>
+          </div>
+        </figure>
+
+      </div>
+
+
+      <div class="row spacer-top-lg">
+        <figure>
+          <div class="col-md-7">
+            <figcaption>Enhanced Inline Radio Buttons</figcaption>
+            <div class="controls-inline">
+              <label class="control radio">
+                <input id="radio11" name="radio" type="radio">
+                <span class="control-indicator"></span>
+                Custom radio
+              </label>
+              <label class="control radio">
+                <input id="radio22" name="radio" type="radio">
+                <span class="control-indicator"></span>
+                Or Custom radio
+              </label>
+            </div>
+
+          </div>
+          <div class="col-md-5">
+            <figcaption>Standard OS Radio Buttons</figcaption>
+            <label class="radio-inline">
+              <input id="inlineRadio33" name="inlineRadioOptions" type="radio" value="option1">
+              One
+            </label>
+            <label class="radio-inline">
+              <input id="inlineRadi44" name="inlineRadioOptions" type="radio" value="option2">
+              Two
+            </label>
+            <label class="radio-inline">
+              <input id="inlineRadio55" name="inlineRadioOptions" type="radio" value="option3">
+              Three
+            </label>
+          </div>
+        </figure>
+      </div>
+
+
+      <div class="row spacer-top-lg">
+        <figure>
+          <div class="col-md-8">
+            <figcaption>Enhanced Inline Radio Buttons (when enclosed in "form-inline")</figcaption>
+            <form class="form-inline">
+              <div class="controls-inline">
+                <label class="control radio">
+                  <input id="radio111" name="radio" type="radio">
+                  <span class="control-indicator"></span>
+                  Custom radio
+                </label>
+                <label class="control radio">
+                  <input id="radio222" name="radio" type="radio">
+                  <span class="control-indicator"></span>
+                  Or Custom radio
+                </label>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-4">
+
+          </div>
+        </figure>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <h1 class="doc-head" id="steppers">Steppers</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Numeric Stepper</h2>
+    </div>
+  </div>
+
+  <div class="row ">
+    <div class="col-md-3">
+      <p>Use the stepper when you want users to select incrementally from a wide range of values, or input their own value.</p>
+      <p>
+        Steppers, like all Boostrap form controls, expand to fill the width of their container.
+      </p>
+
+      <p>
+        <a class="more-info plugin" href="https://github.com/xFlatlinex/Numeric-Stepper" target="_blank">jQuery numeric-stepper</a>
+      </p>
+    </div>
+
+    <div class="col-md-7 col-md-offset-1">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="form-group"><input class="form-control" options="numericStepper" pb-numeric-stepper type="text" value="42"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DATE PICKER -->
+  <div class="row">
+    <div class="col-md-8">
+      <h1 class="doc-head" id="datepickers">Date Picker</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Usage</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <p>Never present the user with a blank menu. In most cases you should pre-populate the picker&rsquo;s input field with the current day&rsquo;s date (in your user&rsquo;s time zone).</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Styles</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <p>
+        <a class="more-info plugin" href="https://github.com/fragaria/angular-daterangepicker" target="_blank">angular-daterangepicker v0.2.0</a>
+        <a class="more-info plugin" href="http://www.daterangepicker.com/" target="_blank">Bootstrap Daterange Picker v2.1.12</a>
+      </p>
+    </div>
+
+    <div class="col-md-7 col-md-offset-1">
+
+      <div class="row">
+        <div class="col-md-5">
+          <figure>
+            <figcaption>Single Date Picker</figcaption>
+            <div class="input-group">
+              <input class="form-control" date-range-picker ng-model="inputs.singlepicker.date" options="inputs.singlepicker.options" type="text"/>
+              <span class="input-group-addon">
+                <i class="fa fa-fw fa-calendar"></i>
+              </span>
+            </div>
+          </figure>
+        </div>
+      </div>
+
+      <div class="row spacer-top-sm">
+        <div class="col-md-5">
+          <figure>
+            <figcaption>Date Range Picker</figcaption>
+            <div class="input-group">
+              <input class="form-control" date-range-picker ng-model="inputs.daterangepicker.date" options="inputs.daterangepicker.options" type="text"/>
+              <span class="input-group-addon">
+                <i class="fa fa-fw fa-calendar"></i>
+              </span>
+            </div>
+          </figure>
+        </div>
+      </div>
+
+      <div class="row spacer-top-sm">
+        <div class="col-md-5">
+          <figure>
+            <figcaption>Date Range Picker with Auto Apply Option</figcaption>
+            <div class="input-group">
+              <input class="form-control" date-range-picker ng-model="inputs.daterangepicker2.date" options="inputs.daterangepicker2.options" type="text"/>
+              <span class="input-group-addon">
+                <i class="fa fa-fw fa-calendar"></i>
+              </span>
+            </div>
+          </figure>
+        </div>
+      </div>
+
+      <div class="row spacer-top-sm">
+        <div class="col-md-8">
+          <figure>
+            <figcaption>Button Range Picker with Formatted Labels</figcaption>
+            <a class="btn btn-link" date-range-picker href="" ng-model="inputs.daterangepicker3.date" options="inputs.daterangepicker3.options">
+              <i class="fa fa-fw fa-calendar"></i>
+              {{inputs.daterangepicker3.displayDate()}}
+              <i class="fa fa-angle-down"></i>
+            </a>
+          </figure>
+        </div>
+      </div>
+
+      <!-- CUSTOM DATERANGE -->
+      <div class="row spacer-top-sm">
+        <div class="col-md-8">
+
+          <figure>
+            <figcaption>Custom Date Range with Single Date Pickers</figcaption>
+            <div class="input-group custom-daterange">
+
+              <div class="input-group-btn">
+
+                <button aria-expanded="false" aria-haspopup="true" class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+                  {{inputs.customRange.selected.label}}
+                  <i class="fa fa-angle-down"></i>
+                </button>
+
+                <ul class="dropdown-menu">
+                  <li ng-init="inputs.customRange.init()" ng-repeat="item in inputs.customRange.items">
+                    <a href="" ng-click="inputs.customRange.click(item)">{{item.label}}</a>
+                  </li>
+                </ul>
+
+              </div>
+
+              <div class="custom-daterange-container">
+                <div class="custom-daterange-labels" ng-show="!inputs.customRange.selected.isCustom">
+                  <span>{{inputs.customRange.selected.start | amDateFormat: 'MM/DD/YYYY'}}
+                    <span ng-show="inputs.customRange.selected.isRange">-
+                      {{inputs.customRange.selected.end | amDateFormat: 'MM/DD/YYYY'}}</span>
+                  </span>
+                </div>
+
+                <div class="custom-daterange-inputs" ng-show="inputs.customRange.selected.isCustom">
+                  <label>From</label>
+                  <input date-range-picker ng-model="inputs.customRange.start.date" options="inputs.customRange.start.options" readonly type="text">
+                  <label>To</label>
+                  <input date-range-picker ng-model="inputs.customRange.end.date" options="inputs.customRange.end.options" readonly type="text">
+                </div>
+              </div>
+
+              <div class="input-group-addon">
+                <i class="fa fa-fw fa-calendar"></i>
+              </div>
+
+            </div>
+          </figure>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SWITCHES -->
+  <div class="row">
+    <div class="col-md-8">
+      <h1 class="doc-head" id="switches">Switches</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Toggle Switch</h2>
+    </div>
+  </div>
+
+  <div class="row ">
+    <div class="col-md-3">
+      <p>
+        <a class="more-info plugin" href="http://jumplink.github.io/angular-toggle-switch/" target="_blank">angular-bootstrap-toggle-switch v0.5.2</a>
+      </p>
+    </div>
+
+    <div class="col-md-7 col-md-offset-1">
+
+      <div class="row">
+        <div class="col-md-5">
+          <figure>
+            <figcaption>Default Switch</figcaption>
+            <div class="form-group">
+              <label>Text label</label>
+              <div model="inputs.switchStatus1" toggle-switch>&nbsp;</div>
+            </div>
+          </figure>
+        </div>
+
+        <div class="col-md-5">
+          <figure>
+            <figcaption>Default Switch (Disabled)</figcaption>
+            <div class="form-group">
+              <label>Text label</label>
+              <div is-disabled="disabled" model="inputs.switchStatus2" toggle-switch>&nbsp;</div>
+            </div>
+          </figure>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <h1 class="doc-head" id="writing">Writing for UI Controls</h1>
+      <p class="lede">When writing your labels, dropdown menu items and in-field prompt copy it&rsquo;s important to stay consistent across your entire product. Here are some basic guidelines for how to write these critical pieces of user interface copy.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Style</h3>
+      <ul>
+        <li>Use short, active words and phrases.</li>
+        <li>Structure copy to avoid ambiguity in language.</li>
+        <li>Use the same style and structure for all your labels.</li>
+        <li>To avoid confusing users, use consistent terminology.</li>
+        <li>Introduce a group of controls with copy that clearly defines its purpose.</li>
+      </ul>
+
+      <h3>Capitalization</h3>
+      <ul>
+        <li>Labels use sentence capitalization, except when copy includes words or phrases that are acronyms or proper nouns, which should be capitalized.</li>
+        <li>Dropdown menu items use title capitalization because they behave like buttons.</li>
+      </ul>
+
+      <h3>Punctuation</h3>
+      <ul>
+        <li>Don&rsquo;t conclude copy with punctuation, such as periods or colons.</li>
+        <li>Don&rsquo;t phrase your copy as questions.</li>
+      </ul>
+
+      <h3>Error Text Length</h3>
+      <ul>
+        <li>Error text length should be similar in length to the input field associated with it.</li>
+        <li>If your error text needs to be longer than its companion field, consider wrapping/flowing it &mdash; bearing in mind that 3-6 columns in width is optimal.</li>
+      </ul>
+    </div>
+  </div>
+
+</div>

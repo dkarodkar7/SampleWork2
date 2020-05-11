@@ -1,0 +1,56 @@
+<!--<div class="footer-wrapper">-->
+  <!--<div  class="container">-->
+<!--<footer class="demo">-->
+<!--<div class="fb-footer">-->
+
+<footer>
+    <div class="footer-bg bg-pb-gray-50">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="logo col-sm-2 col-xs-12">
+                    <a href="http://www.pb.com"><i class="pb-footer-logo gradient"></i></a>
+                </div>
+
+                <div class="col-sm-2 col-xs-12" ng-repeat="category in header.nav[3].footer[0].categories.children | limitTo:3">
+                    <h6>{{category.label}}</h6>
+                    <ul>
+                        <li ng-repeat="item in category.links"><a href="{{item.value}}">{{item.label}}</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-2 col-xs-12" ng-repeat="category in header.nav[3].footer[0].categories.children | startFrom:3 | limitTo:1">
+                    <h6>{{category.label}}</h6>
+                    <div class="row social-container">
+                        <ul class="col-xs-12 social">
+                            <li ng-repeat="item in category.links"><a href="{{item.value}}"><span class="{{item.icon}} primary"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-sm-2 col-xs-12" ng-repeat="category in header.nav[3].footer[0].categories.children | startFrom:4 | limitTo:1">
+                    <div class="bottom-text">
+                        <p>{{category.label}}</p>
+                    </div><!--/.bottom-links-->
+                    <ul>
+                        <li ng-repeat="item in category.links"><a href="{{item.value}}">{{item.label}}</a></li>
+                    </ul>
+                </div>
+            </div><!--/.row-->
+        </div><!--.container-fluid-->
+    </div>
+    <!-- legal footer required in some countries on pitney bowes.com
+    <!--<div class="footer-legal bg-white">-->
+        <!--<div class="container-fluid">-->
+            <!--<div class="row">-->
+                <!--<div class="col-xs-12">-->
+                    <!--<p><b>Pitney Bowes Limited</b></br>-->
+                        <!--Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris velit ipsum, tristique dictum eros at, tincidunt congue libero. Pellentesque habitant.-->
+                    <!--</p>-->
+                    <!--<p><b>Pitney Bowes Finance Limited</b></br>-->
+                        <!--Registered Office: Building  5 Trident Place Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris velit ipsum, tristique dictum eros at, tincidunt congue libero. Pellentesque habitant.-->
+                    <!--</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+</footer>

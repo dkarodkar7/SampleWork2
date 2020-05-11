@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en" class="no-js" xmlns:ng="http://angularjs.org" ng-app="app" ng-cloak>
+<head>
+    <meta charset="utf-8">
+    <title>Design System - {{$state.current.data.pageTitle}}</title>
+    <meta name="google" value="notranslate">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- build:bowser js/bowser.min.js -->
+    <script src="bower_components/bowser/bowser.min.js"></script>
+    <!-- endbuild  -->
+    <script>
+        var bowser = bowser;
+        //console.log(bowser);
+        if (bowser.msie && bowser.version < 10) {
+            window.location.assign('unsupported.html');
+        }
+    </script>
+
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- build:bs assets/css/bootstrap.min.css -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <!-- endbuild  -->
+
+    <!-- build:css assets/css/design_system.css -->
+    <!-- <link rel="stylesheet" href="bower_components/animate.css/animate.min.css"> -->
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/Numeric-Stepper/stepper/jquery.stepper.css">
+    <link rel="stylesheet"
+          href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css">
+    <link rel="stylesheet" href="bower_components/selectize/dist/css/selectize.bootstrap3.css">
+    <link rel="stylesheet"
+          href="bower_components/angular-bootstrap-toggle-switch/style/bootstrap3/angular-toggle-switch-bootstrap-3.css">
+    <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css">
+    <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker.css"/>
+    <link rel="stylesheet" href="bower_components/angular-datatables/dist/plugins/bootstrap/datatables.bootstrap.css"/>
+    <link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.css"/>
+    <link rel="stylesheet" href="bower_components/c3/c3.min.css"/>
+    <link rel="stylesheet" href="bower_components/yamm3/yamm/yamm.css">
+    <link rel="stylesheet" href="bower_components/ui-select/dist/select.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <!-- endbuild  -->
+
+    <!-- next line only needed for live preview, not for production environments -->
+
+    <!-- build:css assets/css/documentation.css -->
+    <link rel="stylesheet" href="bower_components/highlightjs/styles/vs.css"/>
+    <link rel="stylesheet" href="assets/css/documentation.css">
+    <!-- endbuild  -->
+
+    <link rel="icon" type="image/png" href="assets/images/favicon/favicon_16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="assets/images/favicon/favicon_32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="assets/images/favicon/favicon_57.png" sizes="57x57">
+    <link rel="icon" type="image/png" href="assets/images/favicon/favicon_72.png" sizes="72x72">
+    <link rel="icon" type="image/png" href="assets/images/favicon/favicon_96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="assets/images/favicon/favicon_120.png" sizes="120x120">
+    <link rel="icon" type="image/png" href="assets/images/favicon/favicon_128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="assets/images/favicon/favicon_144.png" sizes="144x144">
+    <link rel="icon" type="image/png" href="assets/images/favicon/favicon_152.png" sizes="152x152">
+    <link rel="icon" type="image/png" href="assets/images/favicon/favicon_195.png" sizes="195x195">
+    <link rel="icon" type="image/png" href="assets/images/favicon/favicon_228.png" sizes="228x228">
+
+    <!-- Load Bootstrap RTL theme from CDNJS -->
+    <link rel="stylesheet" ng-init="rtl = 'ltr'" ng-if="rtl === 'rtl'"
+          href="https://cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4-rc1/dist/css/bootstrap-rtl.min.css"/>
+
+</head>
+
+<body ng-controller="AppController as app" dir="{{app.rtl}}" class="site {{$state.current.data.bodyClass}}">
+
+
+    <div class="site">
+        <!-- header -->
+        <header pb-ds-header pb-fixed-navbar class="headroom" ng-class="{'authenticated':header.userAuthenticated}" classes="{'initial':'slide','pinned':'slide--down','unpinned':'slide--up','top':'headroom-top','notTop':'headroom-not-top'}" headroom offset="75" tolerance="5"></header>
+
+        <!-- content -->
+        <div ui-view="" class="view-animate site-content main-content" autoscroll="false"></div>
+
+        <!-- FOOTER -->
+        <footer ng-if="app.footer" pb-ds-footer></footer>
+    </div>
+
+
+    <!-- build:vendorjs js/vendor.js -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/jquery-ui/ui/core.js"></script>
+    <script src="bower_components/jquery-ui/ui/widget.js"></script>
+    <script src="bower_components/jquery-ui/ui/mouse.js"></script>
+    <script src="bower_components/jquery-ui/ui/sortable.js"></script>
+    <script src="bower_components/jquery-ui/ui/draggable.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="bower_components/highlightjs/highlight.pack.js"></script>
+    <script src="bower_components/angular-highlightjs/build/angular-highlightjs.min.js"></script>
+    <script src="bower_components/ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
+    <script src="bower_components/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
+    <script src="bower_components/angular-translate-storage-local/angular-translate-storage-local.js"></script>
+    <script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+    <script src="bower_components/angular-dynamic-locale/src/tmhDynamicLocale.js"></script>
+    <script src="bower_components/moment/min/moment.min.js"></script>
+    <script src="bower_components/angular-moment/angular-moment.js"></script>
+    <script src="bower_components/headroom.js/dist/headroom.js"></script>
+    <script src="bower_components/headroom.js/dist/angular.headroom.js"></script>
+    <script src="bower_components/Numeric-Stepper/stepper/jquery.stepper.js"></script>
+    <script src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="bower_components/angular-bootstrap-toggle-switch/angular-toggle-switch.js"></script>
+    <script src="bower_components/ngprogress/build/ngProgress.js"></script>
+    <script src="bower_components/angular-rangeslider/angular.rangeSlider.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/ng-file-upload/ng-file-upload-shim.js"></script>
+    <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+    <script src="bower_components/angular-ui-utils/ui-utils.js"></script>
+    <script src="bower_components/angular-toastr/dist/angular-toastr.min.js"></script>
+    <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.min.js"></script>
+    <script src="bower_components/angular-scroll/angular-scroll.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+
+
+    <script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="bower_components/angular-daterangepicker/js/angular-daterangepicker.js"></script>
+    <script src="bower_components/angular-utils-pagination/dirPagination.js"></script>
+
+
+    <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+    <script src="bower_components/datatables/media/js/jquery.dataTables.js"></script>
+    <script src="bower_components/datatables-tabletools/js/dataTables.tableTools.js"></script>
+    <script src="bower_components/angular-datatables/dist/angular-datatables.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/tabletools/angular-datatables.tabletools.js"></script>
+    <script src="bower_components/angular-datatables/dist/plugins/bootstrap/angular-datatables.bootstrap.js"></script>
+    <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
+
+
+    <script src="bower_components/d3/d3.min.js"></script>
+    <script src="bower_components/c3/c3.min.js"></script>
+    <script src="bower_components/angular-chart/angular-chart.min.js"></script>
+    <script src="bower_components/Chart.js/Chart.min.js"></script>
+    <script src="bower_components/angular-chart.js/dist/angular-chart.min.js"></script>
+    <script src="bower_components/raphael/raphael.js"></script>
+    <script src="bower_components/morris.js/morris.js"></script>
+    <script src="bower_components/angular-morris-chart/src/angular-morris-chart.js"></script>
+    <script src="bower_components/highcharts/highcharts.js"></script>
+
+    <script src="bower_components/ui-select/dist/select.js"></script>
+    <!-- endbuild  -->
+
+    <!-- build:appjs js/app.js -->
+    <script src="modules/main/app.module.js"></script>
+    <script src="modules/main/app-config.js"></script>
+    <script src="modules/main/controllers/app.controller.js"></script>
+    <script src="modules/main/controllers/sectionlanding.controller.js"></script>
+    <script src="modules/main/controllers/header.controller.js"></script>
+    <script src="modules/main/directives/header.directive.js"></script>
+    <script src="modules/main/directives/footer.directive.js"></script>
+
+
+    <script src="modules/forms/forms.module.js"></script>
+    <script src="modules/forms/forms.routes.js"></script>
+    <script src="modules/forms/controllers/forms.controller.js"></script>
+    <script src="modules/forms/controllers/forms-wizard.controller.js"></script>
+    <script src="modules/forms/controllers/forms-add-another.controller.js"></script>
+    <script src="modules/forms/controllers/forms-address-blocks.controller.js"></script>
+    <script src="modules/forms/controllers/forms-address-book.controller.js"></script>
+    <script src="modules/forms/controllers/forms-approval.controller.js"></script>
+    <script src="modules/forms/controllers/forms-validation.controller.js"></script>
+    <script src="modules/forms/controllers/forms-linline-help.controller.js"></script>
+
+    <script src="core/core.module.js"></script>
+
+    <script src="core/directives/pb-is-mobile.directive.js"></script>
+    <script src="core/directives/pb-panel-collapsible.directive.js"></script>
+    <script src="core/directives/pb-panel-draggable.directive.js"></script>
+    <script src="core/directives/pb-transitory-alert.directive.js"></script>
+    <script src="core/directives/pb-accordion.directive.js"></script>
+    <script src="core/directives/pb-accordion-mobile.directive.js"></script>
+    <script src="core/directives/pb-numeric-stepper.directive.js"></script>
+    <script src="core/directives/pb-fixed-navbar.directive.js"></script>
+    <script src="core/directives/pb-datetimepicker.directive.js"></script>
+    <script src="core/directives/pb-bootstrap-popover.directive.js"></script>
+    <script src="core/directives/pb-button-progress.directive.js"></script>
+    <script src="core/directives/pb-modal-draggable.directive.js"></script>
+    <script src="core/directives/pb-validation-match.directive.js"></script>
+    <script src="core/services/mock-data.factory.js"></script>
+    <script src="core/services/form-save-confirmation.factory.js"></script>
+    <script src="core/services/language.factory.js"></script>
+    <script src="core/services/adjust-module-height.factory.js"></script>
+    <script src="core/filters/format-date.filter.js"></script>
+
+    <script src="modules/home/home.module.js"></script>
+    <script src="modules/home/home.routes.js"></script>
+    <script src="modules/home/controllers/home.controller.js"></script>
+
+    <script src="modules/elements/elements.module.js"></script>
+    <script src="modules/elements/elements.routes.js"></script>
+    <script src="modules/elements/controllers/elements-colors-charts.controller.js"></script>
+    <script src="modules/elements/controllers/elements-containers.controller.js"></script>
+    <script src="modules/elements/controllers/elements-inputs.controller.js"></script>
+    <script src="modules/elements/controllers/elements-panels.controller.js"></script>
+    <script src="modules/elements/controllers/elements-popover.controller.js"></script>
+    <script src="modules/elements/controllers/elements-tabs.controller.js"></script>
+    <script src="modules/elements/controllers/elements-ui-bootstrap.controller.js"></script>
+    <script src="modules/elements/controllers/elements.controller.js"></script>
+    <script src="modules/elements/controllers/elements-modal-draggable.controller.js"></script>
+    <script src="modules/elements/controllers/elements-modal-prompt.controller.js"></script>
+    <script src="modules/elements/controllers/elements-modal-simple.controller.js"></script>
+    <script src="modules/elements/controllers/elements-modal-basic-message.controller.js"></script>
+    <script src="modules/elements/controllers/elements-modal-single-choice.controller.js"></script>
+    <script src="modules/elements/controllers/elements-modal-radio-buttons.controller.js"></script>
+    <script src="modules/elements/controllers/elements-modal-comment-form.controller.js"></script>
+    <script src="modules/elements/controllers/elements-modal-with-copy.controller.js"></script>
+    <script src="modules/elements/controllers/elements-modal.controller.js"></script>
+
+    <script src="modules/settings/settings.module.js"></script>
+    <script src="modules/settings/settings.router.js"></script>
+    <script src="modules/settings/controllers/settings.controller.js"></script>
+
+
+    <script src="modules/tables/tables.module.js"></script>
+    <script src="modules/tables/tables.routes.js"></script>
+    <script src="modules/tables/controllers/tables.controller.js"></script>
+    <script src="modules/tables/controllers/tables-simple.controller.js"></script>
+    <script src="modules/tables/controllers/tables-overview.controller.js"></script>
+    <script src="modules/tables/controllers/tables-datatable.controller.js"></script>
+    <script src="modules/tables/controllers/tables-datatable-data.controller.js"></script>
+    <script src="modules/tables/controllers/tables-datatable-infinite-scroll.controller.js"></script>
+    <script src="modules/tables/controllers/tables-datatables.net.controller.js"></script>
+    <script src="modules/tables/controllers/tables-faceted-search.controller.js"></script>
+
+    <script src="modules/feedback/feedback.module.js"></script>
+    <script src="modules/feedback/feedback.routes.js"></script>
+    <script src="modules/feedback/controllers/feedback-alerts.controller.js"></script>
+    <script src="modules/feedback/controllers/feedback-badges.controller.js"></script>
+    <script src="modules/feedback/controllers/feedback-header-message.controller.js"></script>
+    <script src="modules/feedback/controllers/feedback-loadingbar.controller.js"></script>
+    <script src="modules/feedback/controllers/feedback-progress.controller.js"></script>
+    <script src="modules/feedback/controllers/feedback-spinners.controller.js"></script>
+    <script src="modules/feedback/controllers/feedback-toastr.controller.js"></script>
+    <script src="modules/feedback/controllers/feedback.controller.js"></script>
+
+    <script src="modules/graphs/graphs.module.js"></script>
+    <script src="modules/graphs/graphs.routes.js"></script>
+    <script src="modules/graphs/controllers/graphs-c3.controller.js"></script>
+    <script src="modules/graphs/controllers/graphs-chartjs.controller.js"></script>
+    <script src="modules/graphs/controllers/graphs-morris.controller.js"></script>
+    <script src="modules/graphs/controllers/graphs.controller.js"></script>
+
+    <script src="modules/foundation/foundation.module.js"></script>
+    <script src="modules/foundation/foundation.routes.js"></script>
+    <script src="modules/foundation/controllers/foundation.controller.js"></script>
+    <script src="modules/foundation/controllers/foundation-iconography.controller.js"></script>
+    <script src="modules/foundation/controllers/foundation-typography.controller.js"></script>
+    <script src="modules/foundation/controllers/foundation-writing.controller.js"></script>
+
+
+    <script src="modules/globalization/globalization.module.js"></script>
+    <script src="modules/globalization/globalization.routes.js"></script>
+    <script src="modules/globalization/controllers/globalization.controller.js"></script>
+    <script src="modules/globalization/controllers/globalization-angular-translate.controller.js"></script>
+
+    <script src="modules/helpers/helpers.module.js"></script>
+    <script src="modules/helpers/helpers.routes.js"></script>
+    <script src="modules/helpers/controllers/helpers.controller.js"></script>
+
+    <script src="modules/landing/landing.module.js"></script>
+    <script src="modules/landing/landing.routes.js"></script>
+    <script src="modules/landing/controllers/landing.controller.js"></script>
+
+    <script src="modules/splitview/splitview.module.js"></script>
+    <script src="modules/splitview/splitview.routes.js"></script>
+    <script src="modules/splitview/controllers/splitview.controller.js"></script>
+
+    <script src="modules/mobile/mobile.module.js"></script>
+    <script src="modules/mobile/mobile.routes.js"></script>
+    <script src="modules/mobile/controllers/mobile.controller.js"></script>
+
+    <script src="modules/writing/writing.module.js"></script>
+    <script src="modules/writing/writing.routes.js"></script>
+    <script src="modules/writing/controllers/writing.controller.js"></script>
+
+    <script src="modules/principles/principles.module.js"></script>
+    <script src="modules/principles/principles.routes.js"></script>
+    <script src="modules/principles/controllers/principles.controller.js"></script>
+
+    <script src="modules/patterns/patterns.module.js"></script>
+    <script src="modules/patterns/patterns.routes.js"></script>
+    <script src="modules/patterns/controllers/patterns.controller.js"></script>
+    <script src="modules/patterns/controllers/welcome.controller.js"></script>
+    <script src="modules/patterns/controllers/signin.controller.js"></script>
+
+    <script src="modules/resources/resources.module.js"></script>
+    <script src="modules/resources/resources.routes.js"></script>
+    <script src="modules/resources/controllers/resources.controller.js"></script>
+
+    <!-- DASHBOARD -->
+    <script src="modules/dashboard/dashboard.module.js"></script>
+    <script src="modules/dashboard/dashboard.routes.js"></script>
+    <script src="modules/dashboard/controllers/dashboard.controller.js"></script>
+    <script src="modules/dashboard/controllers/dashboard-modal-edit-location.controller.js"></script>
+    <script src="modules/dashboard/controllers/dashboard-modal-onboarding.controller.js"></script>
+    <script src="modules/dashboard/controllers/dashboard-modal-notifications.controller.js"></script>
+    <script src="modules/dashboard/controllers/dashboard-my-graphic.controller.js"></script>
+    <script src="modules/dashboard/directives/order-history.module.directive.js"></script>
+    <script src="modules/dashboard/directives/financial.module.directive.js"></script>
+    <script src="modules/dashboard/directives/support-cases.module.directive.js"></script>
+    <script src="modules/dashboard/directives/support-articles.module.directive.js"></script>
+    <script src="modules/dashboard/directives/products.module.directive.js"></script>
+    <script src="modules/dashboard/directives/apps.module.directive.js"></script>
+    <script src="modules/dashboard/directives/chart.module.directive.js"></script>
+    <script src="modules/dashboard/directives/charts.module.directive.js"></script>
+    <script src="modules/dashboard/directives/barchart.module.directive.js"></script>
+    <script src="modules/dashboard/directives/loader.directive.js"></script>
+
+
+
+    <!-- ORDER HISTORY -->
+    <script src="modules/order-history/order-history.module.js"></script>
+    <script src="modules/order-history/order-history.routes.js"></script>
+    <script src="modules/order-history/directives/pb-order-history-list.directive.js"></script>
+    <script src="modules/order-history/directives/order-history-breadcrumbs.directive.js"></script>
+    <script src="modules/order-history/controllers/order-history.controller.js"></script>
+    <script src="modules/order-history/controllers/order-history.list.controller.js"></script>
+
+    <!-- FINANCIAL -->
+    <script src="modules/financial/financial.module.js"></script>
+    <script src="modules/financial/financial.routes.js"></script>
+    <script src="modules/financial/controllers/financial.controller.js"></script>
+    <script src="modules/financial/controllers/financial-prepaid.controller.js"></script>
+    <script src="modules/financial/controllers/financial-purchase-power.controller.js"></script>
+    <script src="modules/financial/controllers/financial-purchase-power-detail.controller.js"></script>
+    <script src="modules/financial/controllers/financial-prepaid-detail.controller.js"></script>
+
+    <script src="modules/financial/directives/financial-tabs.directive.js"></script>
+    <script src="modules/financial/directives/financial-breadcrumbs.directive.js"></script>
+    <script src="modules/financial/directives/financial-overview-module.directive.js"></script>
+
+    <!-- NOTIFICATIONS -->
+    <!--<script src="modules/notifications/controllers/notifications.controller.js"></script>-->
+    <script src="modules/notifications/directives/notifications.directive.js"></script>
+    <script src="modules/notifications/directives/notification-inline.directive.js"></script>
+    <script src="modules/notifications/filters/notifications.filter.js"></script>
+    <!--<script src="modules/notifications/controllers/notification-inline.controller.js"></script>-->
+
+    <!-- ESPOTS -->
+    <script src="modules/espot/directives/espot.directive.js"></script>
+
+    <!-- RELATED LINKS -->
+    <script src="modules/related-links/directives/related-links.directive.js"></script>
+
+    <!-- PB ELEMENTS -->
+    <script src="modules/pb-elements/elements.module.js"></script>
+    <script src="modules/pb-elements/elements.routes.js"></script>
+    <script src="modules/pb-elements/controllers/elements-tabs.controller.js"></script>
+    <script src="modules/pb-elements/controllers/elements-breadcrumbs.controller.js"></script>
+    <script src="modules/pb-elements/controllers/elements-ui-bootstrap.controller.js"></script>
+    <script src="modules/pb-elements/controllers/elements-modal-add-account.controller.js"></script>
+    <script src="modules/pb-elements/controllers/elements-breadcrumbs-menu.controller.js"></script>
+
+
+
+    <!-- REGISTRATION -->
+    <script src="modules/registration/registration.module.js"></script>
+    <script src="modules/registration/registration.routes.js"></script>
+    <script src="modules/registration/controllers/registration.controller.js"></script>
+    <script src="modules/registration/controllers/registration-step1.controller.js"></script>
+    <script src="modules/registration/controllers/registration-modal-confirm-information.controller.js"></script>
+    <script src="modules/registration/controllers/registration-step2.controller.js"></script>
+
+    <!-- ACCOUNT -->
+    <script src="modules/account/account.module.js"></script>
+    <script src="modules/account/account.routes.js"></script>
+    <script src="modules/account/controllers/login.controller.js"></script>
+    <script src="modules/account/controllers/forgot-password.controller.js"></script>
+    <script src="modules/account/controllers/reset-password.controller.js"></script>
+    <script src="modules/account/directives/onboarding.directive.js"></script>
+    <script src="modules/account/controllers/onboarding.controller.js"></script>
+    <!-- PROFILE MANAGEMENT IN ACCOUNT -->
+    <script src="modules/account/controllers/profilemanagement.controller.js"></script>
+    <script src="modules/account/controllers/pm-basic-info.controller.js"></script>
+    <script src="modules/account/controllers/pm-password.controller.js"></script>
+    <script src="modules/account/controllers/pm-dashboard.controller.js"></script>
+    <script src="modules/account/controllers/modal-remove-account.controller.js"></script>
+    <script src="modules/account/controllers/modal-new-page-confirmation.controller.js"></script>
+    <script src="modules/account/controllers/modal-account-cloning.controller.js"></script>
+    <script src="modules/account/controllers/modal-email-conversion.js"></script>
+
+    <!--SUPPORTCASE MANAGEMENT-->
+    <script src="modules/casemanagement/casemanagement.module.js"></script>
+    <script src="modules/casemanagement/casemanagement.routes.js"></script>
+    <script src="modules/casemanagement/directives/create-case-breadcrumbs.directive.js"></script>
+    <script src="modules/casemanagement/controllers/technical-support.controller.js"></script>
+    <script src="modules/casemanagement/controllers/create-case.controller.js"></script>
+    <script src="modules/casemanagement/controllers/select-issue.controller.js"></script>
+    <script src="modules/casemanagement/controllers/account-type-of-issue.controller.js"></script>
+    <script src="modules/casemanagement/controllers/issue-details.controller.js"></script>
+    <script src="modules/casemanagement/directives/productlist.directive.js"></script>
+    <script src="modules/casemanagement/controllers/scheduler-modal.controller.js"></script>
+    <script src="modules/casemanagement/controllers/productlist.controller.js"></script>
+
+    <script src="modules/account/directives/profile-management-tabs.directive.js"></script>
+    <script src="modules/account/directives/profile-management-breadcrumbs.directive.js"></script>
+    <!-- endbuild  -->
+
+
+</body>
+</html>

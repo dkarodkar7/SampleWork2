@@ -1,0 +1,100 @@
+<!-- ====================================== MOBILE 'ACCORDION' LINK  =========================== -->
+<div class="visible-xs accordion__button container-fluid" ui-sref="financial.purchasepower({ collapse : true})" >
+    <div class="row">
+        <div class="col-xs-12">
+            <span class="link header--sm">Purchase Power</span>
+            <span class="primary pull-right icon-caret-down"></span>
+        </div>
+    </div>
+</div>
+
+<!-- ====================================== START TAB PANE CONTENT =========================== -->
+<div class="tab-pane panel-default fade in active" id="prepaid-accounts">
+    <div  class="visible-xs accordion__button container-fluid" ng-click="collapse = !collapse">
+        <div class="row">
+            <div class="col-xs-12">
+                <span class="link header--sm">Prepaid Accounts</span>
+                <span ng-class="collapse ? 'icon-caret-down' : 'icon-caret-up'" class="primary pull-right"></span>
+            </div>
+        </div>
+    </div>
+    <div ng-hide="collapse" class="tab-pane-content">
+
+        <!-- ============== NOTIFICATIONS ================== -->
+        <div pb-notification-inline notification-data="pPaidCtrl.notificationsInline"></div>
+        <div pb-notifications notification-list-data="pPaidCtrl.notifications" additional-classes="notification--primary"></div>
+
+        <!-- ============== DOWNLOAD ================== -->
+        <section class="hidden-sm hidden-xs hidden-md">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
+                        <div class="dropdown pull-right spacer-top-sm spacer-bottom-sm hidden-xs">
+                            <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="text">Download</span><span class="icon-down-arrow small primary no-margin-right"></span></button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                                <li><a>PDF</a></li>
+                                <li><a>CSV</a></li>
+                                <li><a>XLS</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================== ACCOUNTS LIST  =========================== -->
+        <div class="financial-table spacer-bottom-md">
+            <section class="financial-tr">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="financial-td col-xs-12 col-md-10 col-md-offset-1">
+                            <div class="financial-td__inner">
+                                <h3 class="financial-tr__value">All Prepaid Accounts Total: {{ pPaidCtrl.accountGeneral.prepaidAccountsTotal | currency }}</h3>
+                                <p class="financial-tr__label text-small ">Updated {{ pPaidCtrl.accountGeneral.prepaidAccountsUpdated }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section ng-repeat="account in pPaidCtrl.accountListTandem" class="financial-tr">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="financial-td col-xs-6 col-sm-4 col-md-3 col-md-offset-1">
+                            <div class="financial-td__inner">
+                                <span ng-if='account.warnings' class="icon-alert-circle financial-tr--negative"></span>
+                                <p class="financial-tr__label">{{account.acctType}}</p>
+                                <h3 class="financial-tr__value financial-tr--place spacer-top-xs"><span class="circle dark-gray"></span><span class="circle dark-gray"></span><span class="circle dark-gray"></span><span class="circle dark-gray"></span>{{account.accNum | limitTo: -4}}</h3>
+                            </div>
+                        </div>
+                        <div class="financial-td hidden-xs col-sm-4 col-md-4">
+                            <div class="financial-td__inner">
+                                <p class="financial-tr__label">Address</p>
+                                <p class="financial-tr--address spacer-top-sm">{{account.city}}</p>
+                            </div>
+                        </div>
+                        <div class="financial-td col-xs-6 col-sm-4">
+                            <div class="financial-td__inner">
+                                <span class="icon-next-circle financial-tr__icon"></span>
+                                <p class="financial-tr__label">Balance</p>
+                                <h3 class="financial-tr__value spacer-top-xs" ng-class="{ negative: account.accBalance <= 0 }">{{account.accBalance | currency}}</h3>
+                            </div>
+                        </div>
+                        <a class="cover-link" ui-sref="financial.prepaidaccountdetail({ id : account.accNum})"></a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ====================================== RELATED LINKS  =========================== -->
+        <section class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+                    <div class="row">
+                        <div pb-related-links pb-related-twocols="true"></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

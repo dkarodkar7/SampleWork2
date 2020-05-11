@@ -1,0 +1,231 @@
+.order-history-list {
+    margin-bottom: 15px;
+
+    .visa,
+    .amex,
+    .disc,
+    .mast {
+        width: 36px;
+        height: 26px;
+        margin-right: 10px;
+        display: inline-block;
+        background: url('../images/sprite/credit-cards.png') no-repeat 0 0;
+    }
+
+    .amex { background-position: -36px 0; }
+    .disc { background-position: -72px 0; }
+    .mast { background-position: -108px 0; }
+
+    table {
+        border: none;
+    }
+
+    .table > thead > tr > th,
+    .table > thead > tr > td,
+    .table > tbody > tr > th,
+    .table > tbody > tr > td,
+    .table > tfoot > tr > th,
+    .table > tfoot > tr > td {
+        border: none;
+        vertical-align: middle;
+        background-color: transparent;
+    }
+
+    .table .table-details > td {
+        background: transparent;
+    }
+
+    table > tbody > tr {
+        margin-bottom: -1px;
+        border-bottom: 1px solid $pb-light-gray;
+    }
+
+    table tr a {
+        &:focus,
+        &:hover,
+        &:active,
+        &:visited {
+            text-decoration: none;
+        }
+    }
+
+    &__table {
+        width: 100%;
+        background-color: transparent;
+        border-collapse: collapse;
+
+        th {
+            font-size: $font-size-mobile-xs;
+        }
+
+        > thead > tr > th,
+        > tbody > tr > td {
+            padding: 15px 0px 15px 20px;
+
+            @include breakpoint($tablet) {
+                padding: 15px 25px;
+            }
+        }
+    }
+
+    &__table > thead {
+        padding: 10px;
+        text-align: left;
+        background-color: $brand-order-history-bg;
+    }
+
+    &__table > tbody {
+        padding-left: 0;
+        padding-right: 0;
+        position: relative;
+
+        > tr {
+
+            &.table-details { border-bottom: 0; }
+            &.accordion-toggle {
+                cursor: pointer;
+                // border-left: 1px solid $pb-light-gray;
+                // border-right: 1px solid $pb-light-gray;
+                // border-bottom: none;
+
+                .icon-plus-circle:before {
+                    content: "\e60d";
+                }
+            }
+            &.accordion-toggle.collapsed {
+                //border: none;
+                border-bottom: 1px solid $pb-light-gray;
+
+                .icon-plus-circle:before {
+                    content: "\e60e";
+                }
+            }
+
+            &.accordion-toggle.collapsing {
+                border-bottom: none;
+            }
+
+            > .hidden-row {
+                padding: 0 !important;
+
+                .accordion-body {
+                    margin-top: -59px;
+                    padding: 10px 0;
+                    padding-top: 60px;
+                }
+
+                .collapse {
+                    //border-bottom: 1px solid $pb-light-gray;
+                    display: none;
+                }
+
+                .collapsing {
+                    position: relative;
+                    height: 0;
+                    overflow: hidden;
+
+                    border-left: 1px solid $pb-light-gray;
+                    border-right: 1px solid $pb-light-gray;
+
+                    -webkit-transition: height .35s ease;
+                    -moz-transition: height .35s ease;
+                    -o-transition: height .35s ease;
+                    transition: height .35s ease;
+                }
+            }
+        }
+    }
+
+    @include breakpoint($tablet){
+        .collapse.in {
+            display: block;
+            border-left: 1px solid $pb-light-gray;
+            border-right: 1px solid $pb-light-gray;
+            border-bottom: 1px solid $pb-light-gray;
+
+            @include border-bottom-radius( 10px );
+        }
+    }
+
+    .shipping-notification {
+        color: #fff;
+        padding: 12px;
+        &__text {
+            display: inline-block;
+            margin-left: 35px;
+            margin-bottom: 0;
+
+        }
+
+        &__icon[class^="icon-"],
+        &__icon[class*=" icon-"] {
+            margin-left: 0;
+            vertical-align: middle;
+            position: absolute;
+            left: 15px;
+            top: 15px;
+
+            @include breakpoint($tablet){
+                top: auto;
+            }
+        }
+    }
+
+    .tracking-number {
+        color: white;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .view-all {
+        margin-bottom: $margin-md;
+
+        .icn-plus,
+        .icn-minus {
+            top: 4px;
+            position: relative;
+        }
+    }
+
+    &__user-info {
+        padding-top: 30px;
+        @include breakpoint($tablet){
+            background-color: $brand-order-history-bg;
+
+            > div:nth-of-type(2){
+                border-right: 1px solid $pb-gray;
+                border-left: 1px solid $pb-gray;
+            }
+        }
+    }
+
+    &__filter {
+        font-size: $font-size-large;
+
+        .dropdown-menu > li > a {
+            cursor: pointer;
+
+            &:hover {
+                color: $pb-blue-500;
+                background: transparent;
+            }
+
+            &.disabled {
+                color: #ccc;
+                cursor: default;
+            }
+        }
+        [class^="icon-"],
+        [class*=" icon-"] { margin-left: 0; }
+    }
+
+    &__download-link{
+        @include breakpoint($tablet){
+            font-size: $font-size-mobile-lg;
+        }
+    }
+}
+
+

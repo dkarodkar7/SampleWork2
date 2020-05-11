@@ -1,0 +1,54 @@
+{
+    "purchasePower":
+      {
+        "title": "Purchase Power Billing",
+        "accountNumber": "0119238470182340981",
+        "address": "355 Atlanta Student Movement Boulevard, New York NY 10003",
+        "creditLimit":"15000",
+        "availableCredit":"13413.05",
+        "currentBalance":"1587.84",
+        "minimum":"25",
+        "duedate":"true",
+        "rewards":"500",
+
+        "locations": [
+          {
+            "accountNumber": "0119238470182340981",
+            "address": "155 Park Ave S., New York NY 10003"
+          },
+          {
+            "accountNumber": "0119238470182322222",
+            "address": "255 Park Ave S., New York NY 10003"
+          },
+          {
+            "accountNumber": "0119238470182343333",
+            "address": "355 Park Ave S., New York NY 10003"
+          },
+          {
+            "accountNumber": "0119238470182344444",
+            "address": "455 Park Ave S., New York NY 10003"
+          },
+          {
+            "accountNumber": "0119238470182340555",
+            "address": "555 Park Ave S., New York NY 10003"
+          },
+          {
+            "accountNumber": "0119238470182346666",
+            "address": "655 Park Ave S., New York NY 10003"
+          }
+        ]
+      },
+    "prepaid":
+      {
+        "title": "Purchase Power Billing",
+        "accountNumber": "0119238470182340981",
+        "address": "355 Park Ave S., New York NY 10003",
+        "creditLimit":"15000",
+        "availableCredit":"13413.05",
+        "currentBalance":"1587.84",
+        "minimum":"25",
+        "duedate":"true",
+        "rewards":"500"
+      }
+}
+

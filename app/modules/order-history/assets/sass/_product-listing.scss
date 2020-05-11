@@ -1,0 +1,63 @@
+.product-listing {
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    &__price-group {
+        float: none !important;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    &--discount {
+        text-decoration: line-through;
+    }
+
+    &__price {
+        padding-right: 5px;
+        vertical-align: top;
+    }
+
+    .action-button {
+        @include breakpoint(992px, max) {
+            text-align: left;
+        }
+
+        button {
+            text-transform: none;
+        }
+    }
+
+    .visible-sm {
+        display: inline-block !important;
+
+        @include breakpoint(992px) {
+            display: none !important;
+        }
+    }
+    .icn.form-valid { left: 0; }
+
+
+    //Added by Harrison
+    &__titles{
+        background-color: $brand-order-history-bg;
+        padding: 7px 0;
+    }
+
+    &__title{
+        margin: 0;
+    }
+
+    &__image{
+        width: 100%;
+        position: relative;
+    }
+
+    &__name{
+        color: $pb-blue;
+        margin-top: 0;
+    }
+}

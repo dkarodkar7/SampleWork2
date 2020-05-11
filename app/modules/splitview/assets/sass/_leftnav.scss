@@ -1,0 +1,121 @@
+
+%leftnav-links {
+  font-size: 14px;
+  color: $text-color;
+
+  &:hover {
+    background-color: $bg-hover;
+    color: $pb-gray-700;
+    
+  }
+
+  &:active,
+  &.active {
+    background-color: $bg-active;
+    color: $pb-gray-700;
+  }
+}
+
+
+
+
+.leftnav-sectioned {
+    .list-group-section {
+      &:not(:first-child) {
+        border-top: 1px solid #e8e8e8;
+      }
+
+      &:last-child {
+        border-bottom: 1px solid #e8e8e8;
+      }
+
+      h3 {
+        font-size: 14px;
+        padding: 10px 15px;
+        margin-bottom: 0;
+      }
+
+      .list-group {
+        margin-bottom: 10px;
+      }
+
+      a.list-group-item {
+        @extend %leftnav-links;
+      }
+    }
+  }
+
+
+  .leftnav-tree {
+    border-right: 1px solid #e8e8e8;
+
+    .nav-list {
+      .nav-header {
+        margin-top: 10px;
+        padding-top: 10px;
+        &:not(:first-child) {
+          border-top: 1px solid #e8e8e8;
+        }
+
+        &:last-child {
+          border-bottom: 1px solid #e8e8e8;
+        }
+
+        label {
+          cursor: pointer;
+          font-family: $font-family-ps-regular;
+          font-size: 16px;
+          color: #2e2e2e;
+          padding-left: 10px;
+        }
+
+        i {
+          float: right;
+          margin-right: 10px;
+          margin-top: 2px;
+          color: #2e2e2e;
+          transition: transform .2s linear;
+        }
+
+        &.open {
+          i {
+            transform: rotate(90deg);
+            margin-right: 10px;
+          }
+        }
+
+        a {
+          font-size: inherit;
+          display: block;
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+
+      .tree {
+        padding: 0;
+
+        li {
+          padding-left: 0;
+
+          a {
+            font-size: 14px;
+            padding: 10px;
+            color: $pb-gray-700;
+            display: block;
+
+            &:hover {
+              background-color: $bg-hover;
+            }
+
+            &:active,
+            &.active {
+              background-color: $bg-active;
+            }
+          }
+        }
+      }
+    }
+  }

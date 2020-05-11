@@ -1,0 +1,171 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-8 col-sm-12">
+      <h1 id="panels" class="doc-head">Panels</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Styles</h2>
+    </div>
+  </div>
+
+  <div class="row ">
+    <div class="col-sm-4">
+      <figure>
+        <figcaption>Default Panel</figcaption>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, quis impedit molestiae tempore aliquid sed corporis provident earum iusto qui.</p>
+          </div>
+        </div>
+      </figure>
+    </div>
+
+    <div class="col-sm-4">
+      <figure>
+        <figcaption>Default Panel with Heading</figcaption>
+        <div class="panel panel-default">
+          <div class="panel-heading">Panel Heading</div>
+          <div class="panel-body">
+            Headings can also be Panel Titles or Links. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia odit consequatur beatae, quae odio vero, sint, quod voluptas aut repudiandae itaque in animi velit tempore cumque! Tenetur temporibus fugiat placeat magni ab, eveniet ea excepturi quae commodi! Excepturi, ipsa quod.
+          </div>
+        </div>
+      </figure>
+    </div>
+
+    <div class="col-sm-4">
+      <figure>
+        <figcaption>Panel with Filled Header</figcaption>
+        <div class="panel panel-filled-heading">
+          <div class="panel-heading">Shipping Address</div>
+          <div class="panel-body">
+            <p><b>Melanine Ann Daniels <br>
+            Company Name</b></p>
+            <p>42 Main Street, Suite 516<br>
+            Bodega Bay, CA, 11021 USA</p>
+
+            <p><a href="mailto:mdaniels@gmail.com">mdaniels@gmail.com</a><br>
+            212-201-2018</p>
+          </div>
+        </div>
+      </figure>
+    </div>
+  </div>
+
+
+  <div class="row spacer-top-xl">
+    <div class="col-sm-6">
+      <figure>
+        <figcaption>Panel with Table</figcaption>
+        <div class="panel panel-filled-heading">
+          <div class="panel-heading">
+            Panel Heading
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="person in panels.people">
+                <td>00{{::person.id}}</td>
+                <td>{{::person.firstName}}</td>
+                <td>{{::person.lastName}}</td>
+                <td>
+                  <a href="">{{::person.userName}}</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </figure>
+    </div>
+
+    <div class="col-sm-6">
+      <figure>
+        <figcaption>Panel with List Group</figcaption>
+        <div class="panel panel-filled-heading">
+          <div class="panel-heading">Panel Heading</div>
+          <div class="panel-body">
+            A lead-in block of text that goes in the panel body before the list begins.
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Morbi leo risus</li>
+            <li class="list-group-item">Porta ac consectetur ac</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+          </ul>
+        </div>
+      </figure>
+    </div>
+  </div>
+
+
+
+  <div class="row doc-sectionbreak">
+    <div class="col-md-12">
+      <figure>
+        <figcaption>Drag and Drop Panels (Desktop Browsers Only)</figcaption>
+        <div class="row" ng-model="panels.draggable" pb-panel-draggable>
+        <!-- assign class "column" to any columns you want included in drag-n-drop -->
+          <div class="col-sm-3 column">
+            <div class="panel panel-default">
+              <div class="panel-heading">Panel One
+                <span pb-panel-collapsible></span>
+              </div>
+              <div class="panel-body">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe omnis nam similique.
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">Panel Two
+                <span pb-panel-collapsible></span>
+              </div>
+              <div class="panel-body">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis possimus modi id eligendi quae quas eum nisi, provident!
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3 column">
+            <div class="panel panel-default">
+              <div class="panel-heading">Panel Three
+                <span pb-panel-collapsible></span>
+              </div>
+              <div class="panel-body">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam nostrum recusandae rerum animi nisi facilis provident, iste modi earum, esse praesentium, amet.
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 column">
+            <div class="panel panel-default">
+              <div class="panel-heading">Panel Four
+                <span pb-panel-collapsible></span>
+              </div>
+              <div class="panel-body">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, numquam.
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">Panel Five
+                <span pb-panel-collapsible></span>
+              </div>
+              <div class="panel-body">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem molestias sequi nam est. Libero, officiis alias neque quisquam aliquam perferendis quaerat dignissimos sint, incidunt sit!
+              </div>
+            </div>
+          </div>
+        </div>
+      </figure>
+    </div>
+  </div>
+
+
+</div>

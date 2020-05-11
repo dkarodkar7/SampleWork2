@@ -1,0 +1,47 @@
+<div pb-create-case-breadcrumbs></div>
+
+
+<div class="container-fluid">
+      <div class="row">
+        <div class="headline col-sm-10 col-sm-offset-1 col-xs-12 text-center">
+            <h2 class="header--sm spacer-bottom-md no-margin-top">What kind of case would you like to open?</h2>
+        </div>
+    </div>
+    <div class="row text-center">
+        <ul class="col-sm-12 support-type">
+            <li class="col-sm-6">
+                <div class="support-case-type pull-right">
+                <img src="modules/casemanagement/assets/images/technical-support-icon.png">
+                <a ng-click="technicalsupport();">Technical Support</a>
+                <i class="tooltip__icon tooltip--form collapsed" data-toggle="collapse" data-target="#collapse" aria-expanded="false">i</i>
+                <div class="tooltip__info spacer-top-sm panel-collapse collapse" id="collapse" aria-expanded="false">
+                    <div class="tooltip__close__container">
+                        <a href="" class="tooltip__close" data-toggle="collapse" data-target="#collapse" aria-expanded="false">
+                            <span class="icon-close tooltip__close__icon"></span>
+                        </a>
+                    </div>
+                    <p class="tooltip__text">A technical support case should be opened when you're having a problem with your equipment or software</p>
+                </div>
+                </div>
+            </li>
+
+            <li class="col-sm-6">
+                <div class="support-case-type pull-left">
+                <img src="modules/casemanagement/assets/images/account-support-icon.png">
+                <a ng-click="accountsupport();">Account Support</a>
+                <i class="tooltip__icon tooltip--form collapsed" data-toggle="collapse" data-target="#collapse1" aria-expanded="false">i</i>
+                <div class="tooltip__info spacer-top-sm panel-collapse collapse" id="collapse1" aria-expanded="false">
+                    <div class="tooltip__close__container">
+                        <a href="" class="tooltip__close" data-toggle="collapse" data-target="#collapse1" aria-expanded="false">
+                            <span class="icon-close tooltip__close__icon"></span>
+                        </a>
+                    </div>
+                    <p class="tooltip__text">An account support case should be opened when you’re having a problem with issues related to your Pitney Bowes account such as: invoices, contracts, making payments or changes to your account.</p>
+                  </div>
+            </div>
+                </li>
+        </ul>
+
+
+    </div>
+</div>

@@ -1,0 +1,195 @@
+// Region select icon styles
+//
+.icn.flag{
+  display: block;
+  width: 37px;
+  height: 37px;
+  margin: 0 10px 0 0;
+  background-size: 185px 549px;
+  background-image: url('../images/sprite/1x/region-flags-1x.png');
+}
+
+// Asia Pacific Flags
+//
+
+a.au .icn.flag { background-position: 0 0; }
+a.cn .icn.flag { background-position: -37px 0; }
+a.hk .icn.flag { background-position: -74px 0; }
+a.in .icn.flag { background-position: -111px 0; }
+
+a.jp .icn.flag { background-position: -148px 0; }
+a.my .icn.flag { background-position: 0 -37px; }
+a.nz .icn.flag { background-position: -37px -37px; }
+a.sg .icn.flag { background-position: -74px -37px; }
+
+a.th .icn.flag { background-position: -111px -37px; }
+
+
+// Canada, Puerto Rico, & United States Flags
+//
+a.ca .icn.flag { background-position: -148px -37px; }
+a.pr .icn.flag { background-position: 0 -74px; }
+a.us .icn.flag { background-position: -37px -74px; }
+
+
+// Europe & Africa
+//
+a.dk .icn.flag { background-position: -74px -74px; }
+a.fi .icn.flag { background-position: -111px -74px; }
+a.fr .icn.flag { background-position: -148px -74px; }
+a.de .icn.flag { background-position: 0 -111px; }
+
+a.ie .icn.flag { background-position: -37px -111px; }
+a.it .icn.flag { background-position: -74px -111px; }
+a.no .icn.flag { background-position: -111px -111px; }
+a.za .icn.flag { background-position: -148px -111px; }
+
+a.se .icn.flag { background-position: 0 -148px; }
+a.ch .icn.flag { background-position: -37px -148px; }
+a.uk .icn.flag,
+a.gb .icn.flag{ background-position: -74px -148px; }
+
+
+// Latin America
+//
+a.ar .icn.flag { background-position: -111px -148px; }
+a.bo .icn.flag { background-position: -148px -148px; }
+a.br .icn.flag { background-position: 0 -185px; }
+a.cl .icn.flag { background-position: -37px -185px; }
+
+a.co .icn.flag { background-position: -74px -185px; }
+a.cr .icn.flag { background-position: -111px -185px; }
+a.do .icn.flag { background-position: -148px -185px; }
+a.ec .icn.flag { background-position: 0 -222px; }
+
+a.sv .icn.flag { background-position: -37px -222px; }
+a.ht .icn.flag { background-position: -74px -222px; }
+a.hn .icn.flag { background-position: -111px -222px; }
+a.mx .icn.flag { background-position: -148px -222px; }
+
+a.ni .icn.flag { background-position: 0 -259px; }
+a.pa .icn.flag { background-position: -37px -259px; }
+a.py .icn.flag { background-position: -74px -259px; }
+a.pe .icn.flag { background-position: -111px -259px; }
+
+a.uy .icn.flag { background-position: -148px -259px; }
+a.ve .icn.flag { background-position: 0 -296px; }
+
+a.globe .icn.flag { background-position: -37px -296px; }
+a.nl .icn.flag { background-position: -74px -296px; }
+
+#selectLocation a.globe .icn.flag { background-position: -111px -296px; }
+
+
+// small flags ====================================
+.icn.flag.sm{
+  width: 24px;
+  height: 24px;
+  margin-top:0;
+  margin-bottom:0;
+}
+
+// Asia Pacific Flags
+//
+a.au .icn.flag.sm { background-position: 0 -333px; }
+a.cn .icn.flag.sm { background-position: -24px -333px; }
+a.hk .icn.flag.sm { background-position: -48px -333px; }
+a.in .icn.flag.sm { background-position: -72px -333px; }
+
+a.jp .icn.flag.sm { background-position: -96px -333px; }
+a.my .icn.flag.sm { background-position: 0 -357px; }
+a.nz .icn.flag.sm { background-position: -24px -357px; }
+a.sg .icn.flag.sm { background-position: -48px -357px; }
+
+a.th .icn.flag.sm { background-position: -72px -357px; }
+
+
+// Canada, Puerto Rico, & United States Flags
+//
+a.ca .icn.flag.sm { background-position: -96px -357px; }
+a.pr .icn.flag.sm { background-position: 0 -381px; }
+a.us .icn.flag.sm { background-position: -24px -381px; }
+
+
+// Europe & Africa
+//
+a.dk .icn.flag.sm { background-position: -48px -381px; }
+a.fi .icn.flag.sm { background-position: -72px -381px; }
+a.fr .icn.flag.sm { background-position: -96px -381px; }
+a.de .icn.flag.sm { background-position: 0 -405px; }
+
+a.ie .icn.flag.sm { background-position: -24px -405px; }
+a.it .icn.flag.sm { background-position: -48px -405px; }
+a.no .icn.flag.sm { background-position: -72px -405px; }
+a.za .icn.flag.sm { background-position: -96px -405px; }
+
+a.se .icn.flag.sm { background-position: 0 -429px; }
+a.ch .icn.flag.sm { background-position: -24px -429px; }
+a.uk .icn.flag.sm,
+a.gb .icn.flag.sm { background-position: -48px -429px; }
+
+
+// Latin America
+//
+a.ar .icn.flag.sm { background-position: -72px -429px; }
+a.bo .icn.flag.sm { background-position: -96px -429px; }
+a.br .icn.flag.sm { background-position: 0 -453px; }
+a.cl .icn.flag.sm { background-position: -24px -453px; }
+
+a.co .icn.flag.sm { background-position: -48px -453px; }
+a.cr .icn.flag.sm { background-position: -72px -453px; }
+a.do .icn.flag.sm { background-position: -96px -453px; }
+a.ec .icn.flag.sm { background-position: 0 -477px; }
+
+a.sv .icn.flag.sm { background-position: -24px -477px; }
+a.ht .icn.flag.sm { background-position: -48px -477px; }
+a.hn .icn.flag.sm { background-position: -72px -477px; }
+a.mx .icn.flag.sm { background-position: -96px -477px; }
+
+a.ni .icn.flag.sm { background-position: 0 -501px; }
+a.pa .icn.flag.sm { background-position: -24px -501px; }
+a.py .icn.flag.sm { background-position: -48px -501px; }
+a.pe .icn.flag.sm { background-position: -72px -501px; }
+
+a.uy .icn.flag.sm { background-position: -96px -501px; }
+a.ve .icn.flag.sm { background-position: 0 -525px; }
+
+a.globe .icn.flag.sm { background-position: -24px -525px; }
+a.nl .icn.flag.sm { background-position: -48px -525px; }
+
+#selectLocation a.globe .icn.flag.sm { background-position: -72px -525px; }
+
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2)      and (min-width: 768px),
+only screen and (   min--moz-device-pixel-ratio: 2)      and (min-width: 768px),
+only screen and (     -o-min-device-pixel-ratio: 2/1)    and (min-width: 768px),
+only screen and (        min-device-pixel-ratio: 2)      and (min-width: 768px),
+only screen and (                min-resolution: 192dpi) and (min-width: 768px),
+only screen and (                min-resolution: 2dppx)  and (min-width: 768px) {
+
+  .icn.flag {
+    background-image: url('../images/sprite/2x/region-flags-2x.png');
+  }
+
+  // we probably have a vector version of this
+  .icn-globe{
+    background-image: url('../images/sprite/2x/large-icon-buttons-2x.png');
+  }
+}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2)      and (max-width: 767px),
+only screen and (   min--moz-device-pixel-ratio: 2)      and (max-width: 767px),
+only screen and (     -o-min-device-pixel-ratio: 2/1)    and (max-width: 767px),
+only screen and (        min-device-pixel-ratio: 2)      and (max-width: 767px),
+only screen and (                min-resolution: 192dpi) and (max-width: 767px),
+only screen and (                min-resolution: 2dppx)  and (max-width: 767px) {
+
+  .icn.flag {
+    background-image: url('../images/sprite/2x/region-flags-2x.png');
+  }
+}
+
+
+

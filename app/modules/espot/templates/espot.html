@@ -1,0 +1,25 @@
+
+<div ng-repeat="espot in espotData" class="{{espot.themeClasses}} prod spacer-bottom-lg" data-bg-image="{{espot.bgImage}}" >
+    <div class="">  <!-- I don't think we need this, gradient applied to this inherited from theme clas on parent div? {{bgGradient}} -->
+
+            <!--<div ng-if="{ espot:motifTheme == true }" class="motif-bg"></div>-->
+
+            <!-- if video needed
+            <a class="prod__info {{videoTrue}}" href="{{href}}" data-video-id="9RcFEGMolLKHMGxMCuMcWg" data-modal-target="#playDemoModal">
+            -->
+            <a class="prod__info" href="{{espot.href}}" >
+                <span class="prod__info__header">{{espot.title}}</span>
+                <p>{{espot.description}}</p>
+                <button class="rounded-button {{espot.buttonStyle}}">{{espot.buttonName}}</button>
+            </a>
+
+            <a class="prod__image" href="{{espot.href}}">
+                <img src="{{espot.prodImage}}" />
+            </a>
+
+            <!-- if video needed
+            <a class="cover-link {{videoTrue}}" href="{{href}}" data-video-id="9RcFEGMolLKHMGxMCuMcWg" data-modal-target="#playDemoModal"></a>
+            -->
+            <a class="cover-link" href="{{espot.href}}"></a>
+    </div>
+</div>

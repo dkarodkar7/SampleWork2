@@ -1,0 +1,17 @@
+//*/ ----- BREADCRUMBS --------- */
+
+.breadcrumb {
+  padding         : 0;
+  background-color: transparent;
+  margin-bottom: 5px;
+
+  font-family     : $font-family-sans-serif;
+  font-size       : 14px;
+  // when a page-header follows a breadcrumb, no margin on the H1
+  + h1 {
+    margin-top: 0;
+  }
+  .active {
+    color: #c0c0c0;
+  }
+}

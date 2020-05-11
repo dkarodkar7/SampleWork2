@@ -1,0 +1,16 @@
+<section class="notification notification--inline notification--secondary spacer-bottom-lg" ng-show="filteredItems.length > 0">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="notification__inner row">
+                    <div ng-repeat="warning in (filteredItems = (notificationData | pbNotificationsFilter))" class="col-xs-12 col-sm-8 col-sm-offset-2">
+                        <p class="notification__message spacer-top-xs spacer-bottom-xs">{{warning.description}}</p>
+                        <a title="Don’t show this message again" class="notification__link spacer-top-xs spacer-bottom-xs" ng-click="closeNotification(warning, $index)">Don’t show this message again</a>
+
+                     </div>
+                    <span class="icon-close-circle primary" ng-click="close()"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,186 @@
+[{
+    "label": "Principles",
+    "value": "principles.page"
+
+  }, {
+    "Web": [{
+      "label": "Product Framework",
+      "value": "",
+      "toggle": "dropdown",
+      "children": [{
+        "label": "Responsive Web",
+        "value": "",
+        "toggle": "dropdown",
+        "children": [{
+          "label": "Foundations",
+          "value": "",
+          "toggle": "dropdown",
+          "children": [{
+              "label": "Color",
+              "value": "foundation.color"
+            }, {
+              "label": "Accessibility",
+              "value": "foundation.accessibility"
+            }, {
+              "label": "Typography",
+              "value": "foundation.typography"
+            }, {
+              "label": "Grid",
+              "value": "foundation.grid"
+            }, {
+              "label": "Writing",
+              "value": "foundation.writing.page"
+            }, {
+              "label": "Iconography",
+              "value": "foundation.iconography"
+            }, {
+              "label": "Helpers",
+              "value": "helpers"
+            }
+          ]
+        }, {
+          "label": "Elements",
+          "value": "",
+          "toggle": "dropdown",
+          "children": [{
+            "label": "UI Controls",
+            "value": "elements.uicontrols"
+          }, {
+            "label": "Buttons",
+            "value": "elements.buttons"
+          }, {
+            "label": "Containers",
+            "value": "elements.containers.page"
+          }, {
+            "label": "Modals & Popovers",
+            "value": "elements.popovers",
+            "className": "popovers"
+          }, {
+            "label": "User Feedback",
+            "value": "feedback.page"
+          }, {
+            "label": "Tables",
+            "value": "tables.datatable.page"
+          }, {
+            "label": "Charts",
+            "value": "graphs.page"
+          }]
+        }, {
+          "label": "Patterns",
+          "value": "",
+          "toggle": "dropdown",
+          "children": [{
+            "label": "Headers & Footers",
+            "value": "patterns.headersfooters"
+          }, {
+            "label": "Sign In & Sign Up",
+            "value": "patterns.signinup"
+          }, {
+            "label": "Dashboards",
+            "value": "patterns.dashboards"
+          }, {
+            "label": "Getting Started",
+            "value": "patterns.gettingstarted"
+          }, {
+            "label": "Welcome",
+            "value": "patterns.welcome"
+          }, {
+            "label": "Split Views",
+            "value": "splitview.overview"
+          }, {
+           "label": "Page Errors",
+           "value": "patterns.errorpages"
+         }, {
+            "label": "Form Samples",
+            "value": "patterns.forms"
+          }]
+        }]
+      }]
+    }]
+  }, {
+    "Mobile": [{
+      "label": "Product Framework",
+      "value": "",
+      "toggle": "dropdown",
+      "children": [{
+        "label": "Responsive Web",
+        "value": "",
+        "toggle": "dropdown",
+        "children": [{
+          "label": "Foundations",
+          "value": "",
+          "toggle": "dropdown",
+          "children": [{
+              "label": "Color",
+              "value": "mobile.color"
+            }, {
+              "label": "Typography",
+              "value": "mobile.typography"
+            }, {
+              "label": "Grid",
+              "value": "mobile.grid"
+            }]
+        }, {
+          "label": "Elements",
+          "value": "",
+          "toggle": "dropdown",
+          "children": [ {
+            "label": "UI Controls",
+            "value": "mobile.uicontrols"
+          },{
+            "label": "Buttons",
+            "value": "mobile.buttons"
+          }, {
+            "label": "Containers",
+            "value": "mobile.containers"
+          }, {
+            "label": "Modals & Popovers",
+            "value": "mobile.modals-popovers"
+          }, {
+            "label": "Lists",
+            "value": "mobile.lists-grids"
+          }, {
+            "label": "Alerts",
+            "value": "mobile.user-feedback"
+          }]
+        }, {
+          "label": "Patterns",
+          "value": "",
+          "toggle": "dropdown",
+          "children": [{
+            "label": "Navigation",
+            "value": "mobile.navigation"
+          }, {
+            "label": "Sign In & Sign Up",
+            "value": "mobile.sign-in-up"
+          }, {
+            "label": "Getting Started",
+            "value": "mobile.onboarding"
+          }, {
+            "label": "Home Page",
+            "value": "mobile.homepage"
+          }, {
+            "label": "Search & Results",
+            "value": "mobile.search-results"
+          }, {
+            "label": "Welcome",
+            "value": "mobile.landing"
+          }, {
+            "label": "Forms",
+            "value": "mobile.forms"
+          }, {
+            "label": "Maps",
+            "value": "mobile.maps"
+          }]
+        }]
+      }]
+    }]
+  }, {
+    "label": "Globalization",
+    "value": "globalization.page"
+  }, {
+    "label": "Resources",
+    "value": "resources.developers"
+  }
+
+]

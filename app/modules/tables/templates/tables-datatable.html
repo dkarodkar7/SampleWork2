@@ -1,0 +1,157 @@
+<div class="doc-hero">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="hero-header">
+          <div class="eyebrow">Elements</div>
+          <h1>Tables</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div headroom class="sub-header jump-bar headroom" tolerance="5" offset="240" classes="{'initial':'','pinned':'','unpinned':'','top':'headroom-top','notTop':'headroom-not-top'}">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="list-unstyled list-inline jump-menu">
+            <li><a href="" du-smooth-scroll="basic-tables" offset="125">Basic Tables</a></li>
+            <li><a href="" du-smooth-scroll="data-tables">Data Tables</a></li>
+            <li><a href="" du-smooth-scroll="paging">Paging</a></li>
+            <li><a href="" du-smooth-scroll="infinite-scroll">Infinite Scroll</a></li>
+            <li><a href="" du-smooth-scroll="datatables-net">Datatables.net</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<div class="container">
+
+  <div ui-view="basic"></div>
+  <div ui-view="overview"></div>
+  <div ui-view="toolbar"></div>
+  <div ui-view="data"></div>
+  <div ui-view="tabbed"></div>
+
+
+  <!-- PAGING -->
+  <div class="row">
+    <div class="col-md-8">
+      <h1 id="paging" class="doc-head">Paging</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Usage</h2>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-6">
+      <p>Good for goal-oriented finding tasks, such as locating specific content in a large data set.</p>
+
+      <p>
+        <a class="more-info plugin" href="https://github.com/michaelbromley/angularUtils/tree/master/src/directives/pagination" target="blank">angular-utils-pagination v0.8.2</a>
+        <a class="more-info plugin" href="https://github.com/fragaria/angular-daterangepicker" target="blank">daterangepicker v0.2.0</a>
+        <a class="more-info plugin" href="https://github.com/angular-ui/bootstrap" target="blank">ui-bootstrap v0.14.3</a>
+      </p>
+
+      <p class="spacer-top-md"><a class="btn btn-default" href="" ui-sref="tables.paging" target="_blank">Demo</a></p>
+    </div>
+
+    <div class="col-md-6">
+      <a href="" ui-sref="tables.paging" target="_blank"><img class="img-responsive" src="modules/tables/assets/images/paging.png" alt="" /></a>
+    </div>
+  </div>
+
+
+
+  <!-- INFINITE SCROLL -->
+  <div class="row">
+    <div class="col-md-8">
+      <h1 id="infinite-scroll" class="doc-head">Infinite Scroll</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Usage</h2>
+    </div>
+  </div>
+
+
+  <div class="row">
+
+    <div class="col-md-6">
+      <p>Best suited for streaming content, thumbnail views, and browsing.</p>
+
+      <p>
+        <a class="more-info plugin" href="http://binarymuse.github.io/ngInfiniteScroll/index.html" target="blank">ngInfiniteScroll v1.2.1</a>
+        <a class="more-info plugin" href="https://github.com/fragaria/angular-daterangepicker" target="blank">daterangepicker v0.2.0</a>
+        <a class="more-info plugin" href="https://github.com/angular-ui/bootstrap" target="blank">ui-bootstrap v0.14.3</a>
+      </p>
+
+      <p class="spacer-top-md"><a class="btn btn-default" href="" ui-sref="tables.infiniteScroll" target="_blank">Demo</a></p>
+    </div>
+
+    <div class="col-md-6">
+      <a href="" ui-sref="tables.infiniteScroll" target="_blank"><img class="img-responsive" src="modules/tables/assets/images/infinite_scroll.png" alt="" /></a>
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <!-- Datatables.net -->
+  <div class="row">
+    <div class="col-md-8">
+      <h1 id="datatables-net" class="doc-head">Datatables.net</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Usage</h2>
+    </div>
+  </div>
+
+
+  <div class="row doc-sectionbreak">
+
+    <div class="col-md-6">
+
+      <p>
+        <a class="more-info plugin" href="http://l-lin.github.io/angular-datatables/" target="blank">angular-datatables v0.5.1</a>
+        <a class="more-info plugin" href="http://datatables.net/" target="blank">datatables.net v1.10.9</a>
+      </p>
+
+      <div class="alert alert-info">
+        <p>This example uses local json data to simulate <a href="" ui-sref="tables.paging" target="_blank">paging</a> interaction. Applications should use server-side APIs to handle returning paged data. See the <a href="http://l-lin.github.io/angular-datatables/#/welcome" target="blank">angular-datatables</a> documentation for more information. The application team should evalute this or other paging plugins as necessary according to specifications required.</p>
+      </div>
+
+      <div class="alert alert-danger">
+        <p>Combining multiple select and single row interactions are for demonstration purposes only. Use only one method of row interactions in your application.</p>
+      </div>
+
+      <p class="spacer-top-md"><a class="btn btn-default" href="" ui-sref="tables.datatablesnet" target="_blank">Demo</a></p>
+    </div>
+
+    <div class="col-md-6">
+      <img class="img-responsive" src="modules/tables/assets/images/datatables.png" alt="" />
+    </div>
+  </div>
+
+
+
+
+</div>

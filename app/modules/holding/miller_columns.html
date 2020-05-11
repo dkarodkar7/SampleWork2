@@ -1,0 +1,69 @@
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Miller Columns</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <figure>
+        <!-- miller columns with spectrum data -->
+          <div class="row miller-columns" style="height:200px;">
+        <!-- top level -->
+            <div class="col-md-4 first-column">
+              <div class="panel panel-default">
+                <div class="list-group">
+                  <a class="list-group-item" href="" ng-class="{active: $index === panels.millercolumn.dataSelected}" ng-click="panels.getSublevel1($index)" ng-repeat="topLevel in panels.millercolumn.data.versionInfos">
+                    {{::topLevel.name}}
+                    <i class="pull-right fa fa-angle-right fa-lg"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+        <!-- level1 -->
+            <div class="col-md-3 inner-column">
+              <div class="panel panel-default">
+                <div class="list-group">
+                  <a class="list-group-item" href="" ng-class="{active: $index === panels.millercolumn.level1Selected && level1.versionInfos.length > 0}" ng-click="panels.getSublevel2($index)" ng-repeat="level1 in panels.millercolumn.level1">
+                    {{::level1.name}}
+                    <i class="pull-right fa fa-fw fa-angle-right fa-lg"></i>
+                    <span class="badge">{{::level1.versionInfos.length}}</span>
+                  </a>
+              </div>
+            </div>
+          </div>
+
+        <!-- level 2 -->
+          <div class="col-md-5 last-column">
+            <div class="panel panel-default">
+              <ul class="list-group list-group-details">
+                <li class="list-group-item" ng-repeat="level2 in panels.millercolumn.level2">
+                  <div class="form-horizontal">
+                    <h4 class="text-primary">{{::level2.name}}</h4>
+                    <div class="form-group" ng-show="level2.version">
+                      <label class="col-md-4 control-label">
+                        <strong>Version</strong>
+                      </label>
+                      <p class="col-md-8 form-control-static">{{::level2.version}}</p>
+                    </div>
+
+        <!-- attributes -->
+                    <div ng-repeat="attribute in level2.attributes">
+                      <div class="form-group">
+                        <label class="col-md-4 control-label">
+                          <strong>{{::attribute.label}}</strong>
+                        </label>
+                        <p class="col-md-8 form-control-static">{{::attribute.value}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </figure>
+    </div>
+  </div>

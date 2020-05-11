@@ -1,0 +1,97 @@
+.financial-tr{
+  position: relative;
+  overflow:hidden;
+  border-top: 1px solid $pb-gray-300;
+  border-bottom: 1px solid $pb-gray-300;
+  + .financial-tr{
+    border-top: none;
+  }
+  .icon-alert-circle{
+    position: absolute;
+    top:50%;
+    left:-30px;
+    margin-top:-10px;
+    margin-left:0;
+    margin-right:0;
+  }
+
+  .financial-td{
+    position: relative;
+    padding-bottom:25%;
+    margin-bottom:-25%;
+
+    &:first-of-type{
+      padding-left:45px;
+      &:before {
+        background:none;
+      }
+    }
+    &:before {
+      content: " ";
+      position:absolute;
+      display:block;
+      top:0;
+      left:0;
+      width:1px;
+      height:100%;
+      background:$pb-gray-300;
+    }
+  }
+  .financial-td__inner {
+    position:relative;
+    padding: $padding-sm 5px;
+    @include breakpoint($tablet) {
+      padding-top: $padding-md;
+      padding-bottom: $padding-md;
+    }
+    p{
+      font-size:1.143em;
+    }
+    p.text-small{
+      font-size:$font-size-small;
+      color:$pb-gray-300;
+    }
+  }
+  &__label {
+    line-height: 1.2em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow:hidden;
+    //@include breakpoint(0,$tablet){
+      margin-bottom:0;
+    //}
+    //@include breakpoint($tablet) {
+      font-size: 1.143em;
+    //}
+  }
+  &__value {
+    color: $bodyFontColor;
+    display:inline-block;
+    font-weight: $fontRegular;
+    //@include breakpoint(0, $tablet) {
+      font-size:1.875em;
+    //}
+    margin-bottom:5px;
+    &.negative{
+      color: $pb-orange-500;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top:50%;
+    right:0;
+    margin-top:-10px;
+    margin-left:0;
+    margin-right:0;
+    color: $pb-blue-500;
+  }
+
+  &--positive { color: $pb-cyan-500; } //previously $pb-highlight-cyan;
+
+  &--negative {
+    color: $pb-orange-500;
+    margin-left: 0;
+    margin-right: 10px;
+  }
+}

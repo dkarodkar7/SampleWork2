@@ -1,0 +1,96 @@
+<section class="container-fluid">
+    <div class="row">
+        <div class="headline spacer-top-lg col-xs-12 col-sm-6 col-sm-offset-3">
+            <p class="ps-light text-center-xs spacer-top-sm">All Fields Required</p>
+            <h1 class="header--md spacer-top-sm text-center-xs">Create Your Profile</h1>
+            <h2 class="subheader--sm text-center-xs">
+                Provide the following information to access your account management tools and resources.
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        <form role="form" name="form" novalidate class="col-xs-12 col-sm-6 col-sm-offset-3">
+            <div class="form-group required">
+                <label for="email">Email Address</label>
+                <input type="email" name="email" required class="form-control" ng-model="user.email"
+                    ng-class="{ 'error' : (form.email.$invalid && form.email.$touched) || user.status == 'registered' || user.status == 'onboarded' || user.status == 'inactive' || user.status == 'active' }" id="email" />
+                <div ng-show="form.$submitted || form.email.$touched">
+                    <p class="error" ng-show="form.email.$error.required">
+                        Email is empty
+                    </p>
+                    <p class="error" ng-show="form.email.$error.email">
+                        Invalid email format
+                    </p>
+                    <span class="icon-alert-circle error-icon" ng-show="form.email.$invalid && form.email.$touched"></span>
+                </div>
+                <div ng-show="form.$submitted" ng-hide="form.email.$invalid && form.email.$touched">
+                    <p class="error" ng-if="user.status == 'inactive'">
+                        There is already an account registered to this email.
+                        <br/><br/>
+                        We recently sent you an email to: {{user.email}}. The email contains a link to verify your identity. Please check your email and click the link to complete your registration. <a href="#" ng-click="resendEmail2(user)">Resend Email</a>
+                    </p>
+                    <p class="error" ng-if="user.status == 'active' || user.status == 'registered'">
+                        There is already an account registered to this email. <a ui-sref="account.login">Sign In Now</a>
+                    </p>
+                    <p class="error" ng-if="user.status == 'onboarded'">
+                        We recently sent you an email to: {{user.email}}. The email
+                        contains a link to verify your identity. Please check your email and click
+                        the link to complete your registration. <a href="#" ng-click="resendEmail2(user)">Resend Email</a>
+                    </p>
+                    <span class="icon-alert-circle error-icon" ng-if="user.status == 'inactive' || user.status == 'onboarded' || user.status == 'active' || user.status == 'registered'"></span>
+                </div> 
+            </div>
+            <div class="form-group required">
+                <label for="email-confirmation">Confirm Email Address</label>
+                <input type="email" ng-model="user.emailConfirmation" class="form-control"
+                    ng-class="{ 'error' : form.emailConfirmation.$invalid && form.emailConfirmation.$touched }"
+                    id="emailConfirmation" name="emailConfirmation" pb-validation-match="user.email" placeholder="" required/>
+                <div ng-show="form.$submitted || form.emailConfirmation.$touched">
+                    <p class="error" ng-if="form.emailConfirmation.$error.required">
+                        Email Confirmation is empty
+                    </p>
+                    <p class="error" 
+                        ng-if="form.emailConfirmation.$error.match && !form.emailConfirmation.$error.required">
+                        Email and email confirmation don’t match
+                    </p>
+                    <span class="icon-alert-circle error-icon" 
+                        ng-show="form.emailConfirmation.$invalid && form.emailConfirmation.$touched"></span>
+                </div>
+            </div>
+            <div class="form-group required">
+                <label for="account-number">Account Number</label>
+                <a data-toggle="collapse" data-target="#collapse"><i class="tooltip__icon tooltip--form">i</i></a>
+                <input type="text" name="accountNumber" class="form-control" 
+                  ng-pattern="/^\d+$/"
+                  ng-class="{ error:form.accountNumber.$invalid && form.accountNumber.$touched }"
+                  ng-model="user.accountNumber" id="account-number" placeholder="" required />
+                <div ng-show="form.$submitted || form.accountNumber.$touched">
+                  <p class="error" ng-show="form.accountNumber.$error.required">
+                    Account Number is required.
+                  </p>
+                  <p class="error" ng-show="form.accountNumber.$invalid">
+                    Account Number must contain only numbers.
+                  </p>
+                  <span class="icon-alert-circle error-icon" 
+                    ng-show="form.accountNumber.$invalid && form.accountNumber.$touched"></span>
+                </div>
+                <div class="tooltip__info spacer-top-sm panel-collapse collapse" id="collapse">
+                    <div class="tooltip__close__container">
+                        <a href="" class="tooltip__close" data-toggle="collapse" data-target="#collapse">
+                            <span class="icon-close tooltip__close__icon"></span>
+                        </a>
+                    </div>
+                    <p class="tooltip__text">You can get your Account Number by finding it at the top of your Pitney Bowes invoice.</p>
+                    <img src="modules/registration/assets/images/tooltip.jpg" class="tooltip__image"/>
+                    <p class="tooltip__text spacer-top-sm">Learn other ways  to locate your Account Number <a href="#" target="_blank" class="tooltip__link">View Support</a>.</p>
+                </div>
+            </div>
+            <div class="text-center-xs">
+              <button class="rounded-button primary" ng-disabled="form.$invalid" 
+                type="submit" ng-click="register(user,form)" ng-class="{ gray:form.$invalid }">
+                Continue
+              </button>
+            </div>
+        </form>
+    </div>
+</section>

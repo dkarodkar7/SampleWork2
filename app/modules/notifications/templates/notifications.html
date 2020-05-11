@@ -1,0 +1,35 @@
+<div class="notification__group__container {{ pbNotificationsCtrl.additionalClasses }}">
+    <section ng-repeat="notification in pbNotificationsCtrl.notificationListData" class="notification full-width" data-notification-type="{{ pbNotificationsCtrl.notificationType }}">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <div class="notification__inner row">
+
+                        <span class="col-xs-10 col-sm-8">
+                            <span class="notification__icon"
+                                  ng-class="pbNotificationsCtrl.dismissibleNotifications ? 'icon-close dismissible' : 'icon-alert-circle'"
+                                  ng-click="pbNotificationsCtrl.dismissNotification($event)">
+                            </span>
+
+                            <span class="notification__message">{{ notification.title }}</span>
+                            <!-- if newline class is passed the second message will be on it's on line instead of to the right of the first message
+                                 set up in prep for long messages -->
+                            <span ng-if="notification.description" class="notification__message2" ng-class="notification.newline">{{ notification.description }}</span>
+                        </span>
+
+                        <span class="col-xs-2 col-sm-4">
+                            <a href="#" title="View Bills" class="notification__link pull-right">
+                                <span class="hidden-xs">{{ notification.cta }}</span>
+                                <span class="icon-next-circle"></span>
+                            </a>
+                        </span>
+                        <a class="cover-link" href="#"></a>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>

@@ -1,0 +1,538 @@
+<div class="doc-hero">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="hero-header">
+          <div class="eyebrow">Foundations</div>
+          <h1>Typography</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div headroom class="sub-header jump-bar headroom" tolerance="5" offset="240" classes="{'initial':'','pinned':'','unpinned':'','top':'headroom-top','notTop':'headroom-not-top'}">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="list-unstyled list-inline jump-menu">
+            <li><a href="" du-smooth-scroll="headers-body">Headers &amp; Body </a></li>
+            <li><a href="" du-smooth-scroll="tabs-tables">Tabs &amp; Tables</a></li>
+            <li><a href="" du-smooth-scroll="navigation">Navigation</a></li>
+            <li><a href="" du-smooth-scroll="ui-controls">UI Controls</a></li>
+            <li><a href="" du-smooth-scroll="lists">Lists</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+<div class="container">
+
+  <div class="row spacer-top-xl">
+    <div class="col-md-8">
+      <p class="doc-lede">The fonts used in our typography were chosen based on the following rationale:
+        <ul>
+          <li>They support typography found elsewhere in our brand.</li>
+          <li>They perform well on web and mobile.</li>
+        </ul>
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <h1 id="headers-body" class="doc-head">Headers &amp; Body</h1>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Usage</h2>
+      <p>For maximum readability:</p>
+      <ul>
+        <li>Body copy should never run the width of the page.</li>
+        <li>Wrap text blocks &mdash; these perform well in responsive environments.</li>
+        <li>Type should never exceed 8 grid columns &mdash; 6 columns is preferable.</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Header Type</h2>
+
+      <table class="table table-bordered type-samples">
+        <thead>
+          <tr>
+            <th>Tag</th>
+            <th>Use of header</th>
+            <th>Color variation classes: Regular, Alt, Knockout</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in type.header">
+            <td class="{{item.extraclass}}">{{item.tag}} &ndash; {{item.font}}</td>
+            <td>{{item.use}}</td>
+            <td>
+              {{item.tag}}{{item.class}}
+              <span class="swatch" ng-style="{'background-color':item.color,'color': '#fff'}">{{item.color}}</span>,
+              {{item.tag}}{{item.altclass}}
+              <span class="swatch" ng-style="{'background-color':item.altcolor,'color': '#fff'}">{{item.altcolor}}</span>,
+              {{item.tag}}.ko
+              <span class="swatch" style="background-color:#fff; color:#2e2e2e">#FFFFFF</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>For offline use of Precision Sans, visit <a href="http://152.144.193.74:8503/content/pbdam/en.html" target="_blank">Brand Central</a> to download the font.</p>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Header and Body Spacing</h2>
+    </div>
+  </div>
+
+
+
+  <div class="row spacer-top-xl">
+    <div class="col-md-5">
+      <figure>
+        <!-- <figcaption>Capitalization and Line Height</figcaption> -->
+        <h2 class="specifications">Header H2 is Title Case</h2>
+
+        <p>Body = Sentence case. <br>Line height = 1.42857143, BS standard</p>
+        <p class="specifications">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dae fuga error eum quisquam distinctio atque aliquam optio. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, nemo.</p><p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dae fuga error eum quisquam distinctio atque aliquam optio. Lorem  dolor sit amet, consectetur adipisicing elit. Sapiente, nemo.</p>
+      </figure>
+    </div>
+
+    <div class="col-md-5 col-md-offset-1">
+      <figure>
+        <figcaption>Section Divider Variant</figcaption>
+        <h2 class="section-divider">H2 Class section-divider</h2>
+        <!-- <img class="img-responsive" src="modules/foundation/assets/images/image_placeholder.png" /> -->
+        <p>
+        H2s with the class "section divider" have a 1-pixel rule (#E1E1E1). There are 20 pixels of space between the header and this rule, and another 30 pixels of space below the rule.
+        </p>
+      </figure>
+    </div>
+  </div>
+
+
+  <div class="row spacer-top-xl">
+    <div class="col-md-4">
+      <figure>
+        <figcaption>Header Margins</figcaption>
+        <h1 class="specifications">Main Header H1</h1>
+        <h2 class="specifications">Header H2</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dae fuga error eum quisquam distinctio atque aliquam optio. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, nemo.</p>
+      </figure>
+    </div>
+
+    <div class="col-md-6 col-md-offset-2">
+      <figure>
+        <figcaption class="text-center">Centered Copy Block within Page</figcaption>
+        <div style="border: 1px dashed red; padding: 20px 40px 40px 40px;">
+          <h1 class="text-center specifications">h1. Main Section Header</h1>
+          <h2 class="text-center specifications">h2. Section Header Lorem Ipsum</h2>
+          <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dae fuga error eum quisquam distinctio atque aliquam optio. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, nemo.</p>
+        </div>
+      </figure>
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Header Columns</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-6">
+      <figure>
+        <figcaption>Maximum Copy Block Width 6 Columns</figcaption>
+        <h2>Header H2</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dae fuga error eum quisquam distinctio atque aliquam optio. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, nemo. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dae fuga error eum quisquam distinctio atque aliquam optio. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, nemo.</p>
+      </figure>
+    </div>
+
+    <div class="col-xs-3 col-xs-offset-1">
+      <figure>
+        <figcaption>Minimum Copy Block Width 3 Columns</figcaption>
+        <h2>Header H2</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dae fuga error eum quisquam distinctio atque aliquam optio. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, nemo.</p>
+      </figure>
+    </div>
+  </div>
+
+
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Body Copy</h2>
+      <table class="table table-bordered type-samples">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Font/Size</th>
+            <th>Class</th>
+            <th>Variable name</th>
+            <th>Color</th>
+          </tr>
+        </thead>
+        <tr ng-repeat="item in type.bodyCopy">
+          <td class="{{item.class}}">{{item.desc}}</td>
+          <td>{{item.font}}</td>
+          <td>{{item.class}}</td>
+          <td>{{item.variable}}</td>
+          <td>
+            <span class="swatch" ng-if="item.color != '#FFFFFF'" ng-style="{'background-color':item.color, 'color':'#fff'}">{{item.color}}</span>
+            <span class="swatch" ng-if="item.color == '#FFFFFF'" style="background-color:#fff; color:#2e2e2e">#FFFFFF</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Callouts</h2>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-8">
+
+      <figure>
+        <figcaption>Danger</figcaption>
+        <div class="callout callout-danger">
+          <h4>Sample Callout</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, quasi, eaque, debitis, voluptatum iure ad corrupti praesentium magnam odit suscipit quam neque consectetur placeat consequatur ducimus sunt?</p>
+        </div>
+      </figure>
+
+      <figure>
+        <figcaption>Warning</figcaption>
+        <div class="callout callout-warning">
+          <h4>Sample Callout</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, quasi, eaque, debitis, voluptatum iure ad corrupti praesentium magnam odit suscipit quam neque consectetur placeat consequatur ducimus sunt?</p>
+        </div>
+      </figure>
+
+      <figure>
+        <figcaption>Success</figcaption>
+        <div class="callout callout-success">
+          <h4>Sample Callout</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, quasi, eaque, debitis, voluptatum iure ad corrupti praesentium magnam odit suscipit quam neque consectetur placeat consequatur ducimus sunt?</p>
+        </div>
+      </figure>
+
+      <figure>
+        <figcaption>Info</figcaption>
+        <div class="callout callout-info">
+          <h4>Sample Callout</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, quasi, eaque, debitis, voluptatum iure ad corrupti praesentium magnam odit suscipit quam neque consectetur placeat consequatur ducimus sunt?</p>
+        </div>
+      </figure>
+
+      <figure>
+        <figcaption>Blockquote</figcaption>
+        <blockquote>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, quasi, eaque, debitis, voluptatum iure ad corrupti praesentium magnam odit suscipit quam neque consectetur placeat consequatur ducimus sunt?</p>
+        </blockquote>
+      </figure>
+
+    </div>
+  </div>
+
+
+
+
+
+
+  <!-- TABS & TABLEs -->
+  <div  class="row">
+    <div class="col-xs-12">
+      <h1 id="tabs-tables" class="doc-head">Tabs &amp; Tables</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <figure>
+        <h2 class="tab-header specifications">Header Above a Section of Tabs</h2>
+
+          <uib-tabset>
+            <uib-tab>
+              <tab-heading>
+                Tab One
+              </tab-heading>
+            </tab>
+            <uib-tab>
+              <tab-heading>
+                Tab Two
+              </tab-heading>
+            </uib-tab>
+            <uib-tab>
+              <tab-heading>
+                Tab Three
+              </tab-heading>
+            </uib-tab>
+          </uib-tabset>
+
+      </figure>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-xs-12">
+      <figure>
+        <h2 class="table-header specifications">Header Above a Table</h2>
+
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Heading</th>
+                <th>Heading</th>
+                <th>Heading</th>
+                <th>Heading</th>
+                <th>Heading</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Data</td>
+                <td>Data</td>
+                <td>Data</td>
+                <td>Data</td>
+                <td>Data</td>
+              </tr>
+              <tr>
+                <td>Data</td>
+                <td>Data</td>
+                <td>Data</td>
+                <td>Data</td>
+                <td>Data</td>
+              </tr>
+              <tr>
+                <td>Data</td>
+                <td>Data</td>
+                <td>Data</td>
+                <td>Data</td>
+                <td>Data</td>
+              </tr>
+            </tbody>
+          </table>
+
+      </figure>
+    </div>
+  </div>
+
+
+
+
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <h1 id="navigation" class="doc-head">Navigation</h1>
+
+      <table class="table table-bordered type-samples">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Font/Size</th>
+            <th>Color</th>
+          </tr>
+        </thead>
+        <tr ng-repeat="item in type.navigationItems">
+          <td class="psr14">{{item.desc}}</td>
+          <td>Precision Sans Regular 14px</td>
+          <td>
+            <span class="swatch" ng-if="item.color != '#FFFFFF'" ng-style="{'background-color':item.color, 'color':'#fff'}">{{item.color}}</span>
+            <span class="swatch" ng-if="item.color == '#FFFFFF'" style="background-color:#fff; color:#2e2e2e">#FFFFFF</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+
+
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <h1 id="ui-controls" class="doc-head">UI Controls</h1>
+      <table class="table table-bordered type-samples">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Font/Size</th>
+            <th>Color</th>
+          </tr>
+        </thead>
+        <tr ng-repeat="item in type.formsInputs">
+          <td class="psr14">{{item.desc}}</td>
+          <td>Precision Sans Regular 14px</td>
+          <td>
+            <span class="swatch" ng-if="item.color != '#FFFFFF'" ng-style="{'background-color':item.color, 'color':'#fff'}">{{item.color}}</span>
+            <span class="swatch" ng-if="item.color == '#FFFFFF'" style="background-color:#fff; color:#2e2e2e">#FFFFFF</span>
+          </td>
+        </tr>
+      </table>
+
+    </div>
+  </div>
+
+
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <h1 id="lists" class="doc-head">Lists</h1>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Definition</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <figure>
+        <figcaption>Definition List (<code>dl</code>)</figcaption>
+        <h2>Header</h2>
+        <dl>
+          <dt>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error esse ea, deserunt provident saepe.</dt>
+            <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, fuga cupiditate nesciunt!</dd>
+          <dt>Lorem ipsum dolor sit amet, consectetur.</dt>
+            <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dae fuga error eum quisquam distinctio atque aliquam optio.</dd>
+        </dl>
+      </figure>
+    </div>
+
+    <div class="col-md-4 col-md-offset-1">
+      <figure>
+        <figcaption>Descriptive List Condensed (<code>dl.dlist-condensed</code>)</figcaption>
+        <h2>Header</h2>
+        <dl class="dlist-condensed">
+          <dt>Note that the spacing in this variant is tighter, for use when space is an issue.</dt>
+            <dd> If space is not an issue, please use the standard list.</dd>
+          <dt>Lorem ipsum dolor sit amet, consectetur.</dt>
+            <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, fuga cupiditate nesciunt!</dd>
+        </dl>
+      </figure>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="doc-sectionhead">Ordered/Unordered</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <figure>
+        <figcaption>Ordered List</figcaption>
+        <h2>h2. Section Header</h2>
+        <ol class="spaced">
+          <li>Lorem ipsum</li>
+          <li>Dolor sit amet</li>
+          <li>Consectetur adipiscing elit</li>
+          <li>Sed cursus ante dapibus lorem ipsum doloreted eptsit amet diam</li>
+          <li>In scelerisque sem at dolor</li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est quasi soluta maxime?</li>
+        </ol>
+      </figure>
+    </div>
+
+    <div class="col-md-4 col-md-offset-1 ">
+      <figure>
+        <figcaption>Unordered List</figcaption>
+        <h2>h2. Section Header</h2>
+        <ul class="spaced">
+          <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, eius.</li>
+          <li>Dolor sit amet</li>
+          <li>Consectetur adipiscing elit
+            <ul>
+              <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+              <li>Lorem ipsum dolor.</li>
+            </ul>
+          </li>
+          <li>Sed cursus ante dapibus diam</li>
+          <li>In scelerisque sem at dolor</li>
+          <li>Sed convallis tristique sem</li>
+        </ul>
+      </figure>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  <div  class="row">
+    <div class="col-xs-12">
+      <h2 class="doc-sectionhead">Groups</h2>
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-md-6">
+      <figure>
+        <figcaption>List Group</figcaption>
+        <ul class="list-group">
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">They can have badges <span class="badge">14</span></li>
+          <li class="list-group-item">Morbi leo risus</li>
+          <li class="list-group-item">Porta ac consectetur ac</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+    </figure>
+    </div>
+
+    <div class="col-md-6">
+      <figure>
+        <figcaption>List Group of Links</figcaption>
+        <div class="list-group">
+          <a class="list-group-item active" href="#">Cras justo odio</a>
+          <a class="list-group-item" href="#">Dapibus ac facilisis in</a>
+          <a class="list-group-item" href="#">Morbi leo risus</a>
+          <a class="list-group-item" href="#">Porta ac consectetur ac</a>
+          <a class="list-group-item" href="#">Vestibulum at eros</a>
+        </div>
+      </figure>
+    </div>
+  </div>
+
+</div>

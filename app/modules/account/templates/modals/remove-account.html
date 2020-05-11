@@ -1,0 +1,37 @@
+<div class="modal-header no-borders spacer-bottom-md">
+    <div class="container-fluid">
+        <div class="row text-right pull-right">
+            <a href="" ng-click="removeAccountCtrl.close()" class="modal__close"><span class="icon-close dark-gray"></span></a>
+        </div>
+        <div class="row">
+            <div class="col-xs-11">
+                <h1 class="header--sm no-margin-top no-margin-bottom">Are you sure you want to remove this Account Number?</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-body">
+    <section class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <p class="text-large spacer-bottom-md bold">Account Number: {{ removeAccountCtrl.account.accountNumber }}</p>
+                <p class="text-large spacer-bottom-md">The following products below are associated with this account number. Deleting this account number will prevent the display of product information on your Dashboard.</p>
+                <div class="overflow-scroll border products">
+                    <ul ng-repeat="category in removeAccountCtrl.account.categories">
+                        <li ng-repeat="product in category.products" class="text-large">{{ product.name }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="modal-footer">
+    <section class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 text-center-xs">
+                <button type="button" class="rounded-button gray" ng-click="removeAccountCtrl.close()">Cancel</button>
+                <button type="button" class="rounded-button primary pull-right" ng-click="removeAccountCtrl.removeAccount(removeAccountCtrl.account.accountNumber)">Ok, delete Account Number</button>
+            </div>
+        </div>
+    </section>
+</div>

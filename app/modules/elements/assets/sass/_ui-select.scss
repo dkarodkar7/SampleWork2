@@ -1,0 +1,23 @@
+.ui-select-multiple {
+
+  &.ui-select-bootstrap {
+
+    .ui-select-match-item {
+      background: $pb-gray-50;
+      border: 0;
+      color: $pb-blue;
+      vertical-align: middle;
+
+      .close {
+        font-weight: 200;
+        font-size: 1.1em;
+        line-height: 1.1em;
+        vertical-align: middle;
+        text-shadow: none;
+        position: relative;
+      }
+    }
+
+  }
+
+}

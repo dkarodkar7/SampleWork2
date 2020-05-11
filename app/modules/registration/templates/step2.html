@@ -1,0 +1,134 @@
+<section class="container-fluid">
+    <div class="row">
+        <div class="headline spacer-top-lg spacer-bottom-sm col-xs-12 col-sm-6 col-sm-offset-3">
+            <p class="ps-light text-center-xs">All Fields Required</p>
+            <h1 class="header--md spacer-top-sm text-center-xs">Create Your Profile</h1>
+            <h2 class="subheader--sm text-center-xs">
+              Complete your profile to access your account management tools and resources.
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        <form id="form" name="form" novalidate role="form" class="col-xs-12 col-sm-6 col-sm-offset-3">
+            <div class="form-group">
+                <label>Email Address</label>
+                <p>{{user.email}}</p>
+            </div>
+            <div class="form-group">
+                <label>Account Number</label>
+                <p>....{{user.accountNumber | limitTo: -4}}</p>
+            </div>
+                
+            <hr/>
+            
+            <div class="form-group required">
+                <label for="first-name">First Name</label>
+                <input type="text" class="form-control" id="firstName" name="firstName" ng-model="user.firstName" required
+                    ng-class="{ 'error' : form.firstName.$invalid && form.firstName.$touched }" />
+                <div ng-show="form.$submitted || form.firstName.$touched">
+                    <p class="error" ng-show="form.firstName.$error.required">
+                        First Name is required.
+                    </p>
+                    <span class="icon-alert-circle error-icon"
+                        ng-show="form.firstName.$invalid && form.firstName.$touched"></span>
+                </div>
+            </div>
+            <div class="form-group required">
+                <label for="last-name">Last Name</label>
+                <input type="text" class="form-control" id="lastName" name="lastName" ng-model="user.lastName" required
+                    ng-class="{ 'error' : form.lastName.$invalid && form.lastName.$touched }" />
+                <div ng-show="form.$submitted || form.lastName.$touched">
+                    <p class="error" ng-show="form.lastName.$error.required">
+                        Last Name is required.
+                    </p>
+                    <span class="icon-alert-circle error-icon"
+                        ng-show="form.lastName.$invalid && form.lastName.$touched"></span>
+                </div>
+            </div>
+
+            <hr/>
+
+            <b class="text-gray-500">Set Your Password</b>
+            <ul class="spacer-bottom-md text-gray-300">
+                <li>Your password must be between 8-20 characters long</li>
+                <li>Must contain at least one upper case letter, one digit or one special character</li>
+                <li>Must not contain your name, username or email address</li>
+            </ul>
+
+
+            <div class="form-group required">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" ng-model="user.password" 
+                    required maxlength="20" 
+                    ng-pattern="/(?=.*[A-Z])(?=.*[\d!@#$%^&*-?~()])[A-Za-z\d!@#$%^&*-?~()]{8,20}/"
+                    ng-class="{ 'error' : form.password.$invalid && form.password.$touched }" />
+                <div ng-show="form.$submitted || form.password.$touched">
+                    <p class="error" ng-show="form.password.$error.required">
+                        Password empty
+                    </p>
+                    <p class="error" ng-show="form.password.$error.pattern">
+                        Password invalid
+                    </p>
+                    <span class="icon-alert-circle error-icon"
+                        ng-show="form.password.$invalid && form.password.$touched"></span>
+                </div>
+            </div>
+            <div class="form-group required">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+                    ng-model="user.confirmPassword" maxlength="20" required
+                    ng-class="{ 'error' : form.confirmPassword.$invalid && form.confirmPassword.$touched }"
+                    pb-validation-match="user.password" />
+                <div ng-show="form.$submitted || form.confirmPassword.$touched">
+                    <p class="error" ng-show="form.confirmPassword.$error.required">
+                        Please confirm your password
+                    </p>
+                    <p class="error" ng-show="form.confirmPassword.$error.match">
+                        Password and confirm password don’t match
+                    </p>
+                    <span class="icon-alert-circle error-icon"
+                        ng-show="form.confirmPassword.$invalid && form.confirmPassword.$touched"></span>
+                </div>
+            </div>
+
+            <hr/>
+
+            <div class="form-group required">
+                <label for="security-question">Your Security Questions</label>
+                <select class="form-control input-lg" size="1" id="securityQuestion" name="securityQuestion"
+                    ng-model="user.securityQuestion" ng-change="changeSecurityQuestion()"
+                    ng-class="{ 'error' : form.securityQuestion.$invalid && form.securityQuestion.$touched }" required>
+                    <option value="maiden-name">Your mother's maiden name</option>
+                    <option value="default">default 1</option>
+                    <option value="default2">default 2</option>
+                </select>
+                <div ng-show="form.$submitted || form.securityQuestion.$touched">
+                    <p class="error" ng-show="form.securityQuestion.$error.required">
+                        Security question empty
+                    </p>
+                    <span class="icon-alert-circle error-icon"
+                        ng-show="form.securityQuestion.$invalid && form.securityQuestion.$touched"></span>
+                </div>
+            </div>
+            <div class="form-group required">
+                <label for="securityAnswer">Your Answer</label>
+                <input type="password" class="form-control" id="securityAnswer" name="securityAnswer"
+                    ng-model="user.securityAnswer" required
+                    ng-class="{ 'error' : form.securityAnswer.$invalid && form.securityAnswer.$touched }" />
+                <div ng-show="form.$submitted || form.securityAnswer.$touched">
+                    <p class="error" ng-show="form.securityAnswer.$error.required">
+                        Answer empty
+                    </p>
+                    <span class="icon-alert-circle error-icon"
+                        ng-show="form.securityAnswer.$invalid && form.securityAnswer.$touched"></span>
+                </div>
+            </div>
+            <div class="text-center-xs">
+                <button class="rounded-button primary" ng-disabled="form.$invalid"
+                    type="submit" ng-click="register(user,form)" ng-class="{ gray:form.$invalid }">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</section>

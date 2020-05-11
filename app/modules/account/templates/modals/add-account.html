@@ -1,0 +1,124 @@
+<div class="modal-body">
+    <section class="container-fluid" ng-hide="confirm">
+        <div class="row">
+            <div class="text-right pull-right">
+                <a href="" ng-click="close()" class="modal__close"><span class="icon-close dark-gray"></span></a>
+            </div>
+            <div class="col-xs-12">
+                <h2 class="header--sm no-margin-top">Add account number</h2>
+                <p class="text-large spacer-bottom-md">Enter the account number you want to add</p>
+
+                <form id="modalForm" name="modalForm" novalidate role="form">
+                    <div class="form-group required">
+                        <label for="account-number">Account Number</label>
+                        <a data-toggle="collapse" data-target="#collapse"><i class="tooltip__icon tooltip--form">i</i></a>
+                        <input type="text" name="accountNumber" class="form-control"
+                               ng-pattern="/^\d+$/"
+                               ng-class="{ error:form.accountNumber.$invalid && form.accountNumber.$touched }"
+                               ng-model="user.accountNumber" id="account-number" placeholder="" required />
+                        <div ng-show="form.$submitted || form.accountNumber.$touched">
+                            <p class="error" ng-show="form.accountNumber.$error.required">
+                                Account Number is required.
+                            </p>
+                            <p class="error" ng-show="form.accountNumber.$invalid">
+                                Account Number must contain only numbers.
+                            </p>
+                  <span class="icon-alert-circle error-icon"
+                        ng-show="form.accountNumber.$invalid && form.accountNumber.$touched"></span>
+                        </div>
+                        <div class="tooltip__info spacer-top-sm panel-collapse collapse" id="collapse">
+                            <div class="tooltip__close__container">
+                                <a href="" class="tooltip__close" data-toggle="collapse" data-target="#collapse">
+                                    <span class="icon-close tooltip__close__icon"></span>
+                                </a>
+                            </div>
+                            <p class="tooltip__text">You can get your Account Number by finding it at the top of your Pitney Bowes invoice.</p>
+                            <img src="modules/registration/assets/images/tooltip.jpg" class="tooltip__image"/>
+                            <p class="tooltip__text spacer-top-sm">Learn other ways  to locate your Account Number <a href="#" target="_blank" class="tooltip__link">View Support</a>.</p>
+                        </div>
+                    </div>
+                    <div class="text-center-xs">
+                        <button class="rounded-button primary" type="submit" ng-click="next.confirmInformation(modalForm);register(user,form);" ng-disabled="modalForm.$invalid" ng-class="{ gray:modalForm.$invalid }">
+                        Continue
+                        </button>
+                    </div>
+
+                </form>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <hr class="spacer-bottom-md"/>
+                        <p ng-show="model.chatAvailable" class="spacer-bottom-md">
+                            Need help? <a ng-click="chat()" class="">Chat with live support.</a>
+                        </p>
+                        <p ng-show="!model.chatAvailable" class="spacer-bottom-md">
+                            Need help? Contact Customer Service & Support at 1-(800) 522-0020.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container-fluid" ng-show="confirm">
+        <div class="container-fluid">
+            <div class="row text-right pull-right">
+                <a href="" ng-click="close()" class="modal__close"><span class="icon-close dark-gray"></span></a>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1 class="header--sm no-margin-top">Confirm Your Company Information</h1>
+                    <p class="ps-light">Please provide one additional piece of information so we can verify your identity for
+                        <span class="bold">Account Number: ....{{model.accountNumber | limitTo: -4}}</span>.</p>
+                </div>
+            </div>
+        </div>
+        <form id="modalForm1" name="modalForm1" novalidate role="form">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <select class="form-control input-lg" size="1" id="registration-additional-question" name="questionField"
+                                ng-model="model.question" ng-options="option.question for option in questions" ng-change="">
+                            <option value="">Select Information Criteria</option>
+                        </select>
+                    </div>
+                    <div class="form-group" ng-show="modalForm1.questionField.$dirty">
+                        <input type="text" ng-model="model.answer" name="answerField" class="form-control"
+                               id="registration-something" required
+                               ng-class="{'error':!!model.errorText ||
+                  (modalForm1.answerField.$error.required && modalForm1.answerField.$touched) }"/>
+
+                        <div ng-show="modalForm1.$submitted || modalForm1.answerField.$touched">
+                            <p class="error" ng-show="modalForm1.answerField.$error.required">
+                                Please provide a value.
+                            </p>
+                            <p class="error" ng-show="!!model.errorText && !modalForm1.answerField.$error.required">
+                                {{model.errorText}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" ng-show="modalForm1.questionField.$dirty">
+                <div class="col-xs-12">
+                    <p>
+                        By clicking "Submit," I confirm that the information is accurate and that I have permission to access information that associate with this account.
+                    </p>
+                    <div class="text-center">
+                        <button class="rounded-button primary" type="submit" ng-click="save(model,modalForm1)" ng-disabled="modalForm1.$invalid" ng-class="{ gray:modalForm1.$invalid }">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col-xs-12">
+                <hr class="spacer-bottom-md"/>
+                <p ng-show="model.chatAvailable" class="spacer-bottom-md">
+                    Need help? <a ng-click="chat()" class="">Chat with live support.</a>
+                </p>
+                <p ng-show="!model.chatAvailable" class="spacer-bottom-md">
+                    Need help? Contact Customer Service & Support at 1-(800) 522-0020.
+                </p>
+            </div>
+        </div>
+    </section>
+</div>

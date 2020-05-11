@@ -1,0 +1,56 @@
+// ============================================================
+// Angular Toggle Switch
+// ============================================================
+// bower component, overrides below
+
+.ats-switch {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 0;
+  border: 1px solid;
+  border-color: $input-border;
+  position: relative;
+  text-align: left;
+  overflow: hidden;
+  line-height: 8px;
+  user-select: none;
+  vertical-align: middle;
+  min-width: 100px;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  &:hover {
+    @extend %fancy-focus;
+  }
+  .knob {
+    border-right: 0;
+    border-left: 0;
+    text-align: center;
+    margin-top: -1px;
+    margin-bottom: -1px;
+    z-index: 100;
+    background: #fff;
+    i {
+      color: #000;
+      text-shadow: 0 1px 0 #fff;
+      line-height: 18px;
+      pointer-events: none;
+    }
+  }
+  span.switch-left {
+    color: #fff;
+    background: $pb-blue;
+  }
+  .switch-left {
+    background: $pb-blue;
+  }
+  &.disabled .knob {
+    cursor: not-allowed !important;
+  }
+}
+
+
+
+
+.ats-switch.disabled:hover {
+  border-color: $input-border;
+  box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(0, 0, 0, 0);
+}

@@ -1,0 +1,266 @@
+{
+    "reportStartDate": "2015-10-01",
+    "reportEndDate": "2015-12-31",
+    "customerDetails": {
+        "can": "21655003867",
+        "companyName": "ARCADIA UNIVERSITY",
+        "address": {
+            "street": "450 S EASTON RD",
+            "city": "GLENSIDE",
+            "district": "EASTERN",
+            "state": "PA",
+            "country": "USA",
+            "zipcode": "190383215"
+        }
+    },
+    "recommendations": [
+        {
+            "heading": "Pitney Bowes Ink",
+            "text": "Did you know that using some 3rd party inks can potentially damage your meter? For special offers on Pitney Bowes ink.",
+            "links": [
+                "https://www.pitneybowes.us/shop/ink-and-supplies/postage-meter-ink-supplies/postage-meter-ink/en-us/storeus"
+            ]
+        },
+        {
+            "heading": "Pitney Bowes Shipping",
+            "text": "You are sending a large volume of packages through your meter. Please consider one of our shipping solutions and realize greater discounts.",
+            "links": [
+                "http://www.pitneybowes.com/us/shipping-and-mailing/outbound-and-inbound-package-management/sendsuite-live.html"
+            ]
+        },
+        {
+            "heading": "Key-in-Postage",
+            "text": "You risk overspend by $532 when you \"key in\" a postage rate rather than weighing and rating the mail piece using the built-in logic. One mistake repeated daily can multiply into big savings. ",
+            "links": []
+        },
+        {
+            "heading": "pbSmart Postage™",
+            "text": "Can provide mailpiece intelligence and save up to 55% using discounted rates from the USPS® all while staying compliant with USPS regulations.",
+            "links": [
+                "http://www.pitneybowes.com/us/shipping-and-mailing/online-postage-service/pbsmartpostage.html"
+            ]
+        },
+        {
+            "heading": "Presort Savings",
+            "text": "If you mail as few as 400 letters or 150 flats a day, no matter how often you mail you may qualify for additional postage savings of up to 33% with PresortXtra™.",
+            "links": [
+                "http://www.pitneybowes.com/us/shipping-and-mailing/mail-and-parcel-sorters/presortxtra-for-low-volume-mailers.html"
+            ]
+        },
+        {
+            "heading": "Envelope Messages",
+            "text": "Take the first step to higher open rates today with custom marketing messages on every envelope, click here for more information, or access via your My Account page.",
+            "links": [
+                "http://www.pitneybowes.com/us/envelope-messages.html"
+            ]
+        },
+        {
+            "heading": "Up Size",
+            "text": "Bigger mailing volumes need bigger meters. Have a look at some of our high-end digital mailing solutions.",
+            "links": [
+                "http://www.pitneybowes.com/us/shipping-and-mailing/postage-meters/dm400-digital-mailing-system.html"
+            ]
+        }
+    ],
+    "annualData": {
+        "currentYear": 2015,
+        "previousYear": 2014,
+        "currentYearTotalSpendings": 190265.68400000312,
+        "previousYearTotalSpendings": 401.89,
+        "currentYearTotalSavings": 523.76,
+        "previousYearTotalSavings": 0.64,
+        "monthlySpendings": [
+            {
+                "month": "January",
+                "current": 19130.46,
+                "previous": 0
+            },
+            {
+                "month": "February",
+                "current": 26452.29500000093,
+                "previous": 0
+            },
+            {
+                "month": "March",
+                "current": 16627.565000000926,
+                "previous": 0
+            },
+            {
+                "month": "April",
+                "current": 14451.700000000927,
+                "previous": 0
+            },
+            {
+                "month": "May",
+                "current": 17964.82000000004,
+                "previous": 0
+            },
+            {
+                "month": "June",
+                "current": 7733.54300000004,
+                "previous": 0
+            },
+            {
+                "month": "July",
+                "current": 8132.415000000039,
+                "previous": 0
+            },
+            {
+                "month": "August",
+                "current": 7117.7480000000405,
+                "previous": 0
+            },
+            {
+                "month": "September",
+                "current": 22727.51300000004,
+                "previous": 0
+            },
+            {
+                "month": "October",
+                "current": 17576.12600000004,
+                "previous": 0
+            },
+            {
+                "month": "November",
+                "current": 16507.84100000004,
+                "previous": 0
+            },
+            {
+                "month": "December",
+                "current": 15843.65800000004,
+                "previous": 401.89
+            }
+        ],
+        "monthlySavings": [
+            {
+                "month": "January",
+                "current": 249.71999999999997,
+                "previous": 0
+            },
+            {
+                "month": "February",
+                "current": 20.77,
+                "previous": 0
+            },
+            {
+                "month": "March",
+                "current": 28.41,
+                "previous": 0
+            },
+            {
+                "month": "April",
+                "current": 26.21,
+                "previous": 0
+            },
+            {
+                "month": "May",
+                "current": 39.9,
+                "previous": 0
+            },
+            {
+                "month": "June",
+                "current": 18.12,
+                "previous": 0
+            },
+            {
+                "month": "July",
+                "current": 22.18,
+                "previous": 0
+            },
+            {
+                "month": "August",
+                "current": 28.619999999999997,
+                "previous": 0
+            },
+            {
+                "month": "September",
+                "current": 23.01,
+                "previous": 0
+            },
+            {
+                "month": "October",
+                "current": 17.029999999999998,
+                "previous": 0
+            },
+            {
+                "month": "November",
+                "current": 17.07,
+                "previous": 0
+            },
+            {
+                "month": "December",
+                "current": 32.72,
+                "previous": 0.64
+            }
+        ]
+    },
+    "quarterlyData": {
+        "currentQuarter": "2015-Q4",
+        "previousQuarter": "2015-Q3",
+        "currentQuarterTotalSpendings": 49927.62500000012,
+        "previousQuarterTotalSpendings": 37977.67600000012,
+        "currentQuarterTotalSavings": 66.82,
+        "previousQuarterTotalSavings": 73.81,
+        "monthlySpendings": [
+            {
+                "month": "M1",
+                "current": 17576.12600000004,
+                "previous": 8132.415000000039
+            },
+            {
+                "month": "M2",
+                "current": 16507.84100000004,
+                "previous": 7117.7480000000405
+            },
+            {
+                "month": "M3",
+                "current": 15843.65800000004,
+                "previous": 22727.51300000004
+            }
+        ],
+        "monthlySavings": [
+            {
+                "month": "M1",
+                "current": 17.029999999999998,
+                "previous": 22.18
+            },
+            {
+                "month": "M2",
+                "current": 17.07,
+                "previous": 28.619999999999997
+            },
+            {
+                "month": "M3",
+                "current": 32.72,
+                "previous": 23.01
+            }
+        ]
+    },
+    "classGroupData": [
+        {
+            "name": "Packages",
+            "spendings": 3443.52,
+            "savings": 0
+        },
+        {
+            "name": "Presort",
+            "spendings": 9.42,
+            "savings": 0.6
+        },
+        {
+            "name": "OtherLetter",
+            "spendings": 33053.28999999999,
+            "savings": 0
+        },
+        {
+            "name": "1stClassLetter",
+            "spendings": 3314.7,
+            "savings": 66.22
+        },
+        {
+            "name": "Keyinpostage",
+            "spendings": 10031.755,
+            "savings": 0
+        }
+    ]
+}

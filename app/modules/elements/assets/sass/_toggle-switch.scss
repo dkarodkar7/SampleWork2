@@ -1,0 +1,33 @@
+// toggle switch
+.ats-switch {
+  border-color: $input-border;
+}
+
+
+.switch {
+  border-color: $input-border;
+  border-radius: 5px;
+  * {
+    background-image: none !important;
+  }
+
+.knob {
+    background-color: $pb-bg2;
+    border-color: $input-border;
+  }
+
+.switch-left {
+    background-color: $pb-blue;
+    border-color: $input-border;
+  }
+
+.switch-right {
+    background-color: $pb-bg2;
+    border-color: $input-border;
+  }
+
+&.disabled {
+    opacity: 0.55;
+  }
+
+}
